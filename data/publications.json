@@ -1,0 +1,213 @@
+{
+  "publications": [
+    {
+      "id": "deep-learning-wildlife-monitoring-review",
+      "title": "Deep Learning for Automated Wildlife Monitoring: A Comprehensive Review",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Lin Chen", "isSamReynolds": false },
+        { "name": "Robert Thompson", "isSamReynolds": false }
+      ],
+      "journal": "Nature Communications",
+      "year": 2024,
+      "date": "2024-06-15",
+      "doi": "10.1038/s41467-024-48521-3",
+      "abstract": "Deep learning has transformed wildlife monitoring by enabling automated species identification from camera trap images, acoustic recordings, and drone footage. This review synthesizes advances across computer vision and bioacoustics, evaluating model architectures, training strategies, and deployment considerations for conservation applications."
+    },
+    {
+      "id": "birdnet-uk-transfer-learning",
+      "title": "BirdNet-UK: Transfer Learning for British Bird Species Recognition",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Michael Davies", "isSamReynolds": false }
+      ],
+      "journal": "Proceedings of the International Conference on Machine Learning",
+      "year": 2024,
+      "date": "2024-07-21",
+      "doi": "10.5555/3692070.3692892",
+      "abstract": "We present BirdNet-UK, a fine-tuned acoustic bird species classifier achieving 94.7% accuracy across 248 British bird species. Using transfer learning from the BirdNET foundation model, we demonstrate effective adaptation to regional species assemblages with limited training data."
+    },
+    {
+      "id": "acoustic-indices-deep-learning",
+      "title": "Acoustic Indices Meet Deep Learning: Hybrid Approaches for Biodiversity Assessment",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Anika Patel", "isSamReynolds": false },
+        { "name": "Katherine Morrison", "isSamReynolds": false }
+      ],
+      "journal": "Methods in Ecology and Evolution",
+      "year": 2023,
+      "date": "2023-09-14",
+      "doi": "10.1111/2041-210X.14127",
+      "abstract": "Traditional acoustic indices provide interpretable but limited biodiversity estimates, while deep learning offers accuracy without interpretability. We develop hybrid approaches combining acoustic indices as input features with neural networks, achieving both high performance and ecological interpretability."
+    },
+    {
+      "id": "camera-trap-image-quality",
+      "title": "Camera Trap Image Quality Assessment Using Convolutional Neural Networks",
+      "authors": [
+        { "name": "Lin Chen", "isSamReynolds": false },
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Jennifer Williams", "isSamReynolds": false }
+      ],
+      "journal": "Remote Sensing of Environment",
+      "year": 2023,
+      "date": "2023-04-01",
+      "doi": "10.1016/j.rse.2023.113542",
+      "abstract": "Image quality significantly impacts wildlife classification accuracy. We present an automated quality assessment system that evaluates blur, occlusion, and lighting conditions in camera trap images, enabling quality-aware species identification pipelines."
+    },
+    {
+      "id": "predicting-pollinator-decline",
+      "title": "Predicting Pollinator Decline: A Machine Learning Approach",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Robert Thompson", "isSamReynolds": false },
+        { "name": "Eleanor Baker", "isSamReynolds": false }
+      ],
+      "journal": "Conservation Biology",
+      "year": 2022,
+      "date": "2022-08-22",
+      "doi": "10.1111/cobi.13987",
+      "abstract": "We apply ensemble machine learning to predict pollinator population trajectories under climate change scenarios. Our models integrate land use, climate projections, and species traits to identify at-risk pollinator communities and priority conservation areas."
+    },
+    {
+      "id": "realtime-species-detection-edge",
+      "title": "Real-time Species Detection on Edge Devices for Conservation",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Priya Kumar", "isSamReynolds": false }
+      ],
+      "journal": "NeurIPS Workshop on AI for Conservation",
+      "year": 2022,
+      "date": "2022-12-03",
+      "doi": "10.48550/arXiv.2211.09847",
+      "abstract": "Deploying species detection models in remote locations requires edge computing. We optimize MobileNetV3 architectures for camera traps, achieving 87% accuracy on 50 mammal species while running inference at 15 FPS on Raspberry Pi hardware."
+    },
+    {
+      "id": "llms-conservation-decision-making",
+      "title": "Large Language Models for Conservation Decision-Making: Opportunities and Pitfalls",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "William Sutherland", "isSamReynolds": false },
+        { "name": "Claire Miller", "isSamReynolds": false }
+      ],
+      "journal": "Trends in Ecology and Evolution",
+      "year": 2025,
+      "date": "2025-01-08",
+      "doi": "10.1016/j.tree.2024.12.003",
+      "abstract": "Large language models offer powerful capabilities for synthesizing conservation evidence, but their application requires careful consideration of hallucination risks, training data biases, and appropriate use cases. We provide a framework for responsible LLM integration in conservation practice."
+    },
+    {
+      "id": "ai-enabled-evidence-synthesis",
+      "title": "AI-Enabled Evidence Synthesis for Invasive Species Management",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Helen Murphy", "isSamReynolds": false },
+        { "name": "David Aldridge", "isSamReynolds": false }
+      ],
+      "journal": "Nature",
+      "year": 2024,
+      "date": "2024-11-20",
+      "doi": "10.1038/s41586-024-08127-3",
+      "abstract": "Managing invasive species requires rapid synthesis of vast scientific literature. We demonstrate an AI pipeline combining retrieval-augmented generation with expert validation, accelerating evidence reviews from months to days while maintaining scientific rigor."
+    },
+    {
+      "id": "horizon-scanning-emerging-threats",
+      "title": "Horizon Scanning for Emerging Conservation Threats: A Machine Learning Framework",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "William Sutherland", "isSamReynolds": false },
+        { "name": "Jessica Webb", "isSamReynolds": false },
+        { "name": "Thomas Sherlock", "isSamReynolds": false }
+      ],
+      "journal": "Conservation Letters",
+      "year": 2024,
+      "date": "2024-03-15",
+      "doi": "10.1111/conl.13021",
+      "abstract": "Early identification of conservation threats enables proactive response. We develop a horizon scanning system using NLP to monitor scientific literature, news, and policy documents, automatically flagging emerging issues for expert review."
+    },
+    {
+      "id": "invasive-crayfish-population-genetics",
+      "title": "Population Genetics of Invasive Signal Crayfish: Implications for Management",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "David Aldridge", "isSamReynolds": false }
+      ],
+      "journal": "Biological Invasions",
+      "year": 2021,
+      "date": "2021-05-12",
+      "doi": "10.1007/s10530-021-02487-1",
+      "abstract": "Understanding invasion pathways informs management strategy. Using microsatellite markers, we reconstruct the invasion history of signal crayfish in British waterways, identifying multiple introduction events and secondary spread corridors."
+    },
+    {
+      "id": "automated-bioacoustic-monitoring",
+      "title": "Automated Bioacoustic Monitoring Networks: Design Principles and Deployment Lessons",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Anika Patel", "isSamReynolds": false },
+        { "name": "James Sherlock", "isSamReynolds": false }
+      ],
+      "journal": "Ecological Informatics",
+      "year": 2023,
+      "date": "2023-11-01",
+      "doi": "10.1016/j.ecoinf.2023.102341",
+      "abstract": "Scaling acoustic monitoring requires robust sensor networks. We present design principles for automated recording units, data transmission protocols, and processing pipelines learned from deploying 200 sensors across UK nature reserves."
+    },
+    {
+      "id": "species-distribution-climate-change",
+      "title": "Predicting Species Distribution Shifts Under Climate Change Using Ensemble Models",
+      "authors": [
+        { "name": "Eleanor Baker", "isSamReynolds": false },
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Robert Thompson", "isSamReynolds": false }
+      ],
+      "journal": "Global Change Biology",
+      "year": 2021,
+      "date": "2021-09-28",
+      "doi": "10.1111/gcb.15892",
+      "abstract": "Ensemble species distribution models reduce uncertainty in climate projections. We compare eight modeling approaches across 150 British invertebrate species, finding that ensemble methods outperform individual algorithms in predicting range shifts."
+    },
+    {
+      "id": "conservation-technology-review",
+      "title": "Conservation Technology: A Decade of Progress and Future Directions",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Claire Miller", "isSamReynolds": false },
+        { "name": "Priya Kumar", "isSamReynolds": false },
+        { "name": "William Sutherland", "isSamReynolds": false }
+      ],
+      "journal": "Annual Review of Ecology, Evolution, and Systematics",
+      "year": 2024,
+      "date": "2024-10-15",
+      "doi": "10.1146/annurev-ecolsys-102722-024512",
+      "abstract": "Conservation technology has evolved from specialized tools to mainstream practice. We review a decade of advances in remote sensing, AI-powered monitoring, eDNA, and citizen science platforms, identifying remaining gaps and emerging opportunities."
+    },
+    {
+      "id": "crayfish-plague-spread-modeling",
+      "title": "Modeling Crayfish Plague Spread in British River Networks",
+      "authors": [
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "David Aldridge", "isSamReynolds": false },
+        { "name": "Helen Murphy", "isSamReynolds": false }
+      ],
+      "journal": "Freshwater Biology",
+      "year": 2020,
+      "date": "2020-03-18",
+      "doi": "10.1111/fwb.13502",
+      "abstract": "Crayfish plague threatens native white-clawed crayfish populations. We develop spatially-explicit spread models incorporating river connectivity, water temperature, and signal crayfish presence to predict plague transmission and prioritize biosecurity interventions."
+    },
+    {
+      "id": "citizen-science-data-quality",
+      "title": "Evaluating Data Quality in Large-Scale Citizen Science Biodiversity Monitoring",
+      "authors": [
+        { "name": "Jessica Webb", "isSamReynolds": false },
+        { "name": "Sam Reynolds", "isSamReynolds": true },
+        { "name": "Michael Davies", "isSamReynolds": false }
+      ],
+      "journal": "Biological Conservation",
+      "year": 2019,
+      "date": "2019-12-01",
+      "doi": "10.1016/j.biocon.2019.108297",
+      "abstract": "Citizen science generates massive biodiversity datasets, but data quality varies. We analyze 2.5 million UK bird observations, developing quality metrics and correction factors that enable rigorous use of citizen science data in conservation assessments."
+    }
+  ]
+}
