@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "talk.schema.json",
+  "title": "Talks Schema",
+  "description": "Schema for invited talks and presentations",
+  "type": "object",
+  "required": ["talks"],
+  "properties": {
+    "talks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "venue", "date"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the talk"
+          },
+          "title": {
+            "type": "string",
+            "description": "Talk title (no description per CONTEXT.md)"
+          },
+          "venue": {
+            "type": "string",
+            "description": "Conference, institution, or event name"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Talk date in ISO 8601 format (YYYY-MM-DD)"
+          },
+          "slides": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to slide deck (optional)"
+          },
+          "video": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to video recording (optional)"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
