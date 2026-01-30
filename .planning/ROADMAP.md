@@ -30,12 +30,13 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Success Criteria** (what must be TRUE):
   1. All sprite assets have verified CC0 or CC-BY-SA licenses with documentation saved
   2. Attribution file created listing all asset sources and license requirements
-  3. Development environment (Vite + TypeScript or equivalent) builds and serves locally
-  4. Sample sprite renders correctly at target scale (16x16 tiles at 3x scale)
-**Plans**: TBD
+  3. Development environment (Vite + TypeScript) builds and serves locally
+  4. Sample sprite renders correctly at target scale (32x32 tiles at 2x scale)
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD during phase planning
+- [ ] 01-01-PLAN.md - Dev environment setup + LPC asset collection with attribution
+- [ ] 01-02-PLAN.md - Sprite integration and visual verification
 
 ### Phase 2: Content Data Layer
 **Goal**: All academic content structured in JSON files ready for both game and website modes
@@ -78,7 +79,7 @@ Plans:
   1. Player character moves with arrow keys and WASD
   2. Camera smoothly follows player keeping them centered in viewport
   3. Collision detection prevents player walking through walls and obstacles
-  4. 16x16 tile-based rendering displays at consistent scale (3x or similar)
+  4. 32x32 tile-based rendering displays at consistent scale (2x)
   5. Game loop runs at stable framerate (30+ FPS on development machine)
 **Plans**: TBD
 
@@ -157,11 +158,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Asset Selection | 0/? | Not started | - |
+| 1. Foundation & Asset Selection | 0/2 | Planned | - |
 | 2. Content Data Layer | 0/? | Not started | - |
 | 3. Website Mode | 0/? | Not started | - |
 | 4. Core Game Engine | 0/? | Not started | - |
