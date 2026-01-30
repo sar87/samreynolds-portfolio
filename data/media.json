@@ -1,0 +1,106 @@
+{
+  "media": [
+    {
+      "id": "bbc-inside-science-2024",
+      "type": "podcast",
+      "title": "The Sound of Biodiversity",
+      "venue": "BBC Inside Science",
+      "date": "2024-01-15",
+      "link": "https://www.bbc.co.uk/programmes/m001w000",
+      "description": "Interview discussing our work on acoustic monitoring and how AI can help us listen to ecosystems at scale."
+    },
+    {
+      "id": "cieem-podcast-2024",
+      "type": "podcast",
+      "title": "AI in Ecological Assessment",
+      "venue": "CIEEM Podcast",
+      "date": "2024-05-22",
+      "description": "Discussion on practical applications of machine learning for ecological consultants and conservation practitioners."
+    },
+    {
+      "id": "nature-podcast-2023",
+      "type": "podcast",
+      "title": "Camera Traps and Computer Vision",
+      "venue": "Nature Podcast",
+      "date": "2023-10-05",
+      "link": "https://www.nature.com/nature/podcast",
+      "description": "Deep dive into how deep learning is revolutionizing wildlife monitoring through automated camera trap analysis."
+    },
+    {
+      "id": "tedx-cambridge-2023",
+      "type": "video",
+      "title": "Tech for Nature: Machine Learning in Conservation",
+      "venue": "TEDxCambridge",
+      "date": "2023-11-18",
+      "link": "https://www.ted.com/tedx/events/52000",
+      "description": "A 15-minute talk exploring the promise and challenges of applying AI to conservation problems."
+    },
+    {
+      "id": "cambridge-science-festival-2024",
+      "type": "video",
+      "title": "AI and the Future of Conservation",
+      "venue": "Cambridge Science Festival",
+      "date": "2024-03-22",
+      "description": "Public lecture on how machine learning is transforming wildlife conservation, from automated species identification to predicting biodiversity loss."
+    },
+    {
+      "id": "cop30-video-2025",
+      "type": "video",
+      "title": "AI for Biodiversity: Tools for the Climate Crisis",
+      "venue": "COP30 Brazil",
+      "date": "2025-11-10",
+      "description": "Presentation showcasing AI-powered monitoring solutions for tropical forest conservation in the Amazon region."
+    },
+    {
+      "id": "royal-society-panel-2023",
+      "type": "panel",
+      "title": "Conservation in the Age of AI",
+      "venue": "Royal Society",
+      "date": "2023-06-14",
+      "link": "https://royalsociety.org/events",
+      "description": "Panel discussion with leading conservation scientists and AI researchers on ethical considerations and future directions."
+    },
+    {
+      "id": "wildscreen-panel-2024",
+      "type": "panel",
+      "title": "Technology and Wildlife Filmmaking",
+      "venue": "Wildscreen Festival",
+      "date": "2024-10-17",
+      "description": "Panel exploring how AI and new sensing technologies are changing how we document and understand wildlife."
+    },
+    {
+      "id": "cambridge-conservation-symposium-2024",
+      "type": "panel",
+      "title": "The Future of Field Ecology",
+      "venue": "Cambridge Conservation Initiative",
+      "date": "2024-07-03",
+      "description": "Discussion on integrating traditional field methods with emerging AI technologies for conservation research."
+    },
+    {
+      "id": "guardian-interview-2023",
+      "type": "interview",
+      "title": "Wildlife Monitoring with AI",
+      "venue": "The Guardian",
+      "date": "2023-09-28",
+      "link": "https://www.theguardian.com/environment",
+      "description": "Feature article about our camera trap AI system being deployed in national parks across the UK."
+    },
+    {
+      "id": "new-scientist-2024",
+      "type": "interview",
+      "title": "Listening to the Rainforest",
+      "venue": "New Scientist",
+      "date": "2024-04-12",
+      "link": "https://www.newscientist.com",
+      "description": "Interview on acoustic monitoring projects in tropical forests and the challenges of deploying AI in remote locations."
+    },
+    {
+      "id": "cambridge-research-news-2024",
+      "type": "interview",
+      "title": "From Data to Conservation Action",
+      "venue": "Cambridge Research News",
+      "date": "2024-08-30",
+      "description": "Profile piece discussing the journey from academic research to real-world conservation impact."
+    }
+  ]
+}
