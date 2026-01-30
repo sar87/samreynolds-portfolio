@@ -12,7 +12,7 @@ Building a dual-mode academic portfolio website that offers visitors a choice be
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Asset Selection** - Legal sprite licensing and development setup
+- [x] **Phase 1: Foundation & Asset Selection** - Legal sprite licensing and development setup
 - [ ] **Phase 2: Content Data Layer** - Structured JSON content for all academic material
 - [ ] **Phase 3: Website Mode** - Traditional academic portfolio layout
 - [ ] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
@@ -35,8 +35,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md - Dev environment setup + LPC asset collection with attribution
-- [ ] 01-02-PLAN.md - Sprite integration and visual verification
+- [x] 01-01-PLAN.md - Dev environment setup + LPC asset collection with attribution
+- [x] 01-02-PLAN.md - Sprite integration and visual verification
 
 ### Phase 2: Content Data Layer
 **Goal**: All academic content structured in JSON files ready for both game and website modes
@@ -162,7 +162,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Asset Selection | 0/2 | Planned | - |
+| 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
 | 2. Content Data Layer | 0/? | Not started | - |
 | 3. Website Mode | 0/? | Not started | - |
 | 4. Core Game Engine | 0/? | Not started | - |

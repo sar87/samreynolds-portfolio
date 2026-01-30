@@ -150,7 +150,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MAP-06 | Phase 5 | Pending |
 | MAP-07 | Phase 5 | Pending |
 | MAP-08 | Phase 5 | Pending |
-| VIS-01 | Phase 1 | Pending |
+| VIS-01 | Phase 1 | Complete |
 | VIS-02 | Phase 4 | Pending |
 | VIS-03 | Phase 8 | Pending |
 | VIS-04 | Phase 8 | Pending |
@@ -171,7 +171,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DATA-06 | Phase 2 | Pending |
 | TECH-01 | Phase 8 | Pending |
 | TECH-02 | Phase 8 | Pending |
-| TECH-03 | Phase 1 | Pending |
+| TECH-03 | Phase 1 | Complete |
 | TECH-04 | Phase 7 | Pending |
 | TECH-05 | Phase 8 | Pending |
 
