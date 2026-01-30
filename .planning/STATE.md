@@ -10,28 +10,29 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 2 of 8 (Content Data Layer)
-Plan: 0 of ? in current phase
-Status: Ready to plan Phase 2
-Last activity: 2026-01-30 - Completed Phase 1 (Foundation & Asset Selection)
+Plan: 1 of ? in current phase
+Status: In progress - completed 02-01
+Last activity: 2026-01-30 - Completed 02-01-PLAN.md (Schema Definition)
 
-Progress: [█░░░░░░░░░] 12.5%
+Progress: [██░░░░░░░░] 18.75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 7.5 min
-- Total execution time: 0.25 hours
+- Total plans completed: 3
+- Average duration: 5.3 min
+- Total execution time: 0.27 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 15 min | 7.5 min |
+| 02-content-data-layer | 1 | 1 min | 1 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (7 min), 01-02 (8 min)
-- Trend: Stable
+- Last 5 plans: 01-01 (7 min), 01-02 (8 min), 02-01 (1 min)
+- Trend: Improving
 
 *Updated after each plan completion*
 
@@ -46,6 +47,8 @@ Recent decisions affecting current work:
 - **Node.js version (2026-01-30):** Pinned to v20.19.5 via .nvmrc - Vite 7.x requires ^20.19.0 or >=22.12.0
 - **Tile size (2026-01-30):** 32x32 tiles at 2x scale = 64px rendered (LPC standard)
 - **Theatre interpretation (2026-01-30):** Using LPC Tavern decorations as lecture hall assets due to limited theatre sprites in LPC ecosystem
+- **JSON Schema 2020-12 (2026-01-30):** Using latest spec for all content schemas with strict validation
+- **DOI as identifier (2026-01-30):** Store DOI without URL prefix (10.xxxx/), construct URL at runtime
 
 ### Pending Todos
 
@@ -71,6 +74,6 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-30 23:30 UTC
-Stopped at: Completed Phase 1, ready for Phase 2 planning
-Resume file: None - phase complete, ready for next phase
+Last session: 2026-01-30 23:55 UTC
+Stopped at: Completed 02-01-PLAN.md (Schema Definition)
+Resume file: None - ready for next plan
