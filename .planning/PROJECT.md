@@ -17,7 +17,7 @@ Visitors can discover Sam's academic work (publications, talks, research) throug
 ### Active
 
 - [ ] Landing splash screen offering choice: "Explore Campus" or "View Website"
-- [ ] Pokemon Fire Red/Leaf Green style pixel art using sourced free sprite libraries
+- [ ] LPC/Kenney-style pixel art using CC-licensed free sprite libraries
 - [ ] Pixel Cambridge campus with authentic, detailed old-college aesthetic
 - [ ] Five explorable buildings mapped to content:
   - Pembroke College → About Me
@@ -63,7 +63,7 @@ Visitors can discover Sam's academic work (publications, talks, research) throug
 - Research: AI-enabled evidence synthesis, LLMs in conservation, horizon scanning
 
 **Visual direction:**
-- Pokemon Fire Red/Leaf Green aesthetic (GBA-era pixel art)
+- LPC/Kenney-style pixel art (top-down Western RPG aesthetic, legally safe)
 - Cambridge old-college feel: grand stone buildings, Gothic/Tudor architecture
 - Pembroke College inspiration: historic, prestigious, warm stone tones
 - The River Cam, courtyards, gardens, academic atmosphere
@@ -85,6 +85,7 @@ Visitors can discover Sam's academic work (publications, talks, research) throug
 | Source sprites vs create | Higher quality, faster development, avoid Pokemon copyright issues | — Pending |
 | JSON for content | Easy to update via Claude Code, simple structure, no CMS needed | — Pending |
 | Five buildings | Maps cleanly to content categories without overwhelming the campus | — Pending |
+| LPC/Kenney sprites over Pokemon style | Pokemon sprites copyrighted; LPC/Kenney are CC-licensed and high quality | ✓ Good |
 
 ---
-*Last updated: 2026-01-30 after initialization*
+*Last updated: 2026-01-30 after research (sprite style decision)*
