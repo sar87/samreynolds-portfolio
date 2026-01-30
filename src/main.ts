@@ -1,6 +1,32 @@
 import { EngineConfig } from './config/engine';
 import { loadSpriteSheet, getCharacterFrame, getTile } from './utils/sprites';
 
+// Mode toggle functionality (temporary - will be replaced in later phases)
+const modeToggle = document.getElementById('mode-toggle');
+const normalMode = document.getElementById('normal-mode');
+const gameMode = document.getElementById('game-mode');
+const loadingScreen = document.getElementById('loading-screen');
+
+let isGameMode = false;
+
+modeToggle?.addEventListener('click', () => {
+    isGameMode = !isGameMode;
+    if (isGameMode) {
+        document.body.classList.add('game-active');
+        normalMode?.classList.add('hidden');
+        gameMode?.classList.remove('hidden');
+        loadingScreen?.classList.add('hidden');
+        modeToggle.querySelector('.toggle-text')!.textContent = 'View Website';
+        // Run render test when entering game mode
+        renderTest();
+    } else {
+        document.body.classList.remove('game-active');
+        normalMode?.classList.remove('hidden');
+        gameMode?.classList.add('hidden');
+        modeToggle.querySelector('.toggle-text')!.textContent = 'Enter Campus';
+    }
+});
+
 const canvas = document.getElementById('game-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d')!;
 
@@ -64,4 +90,6 @@ async function renderTest() {
     }
 }
 
-renderTest();
+// Initial render test also runs on page load for direct canvas access
+// But main test happens when user clicks "Enter Campus"
+console.log('Phase 1: Sprite test ready. Click "Enter Campus" to view.');
