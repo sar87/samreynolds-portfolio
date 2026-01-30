@@ -44,15 +44,18 @@ Plans:
 **Requirements**: DATA-01, DATA-02, DATA-03, DATA-04, DATA-05, DATA-06
 **Success Criteria** (what must be TRUE):
   1. Publications JSON contains all 15 papers with title, authors, journal, year, DOI, abstract
-  2. Talks JSON contains all 19 invited talks with title, venue, date, description
+  2. Talks JSON contains all 19 invited talks with title, venue, date
   3. Media JSON contains podcast, panel, video appearances with type, title, venue, date, link
   4. Research JSON contains topics with descriptions and related publications
   5. About JSON contains bio, education, contact links
   6. Content files validate against defined JSON schema (structure is consistent)
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD during phase planning
+- [ ] 02-01-PLAN.md - Install Ajv and create JSON schemas for all content types
+- [ ] 02-02-PLAN.md - Create publications.json and talks.json
+- [ ] 02-03-PLAN.md - Create media.json and about.json
+- [ ] 02-04-PLAN.md - Create research.json and validation script
 
 ### Phase 3: Website Mode
 **Goal**: Professional academic portfolio website displays all content in traditional layout
@@ -163,7 +166,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
-| 2. Content Data Layer | 0/? | Not started | - |
+| 2. Content Data Layer | 0/4 | Not started | - |
 | 3. Website Mode | 0/? | Not started | - |
 | 4. Core Game Engine | 0/? | Not started | - |
 | 5. Campus & Buildings | 0/? | Not started | - |
