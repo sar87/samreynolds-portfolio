@@ -125,61 +125,61 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LAND-01 | TBD | Pending |
-| LAND-02 | TBD | Pending |
-| LAND-03 | TBD | Pending |
-| LAND-04 | TBD | Pending |
-| NAV-01 | TBD | Pending |
-| NAV-02 | TBD | Pending |
-| NAV-03 | TBD | Pending |
-| NAV-04 | TBD | Pending |
-| NAV-05 | TBD | Pending |
-| NAV-06 | TBD | Pending |
-| NAV-07 | TBD | Pending |
-| INT-01 | TBD | Pending |
-| INT-02 | TBD | Pending |
-| INT-03 | TBD | Pending |
-| INT-04 | TBD | Pending |
-| INT-05 | TBD | Pending |
-| INT-06 | TBD | Pending |
-| MAP-01 | TBD | Pending |
-| MAP-02 | TBD | Pending |
-| MAP-03 | TBD | Pending |
-| MAP-04 | TBD | Pending |
-| MAP-05 | TBD | Pending |
-| MAP-06 | TBD | Pending |
-| MAP-07 | TBD | Pending |
-| MAP-08 | TBD | Pending |
-| VIS-01 | TBD | Pending |
-| VIS-02 | TBD | Pending |
-| VIS-03 | TBD | Pending |
-| VIS-04 | TBD | Pending |
-| VIS-05 | TBD | Pending |
-| WEB-01 | TBD | Pending |
-| WEB-02 | TBD | Pending |
-| WEB-03 | TBD | Pending |
-| WEB-04 | TBD | Pending |
-| WEB-05 | TBD | Pending |
-| WEB-06 | TBD | Pending |
-| WEB-07 | TBD | Pending |
-| WEB-08 | TBD | Pending |
-| DATA-01 | TBD | Pending |
-| DATA-02 | TBD | Pending |
-| DATA-03 | TBD | Pending |
-| DATA-04 | TBD | Pending |
-| DATA-05 | TBD | Pending |
-| DATA-06 | TBD | Pending |
-| TECH-01 | TBD | Pending |
-| TECH-02 | TBD | Pending |
-| TECH-03 | TBD | Pending |
-| TECH-04 | TBD | Pending |
-| TECH-05 | TBD | Pending |
+| LAND-01 | Phase 7 | Pending |
+| LAND-02 | Phase 7 | Pending |
+| LAND-03 | Phase 7 | Pending |
+| LAND-04 | Phase 7 | Pending |
+| NAV-01 | Phase 4 | Pending |
+| NAV-02 | Phase 8 | Pending |
+| NAV-03 | Phase 4 | Pending |
+| NAV-04 | Phase 5 | Pending |
+| NAV-05 | Phase 5 | Pending |
+| NAV-06 | Phase 4 | Pending |
+| NAV-07 | Phase 8 | Pending |
+| INT-01 | Phase 6 | Pending |
+| INT-02 | Phase 6 | Pending |
+| INT-03 | Phase 6 | Pending |
+| INT-04 | Phase 6 | Pending |
+| INT-05 | Phase 6 | Pending |
+| INT-06 | Phase 6 | Pending |
+| MAP-01 | Phase 5 | Pending |
+| MAP-02 | Phase 5 | Pending |
+| MAP-03 | Phase 5 | Pending |
+| MAP-04 | Phase 5 | Pending |
+| MAP-05 | Phase 5 | Pending |
+| MAP-06 | Phase 5 | Pending |
+| MAP-07 | Phase 5 | Pending |
+| MAP-08 | Phase 5 | Pending |
+| VIS-01 | Phase 1 | Pending |
+| VIS-02 | Phase 4 | Pending |
+| VIS-03 | Phase 8 | Pending |
+| VIS-04 | Phase 8 | Pending |
+| VIS-05 | Phase 8 | Pending |
+| WEB-01 | Phase 3 | Pending |
+| WEB-02 | Phase 3 | Pending |
+| WEB-03 | Phase 3 | Pending |
+| WEB-04 | Phase 3 | Pending |
+| WEB-05 | Phase 3 | Pending |
+| WEB-06 | Phase 3 | Pending |
+| WEB-07 | Phase 3 | Pending |
+| WEB-08 | Phase 7 | Pending |
+| DATA-01 | Phase 2 | Pending |
+| DATA-02 | Phase 2 | Pending |
+| DATA-03 | Phase 2 | Pending |
+| DATA-04 | Phase 2 | Pending |
+| DATA-05 | Phase 2 | Pending |
+| DATA-06 | Phase 2 | Pending |
+| TECH-01 | Phase 8 | Pending |
+| TECH-02 | Phase 8 | Pending |
+| TECH-03 | Phase 1 | Pending |
+| TECH-04 | Phase 7 | Pending |
+| TECH-05 | Phase 8 | Pending |
 
 **Coverage:**
 - v1 requirements: 44 total
-- Mapped to phases: 0
-- Unmapped: 44 (pending roadmap creation)
+- Mapped to phases: 44
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-30*
-*Last updated: 2026-01-30 after initial definition*
+*Last updated: 2026-01-30 after roadmap creation*
