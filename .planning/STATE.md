@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 5 in progress - All 5 building interiors complete, wave 3 finishing
+**Current focus:** Phase 5 complete - Ready for Phase 6 (Interaction & Dialogs)
 
 ## Current Position
 
-Phase: 5 of 8 (Campus & Buildings)
-Plan: 5 of 6 in current phase
-Status: In progress
-Last activity: 2026-01-31 - Completed 05-05-PLAN.md (Lab, Station, Theatre Interiors)
+Phase: 5 of 8 (Campus & Buildings) - COMPLETE
+Plan: 6 of 6 in current phase
+Status: Complete
+Last activity: 2026-01-31 - Phase 5 verified and approved
 
-Progress: [█████████░] 95%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 19
-- Average duration: 3.1 min
-- Total execution time: 1.0 hours
+- Total plans completed: 20
+- Average duration: 4.8 min
+- Total execution time: 1.6 hours
 
 **By Phase:**
 
@@ -31,11 +31,11 @@ Progress: [█████████░] 95%
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
-| 05-campus-buildings | 5 | 18 min | 3.6 min |
+| 05-campus-buildings | 6 | 63 min | 10.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (3 min), 05-02 (4 min), 05-03 (3 min), 05-04 (4 min), 05-05 (4 min)
-- Trend: Stable at ~3-4 min/plan
+- Last 5 plans: 05-02 (4 min), 05-03 (3 min), 05-04 (4 min), 05-05 (4 min), 05-06 (45 min - integration debugging)
+- Note: 05-06 included significant integration work to bridge vanilla JS and TypeScript game systems
 
 *Updated after each plan completion*
 
@@ -106,9 +106,16 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 17:38 UTC
-Stopped at: Completed 05-05-PLAN.md (Lab, Station, Theatre Interiors)
-Resume file: None - ready for 05-06-PLAN.md or Phase 6
+Last session: 2026-01-31 18:15 UTC
+Stopped at: Phase 5 complete and approved
+Resume file: None - ready for Phase 6
+
+## User Feedback (05-06)
+
+Polish items noted for future phases:
+- Exit visibility - Hard to find building exits, need visual indicators
+- Interior sizing - Interiors too large, should be smaller and centered
+- Texture quality - Current procedural sprites are basic, need detailed pixel art overhaul
 
 ## User Feedback (03-04)
 
