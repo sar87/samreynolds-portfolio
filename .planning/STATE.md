@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 5 in progress - Pembroke and Library interiors complete, remaining 3 interiors next
+**Current focus:** Phase 5 in progress - All 5 building interiors complete, wave 3 finishing
 
 ## Current Position
 
 Phase: 5 of 8 (Campus & Buildings)
-Plan: 4 of 6 in current phase
+Plan: 5 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-31 - Completed 05-04-PLAN.md (Building Interiors - Pembroke & Library)
+Last activity: 2026-01-31 - Completed 05-05-PLAN.md (Lab, Station, Theatre Interiors)
 
-Progress: [████████░░] 92%
+Progress: [█████████░] 95%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 18
+- Total plans completed: 19
 - Average duration: 3.1 min
-- Total execution time: 0.94 hours
+- Total execution time: 1.0 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [████████░░] 92%
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
-| 05-campus-buildings | 4 | 14 min | 3.5 min |
+| 05-campus-buildings | 5 | 18 min | 3.6 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-04 (4 min), 05-01 (3 min), 05-02 (4 min), 05-03 (3 min), 05-04 (4 min)
+- Last 5 plans: 05-01 (3 min), 05-02 (4 min), 05-03 (3 min), 05-04 (4 min), 05-05 (4 min)
 - Trend: Stable at ~3-4 min/plan
 
 *Updated after each plan completion*
@@ -78,6 +78,10 @@ Recent decisions affecting current work:
 - **Pembroke interior size (2026-01-31):** 14x12 tiles for personal office with comfortable space
 - **Library interior size (2026-01-31):** 20x14 tiles for grand academic library feel
 - **Publication zone distribution (2026-01-31):** 24+ interaction points spread across library sections for exploration
+- **Lab interior size (2026-01-31):** 18x12 tiles for zoology + computer hybrid theme
+- **Station interior size (2026-01-31):** 14x10 tiles as compact broadcast studio
+- **Theatre interior size (2026-01-31):** 16x12 tiles with 5 rows of audience seating
+- **Interior tile numbering (2026-01-31):** 60-68 for interior decoration sprites (specimen, microscope, etc.)
 
 ### Pending Todos
 
@@ -94,7 +98,6 @@ Recent decisions affecting current work:
 
 **Remaining:**
 - Player character sprite needs manual generation via browser tool (non-blocking)
-- Some building interiors have limited assets (station/theatre) - may need creative interpretation
 - VIS-02 requirement says "16x16" but LPC uses 32x32 - consider updating requirement
 
 **Mobile Performance:**
@@ -103,9 +106,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 17:35 UTC
-Stopped at: Completed 05-04-PLAN.md (Building Interiors - Pembroke & Library)
-Resume file: None - ready for 05-05-PLAN.md
+Last session: 2026-01-31 17:38 UTC
+Stopped at: Completed 05-05-PLAN.md (Lab, Station, Theatre Interiors)
+Resume file: None - ready for 05-06-PLAN.md or Phase 6
 
 ## User Feedback (03-04)
 
