@@ -87,10 +87,13 @@ Plans:
   3. Collision detection prevents player walking through walls and obstacles
   4. 32x32 tile-based rendering displays at consistent scale (2x)
   5. Game loop runs at stable framerate (30+ FPS on development machine)
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 04-01: TBD during phase planning
+- [ ] 04-01-PLAN.md - Core systems: GameLoop, Input, Camera
+- [ ] 04-02-PLAN.md - Map and collision: TileMap, Collision, test map data
+- [ ] 04-03-PLAN.md - Player and Renderer with viewport culling
+- [ ] 04-04-PLAN.md - Game integration and verification
 
 ### Phase 5: Campus & Buildings
 **Goal**: Complete Cambridge campus map with five explorable building interiors
@@ -171,7 +174,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
 | 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
 | 3. Website Mode | 4/4 | Complete | 2026-01-31 |
-| 4. Core Game Engine | 0/? | Not started | - |
+| 4. Core Game Engine | 0/4 | Planned | - |
 | 5. Campus & Buildings | 0/? | Not started | - |
 | 6. Interactions & Content Integration | 0/? | Not started | - |
 | 7. Landing & Mode Switching | 0/? | Not started | - |
