@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 3 complete - ready for Phase 4
+**Current focus:** Phase 4 - Core Game Engine systems
 
 ## Current Position
 
-Phase: 3 of 8 (Website Mode)
-Plan: 4 of 4 in current phase
-Status: Phase complete
-Last activity: 2026-01-31 - Completed 03-04-PLAN.md (Integration)
+Phase: 4 of 8 (Core Game Engine)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-31 - Completed 04-01-PLAN.md (Core Systems)
 
-Progress: [██████░░░░] 62.5%
+Progress: [██████░░░░] 68.75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: 3.4 min
-- Total execution time: 0.57 hours
+- Total plans completed: 11
+- Average duration: 3.3 min
+- Total execution time: 0.60 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [██████░░░░] 62.5%
 | 01-foundation | 2 | 15 min | 7.5 min |
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
+| 04-core-game-engine | 1 | 2 min | 2.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-04 (2 min), 03-01 (2 min), 03-02 (3 min), 03-03 (3 min), 03-04 (4 min)
+- Last 5 plans: 03-01 (2 min), 03-02 (3 min), 03-03 (3 min), 03-04 (4 min), 04-01 (2 min)
 - Trend: Stable at ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -55,6 +56,9 @@ Recent decisions affecting current work:
 - **CSS-only hamburger (2026-01-31):** Using transform animation on ::before/::after pseudo-elements, no icon library needed
 - **Card focus delegation (2026-01-31):** Using :has(.cardLink:focus-visible) on card container for cleaner outline
 - **Optional field handling (2026-01-31):** Handle optional About.links and optional abstract/description gracefully with conditional rendering
+- **Delta time clamping (2026-01-31):** GameLoop clamps delta to 0.1s max to prevent spiral of death on tab switch
+- **Camera lerp speed (2026-01-31):** LERP_SPEED=12 gives ~0.2s catch-up time using exponential smoothing
+- **Input direction priority (2026-01-31):** Vertical movement takes priority over horizontal for 4-directional input
 
 ### Pending Todos
 
@@ -80,9 +84,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 11:58 UTC
-Stopped at: Completed 03-04-PLAN.md (Integration) - Phase 3 complete
-Resume file: None - ready for Phase 4
+Last session: 2026-01-31 12:37 UTC
+Stopped at: Completed 04-01-PLAN.md (Core Systems)
+Resume file: None - ready for 04-02-PLAN.md
 
 ## User Feedback (03-04)
 
