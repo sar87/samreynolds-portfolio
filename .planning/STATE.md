@@ -106,9 +106,28 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 18:15 UTC
+Last session: 2026-01-31 18:20 UTC
 Stopped at: Phase 5 complete and approved
 Resume file: None - ready for Phase 6
+
+### Key Context for Next Session
+
+**Architecture discovered during Phase 5:**
+- Two game systems exist: `/js/game/` (vanilla JS with all content) and `/src/game/` (TypeScript)
+- CampusGame.ts wrapper bridges them - loads vanilla JS scripts dynamically
+- Game entered via pressing G key or navigating to /#/game
+
+**How to run:**
+```bash
+npm run dev  # Vite on localhost:5174
+# Press G to enter game mode
+```
+
+**Current game state:**
+- 40x30 tile campus map with 5 buildings
+- Player spawns at entrance gate (20, 26)
+- Buildings: Pembroke, Library, Lab, Station, Theatre
+- Each has interior with themed sprites
 
 ## User Feedback (05-06)
 
