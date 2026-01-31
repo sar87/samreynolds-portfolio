@@ -1,0 +1,62 @@
+{
+  "researchTopics": [
+    {
+      "id": "ai-evidence-synthesis",
+      "name": "AI-Enabled Evidence Synthesis",
+      "description": "Developing AI pipelines that combine retrieval-augmented generation with expert validation to accelerate systematic reviews and evidence synthesis in conservation. This work addresses the challenge of rapidly synthesizing vast scientific literature to inform management decisions, reducing review timelines from months to days while maintaining scientific rigor.",
+      "relatedPublications": [
+        "ai-enabled-evidence-synthesis",
+        "llms-conservation-decision-making",
+        "deep-learning-wildlife-monitoring-review"
+      ]
+    },
+    {
+      "id": "llms-conservation",
+      "name": "Large Language Models in Conservation",
+      "description": "Investigating the responsible integration of large language models into conservation practice. Research focuses on understanding opportunities and pitfalls including hallucination risks, training data biases, and appropriate use cases for LLM-assisted decision making in ecological contexts.",
+      "relatedPublications": [
+        "llms-conservation-decision-making",
+        "ai-enabled-evidence-synthesis"
+      ]
+    },
+    {
+      "id": "bioacoustic-monitoring",
+      "name": "Bioacoustic Monitoring",
+      "description": "Building automated acoustic monitoring systems for biodiversity assessment, from sensor network design to AI-powered species classification. This includes developing hybrid approaches that combine traditional acoustic indices with deep learning for interpretable yet accurate biodiversity estimates, and optimizing models for regional species assemblages.",
+      "relatedPublications": [
+        "acoustic-indices-deep-learning",
+        "automated-bioacoustic-monitoring",
+        "birdnet-uk-transfer-learning"
+      ]
+    },
+    {
+      "id": "horizon-scanning",
+      "name": "Horizon Scanning",
+      "description": "Creating machine learning frameworks for early identification of emerging conservation threats. These systems use natural language processing to monitor scientific literature, news, and policy documents, automatically flagging emerging issues for expert review to enable proactive conservation response.",
+      "relatedPublications": [
+        "horizon-scanning-emerging-threats"
+      ]
+    },
+    {
+      "id": "invasive-species",
+      "name": "Invasive Species Ecology",
+      "description": "Research on invasive species population dynamics, spread modeling, and management strategies, with particular focus on signal crayfish and crayfish plague in British waterways. This includes population genetics to reconstruct invasion pathways and spatially-explicit models to predict disease transmission and prioritize biosecurity interventions.",
+      "relatedPublications": [
+        "invasive-crayfish-population-genetics",
+        "crayfish-plague-spread-modeling",
+        "ai-enabled-evidence-synthesis"
+      ]
+    },
+    {
+      "id": "species-monitoring-technology",
+      "name": "Species Monitoring Technology",
+      "description": "Advancing automated species detection and monitoring systems using computer vision and edge computing. This includes developing quality-aware image classification pipelines for camera traps, optimizing deep learning models for deployment on resource-constrained devices, and predicting species distribution shifts under climate change scenarios.",
+      "relatedPublications": [
+        "camera-trap-image-quality",
+        "realtime-species-detection-edge",
+        "species-distribution-climate-change",
+        "conservation-technology-review"
+      ]
+    }
+  ]
+}
