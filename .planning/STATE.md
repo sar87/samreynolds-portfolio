@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 5 in progress - Building sprites complete, building placement next
+**Current focus:** Phase 5 in progress - Building exteriors placed, interior wiring next
 
 ## Current Position
 
 Phase: 5 of 8 (Campus & Buildings)
-Plan: 2 of 4 in current phase
+Plan: 3 of 6 in current phase
 Status: In progress
-Last activity: 2026-01-31 - Completed 05-02-PLAN.md (Building Sprites)
+Last activity: 2026-01-31 - Completed 05-03-PLAN.md (Building Exteriors)
 
 Progress: [████████░░] 90%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
+- Total plans completed: 17
 - Average duration: 3.1 min
-- Total execution time: 0.82 hours
+- Total execution time: 0.87 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [████████░░] 90%
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
-| 05-campus-buildings | 2 | 7 min | 3.5 min |
+| 05-campus-buildings | 3 | 10 min | 3.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-02 (2 min), 04-03 (2 min), 04-04 (4 min), 05-01 (3 min), 05-02 (4 min)
+- Last 5 plans: 04-03 (2 min), 04-04 (4 min), 05-01 (3 min), 05-02 (4 min), 05-03 (3 min)
 - Trend: Stable at ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -72,6 +72,9 @@ Recent decisions affecting current work:
 - **Path hierarchy (2026-01-31):** COBBLE for main quad paths, PATH for secondary routes to building areas
 - **Sign readability approach (2026-01-31):** Using letter/icon combinations instead of full text for 16x16 sprite readability
 - **Tile type numbering (2026-01-31):** Gothic 30-35, Modern 40-43, Signs 50-54 for organized grouping with expansion gaps
+- **Building style differentiation (2026-01-31):** Separate buildTraditionalBuilding() and buildModernBuilding() functions for distinct architectural styles
+- **Library size prominence (2026-01-31):** Library has largest footprint (w:9) to indicate importance
+- **Sign placement (2026-01-31):** Signs placed 2 tiles below entrance doors for visibility
 
 ### Pending Todos
 
@@ -98,8 +101,8 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-01-31 17:30 UTC
-Stopped at: Completed 05-02-PLAN.md (Building Sprites)
-Resume file: None - ready for 05-03-PLAN.md
+Stopped at: Completed 05-03-PLAN.md (Building Exteriors)
+Resume file: None - ready for 05-04-PLAN.md
 
 ## User Feedback (03-04)
 
