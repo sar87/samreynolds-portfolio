@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 3 of 8 (Website Mode)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-31 - Completed 03-01-PLAN.md (Website Foundation)
+Last activity: 2026-01-31 - Completed 03-02-PLAN.md (UI Components)
 
-Progress: [████░░░░░░] 43.75%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 3.3 min
-- Total execution time: 0.38 hours
+- Total plans completed: 8
+- Average duration: 3.25 min
+- Total execution time: 0.43 hours
 
 **By Phase:**
 
@@ -29,11 +29,11 @@ Progress: [████░░░░░░] 43.75%
 |-------|-------|-------|----------|
 | 01-foundation | 2 | 15 min | 7.5 min |
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
-| 03-website-mode | 1 | 2 min | 2 min |
+| 03-website-mode | 2 | 5 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (1 min), 02-03 (2 min), 02-02 (2 min), 02-04 (2 min), 03-01 (2 min)
-- Trend: Stable at ~2 min/plan
+- Last 5 plans: 02-03 (2 min), 02-02 (2 min), 02-04 (2 min), 03-01 (2 min), 03-02 (3 min)
+- Trend: Stable at ~2-3 min/plan
 
 *Updated after each plan completion*
 
@@ -52,6 +52,8 @@ Recent decisions affecting current work:
 - **DOI as identifier (2026-01-30):** Store DOI without URL prefix (10.xxxx/), construct URL at runtime
 - **Media type enum (2026-01-30):** podcast, video, panel, interview - no "talk" type (converted from content.json.js)
 - **Ajv 2020-12 import (2026-01-31):** Use `ajv/dist/2020.js` for JSON Schema draft 2020-12 compatibility
+- **CSS-only hamburger (2026-01-31):** Using transform animation on ::before/::after pseudo-elements, no icon library needed
+- **Card focus delegation (2026-01-31):** Using :has(.cardLink:focus-visible) on card container for cleaner outline
 
 ### Pending Todos
 
@@ -77,6 +79,6 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 11:36 UTC
-Stopped at: Completed 03-01-PLAN.md (Website Foundation)
-Resume file: None - ready for 03-02
+Last session: 2026-01-31 11:42 UTC
+Stopped at: Completed 03-02-PLAN.md (UI Components)
+Resume file: None - ready for 03-03
