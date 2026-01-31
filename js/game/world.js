@@ -485,68 +485,110 @@ const World = {
     },
 
     // Generate interior maps for each building
-    // Note: Interior maps will be fully implemented in Plans 04-05 (Wave 3)
-    // These are placeholder stubs to prevent errors during building exterior testing
     generateInteriorMaps() {
-        this.interiorMaps.pembroke = this.generateOfficeInterior();      // Pembroke = old office
+        this.interiorMaps.pembroke = this.generatePembrokeInterior();
         this.interiorMaps.library = this.generateLibraryInterior();
-        this.interiorMaps.station = this.generateLectureHallInterior();  // Station = old lectureHall
+        this.interiorMaps.station = this.generateLectureHallInterior();
         this.interiorMaps.lab = this.generateLabInterior();
-        this.interiorMaps.theatre = this.generateTheatreInterior();      // New
+        this.interiorMaps.theatre = this.generateTheatreInterior();
     },
 
-    // Generate office interior
-    generateOfficeInterior() {
+    // Generate Pembroke College interior (Sam's personal office)
+    // 14x12 tiles - personal academic office with "home" feel
+    generatePembrokeInterior() {
         const T = this.TILES;
-        const w = 12;
-        const h = 10;
+        const w = 14;
+        const h = 12;
 
         const ground = new Array(w * h).fill(T.WOOD_FLOOR);
         const objects = new Array(w * h).fill(-1);
         const collision = new Array(w * h).fill(0);
         const interact = new Array(w * h).fill(null);
 
-        // Walls (top row)
+        // ============================================
+        // 1. PERIMETER WALLS
+        // ============================================
+
+        // Top wall (interior wall tiles)
         for (let x = 0; x < w; x++) {
             objects[x] = T.INT_WALL;
             collision[x] = 1;
         }
 
-        // Side walls
+        // Side walls (collision only, no visible tile needed)
         for (let y = 0; y < h; y++) {
             collision[y * w] = 1;
             collision[y * w + (w - 1)] = 1;
         }
 
-        // Desk with computer
-        objects[2 * w + 2] = T.DESK;
-        collision[2 * w + 2] = 1;
-        interact[3 * w + 2] = { type: 'object', id: 'desk', content: 'office.desk' };
-
-        objects[2 * w + 3] = T.COMPUTER;
-        collision[2 * w + 3] = 1;
-        interact[3 * w + 3] = { type: 'object', id: 'computer', content: 'office.computer' };
-
-        // Chair
-        objects[3 * w + 2] = T.CHAIR;
-
-        // Bookshelf
-        for (let x = 6; x < 10; x++) {
-            objects[1 * w + x] = T.BOOKSHELF;
-            collision[1 * w + x] = 1;
-            interact[2 * w + x] = { type: 'object', id: 'bookshelf', content: 'office.bookshelf' };
+        // Bottom wall collision (except exit)
+        for (let x = 0; x < w; x++) {
+            if (x !== Math.floor(w / 2)) {
+                collision[(h - 1) * w + x] = 1;
+            }
         }
 
-        // Window (interactable)
-        objects[1 * w + 10] = T.WINDOW;
-        collision[1 * w + 10] = 1;
-        interact[2 * w + 10] = { type: 'object', id: 'window', content: 'office.window' };
+        // ============================================
+        // 2. PERSONAL WORKSPACE (top-left)
+        // ============================================
 
-        // Exit
+        // Sam's desk with computer
+        objects[2 * w + 2] = T.DESK;
+        collision[2 * w + 2] = 1;
+        objects[2 * w + 3] = T.COMPUTER;
+        collision[2 * w + 3] = 1;
+
+        // Chair in front of desk
+        objects[3 * w + 2] = T.CHAIR;
+
+        // Interaction zone for desk area (bio content)
+        interact[3 * w + 3] = { type: 'object', id: 'desk', content: 'about.bio' };
+        interact[4 * w + 2] = { type: 'object', id: 'desk', content: 'about.bio' };
+        interact[4 * w + 3] = { type: 'object', id: 'desk', content: 'about.bio' };
+
+        // ============================================
+        // 3. BOOKSHELF SECTION (right wall)
+        // ============================================
+
+        // 5 bookshelves along right side (research interests)
+        for (let y = 2; y <= 6; y++) {
+            objects[y * w + (w - 2)] = T.BOOKSHELF;
+            collision[y * w + (w - 2)] = 1;
+            // Interaction zone one tile to the left
+            interact[y * w + (w - 3)] = { type: 'object', id: 'bookshelf', content: 'about.research' };
+        }
+
+        // ============================================
+        // 4. PERSONAL TOUCHES
+        // ============================================
+
+        // Windows on top wall (decorative, light coming in)
+        objects[5] = T.WINDOW;
+        objects[8] = T.WINDOW;
+
+        // Plant/flower near window (using FLOWER on floor)
+        objects[1 * w + 6] = T.FLOWER;
+
+        // Small reading area with armchair (using CHAIR)
+        objects[6 * w + 3] = T.CHAIR;
+        objects[6 * w + 4] = T.DESK;  // Side table
+        collision[6 * w + 4] = 1;
+
+        // Second plant near reading area
+        objects[7 * w + 5] = T.FLOWER;
+
+        // Picture/award area (using bookshelf creatively as display)
+        objects[1 * w + 2] = T.BOOKSHELF;
+        collision[1 * w + 2] = 1;
+
+        // ============================================
+        // 5. EXIT AT BOTTOM CENTER
+        // ============================================
+
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
-            name: "Pembroke College",
+            name: "Pembroke College - Sam's Office",
             width: w,
             height: h,
             spawn: { x: Math.floor(w / 2), y: h - 2 },
