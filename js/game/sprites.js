@@ -656,6 +656,187 @@ const Sprites = {
         btCtx.fillRect(6, 4, 3, 1);
         btCtx.fillRect(12, 0, 3, 1);
         this.cache.battlement = battlement;
+
+        // === Modern Building Sprites ===
+
+        // Modern wall - Clean geometric wall with subtle grid
+        const modernWall = this.createCanvas(size, size);
+        const mwCtx = modernWall.getContext('2d');
+        mwCtx.fillStyle = c.modernGray;
+        mwCtx.fillRect(0, 0, size, size);
+        // Subtle panel grid lines
+        mwCtx.fillStyle = c.modernGrayDark;
+        mwCtx.fillRect(0, 0, size, 1);
+        mwCtx.fillRect(0, 8, size, 1);
+        mwCtx.fillRect(0, 0, 1, size);
+        mwCtx.fillRect(8, 0, 1, size);
+        // Clean edges highlight
+        mwCtx.fillStyle = '#c0c0c0';
+        mwCtx.fillRect(1, 1, 6, 1);
+        mwCtx.fillRect(9, 1, 6, 1);
+        this.cache.modernWall = modernWall;
+
+        // Modern window - Large rectangular glass panel
+        const modernWindow = this.createCanvas(size, size);
+        const mwinCtx = modernWindow.getContext('2d');
+        mwinCtx.fillStyle = c.modernGray;
+        mwinCtx.fillRect(0, 0, size, size);
+        // Thin metal frame
+        mwinCtx.fillStyle = c.metalBrushed;
+        mwinCtx.fillRect(1, 1, 14, 14);
+        // Large glass panel with blue tint
+        mwinCtx.fillStyle = c.glassBlue;
+        mwinCtx.fillRect(2, 2, 12, 12);
+        // Glass reflection highlights
+        mwinCtx.fillStyle = '#c8e4f6';
+        mwinCtx.fillRect(3, 3, 4, 2);
+        mwinCtx.fillRect(4, 5, 2, 4);
+        // Slight darker bottom for depth
+        mwinCtx.fillStyle = c.glassBlueDark;
+        mwinCtx.fillRect(2, 11, 12, 3);
+        this.cache.modernWindow = modernWindow;
+
+        // Modern door - Glass/metal door
+        const modernDoor = this.createCanvas(size, size);
+        const mdCtx = modernDoor.getContext('2d');
+        mdCtx.fillStyle = c.modernGray;
+        mdCtx.fillRect(0, 0, size, size);
+        // Metal frame
+        mdCtx.fillStyle = c.metalBrushed;
+        mdCtx.fillRect(1, 0, 14, 16);
+        // Glass panel (most of door)
+        mdCtx.fillStyle = c.glassBlue;
+        mdCtx.fillRect(2, 1, 12, 14);
+        // Reflection
+        mdCtx.fillStyle = '#c8e4f6';
+        mdCtx.fillRect(3, 2, 3, 6);
+        // Horizontal bar (push bar)
+        mdCtx.fillStyle = c.metalBrushedLight;
+        mdCtx.fillRect(2, 8, 12, 2);
+        // Door handle
+        mdCtx.fillStyle = c.metalBrushed;
+        mdCtx.fillRect(11, 7, 2, 4);
+        this.cache.modernDoor = modernDoor;
+
+        // Metal panel - Brushed metal cladding
+        const metalPanel = this.createCanvas(size, size);
+        const mpCtx = metalPanel.getContext('2d');
+        mpCtx.fillStyle = c.metalBrushed;
+        mpCtx.fillRect(0, 0, size, size);
+        // Brushed metal texture (horizontal lines)
+        mpCtx.fillStyle = c.metalBrushedLight;
+        for (let y = 0; y < size; y += 3) {
+            mpCtx.fillRect(0, y, size, 1);
+        }
+        // Panel seam lines
+        mpCtx.fillStyle = c.metalDark;
+        mpCtx.fillRect(0, 0, size, 1);
+        mpCtx.fillRect(0, 15, size, 1);
+        mpCtx.fillRect(0, 0, 1, size);
+        mpCtx.fillRect(15, 0, 1, size);
+        this.cache.metalPanel = metalPanel;
+
+        // === Building Sign Sprites ===
+
+        // Helper function for wooden sign base
+        const createWoodenSign = (text) => {
+            const signCanvas = this.createCanvas(size, size);
+            const sCtx = signCanvas.getContext('2d');
+            // Background (grass for outdoor placement)
+            sCtx.drawImage(this.cache.grass, 0, 0);
+            // Wooden board
+            sCtx.fillStyle = c.signWood;
+            sCtx.fillRect(1, 2, 14, 10);
+            // Board edge shadow
+            sCtx.fillStyle = c.signWoodDark;
+            sCtx.fillRect(1, 11, 14, 1);
+            sCtx.fillRect(14, 2, 1, 10);
+            // Post
+            sCtx.fillStyle = '#5d4037';
+            sCtx.fillRect(7, 12, 2, 4);
+            // Text (simplified - use first letter large or abbreviation)
+            sCtx.fillStyle = c.signText;
+            return { canvas: signCanvas, ctx: sCtx };
+        };
+
+        // signPembroke - "P" for Pembroke
+        const pembroke = createWoodenSign('P');
+        // Draw "P"
+        pembroke.ctx.fillRect(3, 4, 2, 6);
+        pembroke.ctx.fillRect(5, 4, 4, 2);
+        pembroke.ctx.fillRect(7, 6, 2, 2);
+        pembroke.ctx.fillRect(5, 6, 2, 2);
+        // Small dots for decoration
+        pembroke.ctx.fillStyle = c.signWoodDark;
+        pembroke.ctx.fillRect(11, 5, 2, 2);
+        pembroke.ctx.fillRect(11, 8, 2, 2);
+        this.cache.signPembroke = pembroke.canvas;
+
+        // signLibrary - Book icon with "L"
+        const library = createWoodenSign('L');
+        // Draw book icon (open book shape)
+        library.ctx.fillRect(3, 4, 1, 6);
+        library.ctx.fillRect(4, 4, 4, 1);
+        library.ctx.fillRect(4, 9, 4, 1);
+        // Second book page
+        library.ctx.fillStyle = '#4a4a4a';
+        library.ctx.fillRect(9, 4, 4, 6);
+        library.ctx.fillStyle = c.signText;
+        library.ctx.fillRect(10, 5, 2, 4);
+        this.cache.signLibrary = library.canvas;
+
+        // signLab - Modern style sign with beaker icon
+        const labSign = this.createCanvas(size, size);
+        const labCtx = labSign.getContext('2d');
+        labCtx.drawImage(this.cache.grass, 0, 0);
+        // Modern metal sign board
+        labCtx.fillStyle = c.signModern;
+        labCtx.fillRect(1, 2, 14, 10);
+        labCtx.fillStyle = c.signModernDark;
+        labCtx.fillRect(1, 11, 14, 1);
+        // Metal post
+        labCtx.fillStyle = c.metalBrushed;
+        labCtx.fillRect(7, 12, 2, 4);
+        // Beaker/flask icon
+        labCtx.fillStyle = c.glassBlue;
+        labCtx.fillRect(6, 4, 4, 6);
+        labCtx.fillRect(5, 8, 6, 2);
+        labCtx.fillStyle = c.signText;
+        labCtx.fillRect(7, 3, 2, 1);
+        // Bubbles in beaker
+        labCtx.fillStyle = '#6bc9e8';
+        labCtx.fillRect(7, 6, 1, 1);
+        labCtx.fillRect(8, 8, 1, 1);
+        this.cache.signLab = labSign;
+
+        // signStation - Train/station icon with "S"
+        const station = createWoodenSign('S');
+        // Draw "S" shape
+        station.ctx.fillRect(4, 4, 4, 2);
+        station.ctx.fillRect(3, 4, 2, 2);
+        station.ctx.fillRect(3, 6, 2, 2);
+        station.ctx.fillRect(4, 6, 4, 2);
+        station.ctx.fillRect(6, 8, 2, 2);
+        station.ctx.fillRect(3, 8, 4, 2);
+        // Small wheel detail
+        station.ctx.fillStyle = c.signWoodDark;
+        station.ctx.fillRect(10, 6, 3, 3);
+        station.ctx.fillStyle = c.signWood;
+        station.ctx.fillRect(11, 7, 1, 1);
+        this.cache.signStation = station.canvas;
+
+        // signTheatre - Theatre masks / "T" design
+        const theatre = createWoodenSign('T');
+        // Draw "T"
+        theatre.ctx.fillRect(4, 4, 6, 2);
+        theatre.ctx.fillRect(6, 4, 2, 6);
+        // Simple mask icon on right
+        theatre.ctx.fillStyle = c.signWoodDark;
+        theatre.ctx.fillRect(11, 5, 2, 3);
+        theatre.ctx.fillStyle = '#fff';
+        theatre.ctx.fillRect(11, 5, 1, 1);
+        theatre.ctx.fillRect(12, 5, 1, 1);
+        this.cache.signTheatre = theatre.canvas;
     },
 
     // Create interior sprites
