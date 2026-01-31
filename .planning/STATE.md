@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 4 complete - Ready for Phase 5 (Sprite System)
+**Current focus:** Phase 5 in progress - Campus layout redesigned, building sprites next
 
 ## Current Position
 
-Phase: 4 of 8 (Core Game Engine) - COMPLETE
-Plan: 4 of 4 in current phase
-Status: Phase complete
-Last activity: 2026-01-31 - Completed 04-04-PLAN.md (Game Integration)
+Phase: 5 of 8 (Campus & Buildings)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-01-31 - Completed 05-01-PLAN.md (Campus Layout Redesign)
 
 Progress: [████████░░] 88%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
+- Total plans completed: 15
 - Average duration: 3.1 min
-- Total execution time: 0.72 hours
+- Total execution time: 0.77 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [████████░░] 88%
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
+| 05-campus-buildings | 1 | 3 min | 3.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-04 (4 min), 04-01 (2 min), 04-02 (2 min), 04-03 (2 min), 04-04 (4 min)
+- Last 5 plans: 04-01 (2 min), 04-02 (2 min), 04-03 (2 min), 04-04 (4 min), 05-01 (3 min)
 - Trend: Stable at ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - **Viewport culling (2026-01-31):** Calculate visible tile range from camera position, render only those tiles
 - **Camera initial centering (2026-01-31):** Center camera on player at Game initialization for smooth start
 - **G key toggle (2026-01-31):** Skip toggle when focused on input/textarea elements
+- **LAB_BENCH rename (2026-01-31):** Changed BENCH to LAB_BENCH in World.TILES to distinguish from park bench decorations
+- **Player spawn at gate (2026-01-31):** Spawn point (20, 26) places player just inside entrance gate for "arriving" feel
+- **Path hierarchy (2026-01-31):** COBBLE for main quad paths, PATH for secondary routes to building areas
 
 ### Pending Todos
 
@@ -91,9 +95,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 12:47 UTC
-Stopped at: Completed 04-04-PLAN.md (Game Integration) - Phase 4 complete
-Resume file: None - ready for Phase 5 planning
+Last session: 2026-01-31 17:23 UTC
+Stopped at: Completed 05-01-PLAN.md (Campus Layout Redesign)
+Resume file: None - ready for 05-02-PLAN.md
 
 ## User Feedback (03-04)
 
