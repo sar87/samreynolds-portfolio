@@ -69,10 +69,13 @@ Plans:
   5. Research section displays topics and descriptions
   6. Website layout is mobile responsive (readable and navigable on phone)
   7. Website renders correctly on desktop browsers (Chrome, Firefox, Safari)
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 03-01: TBD during phase planning
+- [ ] 03-01-PLAN.md - Foundation: Design system, TypeScript types, hash router
+- [ ] 03-02-PLAN.md - Components: Header, Section, and Card components
+- [ ] 03-03-PLAN.md - Pages: HomePage and detail pages
+- [ ] 03-04-PLAN.md - Integration and visual verification
 
 ### Phase 4: Core Game Engine
 **Goal**: Player can move around a simple test map with smooth camera and collision detection
@@ -167,7 +170,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
 | 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
-| 3. Website Mode | 0/? | Not started | - |
+| 3. Website Mode | 0/4 | Planned | - |
 | 4. Core Game Engine | 0/? | Not started | - |
 | 5. Campus & Buildings | 0/? | Not started | - |
 | 6. Interactions & Content Integration | 0/? | Not started | - |
