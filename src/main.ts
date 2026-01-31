@@ -2,9 +2,13 @@
 import './styles/variables.css';
 import './styles/global.css';
 import './styles/utilities.css';
+import './styles/game.css';
 
 // Import router and pages
 import { router } from './lib/router';
+
+// Import game
+import { Game } from './game/Game';
 import { renderHeader, initMobileNav } from './components/Header/Header';
 import { renderHomePage } from './pages/HomePage';
 import { renderPublicationDetail } from './pages/PublicationDetail';
@@ -60,6 +64,78 @@ router.add('/talk/:id', async (params) => {
 router.add('/media/:id', async (params) => {
   saveScrollPosition();
   await render(renderMediaDetail(params.id));
+});
+
+// Game mode state
+let game: Game | null = null;
+
+/**
+ * Enter game mode - hide website, show game canvas
+ */
+function enterGameMode(): void {
+  // Hide website content
+  const content = document.getElementById('content');
+  if (content) content.style.display = 'none';
+
+  // Hide header
+  const header = document.querySelector('header');
+  if (header) (header as HTMLElement).style.display = 'none';
+
+  // Create game container
+  let container = document.getElementById('game-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'game-container';
+    document.body.appendChild(container);
+  }
+
+  // Start game
+  game = new Game(container);
+  game.start();
+}
+
+/**
+ * Exit game mode - destroy game, restore website
+ */
+function exitGameMode(): void {
+  if (game) {
+    game.destroy();
+    game = null;
+  }
+
+  // Remove game container
+  const container = document.getElementById('game-container');
+  if (container) container.remove();
+
+  // Show website content
+  const content = document.getElementById('content');
+  if (content) content.style.display = '';
+
+  // Show header
+  const header = document.querySelector('header');
+  if (header) (header as HTMLElement).style.display = '';
+}
+
+// Game mode route
+router.add('/game', async () => {
+  enterGameMode();
+});
+
+// Keyboard shortcut for game mode toggle (G key)
+document.addEventListener('keydown', (e) => {
+  // Only toggle on G key when not typing in input/textarea
+  if (
+    (e.key === 'g' || e.key === 'G') &&
+    !(e.target instanceof HTMLInputElement) &&
+    !(e.target instanceof HTMLTextAreaElement)
+  ) {
+    if (game) {
+      exitGameMode();
+      router.navigate('/');
+    } else {
+      router.navigate('/game');
+    }
+  }
 });
 
 // Handle anchor navigation on home page
