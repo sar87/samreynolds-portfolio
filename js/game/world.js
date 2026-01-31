@@ -63,30 +63,42 @@ const World = {
     },
 
     // Building definitions with entry points
+    // 5 buildings around central quad: 4 traditional (gothic), 1 modern
     buildings: {
-        office: {
-            name: "Sam's Office",
+        pembroke: {
+            name: "Pembroke College",
             contentKey: 'about',
-            entrance: { x: 8, y: 12 },
-            tiles: { x: 6, y: 9, w: 5, h: 4 }
+            entrance: { x: 9, y: 15 },
+            tiles: { x: 5, y: 11, w: 6, h: 5 },
+            style: 'traditional'
         },
         library: {
-            name: "King's College Library",
+            name: "University Library",
             contentKey: 'publications',
-            entrance: { x: 20, y: 18 },
-            tiles: { x: 17, y: 14, w: 7, h: 5 }
-        },
-        lectureHall: {
-            name: "Senate House",
-            contentKey: 'media',
-            entrance: { x: 32, y: 12 },
-            tiles: { x: 29, y: 9, w: 6, h: 4 }
+            entrance: { x: 20, y: 8 },
+            tiles: { x: 16, y: 4, w: 9, h: 5 },  // Largest building
+            style: 'traditional'
         },
         lab: {
             name: "Research Lab",
             contentKey: 'research',
-            entrance: { x: 20, y: 7 },
-            tiles: { x: 17, y: 4, w: 7, h: 4 }
+            entrance: { x: 32, y: 10 },
+            tiles: { x: 28, y: 6, w: 7, h: 5 },
+            style: 'modern'  // Only modern building
+        },
+        station: {
+            name: "TV Station",
+            contentKey: 'media',
+            entrance: { x: 32, y: 18 },
+            tiles: { x: 28, y: 14, w: 6, h: 5 },
+            style: 'traditional'
+        },
+        theatre: {
+            name: "Lecture Theatre",
+            contentKey: 'talks',
+            entrance: { x: 9, y: 23 },
+            tiles: { x: 5, y: 19, w: 6, h: 5 },
+            style: 'traditional'
         }
     },
 
@@ -346,11 +358,14 @@ const World = {
     },
 
     // Generate interior maps for each building
+    // Note: Interior maps will be fully implemented in Plans 04-05 (Wave 3)
+    // These are placeholder stubs to prevent errors during building exterior testing
     generateInteriorMaps() {
-        this.interiorMaps.office = this.generateOfficeInterior();
+        this.interiorMaps.pembroke = this.generateOfficeInterior();      // Pembroke = old office
         this.interiorMaps.library = this.generateLibraryInterior();
-        this.interiorMaps.lectureHall = this.generateLectureHallInterior();
+        this.interiorMaps.station = this.generateLectureHallInterior();  // Station = old lectureHall
         this.interiorMaps.lab = this.generateLabInterior();
+        this.interiorMaps.theatre = this.generateTheatreInterior();      // New
     },
 
     // Generate office interior
@@ -404,7 +419,7 @@ const World = {
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
-            name: "Sam's Office",
+            name: "Pembroke College",
             width: w,
             height: h,
             spawn: { x: Math.floor(w / 2), y: h - 2 },
@@ -470,7 +485,7 @@ const World = {
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
-            name: "King's College Library",
+            name: "University Library",
             width: w,
             height: h,
             spawn: { x: Math.floor(w / 2), y: h - 2 },
@@ -478,7 +493,7 @@ const World = {
         };
     },
 
-    // Generate lecture hall interior
+    // Generate TV station interior (repurposed lecture hall)
     generateLectureHallInterior() {
         const T = this.TILES;
         const w = 14;
@@ -532,7 +547,7 @@ const World = {
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
-            name: "Senate House - Lecture Hall",
+            name: "TV Station",
             width: w,
             height: h,
             spawn: { x: Math.floor(w / 2), y: h - 2 },
@@ -601,6 +616,57 @@ const World = {
 
         return {
             name: "Research Lab",
+            width: w,
+            height: h,
+            spawn: { x: Math.floor(w / 2), y: h - 2 },
+            layers: { ground, objects, collision, interact }
+        };
+    },
+
+    // Generate theatre interior (placeholder - will be expanded in Plans 04-05)
+    generateTheatreInterior() {
+        const T = this.TILES;
+        const w = 14;
+        const h = 12;
+
+        const ground = new Array(w * h).fill(T.WOOD_FLOOR);
+        const objects = new Array(w * h).fill(-1);
+        const collision = new Array(w * h).fill(0);
+        const interact = new Array(w * h).fill(null);
+
+        // Walls
+        for (let x = 0; x < w; x++) {
+            objects[x] = T.INT_WALL;
+            collision[x] = 1;
+        }
+        for (let y = 0; y < h; y++) {
+            collision[y * w] = 1;
+            collision[y * w + (w - 1)] = 1;
+        }
+
+        // Podium/stage at front
+        objects[2 * w + 6] = T.PODIUM;
+        collision[2 * w + 6] = 1;
+        objects[2 * w + 7] = T.PODIUM;
+        collision[2 * w + 7] = 1;
+        interact[3 * w + 6] = { type: 'talk', index: 0 };
+        interact[3 * w + 7] = { type: 'talk', index: 0 };
+
+        // Rows of chairs (audience seating)
+        for (let row = 0; row < 4; row++) {
+            for (let x = 3; x < 11; x += 2) {
+                const y = 5 + row * 2;
+                objects[y * w + x] = T.CHAIR;
+                collision[y * w + x] = 1;
+                interact[y * w + x + 1] = { type: 'talk', index: row + 1 };
+            }
+        }
+
+        // Exit
+        interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
+
+        return {
+            name: "Lecture Theatre",
             width: w,
             height: h,
             spawn: { x: Math.floor(w / 2), y: h - 2 },
