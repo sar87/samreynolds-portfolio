@@ -82,10 +82,11 @@ const World = {
     },
 
     // Generate the main campus map
+    // Redesigned for Phase 5: central quad, entrance gate, no river, tree boundaries
     generateCampusMap() {
         const T = this.TILES;
-        const w = this.width;
-        const h = this.height;
+        const w = this.width;  // 40
+        const h = this.height; // 30
 
         // Initialize layers
         const ground = new Array(w * h).fill(T.GRASS);
@@ -103,59 +104,176 @@ const World = {
             if (interactData) interact[idx] = interactData;
         };
 
-        // Draw paths
-        // Main horizontal path
-        for (let x = 0; x < w; x++) {
-            setTile(x, 13, T.PATH);
-            setTile(x, 14, T.PATH);
+        // Helper to place a tree (trunk + top)
+        const placeTree = (x, y) => {
+            if (y > 0) {
+                setTile(x, y, T.GRASS, T.TREE, true);
+                setTile(x, y - 1, null, T.TREE_TOP, true);
+            }
+        };
+
+        // ============================================
+        // 1. NATURAL TREE BOUNDARY AT EDGES
+        // ============================================
+
+        // Dense tree line at left edge (where river was removed)
+        for (let y = 2; y < h - 1; y += 2) {
+            placeTree(0, y);
+            placeTree(1, y + 1);
+            if (y % 4 === 2) placeTree(2, y);
         }
 
-        // Vertical paths
-        for (let y = 5; y < 25; y++) {
-            setTile(8, y, T.PATH);
-            setTile(20, y, T.PATH);
-            setTile(32, y, T.PATH);
+        // Dense tree line at right edge
+        for (let y = 2; y < h - 1; y += 2) {
+            placeTree(39, y);
+            placeTree(38, y + 1);
+            if (y % 4 === 2) placeTree(37, y);
         }
 
-        // River Cam (left side)
-        for (let y = 0; y < h; y++) {
-            setTile(0, y, T.WATER, -1, true);
-            setTile(1, y, T.WATER, -1, true);
-            setTile(2, y, T.WATER, -1, true);
+        // Tree line at top edge
+        for (let x = 3; x < w - 3; x += 2) {
+            if (x < 15 || x > 25) { // Leave gap for building area
+                placeTree(x, 2);
+            }
         }
 
-        // Decorative flowers
+        // Tree line at bottom edges (leave gap for entrance)
+        for (let x = 1; x < 16; x += 2) {
+            placeTree(x, 29);
+        }
+        for (let x = 24; x < w - 1; x += 2) {
+            placeTree(x, 29);
+        }
+
+        // ============================================
+        // 2. COBBLESTONE PATHS - CROSS PATTERN THROUGH QUAD
+        // ============================================
+
+        // Main vertical path from entrance (bottom) through center to top
+        for (let y = 4; y < h; y++) {
+            setTile(19, y, T.COBBLE);
+            setTile(20, y, T.COBBLE);
+        }
+
+        // Main horizontal path through quad center
+        for (let x = 5; x < w - 5; x++) {
+            setTile(x, 14, T.COBBLE);
+            setTile(x, 15, T.COBBLE);
+        }
+
+        // Secondary path on left side (to Theatre/Pembroke areas)
+        for (let y = 8; y < 22; y++) {
+            setTile(10, y, T.PATH);
+        }
+
+        // Secondary path on right side (to Lab/Station areas)
+        for (let y = 8; y < 22; y++) {
+            setTile(30, y, T.PATH);
+        }
+
+        // ============================================
+        // 3. ENTRANCE GATE AT BOTTOM CENTER
+        // ============================================
+
+        // Gate structure (x:18-21, y:27-28)
+        setTile(18, 27, T.GRASS, T.GATE, true);
+        setTile(21, 27, T.GRASS, T.GATE, true);
+        // Gate pillars block, but the path through is open
+
+        // Path leading from gate
+        setTile(19, 27, T.COBBLE);
+        setTile(20, 27, T.COBBLE);
+        setTile(19, 28, T.COBBLE);
+        setTile(20, 28, T.COBBLE);
+
+        // Welcome sign near entrance
+        setTile(22, 25, T.GRASS, T.SIGN, true, {
+            type: 'sign',
+            text: "Welcome to Cambridge! Explore the campus to learn about Sam's work. Enter buildings to discover more."
+        });
+
+        // ============================================
+        // 4. DECORATIVE ELEMENTS - LIVED-IN FEEL
+        // ============================================
+
+        // Lampposts along main paths (6-8 total)
+        const lamppostPositions = [
+            [17, 10], [22, 10],    // Upper quad
+            [17, 18], [22, 18],    // Lower quad
+            [8, 14], [32, 14],     // Horizontal path ends
+            [19, 24], [20, 24]     // Near entrance
+        ];
+        lamppostPositions.forEach(([x, y]) => {
+            setTile(x, y, T.GRASS, T.LAMPPOST, true);
+        });
+
+        // Benches around the quad (3-4 sets)
+        // Each bench is 2 tiles: BENCH_LEFT + BENCH_RIGHT
+        // Bench 1: Left side of quad
+        setTile(13, 12, T.GRASS, T.BENCH_LEFT, true);
+        setTile(14, 12, T.GRASS, T.BENCH_RIGHT, true);
+
+        // Bench 2: Right side of quad
+        setTile(25, 12, T.GRASS, T.BENCH_LEFT, true);
+        setTile(26, 12, T.GRASS, T.BENCH_RIGHT, true);
+
+        // Bench 3: Lower quad left
+        setTile(13, 17, T.GRASS, T.BENCH_LEFT, true);
+        setTile(14, 17, T.GRASS, T.BENCH_RIGHT, true);
+
+        // Bench 4: Lower quad right
+        setTile(25, 17, T.GRASS, T.BENCH_LEFT, true);
+        setTile(26, 17, T.GRASS, T.BENCH_RIGHT, true);
+
+        // Flower clusters near benches and building entrances
         const flowerPositions = [
-            [5, 16], [6, 17], [10, 5], [11, 6], [24, 20], [25, 21],
-            [35, 16], [36, 17], [14, 10], [15, 11], [26, 10], [27, 11]
+            // Near benches
+            [12, 11], [15, 11], [24, 11], [27, 11],
+            [12, 18], [15, 18], [24, 18], [27, 18],
+            // Near building plot areas
+            [7, 8], [8, 8], [7, 19], [8, 19],       // Left side
+            [31, 8], [32, 8], [31, 19], [32, 19],   // Right side
+            // Scattered in quad
+            [16, 13], [23, 13], [16, 16], [23, 16]
         ];
         flowerPositions.forEach(([x, y]) => setTile(x, y, T.FLOWER));
 
-        // Trees
-        const treePositions = [
-            [4, 4], [4, 20], [4, 25], [12, 4], [12, 20], [12, 25],
-            [24, 4], [24, 24], [28, 20], [36, 4], [36, 20], [36, 25],
-            [14, 17], [26, 17], [38, 10], [38, 16]
+        // Scattered trees inside campus for shade/variety
+        const interiorTrees = [
+            [6, 12], [34, 12],  // Near edges
+            [6, 20], [34, 20],  // Lower area
+            [15, 6], [25, 6],   // Upper quad area
         ];
-        treePositions.forEach(([x, y]) => {
-            setTile(x, y, T.GRASS, T.TREE, true);
-            setTile(x, y - 1, null, T.TREE_TOP, true);
-        });
+        interiorTrees.forEach(([x, y]) => placeTree(x, y));
 
-        // Build buildings
-        this.buildBuilding(ground, objects, collision, interact, 'office', 6, 9, 5, 4, "Sam's Office");
-        this.buildBuilding(ground, objects, collision, interact, 'library', 17, 14, 7, 5, "Library");
-        this.buildBuilding(ground, objects, collision, interact, 'lectureHall', 29, 9, 6, 4, "Lecture Hall");
-        this.buildBuilding(ground, objects, collision, interact, 'lab', 17, 4, 7, 4, "Research Lab");
+        // ============================================
+        // 5. BUILDING PLOT AREAS (reserved for Plan 03)
+        // ============================================
+        // Buildings will be placed in 05-03-PLAN.md
+        // For now, just grass where buildings will go:
+        //
+        // Pembroke College: left side (x:5-10, y:10-14)
+        // Library: top of quad (x:16-24, y:4-8) - larger
+        // Lab: right side near top (x:28-35, y:5-9) - modern
+        // TV Station: right side middle (x:28-34, y:12-16)
+        // Theatre: bottom left (x:5-12, y:18-22)
+        //
+        // (No building code here - just documenting reserved areas)
 
-        // Add signs near buildings
-        setTile(7, 13, T.GRASS, T.SIGN, true, { type: 'sign', text: "Sam's Office - About Me", building: 'office' });
-        setTile(19, 19, T.GRASS, T.SIGN, true, { type: 'sign', text: "King's College Library - Publications", building: 'library' });
-        setTile(31, 13, T.GRASS, T.SIGN, true, { type: 'sign', text: "Senate House - Media & Talks", building: 'lectureHall' });
-        setTile(19, 8, T.GRASS, T.SIGN, true, { type: 'sign', text: "Research Lab - Current Projects", building: 'lab' });
+        // ============================================
+        // OLD BUILDING PLACEMENTS (commented out for reference)
+        // Buildings will be rebuilt in Plan 03 with new designs
+        // ============================================
+        // this.buildBuilding(ground, objects, collision, interact, 'office', 6, 9, 5, 4, "Sam's Office");
+        // this.buildBuilding(ground, objects, collision, interact, 'library', 17, 14, 7, 5, "Library");
+        // this.buildBuilding(ground, objects, collision, interact, 'lectureHall', 29, 9, 6, 4, "Lecture Hall");
+        // this.buildBuilding(ground, objects, collision, interact, 'lab', 17, 4, 7, 4, "Research Lab");
 
-        // Welcome sign at spawn
-        setTile(20, 22, T.GRASS, T.SIGN, true, { type: 'sign', text: "Welcome to Cambridge! Explore the campus to learn about Sam's work. Enter buildings to discover more." });
+        // OLD SIGNS (commented out - will be recreated with new building positions)
+        // setTile(7, 13, T.GRASS, T.SIGN, true, { type: 'sign', text: "Sam's Office - About Me", building: 'office' });
+        // setTile(19, 19, T.GRASS, T.SIGN, true, { type: 'sign', text: "King's College Library - Publications", building: 'library' });
+        // setTile(31, 13, T.GRASS, T.SIGN, true, { type: 'sign', text: "Senate House - Media & Talks", building: 'lectureHall' });
+        // setTile(19, 8, T.GRASS, T.SIGN, true, { type: 'sign', text: "Research Lab - Current Projects", building: 'lab' });
 
         this.campusMap = {
             width: w,
