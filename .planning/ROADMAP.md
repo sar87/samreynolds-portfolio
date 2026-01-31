@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation & Asset Selection** - Legal sprite licensing and development setup
 - [x] **Phase 2: Content Data Layer** - Structured JSON content for all academic material
 - [x] **Phase 3: Website Mode** - Traditional academic portfolio layout
-- [ ] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
+- [x] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
 - [ ] **Phase 5: Campus & Buildings** - Cambridge map design and building interiors
 - [ ] **Phase 6: Interactions & Content Integration** - Connect game objects to academic content
 - [ ] **Phase 7: Landing & Mode Switching** - Splash screen and seamless mode transitions
@@ -90,10 +90,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 04-01-PLAN.md - Core systems: GameLoop, Input, Camera
-- [ ] 04-02-PLAN.md - Map and collision: TileMap, Collision, test map data
-- [ ] 04-03-PLAN.md - Player and Renderer with viewport culling
-- [ ] 04-04-PLAN.md - Game integration and verification
+- [x] 04-01-PLAN.md - Core systems: GameLoop, Input, Camera
+- [x] 04-02-PLAN.md - Map and collision: TileMap, Collision, test map data
+- [x] 04-03-PLAN.md - Player and Renderer with viewport culling
+- [x] 04-04-PLAN.md - Game integration and verification
 
 ### Phase 5: Campus & Buildings
 **Goal**: Complete Cambridge campus map with five explorable building interiors
@@ -174,7 +174,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
 | 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
 | 3. Website Mode | 4/4 | Complete | 2026-01-31 |
-| 4. Core Game Engine | 0/4 | Planned | - |
+| 4. Core Game Engine | 4/4 | Complete | 2026-01-31 |
 | 5. Campus & Buildings | 0/? | Not started | - |
 | 6. Interactions & Content Integration | 0/? | Not started | - |
 | 7. Landing & Mode Switching | 0/? | Not started | - |

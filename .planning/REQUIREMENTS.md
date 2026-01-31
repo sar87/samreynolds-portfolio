@@ -16,12 +16,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Game Navigation
 
-- [ ] **NAV-01**: Player can move with arrow keys / WASD
+- [x] **NAV-01**: Player can move with arrow keys / WASD
 - [ ] **NAV-02**: Player can move with touch D-pad on mobile
-- [ ] **NAV-03**: Collision detection prevents walking through walls/objects
+- [x] **NAV-03**: Collision detection prevents walking through walls/objects
 - [ ] **NAV-04**: Player can enter buildings by walking to doors
 - [ ] **NAV-05**: Player can exit buildings to return to campus
-- [ ] **NAV-06**: Camera smoothly follows player movement
+- [x] **NAV-06**: Camera smoothly follows player movement
 - [ ] **NAV-07**: Character displays walk cycle animation when moving
 
 ### Game Interactions
@@ -47,7 +47,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Visual Style
 
 - [ ] **VIS-01**: Consistent LPC/Kenney pixel art style throughout
-- [ ] **VIS-02**: 16x16 tile-based rendering with appropriate scale
+- [x] **VIS-02**: 32x32 tile-based rendering at 2x scale (LPC standard)
 - [ ] **VIS-03**: Player character sprite with 4 directional walk cycles
 - [ ] **VIS-04**: Animated environment elements (water ripples, tree sway)
 - [ ] **VIS-05**: Interactive objects visually distinct from background
@@ -129,12 +129,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LAND-02 | Phase 7 | Pending |
 | LAND-03 | Phase 7 | Pending |
 | LAND-04 | Phase 7 | Pending |
-| NAV-01 | Phase 4 | Pending |
+| NAV-01 | Phase 4 | Complete |
 | NAV-02 | Phase 8 | Pending |
-| NAV-03 | Phase 4 | Pending |
+| NAV-03 | Phase 4 | Complete |
 | NAV-04 | Phase 5 | Pending |
 | NAV-05 | Phase 5 | Pending |
-| NAV-06 | Phase 4 | Pending |
+| NAV-06 | Phase 4 | Complete |
 | NAV-07 | Phase 8 | Pending |
 | INT-01 | Phase 6 | Pending |
 | INT-02 | Phase 6 | Pending |
@@ -151,7 +151,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MAP-07 | Phase 5 | Pending |
 | MAP-08 | Phase 5 | Pending |
 | VIS-01 | Phase 1 | Complete |
-| VIS-02 | Phase 4 | Pending |
+| VIS-02 | Phase 4 | Complete |
 | VIS-03 | Phase 8 | Pending |
 | VIS-04 | Phase 8 | Pending |
 | VIS-05 | Phase 8 | Pending |
