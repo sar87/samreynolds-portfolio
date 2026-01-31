@@ -501,7 +501,7 @@ const World = {
     generateInteriorMaps() {
         this.interiorMaps.pembroke = this.generatePembrokeInterior();
         this.interiorMaps.library = this.generateLibraryInterior();
-        this.interiorMaps.station = this.generateLectureHallInterior();
+        this.interiorMaps.station = this.generateStationInterior();
         this.interiorMaps.lab = this.generateLabInterior();
         this.interiorMaps.theatre = this.generateTheatreInterior();
     },
@@ -770,57 +770,97 @@ const World = {
         };
     },
 
-    // Generate TV station interior (repurposed lecture hall)
-    generateLectureHallInterior() {
+    // Generate TV Station interior (broadcast studio)
+    // 14x10 tiles - control desk, screens, microphones, spotlights
+    generateStationInterior() {
         const T = this.TILES;
         const w = 14;
-        const h = 12;
+        const h = 10;
 
         const ground = new Array(w * h).fill(T.WOOD_FLOOR);
         const objects = new Array(w * h).fill(-1);
         const collision = new Array(w * h).fill(0);
         const interact = new Array(w * h).fill(null);
 
-        // Walls
+        // ============================================
+        // 1. PERIMETER WALLS
+        // ============================================
+
+        // Top wall with interior wall tiles
         for (let x = 0; x < w; x++) {
             objects[x] = T.INT_WALL;
             collision[x] = 1;
         }
+
+        // Side walls (collision)
         for (let y = 0; y < h; y++) {
             collision[y * w] = 1;
             collision[y * w + (w - 1)] = 1;
         }
 
-        // Podium at front
-        objects[2 * w + 6] = T.PODIUM;
-        collision[2 * w + 6] = 1;
-        objects[2 * w + 7] = T.PODIUM;
-        collision[2 * w + 7] = 1;
-        interact[3 * w + 6] = { type: 'media', index: 0 };
-        interact[3 * w + 7] = { type: 'media', index: 0 };
-
-        // Screen (window repurposed)
-        objects[1 * w + 5] = T.WINDOW;
-        collision[1 * w + 5] = 1;
-        objects[1 * w + 6] = T.WINDOW;
-        collision[1 * w + 6] = 1;
-        objects[1 * w + 7] = T.WINDOW;
-        collision[1 * w + 7] = 1;
-        objects[1 * w + 8] = T.WINDOW;
-        collision[1 * w + 8] = 1;
-
-        // Rows of chairs
-        for (let row = 0; row < 4; row++) {
-            for (let x = 3; x < 11; x += 2) {
-                const y = 5 + row * 2;
-                objects[y * w + x] = T.CHAIR;
-                collision[y * w + x] = 1;
-                // Each row of seats links to different media item
-                interact[y * w + x + 1] = { type: 'media', index: row + 1 };
+        // Bottom wall collision (except exit)
+        for (let x = 0; x < w; x++) {
+            if (x !== Math.floor(w / 2)) {
+                collision[(h - 1) * w + x] = 1;
             }
         }
 
-        // Exit
+        // ============================================
+        // 2. BROADCASTING CONTROL AREA (top section)
+        // ============================================
+
+        // Control desk (broadcasting console)
+        objects[1 * w + 3] = T.CONTROL_DESK;
+        collision[1 * w + 3] = 1;
+        objects[1 * w + 4] = T.CONTROL_DESK;
+        collision[1 * w + 4] = 1;
+        objects[1 * w + 5] = T.CONTROL_DESK;
+        collision[1 * w + 5] = 1;
+        interact[2 * w + 4] = { type: 'media', index: 0 };
+
+        // Monitor screens on wall
+        objects[1 * w + 8] = T.SCREEN;
+        collision[1 * w + 8] = 1;
+        objects[1 * w + 9] = T.SCREEN;
+        collision[1 * w + 9] = 1;
+        objects[1 * w + 10] = T.SCREEN;
+        collision[1 * w + 10] = 1;
+        interact[2 * w + 9] = { type: 'media', index: 1 };
+
+        // ============================================
+        // 3. INTERVIEW/RECORDING AREA (middle)
+        // ============================================
+
+        // Microphones for interview setup
+        objects[4 * w + 5] = T.MICROPHONE;
+        collision[4 * w + 5] = 1;
+        objects[4 * w + 8] = T.MICROPHONE;
+        collision[4 * w + 8] = 1;
+        interact[5 * w + 5] = { type: 'media', index: 2 };
+        interact[5 * w + 8] = { type: 'media', index: 2 };
+
+        // Chairs for interview
+        objects[5 * w + 4] = T.CHAIR;
+        objects[5 * w + 9] = T.CHAIR;
+
+        // ============================================
+        // 4. STUDIO LIGHTING
+        // ============================================
+
+        // Spotlights for studio lighting
+        objects[3 * w + 2] = T.SPOTLIGHT;
+        collision[3 * w + 2] = 1;
+        objects[3 * w + 11] = T.SPOTLIGHT;
+        collision[3 * w + 11] = 1;
+
+        // Additional media interaction zones
+        interact[6 * w + 6] = { type: 'media', index: 3 };
+        interact[6 * w + 7] = { type: 'media', index: 4 };
+
+        // ============================================
+        // 5. EXIT AT BOTTOM CENTER
+        // ============================================
+
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
@@ -986,10 +1026,11 @@ const World = {
         };
     },
 
-    // Generate theatre interior (placeholder - will be expanded in Plans 04-05)
+    // Generate Lecture Theatre interior (lecture hall/stage setup)
+    // 16x12 tiles - stage with curtain, podium, screen, audience seating
     generateTheatreInterior() {
         const T = this.TILES;
-        const w = 14;
+        const w = 16;
         const h = 12;
 
         const ground = new Array(w * h).fill(T.WOOD_FLOOR);
@@ -997,35 +1038,113 @@ const World = {
         const collision = new Array(w * h).fill(0);
         const interact = new Array(w * h).fill(null);
 
-        // Walls
+        // ============================================
+        // 1. PERIMETER WALLS
+        // ============================================
+
+        // Top wall with interior wall tiles
         for (let x = 0; x < w; x++) {
             objects[x] = T.INT_WALL;
             collision[x] = 1;
         }
+
+        // Side walls (collision)
         for (let y = 0; y < h; y++) {
             collision[y * w] = 1;
             collision[y * w + (w - 1)] = 1;
         }
 
-        // Podium/stage at front
-        objects[2 * w + 6] = T.PODIUM;
-        collision[2 * w + 6] = 1;
-        objects[2 * w + 7] = T.PODIUM;
-        collision[2 * w + 7] = 1;
-        interact[3 * w + 6] = { type: 'talk', index: 0 };
-        interact[3 * w + 7] = { type: 'talk', index: 0 };
-
-        // Rows of chairs (audience seating)
-        for (let row = 0; row < 4; row++) {
-            for (let x = 3; x < 11; x += 2) {
-                const y = 5 + row * 2;
-                objects[y * w + x] = T.CHAIR;
-                collision[y * w + x] = 1;
-                interact[y * w + x + 1] = { type: 'talk', index: row + 1 };
+        // Bottom wall collision (except exit)
+        for (let x = 0; x < w; x++) {
+            if (x !== Math.floor(w / 2)) {
+                collision[(h - 1) * w + x] = 1;
             }
         }
 
-        // Exit
+        // ============================================
+        // 2. STAGE AREA (top section)
+        // ============================================
+
+        // Stage curtain along top (behind stage)
+        for (let x = 3; x <= 12; x++) {
+            objects[1 * w + x] = T.STAGE_CURTAIN;
+            collision[1 * w + x] = 1;
+        }
+
+        // Presentation screen behind podium
+        objects[1 * w + 6] = T.SCREEN;
+        collision[1 * w + 6] = 1;
+        objects[1 * w + 7] = T.SCREEN;
+        collision[1 * w + 7] = 1;
+        objects[1 * w + 8] = T.SCREEN;
+        collision[1 * w + 8] = 1;
+        objects[1 * w + 9] = T.SCREEN;
+        collision[1 * w + 9] = 1;
+
+        // Podium at center stage
+        objects[2 * w + 7] = T.PODIUM;
+        collision[2 * w + 7] = 1;
+        objects[2 * w + 8] = T.PODIUM;
+        collision[2 * w + 8] = 1;
+        interact[3 * w + 7] = { type: 'talks', index: 0 };
+        interact[3 * w + 8] = { type: 'talks', index: 0 };
+
+        // ============================================
+        // 3. STAGE LIGHTING
+        // ============================================
+
+        // Spotlights above stage
+        objects[2 * w + 3] = T.SPOTLIGHT;
+        collision[2 * w + 3] = 1;
+        objects[2 * w + 12] = T.SPOTLIGHT;
+        collision[2 * w + 12] = 1;
+
+        // ============================================
+        // 4. AUDIENCE SEATING (5 rows)
+        // ============================================
+
+        // Row 1 (closest to stage)
+        for (let x = 4; x <= 11; x += 2) {
+            objects[4 * w + x] = T.CHAIR;
+            collision[4 * w + x] = 1;
+        }
+        interact[4 * w + 5] = { type: 'talks', index: 1 };
+        interact[4 * w + 9] = { type: 'talks', index: 1 };
+
+        // Row 2
+        for (let x = 3; x <= 12; x += 2) {
+            objects[5 * w + x] = T.CHAIR;
+            collision[5 * w + x] = 1;
+        }
+        interact[5 * w + 6] = { type: 'talks', index: 2 };
+        interact[5 * w + 10] = { type: 'talks', index: 2 };
+
+        // Row 3
+        for (let x = 4; x <= 11; x += 2) {
+            objects[6 * w + x] = T.CHAIR;
+            collision[6 * w + x] = 1;
+        }
+        interact[6 * w + 5] = { type: 'talks', index: 3 };
+        interact[6 * w + 9] = { type: 'talks', index: 3 };
+
+        // Row 4
+        for (let x = 3; x <= 12; x += 2) {
+            objects[7 * w + x] = T.CHAIR;
+            collision[7 * w + x] = 1;
+        }
+        interact[7 * w + 6] = { type: 'talks', index: 4 };
+        interact[7 * w + 10] = { type: 'talks', index: 4 };
+
+        // Row 5 (back row)
+        for (let x = 4; x <= 11; x += 2) {
+            objects[8 * w + x] = T.CHAIR;
+            collision[8 * w + x] = 1;
+        }
+
+        // ============================================
+        // 5. EXIT AT BOTTOM CENTER
+        // ============================================
+
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {

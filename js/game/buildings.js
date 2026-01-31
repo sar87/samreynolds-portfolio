@@ -64,6 +64,7 @@ const Buildings = {
                 case 'media':
                 case 'research':
                 case 'talk':
+                case 'talks':
                     promptText = isMobile ? 'Tap A to examine' : 'Press ENTER to examine';
                     break;
             }
@@ -124,6 +125,10 @@ const Buildings = {
 
             case 'talk':
                 this.showTalkContent(interaction.index);
+                return { action: 'dialog' };
+
+            case 'talks':
+                this.showTalksContent(interaction.index);
                 return { action: 'dialog' };
         }
 
@@ -199,7 +204,7 @@ const Buildings = {
         }
     },
 
-    // Show talk content (from talks data)
+    // Show talk content (from talks data - legacy singular type)
     showTalkContent(index) {
         const talks = SITE_CONTENT.talks;
         if (talks && index >= 0 && index < talks.length) {
@@ -212,6 +217,24 @@ const Buildings = {
             this.showDialog('Talk', html, true);
         } else {
             this.showDialog('Lecture Theatre', 'The stage is set for academic presentations and guest lectures.');
+        }
+    },
+
+    // Show talks content (Theatre interior - plural type)
+    // Uses SITE_CONTENT.talks or falls back to media for talk-type items
+    showTalksContent(index) {
+        const talks = SITE_CONTENT.talks || SITE_CONTENT.media;
+        if (index >= 0 && index < talks.length) {
+            const item = talks[index];
+            const html = `
+                <p><strong>${item.title}</strong></p>
+                <p><span style="text-transform: uppercase; font-size: 0.8em;">${item.type || 'TALK'}</span> at ${item.venue}</p>
+                <p>${item.description}</p>
+                <p><em>${item.date || item.year}</em></p>
+            `;
+            this.showDialog('Talk', html, true);
+        } else {
+            this.showDialog('Lecture Theatre', 'The theatre hosts talks on AI, conservation, and technology.');
         }
     },
 
