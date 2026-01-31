@@ -1,0 +1,98 @@
+/**
+ * Card Styles
+ *
+ * Publication, Talk, and Media cards with Linear.app aesthetic.
+ * Responsive grid layout with hover states.
+ * Uses CSS custom properties from variables.css
+ */
+
+/* Responsive card grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+  gap: var(--card-gap);
+}
+
+/* Base card styles */
+.card {
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+}
+
+/* Focus-visible on card when link is focused */
+.card:has(.cardLink:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Card link - fills entire card */
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardLink:focus-visible {
+  outline: none;
+}
+
+/* Card title */
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2);
+  line-height: 1.4;
+  /* Line clamp to prevent overflow */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Primary metadata (authors, venue) */
+.meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-1);
+  line-height: 1.5;
+}
+
+/* Secondary metadata (journal, date) */
+.secondary {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin: 0;
+}
+
+/* Type badge for media cards */
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  background: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: var(--font-size-base);
+  }
+}
