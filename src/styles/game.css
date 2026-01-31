@@ -1,0 +1,22 @@
+/**
+ * Game mode styles
+ *
+ * Fullscreen canvas container that overlays website when in game mode.
+ * z-index ensures game is above all website content.
+ */
+
+/* Game container - fullscreen overlay */
+#game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 1000;
+}
+
+/* Canvas fills container and removes default inline display */
+#game-container canvas {
+    display: block;
+}
