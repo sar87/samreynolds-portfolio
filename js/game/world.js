@@ -38,7 +38,28 @@ const World = {
         COMPUTER: 24,
         PODIUM: 25,
         LAB_BENCH: 26,
-        CHAIR: 27
+        CHAIR: 27,
+
+        // Gothic/traditional building tiles
+        GOTHIC_WINDOW: 30,
+        GOTHIC_DOOR: 31,
+        ORNATE_WALL: 32,
+        ARCHWAY: 33,
+        SPIRE_TOP: 34,
+        BATTLEMENT: 35,
+
+        // Modern building tiles
+        MODERN_WALL: 40,
+        MODERN_WINDOW: 41,
+        MODERN_DOOR: 42,
+        METAL_PANEL: 43,
+
+        // Building signs
+        SIGN_PEMBROKE: 50,
+        SIGN_LIBRARY: 51,
+        SIGN_LAB: 52,
+        SIGN_STATION: 53,
+        SIGN_THEATRE: 54
     },
 
     // Building definitions with entry points
@@ -676,7 +697,25 @@ const World = {
             [T.COMPUTER]: 'computer',
             [T.PODIUM]: 'podium',
             [T.LAB_BENCH]: 'bench',
-            [T.CHAIR]: 'chair'
+            [T.CHAIR]: 'chair',
+            // Gothic/traditional building tiles
+            [T.GOTHIC_WINDOW]: 'gothicWindow',
+            [T.GOTHIC_DOOR]: 'gothicDoor',
+            [T.ORNATE_WALL]: 'ornateWall',
+            [T.ARCHWAY]: 'archway',
+            [T.SPIRE_TOP]: 'spireTop',
+            [T.BATTLEMENT]: 'battlement',
+            // Modern building tiles
+            [T.MODERN_WALL]: 'modernWall',
+            [T.MODERN_WINDOW]: 'modernWindow',
+            [T.MODERN_DOOR]: 'modernDoor',
+            [T.METAL_PANEL]: 'metalPanel',
+            // Building signs
+            [T.SIGN_PEMBROKE]: 'signPembroke',
+            [T.SIGN_LIBRARY]: 'signLibrary',
+            [T.SIGN_LAB]: 'signLab',
+            [T.SIGN_STATION]: 'signStation',
+            [T.SIGN_THEATRE]: 'signTheatre'
         };
         return spriteMap[tileType] || null;
     }
