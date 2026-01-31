@@ -495,6 +495,167 @@ const Sprites = {
         signCtx.fillStyle = '#6b5010';
         signCtx.fillRect(2, 7, 12, 1);
         this.cache.sign = sign;
+
+        // === Gothic Architectural Sprites ===
+
+        // Gothic window - Arched window with pointed top
+        const gothicWindow = this.createCanvas(size, size);
+        const gwCtx = gothicWindow.getContext('2d');
+        gwCtx.fillStyle = c.stone;
+        gwCtx.fillRect(0, 0, size, size);
+        // Stone frame with pointed arch
+        gwCtx.fillStyle = c.windowFrame;
+        gwCtx.fillRect(2, 4, 12, 12);
+        // Pointed arch top
+        gwCtx.fillRect(3, 3, 10, 1);
+        gwCtx.fillRect(4, 2, 8, 1);
+        gwCtx.fillRect(5, 1, 6, 1);
+        gwCtx.fillRect(6, 0, 4, 1);
+        gwCtx.fillRect(7, 0, 2, 1);
+        // Glass with pointed arch shape
+        gwCtx.fillStyle = c.window;
+        gwCtx.fillRect(4, 5, 8, 10);
+        gwCtx.fillRect(5, 4, 6, 1);
+        gwCtx.fillRect(6, 3, 4, 1);
+        gwCtx.fillRect(7, 2, 2, 1);
+        // Tracery lines (gothic detail)
+        gwCtx.fillStyle = c.windowFrame;
+        gwCtx.fillRect(7, 2, 2, 13);
+        gwCtx.fillRect(4, 9, 8, 1);
+        // Decorative highlight at arch peak
+        gwCtx.fillStyle = c.stoneLight;
+        gwCtx.fillRect(7, 1, 2, 1);
+        this.cache.gothicWindow = gothicWindow;
+
+        // Gothic door - Arched doorway with pointed top
+        const gothicDoor = this.createCanvas(size, size);
+        const gdCtx = gothicDoor.getContext('2d');
+        gdCtx.fillStyle = c.stone;
+        gdCtx.fillRect(0, 0, size, size);
+        // Stone frame with pointed arch
+        gdCtx.fillStyle = c.stoneDark;
+        gdCtx.fillRect(1, 4, 14, 12);
+        gdCtx.fillRect(2, 3, 12, 1);
+        gdCtx.fillRect(3, 2, 10, 1);
+        gdCtx.fillRect(4, 1, 8, 1);
+        gdCtx.fillRect(5, 0, 6, 1);
+        // Wooden door
+        gdCtx.fillStyle = c.door;
+        gdCtx.fillRect(3, 5, 10, 11);
+        gdCtx.fillRect(4, 4, 8, 1);
+        gdCtx.fillRect(5, 3, 6, 1);
+        gdCtx.fillRect(6, 2, 4, 1);
+        // Wood grain/planks
+        gdCtx.fillStyle = '#5a3a1a';
+        gdCtx.fillRect(8, 4, 1, 12);
+        // Iron studs
+        gdCtx.fillStyle = c.ironGray;
+        gdCtx.fillRect(4, 6, 2, 2);
+        gdCtx.fillRect(10, 6, 2, 2);
+        gdCtx.fillRect(4, 11, 2, 2);
+        gdCtx.fillRect(10, 11, 2, 2);
+        // Door handle (iron ring)
+        gdCtx.fillStyle = c.ironGray;
+        gdCtx.fillRect(5, 9, 2, 2);
+        gdCtx.fillStyle = '#ffd700';
+        gdCtx.fillRect(6, 9, 1, 1);
+        this.cache.gothicDoor = gothicDoor;
+
+        // Ornate wall - Decorative stone wall with carved details
+        const ornateWall = this.createCanvas(size, size);
+        const owCtx = ornateWall.getContext('2d');
+        owCtx.fillStyle = c.stone;
+        owCtx.fillRect(0, 0, size, size);
+        // Stone pattern (like regular wall)
+        owCtx.fillStyle = c.stoneDark;
+        for (let y = 0; y < size; y += 4) {
+            for (let x = 0; x < size; x += 8) {
+                const offset = (y % 8 === 0) ? 0 : 4;
+                owCtx.fillRect(x + offset, y, 7, 3);
+            }
+        }
+        // Carved relief bands (horizontal decorative lines)
+        owCtx.fillStyle = c.ornateStone;
+        owCtx.fillRect(0, 0, size, 2);
+        owCtx.fillRect(0, 7, size, 2);
+        owCtx.fillRect(0, 14, size, 2);
+        // Decorative diamond pattern in bands
+        owCtx.fillStyle = c.stoneLight;
+        owCtx.fillRect(3, 0, 2, 2);
+        owCtx.fillRect(11, 0, 2, 2);
+        owCtx.fillRect(7, 7, 2, 2);
+        owCtx.fillRect(3, 14, 2, 2);
+        owCtx.fillRect(11, 14, 2, 2);
+        this.cache.ornateWall = ornateWall;
+
+        // Archway - Stone archway entrance
+        const archway = this.createCanvas(size, size);
+        const awCtx = archway.getContext('2d');
+        // Background (transparent/passable)
+        awCtx.fillStyle = c.grass;
+        awCtx.fillRect(0, 0, size, size);
+        // Stone pillars on sides
+        awCtx.fillStyle = c.stone;
+        awCtx.fillRect(0, 0, 4, size);
+        awCtx.fillRect(12, 0, 4, size);
+        // Arch top
+        awCtx.fillRect(0, 0, size, 4);
+        awCtx.fillRect(2, 4, 12, 2);
+        awCtx.fillRect(3, 6, 10, 1);
+        awCtx.fillRect(4, 7, 8, 1);
+        // Shadow/depth on pillars
+        awCtx.fillStyle = c.stoneDark;
+        awCtx.fillRect(3, 0, 1, size);
+        awCtx.fillRect(12, 0, 1, size);
+        // Keystone at top
+        awCtx.fillStyle = c.stoneLight;
+        awCtx.fillRect(6, 0, 4, 3);
+        awCtx.fillRect(7, 3, 2, 2);
+        this.cache.archway = archway;
+
+        // Spire top - Enhanced spire for tower tops
+        const spireTop = this.createCanvas(size, size);
+        const stCtx = spireTop.getContext('2d');
+        // Pointed spire shape
+        stCtx.fillStyle = c.stone;
+        stCtx.fillRect(6, 8, 4, 8);
+        stCtx.fillRect(5, 10, 6, 6);
+        stCtx.fillRect(4, 12, 8, 4);
+        // Narrowing toward top
+        stCtx.fillRect(7, 4, 2, 4);
+        stCtx.fillRect(7, 2, 2, 2);
+        // Cross/finial at top
+        stCtx.fillStyle = c.ironGray;
+        stCtx.fillRect(7, 0, 2, 4);
+        stCtx.fillRect(6, 1, 4, 2);
+        // Highlight
+        stCtx.fillStyle = c.stoneLight;
+        stCtx.fillRect(8, 4, 1, 4);
+        stCtx.fillRect(6, 10, 1, 6);
+        this.cache.spireTop = spireTop;
+
+        // Battlement - Crenellated wall top (castle-like)
+        const battlement = this.createCanvas(size, size);
+        const btCtx = battlement.getContext('2d');
+        // Base wall
+        btCtx.fillStyle = c.stone;
+        btCtx.fillRect(0, 8, size, 8);
+        // Crenellations (alternating high/low)
+        btCtx.fillRect(0, 0, 4, 8);
+        btCtx.fillRect(6, 4, 4, 4);
+        btCtx.fillRect(12, 0, 4, 8);
+        // Shadow for depth
+        btCtx.fillStyle = c.stoneDark;
+        btCtx.fillRect(3, 0, 1, 8);
+        btCtx.fillRect(9, 4, 1, 4);
+        btCtx.fillRect(15, 0, 1, 8);
+        btCtx.fillRect(0, 15, size, 1);
+        // Highlight
+        btCtx.fillStyle = c.stoneLight;
+        btCtx.fillRect(0, 0, 3, 1);
+        btCtx.fillRect(6, 4, 3, 1);
+        btCtx.fillRect(12, 0, 3, 1);
+        this.cache.battlement = battlement;
     },
 
     // Create interior sprites
