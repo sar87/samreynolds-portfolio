@@ -844,6 +844,229 @@ const Sprites = {
         const size = this.tileSize;
         const c = this.colors;
 
+        // ============================================
+        // LAB SPRITES (Zoology theme)
+        // ============================================
+
+        // Specimen - Glass jar with preserved specimen (blues/greens)
+        const specimen = this.createCanvas(size, size);
+        const specCtx = specimen.getContext('2d');
+        // Jar outline
+        specCtx.fillStyle = '#a8d4e6';
+        specCtx.fillRect(4, 2, 8, 12);
+        // Jar rim
+        specCtx.fillStyle = '#88b4c6';
+        specCtx.fillRect(3, 1, 10, 2);
+        specCtx.fillRect(3, 13, 10, 2);
+        // Liquid
+        specCtx.fillStyle = '#6bc9a8';
+        specCtx.fillRect(5, 4, 6, 8);
+        // Specimen inside (small creature/plant shape)
+        specCtx.fillStyle = '#3d8b6d';
+        specCtx.fillRect(6, 6, 4, 4);
+        specCtx.fillRect(7, 5, 2, 6);
+        // Jar highlight
+        specCtx.fillStyle = '#c8e4f6';
+        specCtx.fillRect(5, 3, 2, 8);
+        this.cache.specimen = specimen;
+
+        // Microscope - Lab microscope (black/silver on stand)
+        const microscope = this.createCanvas(size, size);
+        const microCtx = microscope.getContext('2d');
+        // Base
+        microCtx.fillStyle = '#333';
+        microCtx.fillRect(2, 12, 12, 4);
+        // Stand/arm
+        microCtx.fillStyle = '#4a4a4a';
+        microCtx.fillRect(6, 4, 4, 8);
+        // Eyepiece (top)
+        microCtx.fillStyle = '#333';
+        microCtx.fillRect(5, 0, 3, 5);
+        microCtx.fillStyle = '#666';
+        microCtx.fillRect(5, 0, 3, 2);
+        // Objective lens (bottom part)
+        microCtx.fillStyle = '#555';
+        microCtx.fillRect(7, 9, 4, 3);
+        // Stage
+        microCtx.fillStyle = '#888';
+        microCtx.fillRect(3, 10, 10, 2);
+        // Highlight
+        microCtx.fillStyle = '#6a6a6a';
+        microCtx.fillRect(7, 5, 1, 4);
+        this.cache.microscope = microscope;
+
+        // Plant - Potted plant for nature imagery
+        const plant = this.createCanvas(size, size);
+        const plantCtx = plant.getContext('2d');
+        // Pot
+        plantCtx.fillStyle = '#8b5a2b';
+        plantCtx.fillRect(4, 10, 8, 6);
+        plantCtx.fillStyle = '#6b4423';
+        plantCtx.fillRect(3, 9, 10, 2);
+        plantCtx.fillRect(4, 15, 8, 1);
+        // Soil
+        plantCtx.fillStyle = '#4a3728';
+        plantCtx.fillRect(5, 10, 6, 1);
+        // Plant leaves
+        plantCtx.fillStyle = '#3d8b3d';
+        plantCtx.fillRect(6, 3, 4, 7);
+        plantCtx.fillRect(4, 4, 8, 4);
+        plantCtx.fillStyle = '#4d9b4d';
+        plantCtx.fillRect(5, 5, 2, 3);
+        plantCtx.fillRect(9, 4, 2, 3);
+        plantCtx.fillRect(7, 2, 2, 3);
+        // Lighter leaves
+        plantCtx.fillStyle = '#5dab5d';
+        plantCtx.fillRect(6, 3, 1, 2);
+        plantCtx.fillRect(8, 6, 1, 2);
+        this.cache.plant = plant;
+
+        // Animal Poster - Framed animal picture (simple nature scene)
+        const animalPoster = this.createCanvas(size, size);
+        const apCtx = animalPoster.getContext('2d');
+        // Frame
+        apCtx.fillStyle = '#5d4037';
+        apCtx.fillRect(1, 1, 14, 14);
+        // Inner frame edge
+        apCtx.fillStyle = '#8b6914';
+        apCtx.fillRect(2, 2, 12, 12);
+        // Picture background (sky/nature)
+        apCtx.fillStyle = '#87ceeb';
+        apCtx.fillRect(3, 3, 10, 5);
+        apCtx.fillStyle = '#4a7c59';
+        apCtx.fillRect(3, 8, 10, 5);
+        // Simple animal silhouette (bird)
+        apCtx.fillStyle = '#333';
+        apCtx.fillRect(5, 4, 3, 2);
+        apCtx.fillRect(7, 5, 2, 1);
+        apCtx.fillRect(4, 5, 1, 1);
+        this.cache.animalPoster = animalPoster;
+
+        // ============================================
+        // STATION/THEATRE SPRITES (Tavern repurposed)
+        // ============================================
+
+        // Control Desk - Broadcasting console (tavern counter style)
+        const controlDesk = this.createCanvas(size, size);
+        const cdCtx = controlDesk.getContext('2d');
+        // Counter/desk base
+        cdCtx.fillStyle = '#4a4a4a';
+        cdCtx.fillRect(0, 6, 16, 6);
+        cdCtx.fillStyle = '#3a3a3a';
+        cdCtx.fillRect(0, 11, 16, 5);
+        // Top surface
+        cdCtx.fillStyle = '#5a5a5a';
+        cdCtx.fillRect(0, 5, 16, 2);
+        // Equipment on desk - buttons/sliders
+        cdCtx.fillStyle = '#27ae60';
+        cdCtx.fillRect(2, 2, 2, 3);
+        cdCtx.fillRect(5, 3, 2, 2);
+        cdCtx.fillStyle = '#e74c3c';
+        cdCtx.fillRect(9, 2, 2, 3);
+        cdCtx.fillStyle = '#3498db';
+        cdCtx.fillRect(12, 3, 2, 2);
+        // Slider bars
+        cdCtx.fillStyle = '#888';
+        cdCtx.fillRect(3, 0, 1, 5);
+        cdCtx.fillRect(7, 1, 1, 4);
+        cdCtx.fillRect(11, 0, 1, 5);
+        this.cache.controlDesk = controlDesk;
+
+        // Microphone - Standing microphone on stand
+        const microphone = this.createCanvas(size, size);
+        const micCtx = microphone.getContext('2d');
+        // Stand base
+        micCtx.fillStyle = '#333';
+        micCtx.fillRect(4, 14, 8, 2);
+        // Stand pole
+        micCtx.fillStyle = '#4a4a4a';
+        micCtx.fillRect(7, 4, 2, 10);
+        // Mic head
+        micCtx.fillStyle = '#555';
+        micCtx.fillRect(5, 0, 6, 5);
+        micCtx.fillStyle = '#666';
+        micCtx.fillRect(6, 1, 4, 3);
+        // Grill pattern
+        micCtx.fillStyle = '#888';
+        micCtx.fillRect(6, 1, 4, 1);
+        micCtx.fillRect(6, 3, 4, 1);
+        // Highlight
+        micCtx.fillStyle = '#777';
+        micCtx.fillRect(8, 5, 1, 8);
+        this.cache.microphone = microphone;
+
+        // Screen - Large display/screen (tavern banner style)
+        const screen = this.createCanvas(size, size);
+        const scrCtx = screen.getContext('2d');
+        // Frame/bezel
+        scrCtx.fillStyle = '#333';
+        scrCtx.fillRect(0, 0, 16, 14);
+        // Screen surface (blue tint)
+        scrCtx.fillStyle = '#2c3e50';
+        scrCtx.fillRect(1, 1, 14, 12);
+        // Content lines (simulating display)
+        scrCtx.fillStyle = '#5dade2';
+        scrCtx.fillRect(2, 3, 8, 1);
+        scrCtx.fillRect(2, 5, 10, 1);
+        scrCtx.fillRect(2, 7, 6, 1);
+        scrCtx.fillRect(2, 9, 9, 1);
+        // Stand
+        scrCtx.fillStyle = '#4a4a4a';
+        scrCtx.fillRect(6, 14, 4, 2);
+        this.cache.screen = screen;
+
+        // Stage Curtain - Red stage curtain with folds
+        const stageCurtain = this.createCanvas(size, size);
+        const scCtx = stageCurtain.getContext('2d');
+        // Curtain rod
+        scCtx.fillStyle = '#8b6914';
+        scCtx.fillRect(0, 0, 16, 2);
+        // Main curtain (red fabric)
+        scCtx.fillStyle = '#c0392b';
+        scCtx.fillRect(0, 2, 16, 14);
+        // Fold shadows (darker red)
+        scCtx.fillStyle = '#922b21';
+        scCtx.fillRect(3, 2, 2, 14);
+        scCtx.fillRect(8, 2, 2, 14);
+        scCtx.fillRect(13, 2, 2, 14);
+        // Fold highlights (lighter red)
+        scCtx.fillStyle = '#e74c3c';
+        scCtx.fillRect(0, 2, 2, 14);
+        scCtx.fillRect(5, 2, 2, 14);
+        scCtx.fillRect(10, 2, 2, 14);
+        // Gold trim at top
+        scCtx.fillStyle = '#f1c40f';
+        scCtx.fillRect(0, 2, 16, 1);
+        // Decorative tassels
+        scCtx.fillStyle = '#f39c12';
+        scCtx.fillRect(2, 0, 2, 3);
+        scCtx.fillRect(12, 0, 2, 3);
+        this.cache.stageCurtain = stageCurtain;
+
+        // Spotlight - Stage/studio light pointing down
+        const spotlight = this.createCanvas(size, size);
+        const slCtx = spotlight.getContext('2d');
+        // Mount/bracket
+        slCtx.fillStyle = '#333';
+        slCtx.fillRect(6, 0, 4, 3);
+        // Light housing
+        slCtx.fillStyle = '#4a4a4a';
+        slCtx.fillRect(3, 3, 10, 8);
+        slCtx.fillStyle = '#5a5a5a';
+        slCtx.fillRect(4, 4, 8, 6);
+        // Lens/glass
+        slCtx.fillStyle = '#ffd700';
+        slCtx.fillRect(5, 9, 6, 2);
+        // Light beam (subtle glow effect)
+        slCtx.fillStyle = 'rgba(255, 215, 0, 0.4)';
+        slCtx.fillRect(4, 11, 8, 3);
+        slCtx.fillRect(3, 13, 10, 2);
+        // Barn door flaps
+        slCtx.fillStyle = '#333';
+        slCtx.fillRect(3, 8, 1, 3);
+        slCtx.fillRect(12, 8, 1, 3);
+        this.cache.spotlight = spotlight;
+
         // Wood floor
         const woodFloor = this.createCanvas(size, size);
         const wfCtx = woodFloor.getContext('2d');

@@ -59,7 +59,20 @@ const World = {
         SIGN_LIBRARY: 51,
         SIGN_LAB: 52,
         SIGN_STATION: 53,
-        SIGN_THEATRE: 54
+        SIGN_THEATRE: 54,
+
+        // Lab interior sprites (zoology theme)
+        SPECIMEN: 60,
+        MICROSCOPE: 61,
+        PLANT: 62,
+        ANIMAL_POSTER: 63,
+
+        // Station/Theatre interior sprites (tavern repurposed)
+        CONTROL_DESK: 64,
+        MICROPHONE: 65,
+        SCREEN: 66,
+        STAGE_CURTAIN: 67,
+        SPOTLIGHT: 68
     },
 
     // Building definitions with entry points
@@ -1045,7 +1058,18 @@ const World = {
             [T.SIGN_LIBRARY]: 'signLibrary',
             [T.SIGN_LAB]: 'signLab',
             [T.SIGN_STATION]: 'signStation',
-            [T.SIGN_THEATRE]: 'signTheatre'
+            [T.SIGN_THEATRE]: 'signTheatre',
+            // Lab interior sprites (zoology theme)
+            [T.SPECIMEN]: 'specimen',
+            [T.MICROSCOPE]: 'microscope',
+            [T.PLANT]: 'plant',
+            [T.ANIMAL_POSTER]: 'animalPoster',
+            // Station/Theatre interior sprites
+            [T.CONTROL_DESK]: 'controlDesk',
+            [T.MICROPHONE]: 'microphone',
+            [T.SCREEN]: 'screen',
+            [T.STAGE_CURTAIN]: 'stageCurtain',
+            [T.SPOTLIGHT]: 'spotlight'
         };
         return spriteMap[tileType] || null;
     }
