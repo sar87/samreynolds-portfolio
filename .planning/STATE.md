@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 5 in progress - Campus layout redesigned, building sprites next
+**Current focus:** Phase 5 in progress - Building sprites complete, building placement next
 
 ## Current Position
 
 Phase: 5 of 8 (Campus & Buildings)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-31 - Completed 05-01-PLAN.md (Campus Layout Redesign)
+Last activity: 2026-01-31 - Completed 05-02-PLAN.md (Building Sprites)
 
-Progress: [████████░░] 88%
+Progress: [████████░░] 90%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
+- Total plans completed: 16
 - Average duration: 3.1 min
-- Total execution time: 0.77 hours
+- Total execution time: 0.82 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [████████░░] 88%
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
-| 05-campus-buildings | 1 | 3 min | 3.0 min |
+| 05-campus-buildings | 2 | 7 min | 3.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (2 min), 04-02 (2 min), 04-03 (2 min), 04-04 (4 min), 05-01 (3 min)
+- Last 5 plans: 04-02 (2 min), 04-03 (2 min), 04-04 (4 min), 05-01 (3 min), 05-02 (4 min)
 - Trend: Stable at ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -70,6 +70,8 @@ Recent decisions affecting current work:
 - **LAB_BENCH rename (2026-01-31):** Changed BENCH to LAB_BENCH in World.TILES to distinguish from park bench decorations
 - **Player spawn at gate (2026-01-31):** Spawn point (20, 26) places player just inside entrance gate for "arriving" feel
 - **Path hierarchy (2026-01-31):** COBBLE for main quad paths, PATH for secondary routes to building areas
+- **Sign readability approach (2026-01-31):** Using letter/icon combinations instead of full text for 16x16 sprite readability
+- **Tile type numbering (2026-01-31):** Gothic 30-35, Modern 40-43, Signs 50-54 for organized grouping with expansion gaps
 
 ### Pending Todos
 
@@ -95,9 +97,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 17:23 UTC
-Stopped at: Completed 05-01-PLAN.md (Campus Layout Redesign)
-Resume file: None - ready for 05-02-PLAN.md
+Last session: 2026-01-31 17:30 UTC
+Stopped at: Completed 05-02-PLAN.md (Building Sprites)
+Resume file: None - ready for 05-03-PLAN.md
 
 ## User Feedback (03-04)
 
