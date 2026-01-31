@@ -1,0 +1,188 @@
+/**
+ * Header Styles
+ *
+ * Sticky header with responsive navigation.
+ * Uses CSS custom properties from variables.css
+ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding);
+}
+
+.logo {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.logo:hover {
+  color: var(--color-accent);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Desktop navigation */
+.nav {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.navLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Hamburger menu button */
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.menuButton:hover {
+  background: var(--color-gray-100);
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Hamburger icon - three lines */
+.menuIcon {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: var(--color-text-primary);
+  transition: background var(--transition-fast);
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text-primary);
+  transition: transform var(--transition-fast);
+}
+
+.menuIcon::before {
+  top: -6px;
+}
+
+.menuIcon::after {
+  top: 6px;
+}
+
+/* Transform hamburger to X when open */
+.menuButton[aria-expanded='true'] .menuIcon {
+  background: transparent;
+}
+
+.menuButton[aria-expanded='true'] .menuIcon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menuButton[aria-expanded='true'] .menuIcon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile navigation panel */
+.mobileNav {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4) var(--content-padding);
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mobileNavLink {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.mobileNavLink:hover {
+  background: var(--color-gray-100);
+  color: var(--color-accent);
+}
+
+.mobileNavLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .menuButton {
+    display: none;
+  }
+
+  .mobileNav {
+    display: none;
+  }
+}
