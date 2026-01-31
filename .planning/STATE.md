@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 4 of 8 (Core Game Engine)
-Plan: 2 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-31 - Completed 04-02-PLAN.md (Tile Map and Collision)
+Last activity: 2026-01-31 - Completed 04-03-PLAN.md (Player and Renderer)
 
-Progress: [███████░░░] 75%
+Progress: [████████░░] 81%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 3.2 min
-- Total execution time: 0.63 hours
+- Total plans completed: 13
+- Average duration: 3.1 min
+- Total execution time: 0.67 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [███████░░░] 75%
 | 01-foundation | 2 | 15 min | 7.5 min |
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
-| 04-core-game-engine | 2 | 4 min | 2.0 min |
+| 04-core-game-engine | 3 | 6 min | 2.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-02 (3 min), 03-03 (3 min), 03-04 (4 min), 04-01 (2 min), 04-02 (2 min)
-- Trend: Stable at ~2-4 min/plan
+- Last 5 plans: 03-03 (3 min), 03-04 (4 min), 04-01 (2 min), 04-02 (2 min), 04-03 (2 min)
+- Trend: Stable at ~2 min/plan
 
 *Updated after each plan completion*
 
@@ -61,6 +61,9 @@ Recent decisions affecting current work:
 - **Input direction priority (2026-01-31):** Vertical movement takes priority over horizontal for 4-directional input
 - **Const object enum pattern (2026-01-31):** Use `as const` object + type extraction instead of enum for erasableSyntaxOnly compatibility
 - **Separate axis collision (2026-01-31):** Process X and Y movement separately to prevent sticky walls when moving diagonally
+- **Player speed (2026-01-31):** 256 pixels/second = 4 tiles/second at 64px rendered tiles
+- **Snap speed (2026-01-31):** Lerp factor 10 for quick but visible grid snapping on key release
+- **Viewport culling (2026-01-31):** Calculate visible tile range from camera position, render only those tiles
 
 ### Pending Todos
 
@@ -86,9 +89,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 12:36 UTC
-Stopped at: Completed 04-02-PLAN.md (Tile Map and Collision)
-Resume file: None - ready for 04-03-PLAN.md
+Last session: 2026-01-31 12:40 UTC
+Stopped at: Completed 04-03-PLAN.md (Player and Renderer)
+Resume file: None - ready for 04-04-PLAN.md
 
 ## User Feedback (03-04)
 
