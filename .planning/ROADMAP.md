@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Content Data Layer** - Structured JSON content for all academic material
 - [x] **Phase 3: Website Mode** - Traditional academic portfolio layout
 - [x] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
-- [ ] **Phase 5: Campus & Buildings** - Cambridge map design and building interiors
+- [x] **Phase 5: Campus & Buildings** - Cambridge map design and building interiors
 - [ ] **Phase 6: Interactions & Content Integration** - Connect game objects to academic content
 - [ ] **Phase 7: Landing & Mode Switching** - Splash screen and seamless mode transitions
 - [ ] **Phase 8: Polish & Mobile Optimization** - Animations, performance, final touches
@@ -109,12 +109,12 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 05-01-PLAN.md - Campus layout redesign with central quad and decorations
-- [ ] 05-02-PLAN.md - Gothic and modern building sprite palette
-- [ ] 05-03-PLAN.md - Building exteriors placement (5 buildings with distinct styles)
-- [ ] 05-04-PLAN.md - Pembroke and Library interiors
-- [ ] 05-05-PLAN.md - Lab, Station, and Theatre interiors
-- [ ] 05-06-PLAN.md - Visual verification checkpoint
+- [x] 05-01-PLAN.md - Campus layout redesign with central quad and decorations
+- [x] 05-02-PLAN.md - Gothic and modern building sprite palette
+- [x] 05-03-PLAN.md - Building exteriors placement (5 buildings with distinct styles)
+- [x] 05-04-PLAN.md - Pembroke and Library interiors
+- [x] 05-05-PLAN.md - Lab, Station, and Theatre interiors
+- [x] 05-06-PLAN.md - Visual verification checkpoint
 
 ### Phase 6: Interactions & Content Integration
 **Goal**: Interactive objects in buildings display academic content in panel overlays
@@ -128,10 +128,13 @@ Plans:
   5. Interacting with podium displays talks list in panel overlay
   6. Panels can be closed with key/button to return to exploration
   7. Location indicator shows current building name in HUD
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 06-01: TBD during phase planning
+- [ ] 06-01-PLAN.md - Content panel overlay DOM and CSS
+- [ ] 06-02-PLAN.md - Content formatting and data wiring
+- [ ] 06-03-PLAN.md - Location HUD and context-aware dialogs
+- [ ] 06-04-PLAN.md - Visual verification checkpoint
 
 ### Phase 7: Landing & Mode Switching
 **Goal**: Visitors choose between game and website modes via polished landing screen
@@ -180,7 +183,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
 | 3. Website Mode | 4/4 | Complete | 2026-01-31 |
 | 4. Core Game Engine | 4/4 | Complete | 2026-01-31 |
-| 5. Campus & Buildings | 0/6 | Planned | - |
-| 6. Interactions & Content Integration | 0/? | Not started | - |
+| 5. Campus & Buildings | 6/6 | Complete | 2026-01-31 |
+| 6. Interactions & Content Integration | 0/4 | Planned | - |
 | 7. Landing & Mode Switching | 0/? | Not started | - |
 | 8. Polish & Mobile Optimization | 0/? | Not started | - |
