@@ -100,16 +100,21 @@ Plans:
 **Depends on**: Phase 4
 **Requirements**: MAP-01, MAP-02, MAP-03, MAP-04, MAP-05, MAP-06, MAP-07, MAP-08
 **Success Criteria** (what must be TRUE):
-  1. Campus map includes paths, grass, trees, water (River Cam) with cohesive aesthetic
+  1. Campus map includes paths, grass, trees with cohesive aesthetic (no river per CONTEXT.md)
   2. Player can walk to and enter all five buildings (Pembroke, Library, Lab, TV Station, Theatre)
   3. Each building has distinct exterior design recognizable from campus view
   4. Building interiors are themed to content (books in library, equipment in lab, etc.)
   5. Player can exit buildings to return to campus map
   6. Navigation between buildings takes less than 30 seconds (map is appropriately sized)
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 05-01: TBD during phase planning
+- [ ] 05-01-PLAN.md - Campus layout redesign with central quad and decorations
+- [ ] 05-02-PLAN.md - Gothic and modern building sprite palette
+- [ ] 05-03-PLAN.md - Building exteriors placement (5 buildings with distinct styles)
+- [ ] 05-04-PLAN.md - Pembroke and Library interiors
+- [ ] 05-05-PLAN.md - Lab, Station, and Theatre interiors
+- [ ] 05-06-PLAN.md - Visual verification checkpoint
 
 ### Phase 6: Interactions & Content Integration
 **Goal**: Interactive objects in buildings display academic content in panel overlays
@@ -175,7 +180,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
 | 3. Website Mode | 4/4 | Complete | 2026-01-31 |
 | 4. Core Game Engine | 4/4 | Complete | 2026-01-31 |
-| 5. Campus & Buildings | 0/? | Not started | - |
+| 5. Campus & Buildings | 0/6 | Planned | - |
 | 6. Interactions & Content Integration | 0/? | Not started | - |
 | 7. Landing & Mode Switching | 0/? | Not started | - |
 | 8. Polish & Mobile Optimization | 0/? | Not started | - |
