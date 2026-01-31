@@ -832,10 +832,11 @@ const World = {
         };
     },
 
-    // Generate lab interior
+    // Generate lab interior (zoology theme with computers)
+    // 18x12 tiles - nature specimens, animal imagery, computer workstations
     generateLabInterior() {
         const T = this.TILES;
-        const w = 16;
+        const w = 18;
         const h = 12;
 
         const ground = new Array(w * h).fill(T.WOOD_FLOOR);
@@ -843,52 +844,137 @@ const World = {
         const collision = new Array(w * h).fill(0);
         const interact = new Array(w * h).fill(null);
 
-        // Walls
+        // ============================================
+        // 1. PERIMETER WALLS
+        // ============================================
+
+        // Top wall with interior wall tiles
         for (let x = 0; x < w; x++) {
             objects[x] = T.INT_WALL;
             collision[x] = 1;
         }
+
+        // Side walls (collision)
         for (let y = 0; y < h; y++) {
             collision[y * w] = 1;
             collision[y * w + (w - 1)] = 1;
         }
 
-        // Lab benches
-        for (let x = 2; x < 7; x++) {
-            objects[2 * w + x] = T.LAB_BENCH;
-            collision[2 * w + x] = 1;
-            interact[3 * w + x] = { type: 'research', index: 0 };
-        }
-        for (let x = 9; x < 14; x++) {
-            objects[2 * w + x] = T.LAB_BENCH;
-            collision[2 * w + x] = 1;
-            interact[3 * w + x] = { type: 'research', index: 1 };
+        // Bottom wall collision (except exit)
+        for (let x = 0; x < w; x++) {
+            if (x !== Math.floor(w / 2)) {
+                collision[(h - 1) * w + x] = 1;
+            }
         }
 
-        // Computer stations
-        objects[5 * w + 3] = T.DESK;
-        objects[5 * w + 4] = T.COMPUTER;
-        collision[5 * w + 3] = 1;
-        collision[5 * w + 4] = 1;
-        interact[6 * w + 3] = { type: 'research', index: 2 };
-        interact[6 * w + 4] = { type: 'research', index: 2 };
+        // ============================================
+        // 2. LAB BENCH AREA (top section) - Zoology specimens
+        // ============================================
 
-        objects[5 * w + 11] = T.DESK;
-        objects[5 * w + 12] = T.COMPUTER;
-        collision[5 * w + 11] = 1;
-        collision[5 * w + 12] = 1;
-        interact[6 * w + 11] = { type: 'research', index: 3 };
-        interact[6 * w + 12] = { type: 'research', index: 3 };
-
-        // Whiteboard (bookshelf sprite repurposed)
-        for (let x = 5; x < 11; x++) {
-            objects[8 * w + x] = T.BOOKSHELF;
-            collision[8 * w + x] = 1;
+        // Lab benches along top wall with specimens
+        // Left bench section with specimen jars
+        for (let x = 2; x <= 5; x++) {
+            objects[1 * w + x] = T.LAB_BENCH;
+            collision[1 * w + x] = 1;
         }
-        interact[9 * w + 7] = { type: 'object', id: 'whiteboard', content: 'lab.whiteboard' };
-        interact[9 * w + 8] = { type: 'object', id: 'whiteboard', content: 'lab.whiteboard' };
+        // Specimen jars on benches
+        objects[1 * w + 2] = T.SPECIMEN;
+        collision[1 * w + 2] = 1;
+        objects[1 * w + 4] = T.SPECIMEN;
+        collision[1 * w + 4] = 1;
 
-        // Exit
+        // Microscope station
+        objects[1 * w + 6] = T.LAB_BENCH;
+        collision[1 * w + 6] = 1;
+        objects[1 * w + 7] = T.MICROSCOPE;
+        collision[1 * w + 7] = 1;
+
+        // Right bench section with more specimens
+        for (let x = 11; x <= 15; x++) {
+            objects[1 * w + x] = T.LAB_BENCH;
+            collision[1 * w + x] = 1;
+        }
+        objects[1 * w + 12] = T.SPECIMEN;
+        collision[1 * w + 12] = 1;
+        objects[1 * w + 14] = T.SPECIMEN;
+        collision[1 * w + 14] = 1;
+
+        // Interaction zones for specimen benches
+        for (let x = 2; x <= 7; x++) {
+            interact[2 * w + x] = { type: 'research', index: 0 };
+        }
+        for (let x = 11; x <= 15; x++) {
+            interact[2 * w + x] = { type: 'research', index: 0 };
+        }
+
+        // ============================================
+        // 3. COMPUTER WORKSTATIONS (middle area)
+        // ============================================
+
+        // Left computer cluster
+        objects[4 * w + 3] = T.DESK;
+        collision[4 * w + 3] = 1;
+        objects[4 * w + 4] = T.COMPUTER;
+        collision[4 * w + 4] = 1;
+        objects[5 * w + 3] = T.CHAIR;
+        interact[5 * w + 4] = { type: 'research', index: 1 };
+
+        // Center computer cluster
+        objects[4 * w + 8] = T.DESK;
+        collision[4 * w + 8] = 1;
+        objects[4 * w + 9] = T.COMPUTER;
+        collision[4 * w + 9] = 1;
+        objects[5 * w + 8] = T.CHAIR;
+        interact[5 * w + 9] = { type: 'research', index: 1 };
+
+        // Right computer cluster
+        objects[4 * w + 13] = T.DESK;
+        collision[4 * w + 13] = 1;
+        objects[4 * w + 14] = T.COMPUTER;
+        collision[4 * w + 14] = 1;
+        objects[5 * w + 14] = T.CHAIR;
+        interact[5 * w + 13] = { type: 'research', index: 1 };
+
+        // ============================================
+        // 4. NATURE/ZOOLOGY DISPLAYS (walls and corners)
+        // ============================================
+
+        // Animal posters on walls (left and right sides)
+        objects[3 * w + 1] = T.ANIMAL_POSTER;
+        collision[3 * w + 1] = 1;
+        objects[6 * w + 1] = T.ANIMAL_POSTER;
+        collision[6 * w + 1] = 1;
+        objects[3 * w + (w - 2)] = T.ANIMAL_POSTER;
+        collision[3 * w + (w - 2)] = 1;
+        objects[6 * w + (w - 2)] = T.ANIMAL_POSTER;
+        collision[6 * w + (w - 2)] = 1;
+
+        // Potted plants in corners for greenery
+        objects[8 * w + 2] = T.PLANT;
+        objects[8 * w + (w - 3)] = T.PLANT;
+
+        // ============================================
+        // 5. CENTRAL DISPLAY/WHITEBOARD AREA
+        // ============================================
+
+        // Screen for data display (central feature)
+        objects[7 * w + 7] = T.SCREEN;
+        collision[7 * w + 7] = 1;
+        objects[7 * w + 8] = T.SCREEN;
+        collision[7 * w + 8] = 1;
+        objects[7 * w + 9] = T.SCREEN;
+        collision[7 * w + 9] = 1;
+        objects[7 * w + 10] = T.SCREEN;
+        collision[7 * w + 10] = 1;
+
+        // Interaction for whiteboard/screen
+        interact[8 * w + 8] = { type: 'object', id: 'whiteboard', content: 'lab.projects' };
+        interact[8 * w + 9] = { type: 'object', id: 'whiteboard', content: 'lab.projects' };
+
+        // ============================================
+        // 6. EXIT AT BOTTOM CENTER
+        // ============================================
+
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
