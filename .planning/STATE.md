@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 4 of 8 (Core Game Engine)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-01-31 - Completed 04-01-PLAN.md (Core Systems)
+Last activity: 2026-01-31 - Completed 04-02-PLAN.md (Tile Map and Collision)
 
-Progress: [██████░░░░] 68.75%
+Progress: [███████░░░] 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 3.3 min
-- Total execution time: 0.60 hours
+- Total plans completed: 12
+- Average duration: 3.2 min
+- Total execution time: 0.63 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [██████░░░░] 68.75%
 | 01-foundation | 2 | 15 min | 7.5 min |
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
-| 04-core-game-engine | 1 | 2 min | 2.0 min |
+| 04-core-game-engine | 2 | 4 min | 2.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (2 min), 03-02 (3 min), 03-03 (3 min), 03-04 (4 min), 04-01 (2 min)
+- Last 5 plans: 03-02 (3 min), 03-03 (3 min), 03-04 (4 min), 04-01 (2 min), 04-02 (2 min)
 - Trend: Stable at ~2-4 min/plan
 
 *Updated after each plan completion*
@@ -59,6 +59,8 @@ Recent decisions affecting current work:
 - **Delta time clamping (2026-01-31):** GameLoop clamps delta to 0.1s max to prevent spiral of death on tab switch
 - **Camera lerp speed (2026-01-31):** LERP_SPEED=12 gives ~0.2s catch-up time using exponential smoothing
 - **Input direction priority (2026-01-31):** Vertical movement takes priority over horizontal for 4-directional input
+- **Const object enum pattern (2026-01-31):** Use `as const` object + type extraction instead of enum for erasableSyntaxOnly compatibility
+- **Separate axis collision (2026-01-31):** Process X and Y movement separately to prevent sticky walls when moving diagonally
 
 ### Pending Todos
 
@@ -84,9 +86,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 12:37 UTC
-Stopped at: Completed 04-01-PLAN.md (Core Systems)
-Resume file: None - ready for 04-02-PLAN.md
+Last session: 2026-01-31 12:36 UTC
+Stopped at: Completed 04-02-PLAN.md (Tile Map and Collision)
+Resume file: None - ready for 04-03-PLAN.md
 
 ## User Feedback (03-04)
 
