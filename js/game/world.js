@@ -315,46 +315,126 @@ const World = {
         };
     },
 
-    // Helper to build a building on the map
-    buildBuilding(ground, objects, collision, interact, id, x, y, w, h, name) {
+    // Helper to build a traditional (gothic) building exterior
+    // Uses: ORNATE_WALL, BATTLEMENT, GOTHIC_WINDOW, GOTHIC_DOOR, IVY, SPIRE_TOP
+    buildTraditionalBuilding(ground, objects, collision, interact, id, x, y, w, h, name) {
         const T = this.TILES;
         const mapW = this.width;
         const building = this.buildings[id];
 
-        // Fill building area with walls
+        // Fill building perimeter with ornate walls (collision on all)
         for (let bx = x; bx < x + w; bx++) {
             for (let by = y; by < y + h; by++) {
                 const idx = by * mapW + bx;
-                objects[idx] = T.WALL;
+                objects[idx] = T.ORNATE_WALL;
                 collision[idx] = 1;
             }
         }
 
-        // Add roof (top row)
+        // Top row: battlements for gothic castle feel
         for (let bx = x; bx < x + w; bx++) {
             const idx = y * mapW + bx;
-            objects[idx] = T.ROOF;
+            objects[idx] = T.BATTLEMENT;
         }
 
-        // Add windows
+        // Add spire tops at corners for larger buildings (w >= 7)
+        if (w >= 7) {
+            objects[y * mapW + x] = T.SPIRE_TOP;
+            objects[y * mapW + (x + w - 1)] = T.SPIRE_TOP;
+        }
+
+        // Add gothic windows at regular intervals (every 2 tiles, middle row)
+        const windowRow = y + 2;
         for (let bx = x + 1; bx < x + w - 1; bx += 2) {
             if (bx !== building.entrance.x) {
-                const idx = (y + 2) * mapW + bx;
-                objects[idx] = T.WINDOW;
+                const idx = windowRow * mapW + bx;
+                objects[idx] = T.GOTHIC_WINDOW;
             }
         }
 
-        // Add door at entrance
-        const doorIdx = (building.entrance.y) * mapW + building.entrance.x;
-        objects[doorIdx] = T.DOOR;
-        collision[doorIdx] = 0; // Door is walkable (to enter)
+        // Add ivy patches on some wall tiles (decorative pattern)
+        // Place ivy on lower-left and lower-right corners
+        if (h >= 4) {
+            const ivyRow = y + h - 2;
+            objects[ivyRow * mapW + x] = T.IVY;
+            objects[ivyRow * mapW + (x + w - 1)] = T.IVY;
+        }
+
+        // Add gothic door at entrance position
+        const doorIdx = building.entrance.y * mapW + building.entrance.x;
+        objects[doorIdx] = T.GOTHIC_DOOR;
+        collision[doorIdx] = 0; // Door is walkable (to trigger entry)
         interact[doorIdx] = { type: 'door', building: id, name };
 
-        // Make tile in front of door walkable and interactive
+        // Path tile in front of door (connects to building)
         const frontIdx = (building.entrance.y + 1) * mapW + building.entrance.x;
         ground[frontIdx] = T.PATH;
         collision[frontIdx] = 0;
         interact[frontIdx] = { type: 'entrance', building: id, name };
+    },
+
+    // Helper to build a modern building exterior
+    // Uses: MODERN_WALL, METAL_PANEL, MODERN_WINDOW, MODERN_DOOR
+    buildModernBuilding(ground, objects, collision, interact, id, x, y, w, h, name) {
+        const T = this.TILES;
+        const mapW = this.width;
+        const building = this.buildings[id];
+
+        // Fill building perimeter with modern walls (collision on all)
+        for (let bx = x; bx < x + w; bx++) {
+            for (let by = y; by < y + h; by++) {
+                const idx = by * mapW + bx;
+                objects[idx] = T.MODERN_WALL;
+                collision[idx] = 1;
+            }
+        }
+
+        // Top row: metal panels for clean modern look
+        for (let bx = x; bx < x + w; bx++) {
+            const idx = y * mapW + bx;
+            objects[idx] = T.METAL_PANEL;
+        }
+
+        // Modern windows - larger, more frequent (every tile on window row)
+        const windowRow = y + 2;
+        for (let bx = x + 1; bx < x + w - 1; bx++) {
+            if (bx !== building.entrance.x) {
+                const idx = windowRow * mapW + bx;
+                objects[idx] = T.MODERN_WINDOW;
+            }
+        }
+
+        // Additional row of windows for modern glass facade
+        const windowRow2 = y + 3;
+        if (h >= 5) {
+            for (let bx = x + 1; bx < x + w - 1; bx++) {
+                if (bx !== building.entrance.x) {
+                    const idx = windowRow2 * mapW + bx;
+                    objects[idx] = T.MODERN_WINDOW;
+                }
+            }
+        }
+
+        // Modern door at entrance position
+        const doorIdx = building.entrance.y * mapW + building.entrance.x;
+        objects[doorIdx] = T.MODERN_DOOR;
+        collision[doorIdx] = 0; // Door is walkable
+        interact[doorIdx] = { type: 'door', building: id, name };
+
+        // Path tile in front of door
+        const frontIdx = (building.entrance.y + 1) * mapW + building.entrance.x;
+        ground[frontIdx] = T.PATH;
+        collision[frontIdx] = 0;
+        interact[frontIdx] = { type: 'entrance', building: id, name };
+    },
+
+    // Place a building sign near entrance
+    placeSign(ground, objects, collision, interact, signTile, x, y, building, text) {
+        const mapW = this.width;
+        const idx = y * mapW + x;
+        objects[idx] = signTile;
+        collision[idx] = 1; // Can't walk through sign
+        interact[idx] = { type: 'sign', text, building };
     },
 
     // Generate interior maps for each building
