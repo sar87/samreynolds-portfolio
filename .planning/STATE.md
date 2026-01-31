@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 4 - Core Game Engine systems
+**Current focus:** Phase 4 complete - Ready for Phase 5 (Sprite System)
 
 ## Current Position
 
-Phase: 4 of 8 (Core Game Engine)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-01-31 - Completed 04-03-PLAN.md (Player and Renderer)
+Phase: 4 of 8 (Core Game Engine) - COMPLETE
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-01-31 - Completed 04-04-PLAN.md (Game Integration)
 
-Progress: [████████░░] 81%
+Progress: [████████░░] 88%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
+- Total plans completed: 14
 - Average duration: 3.1 min
-- Total execution time: 0.67 hours
+- Total execution time: 0.72 hours
 
 **By Phase:**
 
@@ -30,11 +30,11 @@ Progress: [████████░░] 81%
 | 01-foundation | 2 | 15 min | 7.5 min |
 | 02-content-data-layer | 4 | 7 min | 1.75 min |
 | 03-website-mode | 4 | 12 min | 3.0 min |
-| 04-core-game-engine | 3 | 6 min | 2.0 min |
+| 04-core-game-engine | 4 | 10 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-03 (3 min), 03-04 (4 min), 04-01 (2 min), 04-02 (2 min), 04-03 (2 min)
-- Trend: Stable at ~2 min/plan
+- Last 5 plans: 03-04 (4 min), 04-01 (2 min), 04-02 (2 min), 04-03 (2 min), 04-04 (4 min)
+- Trend: Stable at ~2-4 min/plan
 
 *Updated after each plan completion*
 
@@ -64,6 +64,8 @@ Recent decisions affecting current work:
 - **Player speed (2026-01-31):** 256 pixels/second = 4 tiles/second at 64px rendered tiles
 - **Snap speed (2026-01-31):** Lerp factor 10 for quick but visible grid snapping on key release
 - **Viewport culling (2026-01-31):** Calculate visible tile range from camera position, render only those tiles
+- **Camera initial centering (2026-01-31):** Center camera on player at Game initialization for smooth start
+- **G key toggle (2026-01-31):** Skip toggle when focused on input/textarea elements
 
 ### Pending Todos
 
@@ -89,9 +91,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 12:40 UTC
-Stopped at: Completed 04-03-PLAN.md (Player and Renderer)
-Resume file: None - ready for 04-04-PLAN.md
+Last session: 2026-01-31 12:47 UTC
+Stopped at: Completed 04-04-PLAN.md (Game Integration) - Phase 4 complete
+Resume file: None - ready for Phase 5 planning
 
 ## User Feedback (03-04)
 
