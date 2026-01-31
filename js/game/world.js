@@ -596,61 +596,156 @@ const World = {
         };
     },
 
-    // Generate library interior
+    // Generate library interior (grand academic feel)
+    // 20x14 tiles - tall shelves, impressive, Cambridge library vibes
     generateLibraryInterior() {
         const T = this.TILES;
-        const w = 16;
-        const h = 12;
+        const w = 20;
+        const h = 14;
 
         const ground = new Array(w * h).fill(T.WOOD_FLOOR);
         const objects = new Array(w * h).fill(-1);
         const collision = new Array(w * h).fill(0);
         const interact = new Array(w * h).fill(null);
 
-        // Walls
+        // ============================================
+        // 1. PERIMETER WALLS
+        // ============================================
+
+        // Top wall with interior wall tiles
         for (let x = 0; x < w; x++) {
             objects[x] = T.INT_WALL;
             collision[x] = 1;
         }
+
+        // Side walls (collision)
         for (let y = 0; y < h; y++) {
             collision[y * w] = 1;
             collision[y * w + (w - 1)] = 1;
         }
 
-        // Bookshelves along walls
-        for (let x = 2; x < 7; x++) {
-            objects[1 * w + x] = T.BOOKSHELF;
-            collision[1 * w + x] = 1;
+        // Bottom wall collision (except exit)
+        for (let x = 0; x < w; x++) {
+            if (x !== Math.floor(w / 2)) {
+                collision[(h - 1) * w + x] = 1;
+            }
         }
-        for (let x = 9; x < 14; x++) {
+
+        // ============================================
+        // 2. MASSIVE BOOKSHELF COVERAGE
+        // ============================================
+
+        // Wall of books along ENTIRE top wall (row 1)
+        for (let x = 2; x < w - 2; x++) {
             objects[1 * w + x] = T.BOOKSHELF;
             collision[1 * w + x] = 1;
         }
 
-        // Central bookshelves (rows)
-        for (let x = 3; x < 13; x++) {
+        // Bookshelves along left wall
+        for (let y = 3; y <= 8; y++) {
+            objects[y * w + 1] = T.BOOKSHELF;
+            collision[y * w + 1] = 1;
+        }
+
+        // Bookshelves along right wall
+        for (let y = 3; y <= 8; y++) {
+            objects[y * w + (w - 2)] = T.BOOKSHELF;
+            collision[y * w + (w - 2)] = 1;
+        }
+
+        // Central bookshelf row 1 (with aisle gaps)
+        // Left section
+        for (let x = 4; x <= 7; x++) {
             objects[4 * w + x] = T.BOOKSHELF;
             collision[4 * w + x] = 1;
+        }
+        // Right section
+        for (let x = 12; x <= 15; x++) {
+            objects[4 * w + x] = T.BOOKSHELF;
+            collision[4 * w + x] = 1;
+        }
+
+        // Central bookshelf row 2 (with aisle gaps)
+        // Left section
+        for (let x = 4; x <= 7; x++) {
+            objects[7 * w + x] = T.BOOKSHELF;
+            collision[7 * w + x] = 1;
+        }
+        // Right section
+        for (let x = 12; x <= 15; x++) {
             objects[7 * w + x] = T.BOOKSHELF;
             collision[7 * w + x] = 1;
         }
 
-        // Reading desk
-        objects[9 * w + 7] = T.DESK;
-        collision[9 * w + 7] = 1;
-        objects[9 * w + 8] = T.DESK;
-        collision[9 * w + 8] = 1;
+        // ============================================
+        // 3. READING AREA (bottom section)
+        // ============================================
 
-        // Interactive zones for publications
-        // Each bookshelf section shows different publications
-        for (let x = 2; x < 7; x++) {
-            interact[2 * w + x] = { type: 'publication', index: x - 2 };
+        // Reading tables with chairs (4 desks)
+        // Left reading table
+        objects[10 * w + 4] = T.DESK;
+        collision[10 * w + 4] = 1;
+        objects[10 * w + 5] = T.DESK;
+        collision[10 * w + 5] = 1;
+        objects[10 * w + 3] = T.CHAIR;
+        objects[10 * w + 6] = T.CHAIR;
+
+        // Right reading table
+        objects[10 * w + 14] = T.DESK;
+        collision[10 * w + 14] = 1;
+        objects[10 * w + 15] = T.DESK;
+        collision[10 * w + 15] = 1;
+        objects[10 * w + 13] = T.CHAIR;
+        objects[10 * w + 16] = T.CHAIR;
+
+        // ============================================
+        // 4. INTERACTIVE ZONES FOR PUBLICATIONS
+        // ============================================
+
+        // Top wall bookshelves - publications 0-7 (row in front)
+        let pubIndex = 0;
+        for (let x = 3; x <= 6; x++) {
+            interact[2 * w + x] = { type: 'publication', index: pubIndex++ };
         }
-        for (let x = 9; x < 14; x++) {
-            interact[2 * w + x] = { type: 'publication', index: x - 4 };
+        for (let x = 13; x <= 16; x++) {
+            interact[2 * w + x] = { type: 'publication', index: pubIndex++ };
         }
 
-        // Exit
+        // Left wall bookshelves
+        for (let y = 4; y <= 7; y++) {
+            interact[y * w + 2] = { type: 'publication', index: pubIndex++ };
+        }
+
+        // Right wall bookshelves
+        for (let y = 4; y <= 7; y++) {
+            interact[y * w + (w - 3)] = { type: 'publication', index: pubIndex++ };
+        }
+
+        // Central bookshelf aisles (both rows)
+        // Row 1 - front aisle
+        interact[5 * w + 5] = { type: 'publication', index: pubIndex++ };
+        interact[5 * w + 6] = { type: 'publication', index: pubIndex++ };
+        interact[5 * w + 13] = { type: 'publication', index: pubIndex++ };
+        interact[5 * w + 14] = { type: 'publication', index: pubIndex++ };
+
+        // Row 2 - front aisle
+        interact[8 * w + 5] = { type: 'publication', index: pubIndex++ };
+        interact[8 * w + 6] = { type: 'publication', index: pubIndex++ };
+        interact[8 * w + 13] = { type: 'publication', index: pubIndex++ };
+        interact[8 * w + 14] = { type: 'publication', index: pubIndex++ };
+
+        // ============================================
+        // 5. ATMOSPHERIC ELEMENTS
+        // ============================================
+
+        // Windows on top wall (light streaming in)
+        objects[7] = T.WINDOW;
+        objects[12] = T.WINDOW;
+
+        // ============================================
+        // 6. EXIT AT BOTTOM CENTER
+        // ============================================
+
         interact[(h - 1) * w + Math.floor(w / 2)] = { type: 'exit' };
 
         return {
