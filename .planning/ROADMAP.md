@@ -13,7 +13,7 @@ Building a dual-mode academic portfolio website that offers visitors a choice be
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Asset Selection** - Legal sprite licensing and development setup
-- [ ] **Phase 2: Content Data Layer** - Structured JSON content for all academic material
+- [x] **Phase 2: Content Data Layer** - Structured JSON content for all academic material
 - [ ] **Phase 3: Website Mode** - Traditional academic portfolio layout
 - [ ] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
 - [ ] **Phase 5: Campus & Buildings** - Cambridge map design and building interiors
@@ -52,10 +52,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 02-01-PLAN.md - Install Ajv and create JSON schemas for all content types
-- [ ] 02-02-PLAN.md - Create publications.json and talks.json
-- [ ] 02-03-PLAN.md - Create media.json and about.json
-- [ ] 02-04-PLAN.md - Create research.json and validation script
+- [x] 02-01-PLAN.md - Install Ajv and create JSON schemas for all content types
+- [x] 02-02-PLAN.md - Create publications.json and talks.json
+- [x] 02-03-PLAN.md - Create media.json and about.json
+- [x] 02-04-PLAN.md - Create research.json and validation script
 
 ### Phase 3: Website Mode
 **Goal**: Professional academic portfolio website displays all content in traditional layout
@@ -166,7 +166,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
-| 2. Content Data Layer | 0/4 | Not started | - |
+| 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
 | 3. Website Mode | 0/? | Not started | - |
 | 4. Core Game Engine | 0/? | Not started | - |
 | 5. Campus & Buildings | 0/? | Not started | - |
