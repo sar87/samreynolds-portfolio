@@ -1,95 +1,103 @@
-import { EngineConfig } from './config/engine';
-import { loadSpriteSheet, getCharacterFrame, getTile } from './utils/sprites';
+// Import styles
+import './styles/variables.css';
+import './styles/global.css';
+import './styles/utilities.css';
 
-// Mode toggle functionality (temporary - will be replaced in later phases)
-const modeToggle = document.getElementById('mode-toggle');
-const normalMode = document.getElementById('normal-mode');
-const gameMode = document.getElementById('game-mode');
-const loadingScreen = document.getElementById('loading-screen');
+// Import router and pages
+import { router } from './lib/router';
+import { renderHeader, initMobileNav } from './components/Header/Header';
+import { renderHomePage } from './pages/HomePage';
+import { renderPublicationDetail } from './pages/PublicationDetail';
+import { renderTalkDetail } from './pages/TalkDetail';
+import { renderMediaDetail } from './pages/MediaDetail';
 
-let isGameMode = false;
+// Get app container
+const app = document.getElementById('app');
+if (!app) throw new Error('App container not found');
 
-modeToggle?.addEventListener('click', () => {
-    isGameMode = !isGameMode;
-    if (isGameMode) {
-        document.body.classList.add('game-active');
-        normalMode?.classList.add('hidden');
-        gameMode?.classList.remove('hidden');
-        loadingScreen?.classList.add('hidden');
-        modeToggle.querySelector('.toggle-text')!.textContent = 'View Website';
-        // Run render test when entering game mode
-        renderTest();
-    } else {
-        document.body.classList.remove('game-active');
-        normalMode?.classList.remove('hidden');
-        gameMode?.classList.add('hidden');
-        modeToggle.querySelector('.toggle-text')!.textContent = 'Enter Campus';
-    }
-});
+// Render function that updates app content
+async function render(content: string | Promise<string>): Promise<void> {
+  const html = await content;
+  // Keep header persistent, only update main content
+  const headerHtml = renderHeader();
+  app!.innerHTML = `${headerHtml}<div id="content">${html}</div>`;
+  initMobileNav();
 
-const canvas = document.getElementById('game-canvas') as HTMLCanvasElement;
-const ctx = canvas.getContext('2d')!;
-
-// Set canvas size for test display
-canvas.width = 400;
-canvas.height = 300;
-
-// Disable image smoothing for crisp pixel art
-ctx.imageSmoothingEnabled = false;
-
-async function renderTest() {
-    try {
-        // Load player sprite
-        const playerSheet = await loadSpriteSheet('/assets/sprites/characters/player.png');
-
-        // Load a terrain tile (grass from LPC terrain pack)
-        const terrainSheet = await loadSpriteSheet('/assets/sprites/terrain/grass.png');
-
-        // Clear canvas
-        ctx.fillStyle = '#2d2d2d';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Draw terrain tile at position (0,0)
-        const tile = getTile(0, 0);
-        ctx.drawImage(
-            terrainSheet,
-            tile.sx, tile.sy, tile.sw, tile.sh,
-            10, 10,
-            EngineConfig.renderedTileSize,
-            EngineConfig.renderedTileSize
-        );
-
-        // Draw player sprite (front-facing, first frame)
-        const frame = getCharacterFrame('down', 0);
-        ctx.drawImage(
-            playerSheet,
-            frame.col * frame.width,
-            frame.row * frame.height,
-            frame.width,
-            frame.height,
-            100, 10,
-            frame.width * EngineConfig.scale,
-            frame.height * EngineConfig.scale
-        );
-
-        // Add labels
-        ctx.fillStyle = '#ffffff';
-        ctx.font = '14px monospace';
-        ctx.fillText(`Tile: ${EngineConfig.tileSize}x${EngineConfig.tileSize} @ ${EngineConfig.scale}x`, 10, 150);
-        ctx.fillText('Terrain (left) | Player (right)', 10, 170);
-        ctx.fillText('Phase 1: Foundation & Asset Selection - COMPLETE', 10, 200);
-
-        console.log('Sprite rendering test complete');
-        console.log(`Tile size: ${EngineConfig.tileSize}px, Scale: ${EngineConfig.scale}x`);
-        console.log(`Rendered tile size: ${EngineConfig.renderedTileSize}px`);
-
-    } catch (error) {
-        console.error('Sprite loading failed:', error);
-        ctx.fillStyle = '#ff0000';
-        ctx.fillText('Error loading sprites - check console', 10, 50);
-    }
+  // Scroll to top on route change (unless it's a hash anchor)
+  if (!window.location.hash.includes('#/') || window.location.hash === '#/') {
+    window.scrollTo(0, 0);
+  }
 }
 
-// Initial render test also runs on page load for direct canvas access
-// But main test happens when user clicks "Enter Campus"
-console.log('Phase 1: Sprite test ready. Click "Enter Campus" to view.');
+// Save scroll position before navigating away from home
+let homeScrollPosition = 0;
+function saveScrollPosition(): void {
+  if (router.getCurrentPath() === '/' || router.getCurrentPath() === '') {
+    homeScrollPosition = window.scrollY;
+  }
+}
+
+// Register routes
+router.add('/', async () => {
+  await render(renderHomePage());
+  // Restore scroll position if returning to home
+  if (homeScrollPosition > 0) {
+    window.scrollTo(0, homeScrollPosition);
+    homeScrollPosition = 0;
+  }
+});
+
+router.add('/publication/:id', async (params) => {
+  saveScrollPosition();
+  await render(renderPublicationDetail(params.id));
+});
+
+router.add('/talk/:id', async (params) => {
+  saveScrollPosition();
+  await render(renderTalkDetail(params.id));
+});
+
+router.add('/media/:id', async (params) => {
+  saveScrollPosition();
+  await render(renderMediaDetail(params.id));
+});
+
+// Handle anchor navigation on home page
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement;
+  const link = target.closest('a');
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+  if (!href) return;
+
+  // Handle section anchors (e.g., #about, #publications)
+  if (href.startsWith('#') && !href.startsWith('#/')) {
+    // If we're on home page, smooth scroll
+    if (router.getCurrentPath() === '/' || router.getCurrentPath() === '') {
+      e.preventDefault();
+      const sectionId = href.slice(1);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        // Update URL without triggering route change
+        history.pushState(null, '', href);
+      }
+    } else {
+      // If on detail page, navigate home then scroll
+      e.preventDefault();
+      router.navigate('/');
+      // Wait for render then scroll
+      setTimeout(() => {
+        const sectionId = href.slice(1);
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }
+});
+
+// Initialize router
+router.init();
