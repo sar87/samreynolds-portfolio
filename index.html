@@ -13,55 +13,7 @@
     <!-- Website Mode -->
     <div id="app"></div>
 
-    <!-- Game Mode (hidden, for future phases) -->
-    <div id="game-mode" class="hidden" style="display:none">
-        <canvas id="game-canvas"></canvas>
-
-        <!-- Mobile Controls -->
-        <div id="mobile-controls" class="mobile-controls">
-            <div class="dpad">
-                <button class="dpad-btn dpad-up" data-dir="up" aria-label="Move up">&#9650;</button>
-                <button class="dpad-btn dpad-left" data-dir="left" aria-label="Move left">&#9664;</button>
-                <button class="dpad-btn dpad-right" data-dir="right" aria-label="Move right">&#9654;</button>
-                <button class="dpad-btn dpad-down" data-dir="down" aria-label="Move down">&#9660;</button>
-            </div>
-            <button class="action-btn" id="action-button" aria-label="Action">A</button>
-        </div>
-
-        <!-- Dialog Box -->
-        <div id="dialog-box" class="dialog-box hidden">
-            <div class="dialog-content">
-                <h3 id="dialog-title"></h3>
-                <div id="dialog-text"></div>
-            </div>
-            <div class="dialog-footer">
-                <span class="dialog-hint">Press ENTER or tap to continue</span>
-            </div>
-        </div>
-
-        <!-- Game HUD -->
-        <div id="game-hud" class="game-hud">
-            <div class="location-indicator">
-                <span id="current-location">Cambridge Campus</span>
-            </div>
-            <div class="controls-hint">
-                <span class="desktop-hint">Arrow keys to move | ENTER to interact</span>
-                <span class="mobile-hint">Use D-pad | Tap A to interact</span>
-            </div>
-        </div>
-
-        <!-- Loading Screen -->
-        <div id="loading-screen" class="loading-screen">
-            <div class="loading-content">
-                <h2>Sam Reynolds</h2>
-                <p>AI & Conservation Research</p>
-                <div class="loading-bar">
-                    <div class="loading-progress"></div>
-                </div>
-                <p class="loading-text">Loading Cambridge...</p>
-            </div>
-        </div>
-    </div>
+    <!-- Game Mode is created dynamically by CampusGame.ts -->
 
     <!-- Scripts -->
     <script type="module" src="/src/main.ts"></script>

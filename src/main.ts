@@ -7,8 +7,8 @@ import './styles/game.css';
 // Import router and pages
 import { router } from './lib/router';
 
-// Import game
-import { Game } from './game/Game';
+// Import game (CampusGame wraps the vanilla JS Phase 5 implementation)
+import { CampusGame } from './game/CampusGame';
 import { renderHeader, initMobileNav } from './components/Header/Header';
 import { renderHomePage } from './pages/HomePage';
 import { renderPublicationDetail } from './pages/PublicationDetail';
@@ -67,12 +67,12 @@ router.add('/media/:id', async (params) => {
 });
 
 // Game mode state
-let game: Game | null = null;
+let game: CampusGame | null = null;
 
 /**
  * Enter game mode - hide website, show game canvas
  */
-function enterGameMode(): void {
+async function enterGameMode(): Promise<void> {
   // Hide website content
   const content = document.getElementById('content');
   if (content) content.style.display = 'none';
@@ -89,9 +89,9 @@ function enterGameMode(): void {
     document.body.appendChild(container);
   }
 
-  // Start game
-  game = new Game(container);
-  game.start();
+  // Start game (loads vanilla JS scripts and initializes)
+  game = new CampusGame(container);
+  await game.start();
 }
 
 /**
@@ -118,7 +118,7 @@ function exitGameMode(): void {
 
 // Game mode route
 router.add('/game', async () => {
-  enterGameMode();
+  await enterGameMode();
 });
 
 // Keyboard shortcut for game mode toggle (G key)

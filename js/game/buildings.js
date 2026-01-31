@@ -27,12 +27,14 @@ const Buildings = {
         // Create interaction prompt
         this.createPrompt();
 
-        // Dialog click/tap to advance
-        this.dialogBox.addEventListener('click', () => this.advanceDialog());
-        this.dialogBox.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            this.advanceDialog();
-        });
+        // Dialog click/tap to advance (only if dialog box exists)
+        if (this.dialogBox) {
+            this.dialogBox.addEventListener('click', () => this.advanceDialog());
+            this.dialogBox.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                this.advanceDialog();
+            });
+        }
     },
 
     // Create the interaction prompt element
@@ -40,7 +42,10 @@ const Buildings = {
         this.promptElement = document.createElement('div');
         this.promptElement.className = 'interaction-prompt';
         this.promptElement.style.display = 'none';
-        document.getElementById('game-mode').appendChild(this.promptElement);
+        const gameMode = document.getElementById('game-mode') || document.getElementById('game-container');
+        if (gameMode) {
+            gameMode.appendChild(this.promptElement);
+        }
     },
 
     // Show/hide interaction prompt
