@@ -272,41 +272,88 @@ const World = {
         flowerPositions.forEach(([x, y]) => setTile(x, y, T.FLOWER));
 
         // Scattered trees inside campus for shade/variety
+        // (Positions adjusted to avoid building footprints)
         const interiorTrees = [
-            [6, 12], [34, 12],  // Near edges
-            [6, 20], [34, 20],  // Lower area
-            [15, 6], [25, 6],   // Upper quad area
+            [13, 10], [26, 10],  // Between buildings and quad
+            [13, 20], [26, 20],  // Lower area, between paths
         ];
         interiorTrees.forEach(([x, y]) => placeTree(x, y));
 
         // ============================================
-        // 5. BUILDING PLOT AREAS (reserved for Plan 03)
+        // 5. BUILDING EXTERIORS
         // ============================================
-        // Buildings will be placed in 05-03-PLAN.md
-        // For now, just grass where buildings will go:
-        //
-        // Pembroke College: left side (x:5-10, y:10-14)
-        // Library: top of quad (x:16-24, y:4-8) - larger
-        // Lab: right side near top (x:28-35, y:5-9) - modern
-        // TV Station: right side middle (x:28-34, y:12-16)
-        // Theatre: bottom left (x:5-12, y:18-22)
-        //
-        // (No building code here - just documenting reserved areas)
+        // 4 traditional (gothic) buildings + 1 modern building
+
+        // Pembroke College - left side of quad (About/bio content)
+        this.buildTraditionalBuilding(ground, objects, collision, interact,
+            'pembroke', 5, 11, 6, 5, "Pembroke College");
+
+        // University Library - top of quad, largest building (Publications)
+        this.buildTraditionalBuilding(ground, objects, collision, interact,
+            'library', 16, 4, 9, 5, "University Library");
+
+        // Research Lab - right side, modern style (Research projects)
+        this.buildModernBuilding(ground, objects, collision, interact,
+            'lab', 28, 6, 7, 5, "Research Lab");
+
+        // TV Station - right side below Lab (Media appearances)
+        this.buildTraditionalBuilding(ground, objects, collision, interact,
+            'station', 28, 14, 6, 5, "TV Station");
+
+        // Lecture Theatre - bottom left (Talks/lectures)
+        this.buildTraditionalBuilding(ground, objects, collision, interact,
+            'theatre', 5, 19, 6, 5, "Lecture Theatre");
 
         // ============================================
-        // OLD BUILDING PLACEMENTS (commented out for reference)
-        // Buildings will be rebuilt in Plan 03 with new designs
+        // 6. BUILDING SIGNS
         // ============================================
-        // this.buildBuilding(ground, objects, collision, interact, 'office', 6, 9, 5, 4, "Sam's Office");
-        // this.buildBuilding(ground, objects, collision, interact, 'library', 17, 14, 7, 5, "Library");
-        // this.buildBuilding(ground, objects, collision, interact, 'lectureHall', 29, 9, 6, 4, "Lecture Hall");
-        // this.buildBuilding(ground, objects, collision, interact, 'lab', 17, 4, 7, 4, "Research Lab");
+        // Place signs near each building entrance
 
-        // OLD SIGNS (commented out - will be recreated with new building positions)
-        // setTile(7, 13, T.GRASS, T.SIGN, true, { type: 'sign', text: "Sam's Office - About Me", building: 'office' });
-        // setTile(19, 19, T.GRASS, T.SIGN, true, { type: 'sign', text: "King's College Library - Publications", building: 'library' });
-        // setTile(31, 13, T.GRASS, T.SIGN, true, { type: 'sign', text: "Senate House - Media & Talks", building: 'lectureHall' });
-        // setTile(19, 8, T.GRASS, T.SIGN, true, { type: 'sign', text: "Research Lab - Current Projects", building: 'lab' });
+        // Pembroke sign (entrance at 9,15, sign at 9,17)
+        this.placeSign(ground, objects, collision, interact,
+            T.SIGN_PEMBROKE, 9, 17, 'pembroke', "Pembroke College - About Sam");
+
+        // Library sign (entrance at 20,8, sign at 20,10)
+        this.placeSign(ground, objects, collision, interact,
+            T.SIGN_LIBRARY, 20, 10, 'library', "University Library - Publications");
+
+        // Lab sign (entrance at 32,10, sign at 32,12)
+        this.placeSign(ground, objects, collision, interact,
+            T.SIGN_LAB, 32, 12, 'lab', "Research Lab - Current Projects");
+
+        // Station sign (entrance at 32,18, sign at 32,20)
+        this.placeSign(ground, objects, collision, interact,
+            T.SIGN_STATION, 32, 20, 'station', "TV Station - Media Appearances");
+
+        // Theatre sign (entrance at 9,23, sign at 9,25)
+        this.placeSign(ground, objects, collision, interact,
+            T.SIGN_THEATRE, 9, 25, 'theatre', "Lecture Theatre - Talks");
+
+        // ============================================
+        // 7. CONNECTOR PATHS TO BUILDINGS
+        // ============================================
+        // Connect building entrances to main path network
+
+        // Path from Pembroke entrance to left path (x:10 path)
+        // Entrance at (9, 15), connects to vertical path at x:10
+        setTile(10, 15, T.PATH);
+
+        // Path from Library entrance (20, 8) to vertical main path (already on x:19-20)
+        // Entrance is already on the main vertical path - just ensure path continues
+        setTile(20, 9, T.PATH);
+
+        // Path from Lab entrance (32, 10) to right side path (x:30)
+        setTile(31, 10, T.PATH);
+        setTile(30, 10, T.PATH);
+        setTile(33, 10, T.PATH);
+
+        // Path from Station entrance (32, 18) to right side path (x:30)
+        setTile(31, 18, T.PATH);
+        setTile(30, 18, T.PATH);
+        setTile(33, 18, T.PATH);
+
+        // Path from Theatre entrance (9, 23) to left path (x:10)
+        setTile(10, 23, T.PATH);
 
         this.campusMap = {
             width: w,
