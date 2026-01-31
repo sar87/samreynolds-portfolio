@@ -8,107 +8,13 @@
     <!-- Inter font -->
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/normal.css">
-    <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
-    <!-- Mode Toggle Button (Always Visible) -->
-    <button id="mode-toggle" class="mode-toggle" aria-label="Toggle between game and normal mode">
-        <span class="toggle-text">Enter Campus</span>
-    </button>
+    <!-- Website Mode -->
+    <div id="app"></div>
 
-    <!-- Normal Mode Container -->
-    <div id="normal-mode" class="mode-container">
-        <header class="site-header">
-            <nav class="main-nav">
-                <a href="#" class="nav-logo">Sam Reynolds</a>
-                <button class="nav-hamburger" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#about" class="nav-link active" data-section="about">About</a></li>
-                    <li><a href="#research" class="nav-link" data-section="research">Research</a></li>
-                    <li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
-                    <li><a href="#media" class="nav-link" data-section="media">Media & Talks</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <main class="main-content">
-            <!-- About Section -->
-            <section id="about" class="content-section active">
-                <div class="section-inner">
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h1>Sam Reynolds</h1>
-                            <p class="subtitle">AI, Conservation & Ecology Researcher</p>
-                            <p class="affiliation">University of Cambridge</p>
-                            <div class="about-description">
-                                <p>I'm a researcher at the University of Cambridge working at the intersection of artificial intelligence and conservation biology. My work focuses on developing machine learning tools to address pressing ecological challenges, from species monitoring to habitat preservation.</p>
-                                <p>I believe that thoughtful application of AI can transform how we understand and protect the natural world. My research combines computer vision, acoustic monitoring, and predictive modeling to give conservationists better tools for their vital work.</p>
-                            </div>
-                            <div class="contact-links">
-                                <a href="mailto:sam@samreynolds.org" class="contact-link">
-                                    <span class="icon">&#9993;</span> Email
-                                </a>
-                                <a href="https://github.com/samreynolds" class="contact-link" target="_blank" rel="noopener">
-                                    <span class="icon">&#128187;</span> GitHub
-                                </a>
-                                <a href="https://scholar.google.com" class="contact-link" target="_blank" rel="noopener">
-                                    <span class="icon">&#128218;</span> Scholar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="about-image">
-                            <div class="profile-placeholder">
-                                <span>SR</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Research Section -->
-            <section id="research" class="content-section">
-                <div class="section-inner">
-                    <h2>Research</h2>
-                    <div class="research-grid" id="research-content">
-                        <!-- Populated by JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Publications Section -->
-            <section id="publications" class="content-section">
-                <div class="section-inner">
-                    <h2>Publications</h2>
-                    <div class="publications-list" id="publications-content">
-                        <!-- Populated by JavaScript -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Media Section -->
-            <section id="media" class="content-section">
-                <div class="section-inner">
-                    <h2>Media & Talks</h2>
-                    <div class="media-grid" id="media-content">
-                        <!-- Populated by JavaScript -->
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <p>&copy; 2024 Sam Reynolds. University of Cambridge.</p>
-        </footer>
-    </div>
-
-    <!-- Game Mode Container -->
-    <div id="game-mode" class="mode-container hidden">
+    <!-- Game Mode (hidden, for future phases) -->
+    <div id="game-mode" class="hidden" style="display:none">
         <canvas id="game-canvas"></canvas>
 
         <!-- Mobile Controls -->
@@ -158,18 +64,6 @@
     </div>
 
     <!-- Scripts -->
-    <!-- Development: Vite serves TypeScript directly -->
     <script type="module" src="/src/main.ts"></script>
-    <!-- Legacy scripts (will be migrated in Phase 4) -->
-    <!--
-    <script src="data/content.json.js"></script>
-    <script src="js/game/sprites.js"></script>
-    <script src="js/game/world.js"></script>
-    <script src="js/game/player.js"></script>
-    <script src="js/game/buildings.js"></script>
-    <script src="js/game/engine.js"></script>
-    <script src="js/content.js"></script>
-    <script src="js/app.js"></script>
-    -->
 </body>
 </html>
