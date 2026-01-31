@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 3 - Website Mode
+**Current focus:** Phase 3 complete - ready for Phase 4
 
 ## Current Position
 

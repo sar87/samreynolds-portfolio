@@ -54,13 +54,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Website Mode
 
-- [ ] **WEB-01**: Professional academic portfolio layout
-- [ ] **WEB-02**: About section with bio, education, contact links
-- [ ] **WEB-03**: Publications section listing all 15 papers with links
-- [ ] **WEB-04**: Talks section listing all 19 invited talks
-- [ ] **WEB-05**: Media section with podcast, panels, video appearances
-- [ ] **WEB-06**: Research section describing current interests
-- [ ] **WEB-07**: Mobile responsive design
+- [x] **WEB-01**: Professional academic portfolio layout
+- [x] **WEB-02**: About section with bio, education, contact links
+- [x] **WEB-03**: Publications section listing all 15 papers with links
+- [x] **WEB-04**: Talks section listing all 19 invited talks
+- [x] **WEB-05**: Media section with podcast, panels, video appearances
+- [x] **WEB-06**: Research section describing current interests
+- [x] **WEB-07**: Mobile responsive design
 - [ ] **WEB-08**: Smooth animated transition between game and website modes
 
 ### Content Data
@@ -155,13 +155,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | VIS-03 | Phase 8 | Pending |
 | VIS-04 | Phase 8 | Pending |
 | VIS-05 | Phase 8 | Pending |
-| WEB-01 | Phase 3 | Pending |
-| WEB-02 | Phase 3 | Pending |
-| WEB-03 | Phase 3 | Pending |
-| WEB-04 | Phase 3 | Pending |
-| WEB-05 | Phase 3 | Pending |
-| WEB-06 | Phase 3 | Pending |
-| WEB-07 | Phase 3 | Pending |
+| WEB-01 | Phase 3 | Complete |
+| WEB-02 | Phase 3 | Complete |
+| WEB-03 | Phase 3 | Complete |
+| WEB-04 | Phase 3 | Complete |
+| WEB-05 | Phase 3 | Complete |
+| WEB-06 | Phase 3 | Complete |
+| WEB-07 | Phase 3 | Complete |
 | WEB-08 | Phase 7 | Pending |
 | DATA-01 | Phase 2 | Complete |
 | DATA-02 | Phase 2 | Complete |

@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & Asset Selection** - Legal sprite licensing and development setup
 - [x] **Phase 2: Content Data Layer** - Structured JSON content for all academic material
-- [ ] **Phase 3: Website Mode** - Traditional academic portfolio layout
+- [x] **Phase 3: Website Mode** - Traditional academic portfolio layout
 - [ ] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
 - [ ] **Phase 5: Campus & Buildings** - Cambridge map design and building interiors
 - [ ] **Phase 6: Interactions & Content Integration** - Connect game objects to academic content
@@ -72,10 +72,10 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 03-01-PLAN.md - Foundation: Design system, TypeScript types, hash router
-- [ ] 03-02-PLAN.md - Components: Header, Section, and Card components
-- [ ] 03-03-PLAN.md - Pages: HomePage and detail pages
-- [ ] 03-04-PLAN.md - Integration and visual verification
+- [x] 03-01-PLAN.md - Foundation: Design system, TypeScript types, hash router
+- [x] 03-02-PLAN.md - Components: Header, Section, and Card components
+- [x] 03-03-PLAN.md - Pages: HomePage and detail pages
+- [x] 03-04-PLAN.md - Integration and visual verification
 
 ### Phase 4: Core Game Engine
 **Goal**: Player can move around a simple test map with smooth camera and collision detection
@@ -170,7 +170,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Foundation & Asset Selection | 2/2 | Complete | 2026-01-30 |
 | 2. Content Data Layer | 4/4 | Complete | 2026-01-31 |
-| 3. Website Mode | 0/4 | Planned | - |
+| 3. Website Mode | 4/4 | Complete | 2026-01-31 |
 | 4. Core Game Engine | 0/? | Not started | - |
 | 5. Campus & Buildings | 0/? | Not started | - |
 | 6. Interactions & Content Integration | 0/? | Not started | - |
