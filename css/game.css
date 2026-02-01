@@ -312,6 +312,62 @@
     color: #ddd;
 }
 
+.panel-item .venue em {
+    font-style: italic;
+}
+
+.panel-item .description {
+    margin: 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.panel-item .date {
+    margin: 4px 0;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.panel-item .type-badge {
+    display: inline-block;
+    background: var(--pixel-accent, #c84060);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.panel-item .tags {
+    margin-top: 8px;
+}
+
+.panel-item .tag {
+    display: inline-block;
+    background: rgba(135, 206, 235, 0.2);
+    color: #87ceeb;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    margin-right: 6px;
+    margin-bottom: 4px;
+}
+
+.panel-link {
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 12px;
+    color: #87ceeb;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.panel-link:hover {
+    text-decoration: underline;
+}
+
 .panel-footer {
     padding: 12px 20px;
     border-top: 1px solid #4a4a6a;
