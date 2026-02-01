@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 7 of 8 (Landing & Mode Switching)
-Plan: 3 of 3 in phase - PHASE COMPLETE
-Status: Phase 7 complete
-Last activity: 2026-02-01 - Completed 07-03-PLAN.md (router wiring)
+Plan: 4 of 5 in phase
+Status: In progress - Wave 3 executing
+Last activity: 2026-02-01 - Completed 07-04-PLAN.md (mode toggle buttons)
 
-Progress: [████████████████████] 28/28 plans (100%)
+Progress: [██████████████████░░] 29/31 plans (94%)
 
 ## Performance Metrics
 
@@ -33,10 +33,10 @@ Progress: [████████████████████] 28/28 p
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
-| 07-landing-mode-switching | 3 | 13 min | 4.3 min |
+| 07-landing-mode-switching | 4 | 17 min | 4.25 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-05 (2 min), 07-01 (3 min), 07-02 (3 min), 07-03 (7 min)
+- Last 5 plans: 07-01 (3 min), 07-02 (3 min), 07-03 (7 min), 07-04 (4 min)
 - Note: 07-03 took longer due to Vite JSON plugin build issue resolution
 
 *Updated after each plan completion*
@@ -99,6 +99,8 @@ Recent decisions affecting current work:
 - **Loading spinner technique (2026-02-01):** clip-path animation with steps(4) for pixelated rotation
 - **Runtime JSON fetch for Landing (2026-02-01):** Use runtime fetch instead of static import for about.json in Landing.ts to avoid Vite JSON plugin build issues
 - **Session storage for landing gating (2026-02-01):** sessionStorage not localStorage - landing reappears on new browser session
+- **Mode toggle events (2026-02-01):** CustomEvent('mode-switch') dispatch pattern for loose coupling between header/HUD and main.ts
+- **Game toggle position (2026-02-01):** Top-right corner of game viewport, standard HUD position
 
 ### Pending Todos
 
@@ -123,8 +125,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 20:33 UTC
-Stopped at: Completed 07-03-PLAN.md (router wiring) - Phase 7 complete
+Last session: 2026-02-01 20:37 UTC
+Stopped at: Completed 07-04-PLAN.md (mode toggle buttons)
 Resume file: None
 
 ### Key Context for Next Session
@@ -141,7 +143,7 @@ npm run dev  # Vite on localhost:5173
 # Press G or click button to enter game mode
 ```
 
-**Landing system (Phase 7 complete):**
+**Landing system (Phase 7 plan 4 complete):**
 - Landing page shows on first visit in session only
 - sessionStorage tracks landing-shown state
 - Mode buttons trigger transitionToMode() with expand/fade animation
@@ -149,6 +151,8 @@ npm run dev  # Vite on localhost:5173
 - GamePreview.ts renders animated 320x240 canvas with campus scene
 - LoadingScreen.ts provides full-screen overlay during game load
 - CSS imported in main.ts entry point
+- Mode toggle buttons in header ("Play Game") and game HUD ("Website")
+- CustomEvent('mode-switch') pattern for direct mode switching without returning to landing
 
 **Current game state (Phase 6 complete):**
 - 40x30 tile campus map with 5 buildings
