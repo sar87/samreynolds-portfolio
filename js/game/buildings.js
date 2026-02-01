@@ -27,6 +27,9 @@ const Buildings = {
     // Action cooldown to prevent double-triggers
     actionCooldown: false,
 
+    // Track visited buildings this session
+    visitedBuildings: {},
+
     // Initialize
     init() {
         this.dialogBox = document.getElementById('dialog-box');
@@ -414,16 +417,44 @@ const Buildings = {
         return World.buildings[buildingId] || null;
     },
 
-    // Get welcome message for a building
-    getWelcomeMessage(buildingId) {
-        const messages = {
+    // Record a building visit, return true if first visit
+    recordVisit(buildingId) {
+        const isFirstVisit = !this.visitedBuildings[buildingId];
+        this.visitedBuildings[buildingId] = true;
+        return isFirstVisit;
+    },
+
+    // Check if building was visited
+    hasVisited(buildingId) {
+        return !!this.visitedBuildings[buildingId];
+    },
+
+    // Get welcome message for a building (context-aware)
+    getWelcomeMessage(buildingId, isFirstVisit = true) {
+        const building = World.buildings[buildingId];
+        const name = building?.name || 'this building';
+
+        const firstVisitMessages = {
             pembroke: "Welcome to Pembroke College! This is Sam's office. Look around to learn about Sam's background and research interests.",
             library: "Welcome to the University Library! Browse the extensive shelves to discover publications and research papers.",
             lab: "Welcome to the Research Lab! Examine the equipment to learn about current conservation AI projects.",
             station: "Welcome to the TV Station! Explore to find podcasts, interviews, and media appearances.",
             theatre: "Welcome to the Lecture Theatre! Check out recordings of talks and presentations."
         };
-        return messages[buildingId] || "Welcome!";
+
+        const returnVisitMessages = {
+            pembroke: "Welcome back to Pembroke College! Feel free to explore more of Sam's office.",
+            library: "Welcome back to the Library! There's always more to discover in the stacks.",
+            lab: "Welcome back to the Research Lab! The team is still hard at work.",
+            station: "Welcome back to the TV Station! New episodes recording soon.",
+            theatre: "Welcome back to the Lecture Theatre! Ready for another talk?"
+        };
+
+        if (isFirstVisit) {
+            return firstVisitMessages[buildingId] || `Welcome to ${name}!`;
+        } else {
+            return returnVisitMessages[buildingId] || `Welcome back to ${name}!`;
+        }
     }
 };
 
