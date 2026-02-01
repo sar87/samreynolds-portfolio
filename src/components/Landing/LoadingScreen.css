@@ -1,0 +1,94 @@
+/**
+ * LoadingScreen Styles
+ *
+ * Full-screen overlay with pixel-themed spinner animation.
+ * Uses clip-path with steps() for pixelated rotation effect.
+ */
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg, #ffffff);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4, 1rem);
+}
+
+.pixel-spinner {
+  width: 64px;
+  height: 64px;
+  background: var(--color-accent, #0d9488);
+  animation: pixel-rotate 1s steps(4) infinite;
+}
+
+.loading-text {
+  font-family: inherit;
+  font-size: var(--font-size-lg, 1.125rem);
+  color: var(--color-text-secondary, #525252);
+  letter-spacing: 0.05em;
+}
+
+/* Pixel rotation animation using clip-path for retro effect */
+@keyframes pixel-rotate {
+  0% {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%,
+      0% 100%
+    );
+    transform: rotate(0deg);
+  }
+  25% {
+    clip-path: polygon(
+      15% 0%,
+      100% 15%,
+      85% 100%,
+      0% 85%
+    );
+    transform: rotate(90deg);
+  }
+  50% {
+    clip-path: polygon(
+      0% 15%,
+      85% 0%,
+      100% 85%,
+      15% 100%
+    );
+    transform: rotate(180deg);
+  }
+  75% {
+    clip-path: polygon(
+      0% 0%,
+      85% 15%,
+      100% 100%,
+      15% 85%
+    );
+    transform: rotate(270deg);
+  }
+  100% {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%,
+      0% 100%
+    );
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion: no animation, just static loading text */
+@media (prefers-reduced-motion: reduce) {
+  .pixel-spinner {
+    animation: none;
+    /* Hide spinner entirely - text is sufficient */
+    display: none;
+  }
+
+  .loading-text {
+    font-size: var(--font-size-xl, 1.25rem);
+  }
+}
