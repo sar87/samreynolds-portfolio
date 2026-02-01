@@ -129,6 +129,20 @@ export class CampusGame {
           </div>
         </div>
 
+        <!-- Content Panel Overlay -->
+        <div id="content-panel" class="content-panel hidden" role="dialog" aria-modal="true" aria-labelledby="panel-title">
+          <div class="panel-header">
+            <h2 id="panel-title"></h2>
+            <button id="panel-close" class="panel-close" aria-label="Close panel">&times;</button>
+          </div>
+          <div id="panel-body" class="panel-body">
+            <!-- Content items populated dynamically -->
+          </div>
+          <div class="panel-footer">
+            <span class="panel-hint">ESC or click &times; to close</span>
+          </div>
+        </div>
+
         <!-- Loading Screen -->
         <div id="loading-screen" class="loading-screen">
           <div class="loading-content">
