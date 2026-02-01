@@ -1,0 +1,461 @@
+/* Game Mode CSS - Pokemon-style pixel art game */
+
+#game-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pixel-black);
+    overflow: hidden;
+}
+
+#game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Game HUD */
+.game-hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.location-indicator {
+    background: var(--pixel-dark);
+    border: 3px solid white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    box-shadow: 3px 3px 0 var(--pixel-black);
+}
+
+.controls-hint {
+    background: rgba(0, 0, 0, 0.7);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    border-radius: 3px;
+}
+
+.mobile-hint {
+    display: none;
+}
+
+/* Mobile Controls */
+.mobile-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-lg);
+    display: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.dpad {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    pointer-events: auto;
+}
+
+.dpad-btn {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: rgba(50, 50, 70, 0.9);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.dpad-btn:active {
+    background: rgba(100, 100, 130, 0.9);
+}
+
+.dpad-up {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px 8px 0 0;
+}
+
+.dpad-down {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 8px 8px;
+}
+
+.dpad-left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 8px 0 0 8px;
+}
+
+.dpad-right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0 8px 8px 0;
+}
+
+.action-btn {
+    width: 70px;
+    height: 70px;
+    background: var(--pixel-accent);
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    box-shadow:
+        0 4px 0 #a03050,
+        inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+
+.action-btn:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 2px 0 #a03050,
+        inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+
+/* Dialog Box */
+.dialog-box {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    border: 4px solid var(--pixel-black);
+    box-shadow: 6px 6px 0 var(--pixel-black);
+    z-index: 200;
+    font-family: 'Courier New', monospace;
+}
+
+.dialog-box.hidden {
+    display: none;
+}
+
+.dialog-content {
+    padding: var(--spacing-md);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dialog-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--pixel-dark);
+    border-bottom: 2px solid var(--pixel-black);
+    padding-bottom: var(--spacing-xs);
+}
+
+.dialog-content #dialog-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.dialog-content #dialog-text p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.dialog-content #dialog-text ul {
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.dialog-footer {
+    background: var(--bg-secondary);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-top: 2px solid var(--pixel-black);
+}
+
+.dialog-hint {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    animation: blink 1.5s infinite;
+}
+
+/* Content Panel Overlay - larger than dialog box for content lists */
+.content-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    background: rgba(26, 26, 46, 0.98);
+    border: 3px solid #4a4a6a;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    z-index: 250;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-panel.hidden {
+    display: none;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #4a4a6a;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #87ceeb;
+}
+
+.panel-close {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+}
+
+.panel-close:hover,
+.panel-close:focus {
+    color: #fff;
+    outline: 2px solid #87ceeb;
+    outline-offset: 2px;
+}
+
+.panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.panel-item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #333;
+}
+
+.panel-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.panel-item h4 {
+    margin: 0 0 8px 0;
+    color: #87ceeb;
+    font-size: 1rem;
+}
+
+.panel-item .authors,
+.panel-item .venue {
+    margin: 4px 0;
+    font-size: 0.875rem;
+    color: #bbb;
+}
+
+.panel-item .abstract {
+    margin: 8px 0 0 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.panel-footer {
+    padding: 12px 20px;
+    border-top: 1px solid #4a4a6a;
+    text-align: right;
+}
+
+.panel-hint {
+    color: #888;
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+/* Interaction Prompt */
+.interaction-prompt {
+    position: fixed;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pixel-dark);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    border: 3px solid white;
+    box-shadow: 3px 3px 0 var(--pixel-black);
+    z-index: 150;
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateX(-50%) translateY(0); }
+    to { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Interior overlay */
+.interior-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pixel-black);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.interior-room {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
+
+    .desktop-hint {
+        display: none;
+    }
+
+    .mobile-hint {
+        display: inline;
+    }
+
+    .dialog-box {
+        bottom: 25%;
+        width: 95%;
+    }
+
+    .game-hud {
+        padding: var(--spacing-sm);
+    }
+
+    .location-indicator {
+        font-size: 0.8rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .dpad {
+        width: 120px;
+        height: 120px;
+    }
+
+    .dpad-btn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .action-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .mobile-controls {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Tablet landscape - larger controls */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .mobile-controls {
+        display: flex;
+    }
+
+    .desktop-hint {
+        display: none;
+    }
+
+    .mobile-hint {
+        display: inline;
+    }
+}
+
+/* Touch device detection via JS adds this class */
+body.touch-device .mobile-controls {
+    display: flex;
+}
+
+body.touch-device .desktop-hint {
+    display: none;
+}
+
+body.touch-device .mobile-hint {
+    display: inline;
+}
+
+/* Hide game mode elements when in normal mode */
+body:not(.game-active) #game-mode {
+    display: none;
+}
+
+/* Game mode active state */
+body.game-active {
+    overflow: hidden;
+}
+
+body.game-active .mode-toggle .toggle-text::before {
+    content: 'Classic View';
+}
+
+body.game-active .mode-toggle .toggle-text {
+    font-size: 0;
+}
+
+body.game-active .mode-toggle .toggle-text::before {
+    font-size: 0.9rem;
+}
