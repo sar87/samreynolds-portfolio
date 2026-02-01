@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 9 of 9 (Change Game) - IN PROGRESS
-Plan: 2 of 6 in phase
-Status: Pallet Town map complete, ready for interiors
-Last activity: 2026-02-01 - Completed 09-02-PLAN.md (Pallet Town map generation)
+Plan: 5 of 6 in phase
+Status: Buildings content handlers complete, ready for world integration
+Last activity: 2026-02-01 - Completed 09-05-PLAN.md (Buildings content handlers)
 
-Progress: [███████████████████████████████] 97% (32/33 plans)
+Progress: [███████████████████████████████] 100% (33/33 plans)
 
 ### Roadmap Evolution
 - Phase 9 added: Change game (2026-02-01)
@@ -22,8 +22,8 @@ Progress: [███████████████████████
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 32
-- Average duration: 4.1 min
+- Total plans completed: 33
+- Average duration: 4.0 min
 - Total execution time: 2.3 hours
 
 **By Phase:**
@@ -37,10 +37,10 @@ Progress: [███████████████████████
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
 | 07-landing-mode-switching | 5 | 25 min | 5.0 min |
-| 09-change-game | 2 | 6.2 min | 3.1 min |
+| 09-change-game | 3 | 8.3 min | 2.8 min |
 
 **Recent Trend:**
-- Last 5 plans: 07-05 (8 min), 09-01 (2.5 min), 09-02 (3.7 min)
+- Last 5 plans: 09-01 (2.5 min), 09-02 (3.7 min), 09-05 (2.1 min)
 - Note: Phase 9 running efficiently - sprite and map systems straightforward
 
 *Updated after each plan completion*
@@ -114,6 +114,9 @@ Recent decisions affecting current work:
 - **3 buildings layout (2026-02-01):** Player House (about), Rival House (talks/media), Oak's Lab (research/publications)
 - **Player spawn at (10, 17) (2026-02-01):** Bottom center of Pallet Town map, walkable grass area
 - **Tile naming convention (2026-02-01):** All TILES enum entries match sprites.js TILE_COORDS exactly (snake_case)
+- **Stairs direction labeling (2026-02-01):** Stairs show "(Up)" or "(Down)" based on interaction.floor === '2F' check for clear navigation feedback
+- **Press A language (2026-02-01):** Changed prompts to "Press A" instead of "Press ENTER" for Pokemon authenticity (actual key binding remains ENTER)
+- **showPanel flag pattern (2026-02-01):** Content types check interaction.showPanel to toggle between full panel display or individual content
 
 ### Pending Todos
 
@@ -138,8 +141,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 21:40 UTC
-Stopped at: Completed 09-02-PLAN.md (Pallet Town map generation)
+Last session: 2026-02-01 21:47 UTC
+Stopped at: Completed 09-05-PLAN.md (Buildings content handlers)
 Resume file: None
 
 ### Key Context for Next Session
@@ -170,18 +173,17 @@ npm run dev  # Vite on localhost:5173
 **Current game state (Phase 9 in progress):**
 - 20x18 tile Pallet Town map with 3 buildings
 - Player spawns at bottom center (10, 17)
-- Buildings: Player House, Rival House, Oak's Lab
-- Old interiors still exist (pembroke, library, lab, station, theatre) but won't be used
-- Each has interior with themed sprites
+- Buildings: Player House (about), Rival House (talks/media), Oak's Lab (research/publications)
+- Buildings.js updated with welcome messages for all 3 buildings (09-05 complete)
+- showAboutContent() method handles bio, education, links interactions
+- All content types support showPanel flag for panel vs individual display
+- Interaction prompts use "Press A" language for Pokemon authenticity
+- Stairs interactions show "(Up)" or "(Down)" based on floor direction
+- Old Cambridge interiors still exist but won't be used
 - Content panel overlay via Buildings.showContentPanel(title, htmlContent)
 - Proximity detection via World.checkNearbyInteractions(playerX, playerY)
-- Interaction prompts show object name + action text with pulse animation
 - Visit tracking: Buildings.recordVisit(id) returns true on first visit
-- Context-aware welcome messages: first visit vs "Welcome back" on return
-- Content formatting: formatPublicationsList(), formatTalksList(), formatMediaList(), formatResearchList()
-- Panel methods: showPublicationsPanel(), showTalksPanel(), showMediaPanel(), showResearchPanel()
 - SITE_CONTENT.talks now has 19 invited talks with ISO dates
-- ALL FEATURES VERIFIED WORKING (06-05 checkpoint approved)
 
 ## User Feedback (05-06)
 
