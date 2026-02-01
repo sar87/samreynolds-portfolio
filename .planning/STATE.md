@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 6 complete - Ready for Phase 7
+**Current focus:** Phase 7 - Landing & Mode Switching
 
 ## Current Position
 
-Phase: 6 of 8 (Interactions & Content) - COMPLETE
-Plan: 5 of 5 in phase (all complete)
-Status: Phase 6 complete, ready for Phase 7
-Last activity: 2026-02-01 - Completed 06-05-PLAN.md (verification checkpoint)
+Phase: 7 of 8 (Landing & Mode Switching)
+Plan: 1 of 3 in phase
+Status: In progress
+Last activity: 2026-02-01 - Completed 07-01-PLAN.md (landing component)
 
-Progress: [██████████] 100% (25/25 plans)
+Progress: [██████████░░░░░░░░░░] 26/28 plans (~93%)
 
 ## Performance Metrics
 
@@ -33,10 +33,11 @@ Progress: [██████████] 100% (25/25 plans)
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
+| 07-landing-mode-switching | 1 | 3 min | 3.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-02 (3 min), 06-03 (3 min), 06-04 (3 min), 06-05 (2 min)
-- Note: Phase 6 plans are fast due to existing infrastructure
+- Last 5 plans: 06-03 (3 min), 06-04 (3 min), 06-05 (2 min), 07-01 (3 min)
+- Note: Phase 7 starting with component creation
 
 *Updated after each plan completion*
 
@@ -91,6 +92,8 @@ Recent decisions affecting current work:
 - **Visit tracking session-only (2026-02-01):** visitedBuildings persists per session only (not localStorage) - appropriate for casual exploration
 - **ISO date formatting (2026-02-01):** Keep dates in ISO format in data (YYYY-MM-DD), format to "Month Year" during display via formatDate() helper
 - **Placeholder link filtering (2026-02-01):** Only render links when URL exists AND is not placeholder '#'
+- **Landing intro extraction (2026-02-01):** Extract first sentence from bio[0] for concise intro without hardcoding
+- **Landing button differentiation (2026-02-01):** Accent teal for website mode, dark gray for game mode for visual distinction
 
 ### Pending Todos
 
@@ -115,9 +118,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 19:42 UTC
-Stopped at: Completed 06-05-PLAN.md (verification checkpoint approved)
-Resume file: None - Phase 6 complete
+Last session: 2026-02-01
+Stopped at: Completed 07-01-PLAN.md (landing component)
+Resume file: None
 
 ### Key Context for Next Session
 
@@ -131,6 +134,13 @@ Resume file: None - Phase 6 complete
 npm run dev  # Vite on localhost:5173
 # Press G to enter game mode
 ```
+
+**Landing component (Phase 7 progress):**
+- Landing.ts exports renderLanding() with split layout HTML
+- Landing.css has mobile-first Flexbox, 768px breakpoint for row layout
+- data-mode="website" and data-mode="game" on buttons for routing
+- Preview placeholders ready for minimap integration (07-02)
+- CSS not yet imported in main.ts (07-03 will wire up)
 
 **Current game state (Phase 6 complete):**
 - 40x30 tile campus map with 5 buildings
