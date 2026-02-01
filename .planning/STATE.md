@@ -9,19 +9,22 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 
 ## Current Position
 
-Phase: 7 of 8 (Landing & Mode Switching) - COMPLETE
-Plan: 5 of 5 in phase (all complete)
-Status: Phase 7 complete, ready for Phase 8
-Last activity: 2026-02-01 - Completed 07-05-PLAN.md (verification checkpoint approved)
+Phase: 9 of 9 (Change Game) - IN PROGRESS
+Plan: 1 of 3 in phase
+Status: Sprite system rewritten, ready for Plan 02
+Last activity: 2026-02-01 - Completed 09-01-PLAN.md (sprite sheet loading)
 
-Progress: [██████████████████████████████] 100% (30/30 plans)
+Progress: [███████████████████████████████] 100% (31/33 plans)
+
+### Roadmap Evolution
+- Phase 9 added: Change game (2026-02-01)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 30
-- Average duration: 4.4 min
-- Total execution time: 2.2 hours
+- Total plans completed: 31
+- Average duration: 4.3 min
+- Total execution time: 2.25 hours
 
 **By Phase:**
 
@@ -34,10 +37,11 @@ Progress: [███████████████████████
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
 | 07-landing-mode-switching | 5 | 25 min | 5.0 min |
+| 09-change-game | 1 | 2.5 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 07-02 (3 min), 07-03 (7 min), 07-04 (4 min), 07-05 (8 min)
-- Note: 07-05 included two bugfixes during verification checkpoint
+- Last 5 plans: 07-03 (7 min), 07-04 (4 min), 07-05 (8 min), 09-01 (2.5 min)
+- Note: 09-01 very fast due to straightforward sprite sheet replacement
 
 *Updated after each plan completion*
 
@@ -101,6 +105,9 @@ Recent decisions affecting current work:
 - **Session storage for landing gating (2026-02-01):** sessionStorage not localStorage - landing reappears on new browser session
 - **Mode toggle events (2026-02-01):** CustomEvent('mode-switch') dispatch pattern for loose coupling between header/HUD and main.ts
 - **Game toggle position (2026-02-01):** Top-right corner of game viewport, standard HUD position
+- **Pokemon GBA tile sizes (2026-02-01):** 16x16 tiles, 16x32 character sprites (2 tiles tall)
+- **Character Y offset (2026-02-01):** Render player -1 tile in Y to account for 32px height positioned at bottom tile
+- **Sprite data format (2026-02-01):** {image, sx, sy, sw, sh} objects for Canvas drawImage(), not canvas elements
 
 ### Pending Todos
 
@@ -125,8 +132,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 20:37 UTC
-Stopped at: Completed 07-04-PLAN.md (mode toggle buttons)
+Last session: 2026-02-01 21:33 UTC
+Stopped at: Completed 09-01-PLAN.md (sprite sheet loading system)
 Resume file: None
 
 ### Key Context for Next Session
