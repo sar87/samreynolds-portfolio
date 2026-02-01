@@ -150,10 +150,14 @@ Plans:
   6. Choosing "View Website" loads traditional website smoothly
   7. Transition between game and website modes is animated and seamless
   8. Loading screen shows progress while game assets load
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 07-01: TBD during phase planning
+- [ ] 07-01-PLAN.md - Landing layout and styling with split screen
+- [ ] 07-02-PLAN.md - Game preview animation and loading screen
+- [ ] 07-03-PLAN.md - Route integration with session tracking and skip links
+- [ ] 07-04-PLAN.md - Mode toggle buttons in header and game HUD
+- [ ] 07-05-PLAN.md - Visual verification checkpoint
 
 ### Phase 8: Polish & Mobile Optimization
 **Goal**: Game runs smoothly on mobile devices with touch controls and polished animations
@@ -186,5 +190,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 4. Core Game Engine | 4/4 | Complete | 2026-01-31 |
 | 5. Campus & Buildings | 6/6 | Complete | 2026-01-31 |
 | 6. Interactions & Content Integration | 5/5 | Complete | 2026-02-01 |
-| 7. Landing & Mode Switching | 0/? | Not started | - |
+| 7. Landing & Mode Switching | 0/5 | Not started | - |
 | 8. Polish & Mobile Optimization | 0/? | Not started | - |
