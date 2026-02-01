@@ -172,11 +172,14 @@ const Engine = {
     enterBuilding(buildingId) {
         const interior = World.enterBuilding(buildingId);
         if (interior) {
+            // Track visit and check if first time
+            const isFirstVisit = Buildings.recordVisit(buildingId);
+
             Player.teleport(interior.spawn.x, interior.spawn.y, 'up');
             this.updateLocationDisplay();
 
-            // Show welcome message
-            const welcomeMsg = Buildings.getWelcomeMessage(buildingId);
+            // Show context-aware welcome message
+            const welcomeMsg = Buildings.getWelcomeMessage(buildingId, isFirstVisit);
             Buildings.showDialog(interior.name, welcomeMsg);
         }
     },
