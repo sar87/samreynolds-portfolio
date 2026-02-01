@@ -170,3 +170,38 @@
 .loading-text {
     font-size: 12px;
 }
+
+/* Game HUD mode toggle button */
+.game-mode-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    background: rgba(26, 26, 46, 0.85);
+    border: 2px solid #4a4a6a;
+    border-radius: 6px;
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.game-mode-toggle:hover {
+    background: rgba(26, 26, 46, 0.95);
+    border-color: #87ceeb;
+}
+
+.game-mode-toggle:focus-visible {
+    outline: 2px solid #87ceeb;
+    outline-offset: 2px;
+}
+
+.game-mode-toggle svg {
+    flex-shrink: 0;
+}
