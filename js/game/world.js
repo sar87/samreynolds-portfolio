@@ -46,42 +46,28 @@ const World = {
     },
 
     // Building definitions with entry points
-    // 5 buildings around central quad: 4 traditional (gothic), 1 modern
     buildings: {
-        pembroke: {
-            name: "Pembroke College",
-            contentKey: 'about',
-            entrance: { x: 9, y: 15 },
-            tiles: { x: 5, y: 11, w: 6, h: 5 },
-            style: 'traditional'
+        playerHouse: {
+            name: "Player's House",
+            contentKey: 'about',  // About Me content
+            entrance: { x: 6, y: 10 },
+            tiles: { x: 4, y: 7, w: 5, h: 4 },
+            style: 'house',
+            floors: 2  // Has 1F and 2F
         },
-        library: {
-            name: "University Library",
-            contentKey: 'publications',
-            entrance: { x: 20, y: 8 },
-            tiles: { x: 16, y: 4, w: 9, h: 5 },  // Largest building
-            style: 'traditional'
+        rivalHouse: {
+            name: "Rival's House",
+            contentKey: 'talks_media',  // Talks + Media content
+            entrance: { x: 14, y: 10 },
+            tiles: { x: 12, y: 7, w: 5, h: 4 },
+            style: 'house'
         },
-        lab: {
-            name: "Research Lab",
-            contentKey: 'research',
-            entrance: { x: 32, y: 10 },
-            tiles: { x: 28, y: 6, w: 7, h: 5 },
-            style: 'modern'  // Only modern building
-        },
-        station: {
-            name: "TV Station",
-            contentKey: 'media',
-            entrance: { x: 32, y: 18 },
-            tiles: { x: 28, y: 14, w: 6, h: 5 },
-            style: 'traditional'
-        },
-        theatre: {
-            name: "Lecture Theatre",
-            contentKey: 'talks',
-            entrance: { x: 9, y: 23 },
-            tiles: { x: 5, y: 19, w: 6, h: 5 },
-            style: 'traditional'
+        oakLab: {
+            name: "Professor Oak's Lab",
+            contentKey: 'research_publications',  // Research + Publications
+            entrance: { x: 10, y: 16 },
+            tiles: { x: 7, y: 13, w: 7, h: 4 },
+            style: 'lab'
         }
     },
 
