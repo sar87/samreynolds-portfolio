@@ -34,13 +34,19 @@
 }
 
 .location-indicator {
-    background: var(--pixel-dark);
+    background: var(--pixel-dark, rgba(26, 26, 46, 0.95));
     border: 3px solid white;
-    padding: var(--spacing-xs) var(--spacing-md);
+    padding: var(--spacing-xs, 6px) var(--spacing-md, 16px);
     color: white;
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
-    box-shadow: 3px 3px 0 var(--pixel-black);
+    box-shadow: 3px 3px 0 var(--pixel-black, #000);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.location-indicator.updating {
+    opacity: 0.7;
+    transform: scale(0.98);
 }
 
 .controls-hint {
