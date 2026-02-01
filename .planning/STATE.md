@@ -11,10 +11,10 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 
 Phase: 9 of 9 (Change Game) - IN PROGRESS
 Plan: 5 of 6 in phase
-Status: Buildings content handlers complete, ready for world integration
-Last activity: 2026-02-01 - Completed 09-05-PLAN.md (Buildings content handlers)
+Status: Interior maps and content handlers complete
+Last activity: 2026-02-01 - Completed 09-04-PLAN.md (Interior maps for Pallet Town buildings)
 
-Progress: [███████████████████████████████] 100% (33/33 plans)
+Progress: [███████████████████████████████] 97% (35/36 plans)
 
 ### Roadmap Evolution
 - Phase 9 added: Change game (2026-02-01)
@@ -22,9 +22,9 @@ Progress: [███████████████████████
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 33
+- Total plans completed: 35
 - Average duration: 4.0 min
-- Total execution time: 2.3 hours
+- Total execution time: 2.4 hours
 
 **By Phase:**
 
@@ -37,10 +37,10 @@ Progress: [███████████████████████
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
 | 07-landing-mode-switching | 5 | 25 min | 5.0 min |
-| 09-change-game | 3 | 8.3 min | 2.8 min |
+| 09-change-game | 5 | 17.9 min | 3.6 min |
 
 **Recent Trend:**
-- Last 5 plans: 09-01 (2.5 min), 09-02 (3.7 min), 09-05 (2.1 min)
+- Last 5 plans: 09-02 (3.7 min), 09-03 (2.1 min), 09-04 (3.6 min), 09-05 (2.1 min)
 - Note: Phase 9 running efficiently - sprite and map systems straightforward
 
 *Updated after each plan completion*
@@ -117,6 +117,11 @@ Recent decisions affecting current work:
 - **Stairs direction labeling (2026-02-01):** Stairs show "(Up)" or "(Down)" based on interaction.floor === '2F' check for clear navigation feedback
 - **Press A language (2026-02-01):** Changed prompts to "Press A" instead of "Press ENTER" for Pokemon authenticity (actual key binding remains ENTER)
 - **showPanel flag pattern (2026-02-01):** Content types check interaction.showPanel to toggle between full panel display or individual content
+- **Player House interior sizes (2026-02-01):** 10x8 tiles for compact Pokemon-style homes (smaller than Cambridge 14x12 to 20x14)
+- **Oak's Lab size (2026-02-01):** 12x10 tiles (larger than houses) for laboratory feel
+- **Content zone distribution (2026-02-01):** Multiple interact points per interior for exploration rewards
+- **Stairs interaction type (2026-02-01):** {type: 'stairs', floor: '2F'/'1F'} for multi-floor Player House navigation
+- **About content subtypes (2026-02-01):** Subtypes 'bio', 'links', 'education', 'research', 'interests' for granular About content in Player House
 
 ### Pending Todos
 
@@ -141,8 +146,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 21:47 UTC
-Stopped at: Completed 09-05-PLAN.md (Buildings content handlers)
+Last session: 2026-02-01 21:48 UTC
+Stopped at: Completed 09-04-PLAN.md (Interior maps for Pallet Town buildings)
 Resume file: None
 
 ### Key Context for Next Session
