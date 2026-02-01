@@ -9,12 +9,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 
 ## Current Position
 
-Phase: 9 of 9 (Change Game) - IN PROGRESS
-Plan: 5 of 6 in phase
-Status: Interior maps and content handlers complete
-Last activity: 2026-02-01 - Completed 09-04-PLAN.md (Interior maps for Pallet Town buildings)
+Phase: 9 of 9 (Change Game) - PARTIAL COMPLETE
+Plan: 6 of 6 in phase (verification checkpoint partial)
+Status: Sprite rendering needs follow-up phase for calibration
+Last activity: 2026-02-01 - Visual verification identified map rendering issues
 
 Progress: [███████████████████████████████] 97% (35/36 plans)
+
+### Phase 09 Issues (Requires Follow-up)
+- Pre-rendered map approach implemented but needs coordinate calibration
+- Collision zones not matching visual building positions
+- "Pallet Town" label still visible in rendered map
+- Recommend dedicated follow-up phase with fresh context for precise sprite sheet measurement
 
 ### Roadmap Evolution
 - Phase 9 added: Change game (2026-02-01)
@@ -175,20 +181,24 @@ npm run dev  # Vite on localhost:5173
 - Mode toggle buttons in header ("Play Game") and game HUD ("Website")
 - CustomEvent('mode-switch') pattern for direct mode switching without returning to landing
 
-**Current game state (Phase 9 in progress):**
-- 20x18 tile Pallet Town map with 3 buildings
-- Player spawns at bottom center (10, 17)
-- Buildings: Player House (about), Rival House (talks/media), Oak's Lab (research/publications)
-- Buildings.js updated with welcome messages for all 3 buildings (09-05 complete)
+**Current game state (Phase 9 partial):**
+- Pre-rendered map approach: Renders entire Pallet Town map image instead of tile-by-tile
+- Sprite sheet: `Pokemon Sprites/Game Boy Advance - Pokemon FireRed _ LeafGreen - Maps (Towns, Buildings, Etc.) - Pallet Town.png`
+- KNOWN ISSUES requiring follow-up phase:
+  - Map source coordinates (sx, sy) need precise calibration to hide label
+  - Collision rectangles need to match actual building positions in the pre-rendered image
+  - Building entrance positions need calibration to match visual door locations
+- Buildings.js updated with welcome messages for all 3 buildings
 - showAboutContent() method handles bio, education, links interactions
-- All content types support showPanel flag for panel vs individual display
 - Interaction prompts use "Press A" language for Pokemon authenticity
-- Stairs interactions show "(Up)" or "(Down)" based on floor direction
-- Old Cambridge interiors still exist but won't be used
 - Content panel overlay via Buildings.showContentPanel(title, htmlContent)
 - Proximity detection via World.checkNearbyInteractions(playerX, playerY)
-- Visit tracking: Buildings.recordVisit(id) returns true on first visit
-- SITE_CONTENT.talks now has 19 invited talks with ISO dates
+
+**Follow-up phase recommendation:**
+1. Open sprite sheet in image editor to get exact pixel coordinates
+2. Map collision zones pixel-by-pixel to match the pre-rendered Pallet Town
+3. Test each building entrance position manually
+4. Verify interior map sections render correctly when entering buildings
 
 ## User Feedback (05-06)
 

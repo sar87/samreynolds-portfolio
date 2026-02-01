@@ -46,8 +46,8 @@ const Engine = {
         World.init();
         Buildings.init();
 
-        // Set player start position (bottom center of Pallet Town)
-        Player.init(10, 17);
+        // Set player start position (center of Pallet Town, on the grass)
+        Player.init(9, 9);
 
         // Mark as loaded
         this.loaded = true;
@@ -217,6 +217,43 @@ const Engine = {
         ctx.fillStyle = '#1a1a2e';
         ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
+        // Check if we're on the outdoor map (campus) or interior
+        if (World.currentLocation === 'campus') {
+            // Render pre-rendered Pallet Town map
+            this.renderPreRenderedMap('palletTown');
+        } else {
+            // Render interior tile-by-tile (interiors use tile system)
+            this.renderInterior();
+        }
+
+        // Render player
+        this.renderPlayer();
+    },
+
+    // Render the pre-rendered outdoor map (Pallet Town)
+    renderPreRenderedMap(mapName) {
+        const mapData = Sprites.getMap(mapName);
+        if (!mapData || !mapData.image) return;
+
+        const scale = this.scale;
+
+        // Calculate where to draw the map relative to camera
+        const screenX = (0 - this.camera.x) * scale;
+        const screenY = (0 - this.camera.y) * scale;
+
+        this.ctx.drawImage(
+            mapData.image,
+            mapData.sx, mapData.sy,           // Source position in sprite sheet
+            mapData.sw, mapData.sh,           // Source size
+            Math.floor(screenX), Math.floor(screenY),  // Destination position
+            mapData.sw * scale, mapData.sh * scale     // Destination size (scaled)
+        );
+    },
+
+    // Render interior maps tile-by-tile
+    renderInterior() {
+        const tileSize = this.tileSize;
+
         // Calculate visible tile range
         const startTileX = Math.floor(this.camera.x / tileSize);
         const startTileY = Math.floor(this.camera.y / tileSize);
@@ -231,24 +268,11 @@ const Engine = {
             }
         }
 
-        // Render objects layer (below player)
+        // Render objects layer
         for (let y = startTileY; y < endTileY; y++) {
             for (let x = startTileX; x < endTileX; x++) {
                 const objectTile = World.getTile(x, y, 'objects');
-                if (objectTile !== -1 && objectTile !== World.TILES.TREE_TOP) {
-                    this.renderTile(objectTile, x, y);
-                }
-            }
-        }
-
-        // Render player
-        this.renderPlayer();
-
-        // Render objects above player (tree tops, etc.)
-        for (let y = startTileY; y < endTileY; y++) {
-            for (let x = startTileX; x < endTileX; x++) {
-                const objectTile = World.getTile(x, y, 'objects');
-                if (objectTile === World.TILES.TREE_TOP) {
+                if (objectTile !== -1) {
                     this.renderTile(objectTile, x, y);
                 }
             }
@@ -301,7 +325,7 @@ const Engine = {
         if (!locationEl) return;
 
         if (World.currentLocation === 'campus') {
-            locationEl.textContent = 'Cambridge Campus';
+            locationEl.textContent = 'Pallet Town';
         } else {
             const interior = World.interiorMaps[World.currentLocation];
             if (interior) {

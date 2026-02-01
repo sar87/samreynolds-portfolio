@@ -16,38 +16,36 @@ const Sprites = {
         npcs: 'Pokemon Sprites/Game Boy Advance - Pokemon FireRed _ LeafGreen - Trainers & Non-Playable Characters - Overworld NPCs.png'
     },
 
-    // Tile coordinate mappings (sx, sy, sw, sh)
-    // Pallet Town outdoor map tiles (left section ~0-384px wide)
+    // PRE-RENDERED MAP SECTIONS
+    // The sprite sheet contains complete pre-rendered maps, not individual tiles
+    // We render entire map sections and overlay collision/interaction data
+    MAPS: {
+        // Pallet Town outdoor map - the main overworld
+        // Skip the "Pallet Town" text label at top (about 16px), map is 20x18 tiles
+        palletTown: { sx: 0, sy: 16, sw: 320, sh: 288 },  // Full outdoor map (20x18 tiles)
+
+        // Interior maps for buildings
+        playerHouse1F: { sx: 320, sy: 10, sw: 160, sh: 144 },   // Player House ground floor
+        playerHouse2F: { sx: 480, sy: 10, sw: 160, sh: 144 },   // Player House second floor
+        rivalHouse: { sx: 320, sy: 160, sw: 160, sh: 144 },     // Rival's House
+        oakLab: { sx: 640, sy: 10, sw: 192, sh: 160 }           // Professor Oak's Lab
+    },
+
+    // Individual tiles for interior decoration (these ARE designed to tile)
     TILE_COORDS: {
-        // Outdoor terrain (from Pallet Town map)
-        grass: { sx: 16, sy: 16, sw: 16, sh: 16 },
-        path: { sx: 80, sy: 144, sw: 16, sh: 16 },
-        flower: { sx: 48, sy: 48, sw: 16, sh: 16 },
-        tree_trunk: { sx: 32, sy: 96, sw: 16, sh: 16 },
-        tree_top: { sx: 32, sy: 80, sw: 16, sh: 16 },
-        water: { sx: 160, sy: 304, sw: 16, sh: 16 },
-
-        // Building exteriors (from Pallet Town houses)
-        house_wall: { sx: 64, sy: 80, sw: 16, sh: 16 },
-        house_roof: { sx: 64, sy: 64, sw: 16, sh: 16 },
-        house_door: { sx: 88, sy: 88, sw: 16, sh: 16 },
-        lab_wall: { sx: 192, sy: 208, sw: 16, sh: 16 },
-        lab_roof: { sx: 192, sy: 192, sw: 16, sh: 16 },
-        lab_door: { sx: 216, sy: 216, sw: 16, sh: 16 },
-
-        // Interior tiles (from Player House 1F - starts around x=384)
-        floor: { sx: 440, sy: 96, sw: 16, sh: 16 },
-        wall: { sx: 440, sy: 32, sw: 16, sh: 16 },
-        door: { sx: 488, sy: 144, sw: 16, sh: 16 },
-        stairs: { sx: 520, sy: 120, sw: 16, sh: 16 },
-        table: { sx: 472, sy: 96, sw: 16, sh: 16 },
-        chair: { sx: 456, sy: 112, sw: 16, sh: 16 },
-        bookshelf: { sx: 456, sy: 48, sw: 16, sh: 16 },
-        computer: { sx: 504, sy: 64, sw: 16, sh: 16 },
-        sofa: { sx: 520, sy: 80, sw: 16, sh: 16 },
-        tv: { sx: 504, sy: 48, sw: 16, sh: 16 },
-        plant: { sx: 488, sy: 80, sw: 16, sh: 16 },
-        rug: { sx: 488, sy: 112, sw: 16, sh: 16 }
+        // Interior tiles from Player House section
+        floor: { sx: 368, sy: 96, sw: 16, sh: 16 },
+        wall: { sx: 352, sy: 32, sw: 16, sh: 16 },
+        door: { sx: 400, sy: 128, sw: 16, sh: 16 },
+        stairs: { sx: 448, sy: 64, sw: 16, sh: 16 },
+        table: { sx: 384, sy: 80, sw: 16, sh: 16 },
+        chair: { sx: 400, sy: 96, sw: 16, sh: 16 },
+        bookshelf: { sx: 352, sy: 48, sw: 16, sh: 16 },
+        computer: { sx: 432, sy: 48, sw: 16, sh: 16 },
+        sofa: { sx: 336, sy: 80, sw: 16, sh: 16 },
+        tv: { sx: 336, sy: 48, sw: 16, sh: 16 },
+        plant: { sx: 336, sy: 64, sw: 16, sh: 16 },
+        rug: { sx: 384, sy: 96, sw: 16, sh: 16 }
     },
 
     // Character animation frames (4 directions x 4 frames = 16 total)
@@ -106,6 +104,16 @@ const Sprites = {
     // Get tile sprite data for rendering
     get(name) {
         const coords = this.TILE_COORDS[name];
+        if (!coords) return null;
+        return {
+            image: this.sheets.town,
+            ...coords
+        };
+    },
+
+    // Get pre-rendered map data
+    getMap(name) {
+        const coords = this.MAPS[name];
         if (!coords) return null;
         return {
             image: this.sheets.town,

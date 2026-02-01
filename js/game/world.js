@@ -46,27 +46,25 @@ const World = {
     },
 
     // Building definitions with entry points
+    // Positions match the pre-rendered Pallet Town map
     buildings: {
         playerHouse: {
             name: "Player's House",
             contentKey: 'about',  // About Me content
-            entrance: { x: 6, y: 10 },
-            tiles: { x: 4, y: 7, w: 5, h: 4 },
+            entrance: { x: 5, y: 6 },  // Door position in pre-rendered map
             style: 'house',
             floors: 2  // Has 1F and 2F
         },
         rivalHouse: {
             name: "Rival's House",
             contentKey: 'talks_media',  // Talks + Media content
-            entrance: { x: 14, y: 10 },
-            tiles: { x: 12, y: 7, w: 5, h: 4 },
+            entrance: { x: 13, y: 6 },  // Door position in pre-rendered map
             style: 'house'
         },
         oakLab: {
             name: "Professor Oak's Lab",
             contentKey: 'research_publications',  // Research + Publications
-            entrance: { x: 10, y: 16 },
-            tiles: { x: 7, y: 13, w: 7, h: 4 },
+            entrance: { x: 14, y: 12 },  // Door position in pre-rendered map
             style: 'lab'
         }
     },
@@ -83,136 +81,88 @@ const World = {
         this.generateInteriorMaps();
     },
 
-    // Generate the main Pallet Town map
+    // Generate collision/interaction data for the pre-rendered Pallet Town map
+    // The map image is rendered directly; this just handles collision and interactions
     generateCampusMap() {
-        const T = this.TILES;
-        const w = 20;   // Pallet Town width
-        const h = 18;   // Pallet Town height
+        const w = 20;   // Pallet Town width in tiles
+        const h = 18;   // Pallet Town height in tiles
         this.width = w;
         this.height = h;
 
-        const ground = new Array(w * h).fill(T.GRASS);
+        // These layers are for collision/interaction only - ground/objects not rendered tile-by-tile
+        const ground = new Array(w * h).fill(0);
         const objects = new Array(w * h).fill(-1);
-        const collision = new Array(w * h).fill(0);
+        const collision = new Array(w * h).fill(0);  // Default: walkable
         const interact = new Array(w * h).fill(null);
 
-        const setTile = (x, y, groundTile, objectTile = -1, blocked = false, interactData = null) => {
+        const setCollision = (x, y, blocked, interactData = null) => {
             if (x < 0 || x >= w || y < 0 || y >= h) return;
             const idx = y * w + x;
-            if (groundTile !== null) ground[idx] = groundTile;
-            if (objectTile !== -1) objects[idx] = objectTile;
-            if (blocked) collision[idx] = 1;
+            collision[idx] = blocked ? 1 : 0;
             if (interactData) interact[idx] = interactData;
         };
 
-        const placeTree = (x, y) => {
-            setTile(x, y, T.GRASS, T.TREE_TRUNK, true);
-            if (y > 0) setTile(x, y - 1, null, T.TREE_TOP, true);
+        const blockRect = (x1, y1, x2, y2) => {
+            for (let x = x1; x <= x2; x++) {
+                for (let y = y1; y <= y2; y++) {
+                    setCollision(x, y, true);
+                }
+            }
         };
 
-        // 1. TREE BORDER (dense forest edge)
-        for (let x = 0; x < w; x++) {
-            placeTree(x, 1);
-            if (x < 8 || x > 12) placeTree(x, 2);
-        }
-        for (let y = 2; y < h - 1; y++) {
-            placeTree(0, y);
-            placeTree(1, y);
-            placeTree(w - 1, y);
-            placeTree(w - 2, y);
-        }
+        // ============================================
+        // COLLISION BASED ON PRE-RENDERED MAP LAYOUT
+        // ============================================
 
-        // 2. MAIN PATH (vertical from bottom)
-        for (let y = 3; y < h; y++) {
-            setTile(9, y, T.PATH);
-            setTile(10, y, T.PATH);
-        }
+        // 1. TREE BORDER (edges of the map)
+        // Top tree rows
+        blockRect(0, 0, 19, 1);
+        // Left tree columns
+        blockRect(0, 0, 1, 17);
+        // Right tree columns
+        blockRect(18, 0, 19, 17);
+        // Bottom row (partial trees)
+        blockRect(0, 17, 5, 17);  // Bottom left near pond
+        blockRect(15, 17, 19, 17); // Bottom right
 
-        // 3. HORIZONTAL PATHS to houses
-        for (let x = 4; x < 9; x++) setTile(x, 8, T.PATH);
-        for (let x = 11; x < 16; x++) setTile(x, 8, T.PATH);
+        // 2. LEFT HOUSE (Player's House) - approx x=3-7, y=2-5
+        blockRect(3, 2, 7, 5);
+        // Door at bottom center - walkable with interaction
+        setCollision(5, 6, false, { type: 'door', building: 'playerHouse', name: "Player's House" });
 
-        // 4. PLAYER'S HOUSE (left side)
-        this.buildHouse(ground, objects, collision, interact, 'playerHouse', 4, 5, 5, 4);
+        // 3. RIGHT HOUSE (Rival's House) - approx x=11-15, y=2-5
+        blockRect(11, 2, 15, 5);
+        // Door at bottom center
+        setCollision(13, 6, false, { type: 'door', building: 'rivalHouse', name: "Rival's House" });
 
-        // 5. RIVAL'S HOUSE (right side)
-        this.buildHouse(ground, objects, collision, interact, 'rivalHouse', 12, 5, 5, 4);
+        // 4. OAK'S LAB (right side) - approx x=11-17, y=8-12
+        blockRect(11, 8, 17, 11);
+        // Door at entrance
+        setCollision(14, 12, false, { type: 'door', building: 'oakLab', name: "Professor Oak's Lab" });
 
-        // 6. OAK'S LAB (bottom center)
-        this.buildLab(ground, objects, collision, interact, 'oakLab', 7, 12, 7, 5);
+        // 5. FENCES (block movement)
+        // Fence row above flower garden area
+        blockRect(3, 7, 7, 7);
+        // Fence row at bottom center
+        blockRect(8, 14, 14, 14);
 
-        // 7. FLOWERS (decorative)
-        const flowerSpots = [[5, 9], [6, 9], [14, 9], [15, 9], [8, 11], [12, 11]];
-        flowerSpots.forEach(([x, y]) => setTile(x, y, T.FLOWER));
+        // 6. POND (bottom left) - water blocks movement
+        blockRect(2, 14, 5, 16);
 
-        // 8. POND (bottom left area)
-        for (let x = 3; x <= 5; x++) {
-            for (let y = 14; y <= 16; y++) {
-                setTile(x, y, T.WATER, -1, true);
-            }
-        }
+        // 7. SIGNS (interactive, not blocking)
+        setCollision(7, 7, false, { type: 'sign', message: "Player's House" });
+        setCollision(8, 14, false, { type: 'sign', message: 'Pallet Town - Shades of your journey await!' });
+
+        // Update building entrance positions
+        this.buildings.playerHouse.entrance = { x: 5, y: 6 };
+        this.buildings.rivalHouse.entrance = { x: 13, y: 6 };
+        this.buildings.oakLab.entrance = { x: 14, y: 12 };
 
         this.campusMap = {
             width: w,
             height: h,
             layers: { ground, objects, collision, interact }
         };
-    },
-
-    // Helper to build a house exterior
-    buildHouse(ground, objects, collision, interact, id, x, y, w, h) {
-        const T = this.TILES;
-        const mapW = this.width;
-        const building = this.buildings[id];
-
-        // Fill building footprint with walls
-        for (let bx = x; bx < x + w; bx++) {
-            for (let by = y; by < y + h; by++) {
-                const idx = by * mapW + bx;
-                objects[idx] = T.HOUSE_WALL;
-                collision[idx] = 1;
-            }
-        }
-
-        // Roof row at top
-        for (let bx = x; bx < x + w; bx++) {
-            const idx = y * mapW + bx;
-            objects[idx] = T.HOUSE_ROOF;
-        }
-
-        // Door at entrance
-        const doorIdx = building.entrance.y * mapW + building.entrance.x;
-        objects[doorIdx] = T.HOUSE_DOOR;
-        collision[doorIdx] = 0;
-        interact[doorIdx] = { type: 'door', building: id, name: building.name };
-    },
-
-    // Helper to build a lab exterior
-    buildLab(ground, objects, collision, interact, id, x, y, w, h) {
-        const T = this.TILES;
-        const mapW = this.width;
-        const building = this.buildings[id];
-
-        // Fill building footprint with lab walls
-        for (let bx = x; bx < x + w; bx++) {
-            for (let by = y; by < y + h; by++) {
-                const idx = by * mapW + bx;
-                objects[idx] = T.LAB_WALL;
-                collision[idx] = 1;
-            }
-        }
-
-        // Lab roof row at top
-        for (let bx = x; bx < x + w; bx++) {
-            const idx = y * mapW + bx;
-            objects[idx] = T.LAB_ROOF;
-        }
-
-        // Door at entrance
-        const doorIdx = building.entrance.y * mapW + building.entrance.x;
-        objects[doorIdx] = T.LAB_DOOR;
-        collision[doorIdx] = 0;
-        interact[doorIdx] = { type: 'door', building: id, name: building.name };
     },
 
     // Generate interior maps for each building
