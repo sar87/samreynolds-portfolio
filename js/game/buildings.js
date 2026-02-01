@@ -455,6 +455,97 @@ const Buildings = {
         } else {
             return returnVisitMessages[buildingId] || `Welcome back to ${name}!`;
         }
+    },
+
+    // Format ISO date to "Month Year"
+    formatDate(isoDate) {
+        if (!isoDate) return '';
+        const date = new Date(isoDate);
+        const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+        return `${months[date.getMonth()]} ${date.getFullYear()}`;
+    },
+
+    // Format all publications for panel display
+    formatPublicationsList() {
+        const pubs = SITE_CONTENT.publications;
+        return pubs.map(pub => `
+            <div class="panel-item">
+                <h4>${pub.title}</h4>
+                <p class="authors">${pub.authors}</p>
+                <p class="venue"><em>${pub.venue}</em> (${pub.year})</p>
+                ${pub.links?.paper && pub.links.paper !== '#' ? `<a href="${pub.links.paper}" target="_blank" rel="noopener" class="panel-link">View Paper</a>` : ''}
+                ${pub.links?.code && pub.links.code !== '#' ? `<a href="${pub.links.code}" target="_blank" rel="noopener" class="panel-link">View Code</a>` : ''}
+            </div>
+        `).join('');
+    },
+
+    // Format all talks for panel display
+    formatTalksList() {
+        const talks = SITE_CONTENT.talks;
+        return talks.map(talk => {
+            const date = this.formatDate(talk.date);
+            return `
+                <div class="panel-item">
+                    <h4>${talk.title}</h4>
+                    <p class="venue">${talk.venue}</p>
+                    <p class="date">${date}</p>
+                    ${talk.video ? `<a href="${talk.video}" target="_blank" rel="noopener" class="panel-link">Watch Video</a>` : ''}
+                    ${talk.slides ? `<a href="${talk.slides}" target="_blank" rel="noopener" class="panel-link">View Slides</a>` : ''}
+                </div>
+            `;
+        }).join('');
+    },
+
+    // Format all media appearances for panel display
+    formatMediaList() {
+        const media = SITE_CONTENT.media;
+        return media.map(item => `
+            <div class="panel-item">
+                <h4>${item.title}</h4>
+                <p class="type-badge">${item.type.toUpperCase()}</p>
+                <p class="venue">${item.venue}</p>
+                <p class="description">${item.description}</p>
+                <p class="date">${item.date}</p>
+                ${item.link && item.link !== '#' ? `<a href="${item.link}" target="_blank" rel="noopener" class="panel-link">View</a>` : ''}
+            </div>
+        `).join('');
+    },
+
+    // Format all research projects for panel display
+    formatResearchList() {
+        const research = SITE_CONTENT.research;
+        return research.map(item => `
+            <div class="panel-item">
+                <h4>${item.title}</h4>
+                <p class="description">${item.description}</p>
+                <p class="tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join(' ')}</p>
+            </div>
+        `).join('');
+    },
+
+    // Show publications panel
+    showPublicationsPanel() {
+        const content = this.formatPublicationsList();
+        this.showContentPanel('Publications', content);
+    },
+
+    // Show talks panel
+    showTalksPanel() {
+        const content = this.formatTalksList();
+        this.showContentPanel('Invited Talks', content);
+    },
+
+    // Show media panel
+    showMediaPanel() {
+        const content = this.formatMediaList();
+        this.showContentPanel('Media & Appearances', content);
+    },
+
+    // Show research panel
+    showResearchPanel() {
+        const content = this.formatResearchList();
+        this.showContentPanel('Research Projects', content);
     }
 };
 
