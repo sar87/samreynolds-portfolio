@@ -130,9 +130,10 @@ const Engine = {
         // Update player
         Player.update();
 
-        // Handle interactions
+        // Handle interactions - use proximity detection or current interaction
         if (Player.actionPressed()) {
-            const interaction = Player.interact();
+            // First check proximity-detected interaction, then fall back to Player's facing check
+            const interaction = Buildings.currentInteraction || Player.interact();
             if (interaction) {
                 const result = Buildings.handleInteraction(interaction);
                 if (result) {
@@ -142,8 +143,14 @@ const Engine = {
             Player.clearAction();
         }
 
-        // Update interaction prompt
-        Buildings.updatePrompt(Player.nearInteraction, this.isMobile);
+        // Update interaction prompt using proximity detection
+        // Check 1-tile radius around player for interactions
+        if (!Buildings.isDialogOpen() && !Buildings.isPanelOpen()) {
+            const nearbyInteraction = World.checkNearbyInteractions(Player.x, Player.y);
+            Buildings.updatePrompt(nearbyInteraction, this.isMobile);
+        } else {
+            Buildings.hidePrompt();
+        }
 
         // Update camera to follow player
         this.updateCamera();

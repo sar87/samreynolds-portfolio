@@ -321,23 +321,47 @@
 /* Interaction Prompt */
 .interaction-prompt {
     position: fixed;
-    bottom: 35%;
+    bottom: 120px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--pixel-dark);
-    color: white;
-    padding: var(--spacing-xs) var(--spacing-md);
+    background: rgba(26, 26, 46, 0.95);
+    color: #fff;
+    padding: 12px 24px;
+    border: 3px solid #87ceeb;
+    border-radius: 8px;
     font-family: 'Courier New', monospace;
-    font-size: 0.85rem;
-    border: 3px solid white;
-    box-shadow: 3px 3px 0 var(--pixel-black);
-    z-index: 150;
-    animation: bounce 0.5s infinite alternate;
+    font-size: 14px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 180;
+    animation: prompt-pulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes bounce {
-    from { transform: translateX(-50%) translateY(0); }
-    to { transform: translateX(-50%) translateY(-5px); }
+.interaction-prompt.hidden {
+    display: none;
+}
+
+.interaction-prompt .prompt-object {
+    color: #87ceeb;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.interaction-prompt .prompt-action {
+    color: #aaa;
+    font-size: 12px;
+}
+
+@keyframes prompt-pulse {
+    0%, 100% {
+        opacity: 0.95;
+        border-color: #87ceeb;
+    }
+    50% {
+        opacity: 1;
+        border-color: #add8e6;
+    }
 }
 
 /* Interior overlay */
