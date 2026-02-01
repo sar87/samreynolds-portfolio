@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 6 of 8 (Interactions & Content)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-02-01 - Completed 06-01-PLAN.md
+Last activity: 2026-02-01 - Completed 06-02-PLAN.md
 
-Progress: [█████████░] 87.5% (21/24 plans)
+Progress: [█████████░] 91.7% (22/24 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 21
-- Average duration: 4.6 min
-- Total execution time: 1.63 hours
+- Total plans completed: 22
+- Average duration: 4.5 min
+- Total execution time: 1.68 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [█████████░] 87.5% (21/24 plans)
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
-| 06-interactions-content | 1 | 2 min | 2.0 min |
+| 06-interactions-content | 2 | 5 min | 2.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-04 (4 min), 05-05 (4 min), 05-06 (45 min - integration debugging), 06-01 (2 min)
-- Note: 06-01 was a clean execution with no issues
+- Last 5 plans: 05-05 (4 min), 05-06 (45 min - integration debugging), 06-01 (2 min), 06-02 (3 min)
+- Note: Phase 6 plans are fast due to existing infrastructure
 
 *Updated after each plan completion*
 
@@ -85,6 +85,9 @@ Recent decisions affecting current work:
 - **Interior tile numbering (2026-01-31):** 60-68 for interior decoration sprites (specimen, microscope, etc.)
 - **Content panel z-index (2026-02-01):** z-index 250 for panel (above dialog box at 200)
 - **Panel focus trap handler (2026-02-01):** Store _trapHandler reference to prevent duplicate listeners on repeated opens
+- **Proximity 3x3 scan (2026-02-01):** Use full 1-tile radius (3x3 area) for interaction detection, not just facing tile
+- **currentInteraction tracking (2026-02-01):** Buildings.currentInteraction stores proximity-detected interaction for ENTER handling
+- **Prompt pulse animation (2026-02-01):** Changed from bounce to subtle pulse for more professional appearance
 
 ### Pending Todos
 
@@ -109,9 +112,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 19:26 UTC
-Stopped at: Completed 06-01-PLAN.md (Content Panel Overlay)
-Resume file: None - ready for 06-02
+Last session: 2026-02-01 19:28 UTC
+Stopped at: Completed 06-02-PLAN.md (Proximity Detection & Interaction Prompts)
+Resume file: None - ready for 06-03
 
 ### Key Context for Next Session
 
@@ -122,7 +125,7 @@ Resume file: None - ready for 06-02
 
 **How to run:**
 ```bash
-npm run dev  # Vite on localhost:5174
+npm run dev  # Vite on localhost:5173
 # Press G to enter game mode
 ```
 
@@ -132,6 +135,8 @@ npm run dev  # Vite on localhost:5174
 - Buildings: Pembroke, Library, Lab, Station, Theatre
 - Each has interior with themed sprites
 - Content panel overlay ready via Buildings.showContentPanel(title, htmlContent)
+- Proximity detection via World.checkNearbyInteractions(playerX, playerY)
+- Interaction prompts show object name + action text with pulse animation
 
 ## User Feedback (05-06)
 
