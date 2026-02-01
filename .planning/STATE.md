@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 7 of 8 (Landing & Mode Switching)
-Plan: 2 of 3 in phase
-Status: In progress
-Last activity: 2026-02-01 - Completed 07-02-PLAN.md (visual components)
+Plan: 3 of 3 in phase - PHASE COMPLETE
+Status: Phase 7 complete
+Last activity: 2026-02-01 - Completed 07-03-PLAN.md (router wiring)
 
-Progress: [██████████░░░░░░░░░░] 27/28 plans (~96%)
+Progress: [████████████████████] 28/28 plans (100%)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 25
-- Average duration: 4.3 min
-- Total execution time: 1.8 hours
+- Total plans completed: 28
+- Average duration: 4.5 min
+- Total execution time: 2.1 hours
 
 **By Phase:**
 
@@ -33,11 +33,11 @@ Progress: [██████████░░░░░░░░░░] 27/28 p
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
-| 07-landing-mode-switching | 2 | 6 min | 3.0 min |
+| 07-landing-mode-switching | 3 | 13 min | 4.3 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-04 (3 min), 06-05 (2 min), 07-01 (3 min), 07-02 (3 min)
-- Note: Phase 7 visual components proceeding smoothly
+- Last 5 plans: 06-05 (2 min), 07-01 (3 min), 07-02 (3 min), 07-03 (7 min)
+- Note: 07-03 took longer due to Vite JSON plugin build issue resolution
 
 *Updated after each plan completion*
 
@@ -97,6 +97,8 @@ Recent decisions affecting current work:
 - **GamePreview canvas size (2026-02-01):** 320x240 for retro pixel aesthetic matching game feel
 - **Preview animation speed (2026-02-01):** 8 FPS (125ms interval) for subtle, non-distracting effect
 - **Loading spinner technique (2026-02-01):** clip-path animation with steps(4) for pixelated rotation
+- **Runtime JSON fetch for Landing (2026-02-01):** Use runtime fetch instead of static import for about.json in Landing.ts to avoid Vite JSON plugin build issues
+- **Session storage for landing gating (2026-02-01):** sessionStorage not localStorage - landing reappears on new browser session
 
 ### Pending Todos
 
@@ -121,8 +123,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 20:24 UTC
-Stopped at: Completed 07-02-PLAN.md (visual components)
+Last session: 2026-02-01 20:33 UTC
+Stopped at: Completed 07-03-PLAN.md (router wiring) - Phase 7 complete
 Resume file: None
 
 ### Key Context for Next Session
@@ -135,17 +137,18 @@ Resume file: None
 **How to run:**
 ```bash
 npm run dev  # Vite on localhost:5173
-# Press G to enter game mode
+# First visit shows landing page
+# Press G or click button to enter game mode
 ```
 
-**Landing component (Phase 7 progress):**
-- Landing.ts exports renderLanding() with split layout HTML
-- Landing.css has mobile-first Flexbox, 768px breakpoint for row layout
-- data-mode="website" and data-mode="game" on buttons for routing
+**Landing system (Phase 7 complete):**
+- Landing page shows on first visit in session only
+- sessionStorage tracks landing-shown state
+- Mode buttons trigger transitionToMode() with expand/fade animation
+- Skip-to-content links in footer for direct section navigation
 - GamePreview.ts renders animated 320x240 canvas with campus scene
-- LoadingScreen.ts provides full-screen overlay with pixel spinner
-- Both components respect prefers-reduced-motion
-- CSS not yet imported in main.ts (07-03 will wire up)
+- LoadingScreen.ts provides full-screen overlay during game load
+- CSS imported in main.ts entry point
 
 **Current game state (Phase 6 complete):**
 - 40x30 tile campus map with 5 buildings
