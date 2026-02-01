@@ -3,6 +3,8 @@ import './styles/variables.css';
 import './styles/global.css';
 import './styles/utilities.css';
 import './styles/game.css';
+import './components/Landing/Landing.css';
+import './components/Landing/LoadingScreen.css';
 
 // Import router and pages
 import { router } from './lib/router';
@@ -14,10 +16,19 @@ import { renderHomePage } from './pages/HomePage';
 import { renderPublicationDetail } from './pages/PublicationDetail';
 import { renderTalkDetail } from './pages/TalkDetail';
 import { renderMediaDetail } from './pages/MediaDetail';
+import { renderLanding, initLanding } from './components/Landing/Landing';
+import { showLoadingScreen, hideLoadingScreen } from './components/Landing/LoadingScreen';
 
 // Get app container
 const app = document.getElementById('app');
 if (!app) throw new Error('App container not found');
+
+// Session tracking for landing page
+const landingShown = sessionStorage.getItem('landing-shown') === 'true';
+let currentMode: 'landing' | 'website' | 'game' = landingShown ? 'website' : 'landing';
+
+// Landing cleanup function
+let cleanupLanding: (() => void) | null = null;
 
 // Render function that updates app content
 async function render(content: string | Promise<string>): Promise<void> {
@@ -41,8 +52,88 @@ function saveScrollPosition(): void {
   }
 }
 
+/**
+ * Transition from landing to website or game mode
+ * Handles expand/fade animation and mode switching
+ */
+async function transitionToMode(mode: 'website' | 'game', skipSection?: string): Promise<void> {
+  // Clean up landing preview animation
+  if (cleanupLanding) {
+    cleanupLanding();
+    cleanupLanding = null;
+  }
+
+  // Add transition class to landing container
+  const landing = document.querySelector('.landing');
+  landing?.classList.add('transitioning');
+
+  // Add expanding class to chosen half, fading to other
+  const chosen = document.querySelector(`.landing-half--${mode}`);
+  const other = document.querySelector(`.landing-half--${mode === 'website' ? 'game' : 'website'}`);
+
+  chosen?.classList.add('expanding');
+  other?.classList.add('fading');
+
+  // Wait for animation (250ms)
+  await new Promise(r => setTimeout(r, 250));
+
+  // Mark landing as shown for this session
+  sessionStorage.setItem('landing-shown', 'true');
+  currentMode = mode;
+
+  if (mode === 'game') {
+    showLoadingScreen();
+    await enterGameMode();
+    hideLoadingScreen();
+  } else {
+    await render(renderHomePage());
+    if (skipSection) {
+      // Scroll to section after render
+      setTimeout(() => {
+        const section = document.getElementById(skipSection);
+        section?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }
+}
+
+/**
+ * Render the landing page and set up event handlers
+ */
+async function renderLandingPage(): Promise<void> {
+  // Render landing HTML directly (no header)
+  app!.innerHTML = await renderLanding();
+
+  // Initialize preview animation
+  cleanupLanding = initLanding();
+
+  // Mode button clicks
+  document.querySelectorAll<HTMLElement>('[data-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.getAttribute('data-mode') as 'website' | 'game';
+      transitionToMode(mode);
+    });
+  });
+
+  // Skip link clicks
+  document.querySelectorAll<HTMLElement>('[data-section]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = link.getAttribute('data-section');
+      transitionToMode('website', section || undefined);
+    });
+  });
+}
+
 // Register routes
 router.add('/', async () => {
+  // Show landing on first visit in session
+  if (currentMode === 'landing') {
+    await renderLandingPage();
+    return;
+  }
+
+  // Returning visitors go directly to website
   await render(renderHomePage());
   // Restore scroll position if returning to home
   if (homeScrollPosition > 0) {
@@ -118,6 +209,7 @@ function exitGameMode(): void {
 
 // Game mode route
 router.add('/game', async () => {
+  currentMode = 'game';
   await enterGameMode();
 });
 
@@ -129,8 +221,16 @@ document.addEventListener('keydown', (e) => {
     !(e.target instanceof HTMLInputElement) &&
     !(e.target instanceof HTMLTextAreaElement)
   ) {
+    // Handle G key from landing page
+    if (currentMode === 'landing') {
+      transitionToMode('game');
+      return;
+    }
+
+    // Toggle between game and website modes
     if (game) {
       exitGameMode();
+      currentMode = 'website';
       router.navigate('/');
     } else {
       router.navigate('/game');
