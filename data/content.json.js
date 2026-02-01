@@ -159,6 +159,125 @@ const SITE_CONTENT = {
         }
     ],
 
+    talks: [
+        {
+            id: "cambridge-science-festival-2025",
+            title: "AI and the Future of Wildlife Conservation",
+            venue: "Cambridge Science Festival, Cambridge",
+            date: "2025-03-15"
+        },
+        {
+            id: "turing-institute-seminar",
+            title: "Large Language Models for Evidence Synthesis in Conservation",
+            venue: "Alan Turing Institute, London",
+            date: "2025-02-12"
+        },
+        {
+            id: "royal-society-ai-panel",
+            title: "Responsible AI for Biodiversity Monitoring",
+            venue: "Royal Society, London",
+            date: "2025-04-03"
+        },
+        {
+            id: "oxford-ecology-seminar",
+            title: "Horizon Scanning: Predicting Conservation Threats with Machine Learning",
+            venue: "Department of Zoology, University of Oxford",
+            date: "2025-01-28"
+        },
+        {
+            id: "edinburgh-cdi-talk",
+            title: "Conservation Decision-Making in the Age of AI",
+            venue: "Centre for Data Innovation, Edinburgh",
+            date: "2025-05-14"
+        },
+        {
+            id: "bristol-bioacoustics-workshop",
+            title: "Automated Bioacoustic Monitoring: From Sensors to Insights",
+            venue: "Bristol University, Bristol",
+            date: "2025-03-22"
+        },
+        {
+            id: "istanbul-invasive-species-conference",
+            title: "AI-Enabled Management of Invasive Species",
+            venue: "International Invasive Species Conference, Istanbul",
+            date: "2025-06-18"
+        },
+        {
+            id: "london-zoo-public-lecture",
+            title: "How AI Helps Us Protect Wildlife",
+            venue: "ZSL London Zoo, London",
+            date: "2025-02-28"
+        },
+        {
+            id: "cambridge-conservation-forum",
+            title: "Evidence Synthesis at Scale: Lessons from Invasive Species Research",
+            venue: "Cambridge Conservation Forum, Cambridge",
+            date: "2025-04-10"
+        },
+        {
+            id: "oxford-internet-institute",
+            title: "LLMs in Scientific Practice: A Conservation Case Study",
+            venue: "Oxford Internet Institute, Oxford",
+            date: "2025-05-07"
+        },
+        {
+            id: "edinburgh-fringe-science",
+            title: "The Sound of Nature: AI and Acoustic Ecology",
+            venue: "Edinburgh Science Festival, Edinburgh",
+            date: "2025-04-19"
+        },
+        {
+            id: "bristol-ai-workshop",
+            title: "Transfer Learning for Species Recognition Systems",
+            venue: "Bristol AI Research Centre, Bristol",
+            date: "2025-06-05"
+        },
+        {
+            id: "nhm-nature-live",
+            title: "Deep Learning for Camera Trap Image Analysis",
+            venue: "Natural History Museum, London",
+            date: "2025-03-08",
+            video: "https://www.youtube.com/watch?v=example123"
+        },
+        {
+            id: "istanbul-european-ai-summit",
+            title: "European Perspectives on AI for Environmental Monitoring",
+            venue: "European AI Summit, Istanbul",
+            date: "2025-06-20"
+        },
+        {
+            id: "cambridge-dept-seminar",
+            title: "From PhD to Practice: Building Conservation AI Tools",
+            venue: "Department of Zoology, University of Cambridge",
+            date: "2025-01-15"
+        },
+        {
+            id: "rspb-research-symposium",
+            title: "Citizen Science and AI: Combining Human and Machine Intelligence",
+            venue: "RSPB Research Symposium, Cambridge",
+            date: "2025-05-22"
+        },
+        {
+            id: "oxford-bioethics-seminar",
+            title: "Ethical Considerations in Conservation AI",
+            venue: "Uehiro Centre for Practical Ethics, Oxford",
+            date: "2025-02-05"
+        },
+        {
+            id: "london-data-science-meetup",
+            title: "Edge Computing for Wildlife Detection: Practical Challenges",
+            venue: "London Data Science Meetup, London",
+            date: "2025-04-24",
+            slides: "https://speakerdeck.com/samreynolds/edge-computing-wildlife"
+        },
+        {
+            id: "bristol-natural-history-consortium",
+            title: "Technology and Nature: Building Tools for Conservation",
+            venue: "Natural History Consortium Annual Lecture, Bristol",
+            date: "2025-05-30"
+        }
+    ],
+
     // Game-specific content for interior interactions
     gameContent: {
         office: {
