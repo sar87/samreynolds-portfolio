@@ -263,31 +263,35 @@ const Engine = {
         if (!spriteName) return;
 
         const sprite = Sprites.get(spriteName);
-        if (!sprite) return;
+        if (!sprite || !sprite.image) return;
 
         const screenX = (tileX * this.tileSize - this.camera.x) * this.scale;
         const screenY = (tileY * this.tileSize - this.camera.y) * this.scale;
 
         this.ctx.drawImage(
-            sprite,
-            0, 0, this.tileSize, this.tileSize,
-            Math.floor(screenX), Math.floor(screenY),
-            this.tileSize * this.scale, this.tileSize * this.scale
+            sprite.image,           // Source image (sprite sheet)
+            sprite.sx, sprite.sy,   // Source position
+            sprite.sw, sprite.sh,   // Source size
+            Math.floor(screenX), Math.floor(screenY),  // Destination position
+            this.tileSize * this.scale, this.tileSize * this.scale  // Destination size
         );
     },
 
     // Render the player
     renderPlayer() {
         const frame = Player.getSpriteFrame();
+        if (!frame || !frame.image) return;
 
         const screenX = (Player.pixelX - this.camera.x) * this.scale;
-        const screenY = (Player.pixelY - this.camera.y) * this.scale;
+        // Offset up by 1 tile since character is 2 tiles tall (32px)
+        const screenY = (Player.pixelY - this.camera.y - this.tileSize) * this.scale;
 
         this.ctx.drawImage(
             frame.image,
             frame.sx, frame.sy, frame.sw, frame.sh,
             Math.floor(screenX), Math.floor(screenY),
-            this.tileSize * this.scale, this.tileSize * this.scale
+            frame.sw * this.scale,  // Character width (16px * scale)
+            frame.sh * this.scale   // Character height (32px * scale)
         );
     },
 
