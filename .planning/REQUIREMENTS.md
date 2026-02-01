@@ -9,10 +9,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Landing Experience
 
-- [ ] **LAND-01**: Landing splash displays mode choice: "Explore Campus" or "View Website"
-- [ ] **LAND-02**: Landing includes brief intro text about Sam Reynolds
-- [ ] **LAND-03**: Landing shows animated pixel art campus preview
-- [ ] **LAND-04**: Landing provides skip-to-content links (Publications, Talks, Research, About)
+- [x] **LAND-01**: Landing splash displays mode choice: "Explore Campus" or "View Website"
+- [x] **LAND-02**: Landing includes brief intro text about Sam Reynolds
+- [x] **LAND-03**: Landing shows animated pixel art campus preview
+- [x] **LAND-04**: Landing provides skip-to-content links (Publications, Talks, Research, About)
 
 ### Game Navigation
 
@@ -61,7 +61,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **WEB-05**: Media section with podcast, panels, video appearances
 - [x] **WEB-06**: Research section describing current interests
 - [x] **WEB-07**: Mobile responsive design
-- [ ] **WEB-08**: Smooth animated transition between game and website modes
+- [x] **WEB-08**: Smooth animated transition between game and website modes
 
 ### Content Data
 
@@ -77,7 +77,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **TECH-01**: Works on GitHub Pages (static hosting)
 - [ ] **TECH-02**: Runs smoothly on mobile devices (30+ FPS)
 - [ ] **TECH-03**: All sprite assets are CC-licensed with proper attribution
-- [ ] **TECH-04**: Loading screen shows progress while assets load
+- [x] **TECH-04**: Loading screen shows progress while assets load
 - [ ] **TECH-05**: Credits/attribution accessible from game menu
 
 ## v2 Requirements
