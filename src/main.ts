@@ -292,10 +292,10 @@ window.addEventListener('mode-switch', ((e: CustomEvent) => {
     enterGameMode().then(() => hideLoadingScreen());
     currentMode = 'game';
   } else if (targetMode === 'website' && game) {
-    // From game to website
+    // From game to website - render directly (router won't fire since hash is already '/')
     exitGameMode();
     currentMode = 'website';
-    router.navigate('/');
+    render(renderHomePage());
   }
 }) as EventListener);
 
