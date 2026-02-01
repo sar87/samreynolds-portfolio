@@ -188,32 +188,56 @@ const Buildings = {
             case 'exit':
                 return { action: 'exit' };
 
+            case 'stairs':
+                return { action: 'stairs', floor: interaction.floor };
+
             case 'sign':
                 this.showDialog('Sign', interaction.text);
                 return { action: 'dialog' };
 
+            // About content (Player House)
+            case 'about':
+                this.showAboutContent(interaction.subtype);
+                return { action: 'dialog' };
+
+            // Publications (Oak's Lab bookshelves)
+            case 'publication':
+                if (interaction.showPanel) {
+                    this.showPublicationsPanel();
+                } else {
+                    this.showPublicationContent(interaction.index);
+                }
+                return { action: 'dialog' };
+
+            // Research (Oak's Lab tables/computers)
+            case 'research':
+                if (interaction.showPanel) {
+                    this.showResearchPanel();
+                } else {
+                    this.showResearchContent(interaction.index);
+                }
+                return { action: 'dialog' };
+
+            // Talks (Rival House bookshelves)
+            case 'talks':
+                if (interaction.showPanel) {
+                    this.showTalksPanel();
+                } else {
+                    this.showTalksContent(interaction.index);
+                }
+                return { action: 'dialog' };
+
+            // Media (Rival House TV)
+            case 'media':
+                if (interaction.showPanel) {
+                    this.showMediaPanel();
+                } else {
+                    this.showMediaContent(interaction.index);
+                }
+                return { action: 'dialog' };
+
             case 'object':
                 this.showObjectContent(interaction);
-                return { action: 'dialog' };
-
-            case 'publication':
-                this.showPublicationContent(interaction.index);
-                return { action: 'dialog' };
-
-            case 'media':
-                this.showMediaContent(interaction.index);
-                return { action: 'dialog' };
-
-            case 'research':
-                this.showResearchContent(interaction.index);
-                return { action: 'dialog' };
-
-            case 'talk':
-                this.showTalkContent(interaction.index);
-                return { action: 'dialog' };
-
-            case 'talks':
-                this.showTalksContent(interaction.index);
                 return { action: 'dialog' };
         }
 
@@ -237,6 +261,40 @@ const Buildings = {
             .replace(/([A-Z])/g, ' $1')
             .replace(/^./, str => str.toUpperCase())
             .trim();
+    },
+
+    // Show about content (Player House interactions)
+    showAboutContent(subtype) {
+        const about = SITE_CONTENT.about;
+
+        switch (subtype) {
+            case 'bio':
+                const bioHtml = about.bio.map(p => `<p>${p}</p>`).join('');
+                this.showContentPanel('About Sam', bioHtml);
+                break;
+
+            case 'education':
+                const eduHtml = about.education.map(edu =>
+                    `<div class="panel-item">
+                        <h4>${edu.degree}</h4>
+                        <p>${edu.institution}, ${edu.year}</p>
+                    </div>`
+                ).join('');
+                this.showContentPanel('Education', eduHtml);
+                break;
+
+            case 'links':
+                const linksHtml = (about.links || [])
+                    .filter(link => link.url && link.url !== '#')
+                    .map(link =>
+                        `<a href="${link.url}" target="_blank" rel="noopener" class="panel-link">${link.label}</a>`
+                    ).join('');
+                this.showContentPanel('Connect', linksHtml || '<p>Contact links coming soon.</p>');
+                break;
+
+            default:
+                this.showContentPanel('About', about.bio[0] || 'Learn more about Sam.');
+        }
     },
 
     // Show publication content
