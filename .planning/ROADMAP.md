@@ -20,6 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 6: Interactions & Content Integration** - Connect game objects to academic content
 - [x] **Phase 7: Landing & Mode Switching** - Splash screen and seamless mode transitions
 - [ ] **Phase 8: Polish & Mobile Optimization** - Animations, performance, final touches
+- [ ] **Phase 9: Change Game** - Replace LPC sprites with Pokemon Pallet Town assets
 
 ## Phase Details
 
@@ -177,10 +178,33 @@ Plans:
 Plans:
 - [ ] 08-01: TBD during phase planning
 
+### Phase 9: Change Game
+**Goal**: Replace LPC sprite assets with Pokemon FireRed/LeafGreen Pallet Town sprites while maintaining gameplay
+**Depends on**: Phase 8
+**Requirements**: Custom (user-requested sprite replacement)
+**Success Criteria** (what must be TRUE):
+  1. Pallet Town map displays with Pokemon GBA sprites (grass, paths, trees, flowers)
+  2. Player character renders as 16x32 Pokemon-style sprite with 4-direction animation
+  3. 3 buildings accessible: Player's House, Rival's House, Professor Oak's Lab
+  4. Player House (1F + 2F) contains About Me content
+  5. Rival House contains Talks + Media content
+  6. Oak's Lab contains Research + Publications content
+  7. All content panels display correctly when interacting with objects
+  8. Game runs without errors, sprites render crisp
+**Plans**: 6 plans
+
+Plans:
+- [ ] 09-01-PLAN.md - Sprite sheet loading system (replace programmatic sprites)
+- [ ] 09-02-PLAN.md - Tile types and Pallet Town outdoor map
+- [ ] 09-03-PLAN.md - Player character 16x32 sprite handling
+- [ ] 09-04-PLAN.md - Building interiors with content zones
+- [ ] 09-05-PLAN.md - Content mapping and building handlers
+- [ ] 09-06-PLAN.md - Visual verification checkpoint
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -192,3 +216,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 6. Interactions & Content Integration | 5/5 | Complete | 2026-02-01 |
 | 7. Landing & Mode Switching | 5/5 | Complete | 2026-02-01 |
 | 8. Polish & Mobile Optimization | 0/? | Not started | - |
+| 9. Change Game | 0/6 | Planned | - |
