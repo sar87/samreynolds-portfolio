@@ -46,8 +46,8 @@ const Engine = {
         World.init();
         Buildings.init();
 
-        // Set player start position (entrance gate at bottom center)
-        Player.init(20, 26);
+        // Set player start position (bottom center of Pallet Town)
+        Player.init(10, 17);
 
         // Mark as loaded
         this.loaded = true;

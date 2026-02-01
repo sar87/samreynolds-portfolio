@@ -83,20 +83,19 @@ const World = {
         this.generateInteriorMaps();
     },
 
-    // Generate the main campus map
-    // Redesigned for Phase 5: central quad, entrance gate, no river, tree boundaries
+    // Generate the main Pallet Town map
     generateCampusMap() {
         const T = this.TILES;
-        const w = this.width;  // 40
-        const h = this.height; // 30
+        const w = 20;   // Pallet Town width
+        const h = 18;   // Pallet Town height
+        this.width = w;
+        this.height = h;
 
-        // Initialize layers
         const ground = new Array(w * h).fill(T.GRASS);
         const objects = new Array(w * h).fill(-1);
         const collision = new Array(w * h).fill(0);
         const interact = new Array(w * h).fill(null);
 
-        // Helper to set tile
         const setTile = (x, y, groundTile, objectTile = -1, blocked = false, interactData = null) => {
             if (x < 0 || x >= w || y < 0 || y >= h) return;
             const idx = y * w + x;
@@ -106,223 +105,52 @@ const World = {
             if (interactData) interact[idx] = interactData;
         };
 
-        // Helper to place a tree (trunk + top)
         const placeTree = (x, y) => {
-            if (y > 0) {
-                setTile(x, y, T.GRASS, T.TREE, true);
-                setTile(x, y - 1, null, T.TREE_TOP, true);
-            }
+            setTile(x, y, T.GRASS, T.TREE_TRUNK, true);
+            if (y > 0) setTile(x, y - 1, null, T.TREE_TOP, true);
         };
 
-        // ============================================
-        // 1. NATURAL TREE BOUNDARY AT EDGES
-        // ============================================
-
-        // Dense tree line at left edge (where river was removed)
-        for (let y = 2; y < h - 1; y += 2) {
+        // 1. TREE BORDER (dense forest edge)
+        for (let x = 0; x < w; x++) {
+            placeTree(x, 1);
+            if (x < 8 || x > 12) placeTree(x, 2);
+        }
+        for (let y = 2; y < h - 1; y++) {
             placeTree(0, y);
-            placeTree(1, y + 1);
-            if (y % 4 === 2) placeTree(2, y);
+            placeTree(1, y);
+            placeTree(w - 1, y);
+            placeTree(w - 2, y);
         }
 
-        // Dense tree line at right edge
-        for (let y = 2; y < h - 1; y += 2) {
-            placeTree(39, y);
-            placeTree(38, y + 1);
-            if (y % 4 === 2) placeTree(37, y);
-        }
-
-        // Tree line at top edge
-        for (let x = 3; x < w - 3; x += 2) {
-            if (x < 15 || x > 25) { // Leave gap for building area
-                placeTree(x, 2);
-            }
-        }
-
-        // Tree line at bottom edges (leave gap for entrance)
-        for (let x = 1; x < 16; x += 2) {
-            placeTree(x, 29);
-        }
-        for (let x = 24; x < w - 1; x += 2) {
-            placeTree(x, 29);
-        }
-
-        // ============================================
-        // 2. COBBLESTONE PATHS - CROSS PATTERN THROUGH QUAD
-        // ============================================
-
-        // Main vertical path from entrance (bottom) through center to top
-        for (let y = 4; y < h; y++) {
-            setTile(19, y, T.COBBLE);
-            setTile(20, y, T.COBBLE);
-        }
-
-        // Main horizontal path through quad center
-        for (let x = 5; x < w - 5; x++) {
-            setTile(x, 14, T.COBBLE);
-            setTile(x, 15, T.COBBLE);
-        }
-
-        // Secondary path on left side (to Theatre/Pembroke areas)
-        for (let y = 8; y < 22; y++) {
+        // 2. MAIN PATH (vertical from bottom)
+        for (let y = 3; y < h; y++) {
+            setTile(9, y, T.PATH);
             setTile(10, y, T.PATH);
         }
 
-        // Secondary path on right side (to Lab/Station areas)
-        for (let y = 8; y < 22; y++) {
-            setTile(30, y, T.PATH);
+        // 3. HORIZONTAL PATHS to houses
+        for (let x = 4; x < 9; x++) setTile(x, 8, T.PATH);
+        for (let x = 11; x < 16; x++) setTile(x, 8, T.PATH);
+
+        // 4. PLAYER'S HOUSE (left side)
+        this.buildHouse(ground, objects, collision, interact, 'playerHouse', 4, 5, 5, 4);
+
+        // 5. RIVAL'S HOUSE (right side)
+        this.buildHouse(ground, objects, collision, interact, 'rivalHouse', 12, 5, 5, 4);
+
+        // 6. OAK'S LAB (bottom center)
+        this.buildLab(ground, objects, collision, interact, 'oakLab', 7, 12, 7, 5);
+
+        // 7. FLOWERS (decorative)
+        const flowerSpots = [[5, 9], [6, 9], [14, 9], [15, 9], [8, 11], [12, 11]];
+        flowerSpots.forEach(([x, y]) => setTile(x, y, T.FLOWER));
+
+        // 8. POND (bottom left area)
+        for (let x = 3; x <= 5; x++) {
+            for (let y = 14; y <= 16; y++) {
+                setTile(x, y, T.WATER, -1, true);
+            }
         }
-
-        // ============================================
-        // 3. ENTRANCE GATE AT BOTTOM CENTER
-        // ============================================
-
-        // Gate structure (x:18-21, y:27-28)
-        setTile(18, 27, T.GRASS, T.GATE, true);
-        setTile(21, 27, T.GRASS, T.GATE, true);
-        // Gate pillars block, but the path through is open
-
-        // Path leading from gate
-        setTile(19, 27, T.COBBLE);
-        setTile(20, 27, T.COBBLE);
-        setTile(19, 28, T.COBBLE);
-        setTile(20, 28, T.COBBLE);
-
-        // Welcome sign near entrance
-        setTile(22, 25, T.GRASS, T.SIGN, true, {
-            type: 'sign',
-            text: "Welcome to Cambridge! Explore the campus to learn about Sam's work. Enter buildings to discover more."
-        });
-
-        // ============================================
-        // 4. DECORATIVE ELEMENTS - LIVED-IN FEEL
-        // ============================================
-
-        // Lampposts along main paths (6-8 total)
-        const lamppostPositions = [
-            [17, 10], [22, 10],    // Upper quad
-            [17, 18], [22, 18],    // Lower quad
-            [8, 14], [32, 14],     // Horizontal path ends
-            [19, 24], [20, 24]     // Near entrance
-        ];
-        lamppostPositions.forEach(([x, y]) => {
-            setTile(x, y, T.GRASS, T.LAMPPOST, true);
-        });
-
-        // Benches around the quad (3-4 sets)
-        // Each bench is 2 tiles: BENCH_LEFT + BENCH_RIGHT
-        // Bench 1: Left side of quad
-        setTile(13, 12, T.GRASS, T.BENCH_LEFT, true);
-        setTile(14, 12, T.GRASS, T.BENCH_RIGHT, true);
-
-        // Bench 2: Right side of quad
-        setTile(25, 12, T.GRASS, T.BENCH_LEFT, true);
-        setTile(26, 12, T.GRASS, T.BENCH_RIGHT, true);
-
-        // Bench 3: Lower quad left
-        setTile(13, 17, T.GRASS, T.BENCH_LEFT, true);
-        setTile(14, 17, T.GRASS, T.BENCH_RIGHT, true);
-
-        // Bench 4: Lower quad right
-        setTile(25, 17, T.GRASS, T.BENCH_LEFT, true);
-        setTile(26, 17, T.GRASS, T.BENCH_RIGHT, true);
-
-        // Flower clusters near benches and building entrances
-        const flowerPositions = [
-            // Near benches
-            [12, 11], [15, 11], [24, 11], [27, 11],
-            [12, 18], [15, 18], [24, 18], [27, 18],
-            // Near building plot areas
-            [7, 8], [8, 8], [7, 19], [8, 19],       // Left side
-            [31, 8], [32, 8], [31, 19], [32, 19],   // Right side
-            // Scattered in quad
-            [16, 13], [23, 13], [16, 16], [23, 16]
-        ];
-        flowerPositions.forEach(([x, y]) => setTile(x, y, T.FLOWER));
-
-        // Scattered trees inside campus for shade/variety
-        // (Positions adjusted to avoid building footprints)
-        const interiorTrees = [
-            [13, 10], [26, 10],  // Between buildings and quad
-            [13, 20], [26, 20],  // Lower area, between paths
-        ];
-        interiorTrees.forEach(([x, y]) => placeTree(x, y));
-
-        // ============================================
-        // 5. BUILDING EXTERIORS
-        // ============================================
-        // 4 traditional (gothic) buildings + 1 modern building
-
-        // Pembroke College - left side of quad (About/bio content)
-        this.buildTraditionalBuilding(ground, objects, collision, interact,
-            'pembroke', 5, 11, 6, 5, "Pembroke College");
-
-        // University Library - top of quad, largest building (Publications)
-        this.buildTraditionalBuilding(ground, objects, collision, interact,
-            'library', 16, 4, 9, 5, "University Library");
-
-        // Research Lab - right side, modern style (Research projects)
-        this.buildModernBuilding(ground, objects, collision, interact,
-            'lab', 28, 6, 7, 5, "Research Lab");
-
-        // TV Station - right side below Lab (Media appearances)
-        this.buildTraditionalBuilding(ground, objects, collision, interact,
-            'station', 28, 14, 6, 5, "TV Station");
-
-        // Lecture Theatre - bottom left (Talks/lectures)
-        this.buildTraditionalBuilding(ground, objects, collision, interact,
-            'theatre', 5, 19, 6, 5, "Lecture Theatre");
-
-        // ============================================
-        // 6. BUILDING SIGNS
-        // ============================================
-        // Place signs near each building entrance
-
-        // Pembroke sign (entrance at 9,15, sign at 9,17)
-        this.placeSign(ground, objects, collision, interact,
-            T.SIGN_PEMBROKE, 9, 17, 'pembroke', "Pembroke College - About Sam");
-
-        // Library sign (entrance at 20,8, sign at 20,10)
-        this.placeSign(ground, objects, collision, interact,
-            T.SIGN_LIBRARY, 20, 10, 'library', "University Library - Publications");
-
-        // Lab sign (entrance at 32,10, sign at 32,12)
-        this.placeSign(ground, objects, collision, interact,
-            T.SIGN_LAB, 32, 12, 'lab', "Research Lab - Current Projects");
-
-        // Station sign (entrance at 32,18, sign at 32,20)
-        this.placeSign(ground, objects, collision, interact,
-            T.SIGN_STATION, 32, 20, 'station', "TV Station - Media Appearances");
-
-        // Theatre sign (entrance at 9,23, sign at 9,25)
-        this.placeSign(ground, objects, collision, interact,
-            T.SIGN_THEATRE, 9, 25, 'theatre', "Lecture Theatre - Talks");
-
-        // ============================================
-        // 7. CONNECTOR PATHS TO BUILDINGS
-        // ============================================
-        // Connect building entrances to main path network
-
-        // Path from Pembroke entrance to left path (x:10 path)
-        // Entrance at (9, 15), connects to vertical path at x:10
-        setTile(10, 15, T.PATH);
-
-        // Path from Library entrance (20, 8) to vertical main path (already on x:19-20)
-        // Entrance is already on the main vertical path - just ensure path continues
-        setTile(20, 9, T.PATH);
-
-        // Path from Lab entrance (32, 10) to right side path (x:30)
-        setTile(31, 10, T.PATH);
-        setTile(30, 10, T.PATH);
-        setTile(33, 10, T.PATH);
-
-        // Path from Station entrance (32, 18) to right side path (x:30)
-        setTile(31, 18, T.PATH);
-        setTile(30, 18, T.PATH);
-        setTile(33, 18, T.PATH);
-
-        // Path from Theatre entrance (9, 23) to left path (x:10)
-        setTile(10, 23, T.PATH);
 
         this.campusMap = {
             width: w,
@@ -331,126 +159,60 @@ const World = {
         };
     },
 
-    // Helper to build a traditional (gothic) building exterior
-    // Uses: ORNATE_WALL, BATTLEMENT, GOTHIC_WINDOW, GOTHIC_DOOR, IVY, SPIRE_TOP
-    buildTraditionalBuilding(ground, objects, collision, interact, id, x, y, w, h, name) {
+    // Helper to build a house exterior
+    buildHouse(ground, objects, collision, interact, id, x, y, w, h) {
         const T = this.TILES;
         const mapW = this.width;
         const building = this.buildings[id];
 
-        // Fill building perimeter with ornate walls (collision on all)
+        // Fill building footprint with walls
         for (let bx = x; bx < x + w; bx++) {
             for (let by = y; by < y + h; by++) {
                 const idx = by * mapW + bx;
-                objects[idx] = T.ORNATE_WALL;
+                objects[idx] = T.HOUSE_WALL;
                 collision[idx] = 1;
             }
         }
 
-        // Top row: battlements for gothic castle feel
+        // Roof row at top
         for (let bx = x; bx < x + w; bx++) {
             const idx = y * mapW + bx;
-            objects[idx] = T.BATTLEMENT;
+            objects[idx] = T.HOUSE_ROOF;
         }
 
-        // Add spire tops at corners for larger buildings (w >= 7)
-        if (w >= 7) {
-            objects[y * mapW + x] = T.SPIRE_TOP;
-            objects[y * mapW + (x + w - 1)] = T.SPIRE_TOP;
-        }
-
-        // Add gothic windows at regular intervals (every 2 tiles, middle row)
-        const windowRow = y + 2;
-        for (let bx = x + 1; bx < x + w - 1; bx += 2) {
-            if (bx !== building.entrance.x) {
-                const idx = windowRow * mapW + bx;
-                objects[idx] = T.GOTHIC_WINDOW;
-            }
-        }
-
-        // Add ivy patches on some wall tiles (decorative pattern)
-        // Place ivy on lower-left and lower-right corners
-        if (h >= 4) {
-            const ivyRow = y + h - 2;
-            objects[ivyRow * mapW + x] = T.IVY;
-            objects[ivyRow * mapW + (x + w - 1)] = T.IVY;
-        }
-
-        // Add gothic door at entrance position
+        // Door at entrance
         const doorIdx = building.entrance.y * mapW + building.entrance.x;
-        objects[doorIdx] = T.GOTHIC_DOOR;
-        collision[doorIdx] = 0; // Door is walkable (to trigger entry)
-        interact[doorIdx] = { type: 'door', building: id, name };
-
-        // Path tile in front of door (connects to building)
-        const frontIdx = (building.entrance.y + 1) * mapW + building.entrance.x;
-        ground[frontIdx] = T.PATH;
-        collision[frontIdx] = 0;
-        interact[frontIdx] = { type: 'entrance', building: id, name };
+        objects[doorIdx] = T.HOUSE_DOOR;
+        collision[doorIdx] = 0;
+        interact[doorIdx] = { type: 'door', building: id, name: building.name };
     },
 
-    // Helper to build a modern building exterior
-    // Uses: MODERN_WALL, METAL_PANEL, MODERN_WINDOW, MODERN_DOOR
-    buildModernBuilding(ground, objects, collision, interact, id, x, y, w, h, name) {
+    // Helper to build a lab exterior
+    buildLab(ground, objects, collision, interact, id, x, y, w, h) {
         const T = this.TILES;
         const mapW = this.width;
         const building = this.buildings[id];
 
-        // Fill building perimeter with modern walls (collision on all)
+        // Fill building footprint with lab walls
         for (let bx = x; bx < x + w; bx++) {
             for (let by = y; by < y + h; by++) {
                 const idx = by * mapW + bx;
-                objects[idx] = T.MODERN_WALL;
+                objects[idx] = T.LAB_WALL;
                 collision[idx] = 1;
             }
         }
 
-        // Top row: metal panels for clean modern look
+        // Lab roof row at top
         for (let bx = x; bx < x + w; bx++) {
             const idx = y * mapW + bx;
-            objects[idx] = T.METAL_PANEL;
+            objects[idx] = T.LAB_ROOF;
         }
 
-        // Modern windows - larger, more frequent (every tile on window row)
-        const windowRow = y + 2;
-        for (let bx = x + 1; bx < x + w - 1; bx++) {
-            if (bx !== building.entrance.x) {
-                const idx = windowRow * mapW + bx;
-                objects[idx] = T.MODERN_WINDOW;
-            }
-        }
-
-        // Additional row of windows for modern glass facade
-        const windowRow2 = y + 3;
-        if (h >= 5) {
-            for (let bx = x + 1; bx < x + w - 1; bx++) {
-                if (bx !== building.entrance.x) {
-                    const idx = windowRow2 * mapW + bx;
-                    objects[idx] = T.MODERN_WINDOW;
-                }
-            }
-        }
-
-        // Modern door at entrance position
+        // Door at entrance
         const doorIdx = building.entrance.y * mapW + building.entrance.x;
-        objects[doorIdx] = T.MODERN_DOOR;
-        collision[doorIdx] = 0; // Door is walkable
-        interact[doorIdx] = { type: 'door', building: id, name };
-
-        // Path tile in front of door
-        const frontIdx = (building.entrance.y + 1) * mapW + building.entrance.x;
-        ground[frontIdx] = T.PATH;
-        collision[frontIdx] = 0;
-        interact[frontIdx] = { type: 'entrance', building: id, name };
-    },
-
-    // Place a building sign near entrance
-    placeSign(ground, objects, collision, interact, signTile, x, y, building, text) {
-        const mapW = this.width;
-        const idx = y * mapW + x;
-        objects[idx] = signTile;
-        collision[idx] = 1; // Can't walk through sign
-        interact[idx] = { type: 'sign', text, building };
+        objects[doorIdx] = T.LAB_DOOR;
+        collision[doorIdx] = 0;
+        interact[doorIdx] = { type: 'door', building: id, name: building.name };
     },
 
     // Generate interior maps for each building
