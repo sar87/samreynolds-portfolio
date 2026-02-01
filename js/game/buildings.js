@@ -471,19 +471,17 @@ const Buildings = {
         const name = building?.name || 'this building';
 
         const firstVisitMessages = {
-            pembroke: "Welcome to Pembroke College! This is Sam's office. Look around to learn about Sam's background and research interests.",
-            library: "Welcome to the University Library! Browse the extensive shelves to discover publications and research papers.",
-            lab: "Welcome to the Research Lab! Examine the equipment to learn about current conservation AI projects.",
-            station: "Welcome to the TV Station! Explore to find podcasts, interviews, and media appearances.",
-            theatre: "Welcome to the Lecture Theatre! Check out recordings of talks and presentations."
+            playerHouse: "Welcome home! This is your house. Look around to learn about Sam's background, education, and interests.",
+            playerHouse2F: "Your bedroom and study area. Check the desk and bookshelves for more about Sam's academic journey.",
+            rivalHouse: "Welcome to your rival's house! They've got quite the media setup. Browse around to find talks and media appearances.",
+            oakLab: "Welcome to Professor Oak's Laboratory! This is where the research happens. Explore to discover publications and ongoing projects."
         };
 
         const returnVisitMessages = {
-            pembroke: "Welcome back to Pembroke College! Feel free to explore more of Sam's office.",
-            library: "Welcome back to the Library! There's always more to discover in the stacks.",
-            lab: "Welcome back to the Research Lab! The team is still hard at work.",
-            station: "Welcome back to the TV Station! New episodes recording soon.",
-            theatre: "Welcome back to the Lecture Theatre! Ready for another talk?"
+            playerHouse: "Welcome back home! Feel free to look around.",
+            playerHouse2F: "Back in your room. Your research notes are on the desk.",
+            rivalHouse: "Back at your rival's place. Any new episodes on TV?",
+            oakLab: "Welcome back to the lab! The research never stops."
         };
 
         if (isFirstVisit) {
