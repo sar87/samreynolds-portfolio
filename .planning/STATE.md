@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 6 of 8 (Interactions & Content)
-Plan: 3 of 4 in current phase
-Status: In progress
-Last activity: 2026-02-01 - Completed 06-04-PLAN.md
+Plan: 4 of 4 in current phase
+Status: Phase complete
+Last activity: 2026-02-01 - Completed 06-03-PLAN.md and 06-04-PLAN.md
 
-Progress: [█████████░] 95.8% (23/24 plans)
+Progress: [██████████] 100% (24/24 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 23
+- Total plans completed: 24
 - Average duration: 4.4 min
-- Total execution time: 1.73 hours
+- Total execution time: 1.78 hours
 
 **By Phase:**
 
@@ -32,10 +32,10 @@ Progress: [█████████░] 95.8% (23/24 plans)
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
-| 06-interactions-content | 3 | 8 min | 2.7 min |
+| 06-interactions-content | 4 | 11 min | 2.75 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-06 (45 min - integration debugging), 06-01 (2 min), 06-02 (3 min), 06-04 (3 min)
+- Last 5 plans: 06-01 (2 min), 06-02 (3 min), 06-03 (3 min), 06-04 (3 min)
 - Note: Phase 6 plans are fast due to existing infrastructure
 
 *Updated after each plan completion*
@@ -89,6 +89,8 @@ Recent decisions affecting current work:
 - **currentInteraction tracking (2026-02-01):** Buildings.currentInteraction stores proximity-detected interaction for ENTER handling
 - **Prompt pulse animation (2026-02-01):** Changed from bounce to subtle pulse for more professional appearance
 - **Visit tracking session-only (2026-02-01):** visitedBuildings persists per session only (not localStorage) - appropriate for casual exploration
+- **ISO date formatting (2026-02-01):** Keep dates in ISO format in data (YYYY-MM-DD), format to "Month Year" during display via formatDate() helper
+- **Placeholder link filtering (2026-02-01):** Only render links when URL exists AND is not placeholder '#'
 
 ### Pending Todos
 
@@ -113,9 +115,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 19:32 UTC
-Stopped at: Completed 06-04-PLAN.md (Location HUD & Visit Tracking)
-Resume file: None - ready for 06-05
+Last session: 2026-02-01 19:35 UTC
+Stopped at: Completed 06-03-PLAN.md (Content to Panel Wiring)
+Resume file: None - Phase 6 complete
 
 ### Key Context for Next Session
 
@@ -140,6 +142,9 @@ npm run dev  # Vite on localhost:5173
 - Interaction prompts show object name + action text with pulse animation
 - Visit tracking: Buildings.recordVisit(id) returns true on first visit
 - Context-aware welcome messages: first visit vs "Welcome back" on return
+- Content formatting: formatPublicationsList(), formatTalksList(), formatMediaList(), formatResearchList()
+- Panel methods: showPublicationsPanel(), showTalksPanel(), showMediaPanel(), showResearchPanel()
+- SITE_CONTENT.talks now has 19 invited talks with ISO dates
 
 ## User Feedback (05-06)
 
