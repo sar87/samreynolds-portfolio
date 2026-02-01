@@ -11,6 +11,14 @@ const Buildings = {
     dialogTitle: null,
     dialogText: null,
 
+    // Content panel state
+    panelOpen: false,
+    panelElement: null,
+    panelTitle: null,
+    panelBody: null,
+    panelCloseBtn: null,
+    previousFocus: null,
+
     // Interaction prompt
     promptVisible: false,
     promptElement: null,
@@ -24,6 +32,12 @@ const Buildings = {
         this.dialogTitle = document.getElementById('dialog-title');
         this.dialogText = document.getElementById('dialog-text');
 
+        // Content panel elements
+        this.panelElement = document.getElementById('content-panel');
+        this.panelTitle = document.getElementById('panel-title');
+        this.panelBody = document.getElementById('panel-body');
+        this.panelCloseBtn = document.getElementById('panel-close');
+
         // Create interaction prompt
         this.createPrompt();
 
@@ -35,6 +49,18 @@ const Buildings = {
                 this.advanceDialog();
             });
         }
+
+        // Panel close button click
+        if (this.panelCloseBtn) {
+            this.panelCloseBtn.addEventListener('click', () => this.closePanel());
+        }
+
+        // ESC key handling for panel
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.panelOpen) {
+                this.closePanel();
+            }
+        });
     },
 
     // Create the interaction prompt element
@@ -275,9 +301,9 @@ const Buildings = {
         this.currentDialog = null;
     },
 
-    // Check if dialog is open
+    // Check if dialog or panel is open
     isDialogOpen() {
-        return this.dialogOpen;
+        return this.dialogOpen || this.panelOpen;
     },
 
     // Handle action key in dialog
@@ -287,6 +313,85 @@ const Buildings = {
             return true;
         }
         return false;
+    },
+
+    // Show content panel with title and HTML content
+    showContentPanel(title, htmlContent) {
+        if (!this.panelElement) return;
+
+        // Save current focus for restoration
+        this.previousFocus = document.activeElement;
+
+        // Set panel content
+        this.panelTitle.textContent = title;
+        this.panelBody.innerHTML = htmlContent;
+
+        // Show panel
+        this.panelElement.classList.remove('hidden');
+        this.panelOpen = true;
+        this.hidePrompt();
+
+        // Trap focus inside panel
+        this.trapFocus(this.panelElement);
+    },
+
+    // Close content panel
+    closePanel() {
+        if (!this.panelElement) return;
+
+        this.panelElement.classList.add('hidden');
+        this.panelOpen = false;
+
+        // Restore focus
+        if (this.previousFocus && typeof this.previousFocus.focus === 'function') {
+            this.previousFocus.focus();
+        }
+        this.previousFocus = null;
+    },
+
+    // Trap focus inside element for accessibility
+    trapFocus(element) {
+        const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        const focusableElements = element.querySelectorAll(focusableSelectors);
+
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        // Focus first focusable element (close button)
+        firstElement.focus();
+
+        // Remove any existing trap handler to prevent duplicates
+        if (this._trapHandler) {
+            element.removeEventListener('keydown', this._trapHandler);
+        }
+
+        // Create and store trap handler
+        this._trapHandler = (e) => {
+            if (e.key !== 'Tab') return;
+
+            if (e.shiftKey) {
+                // Shift+Tab: if on first, go to last
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                // Tab: if on last, go to first
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        };
+
+        element.addEventListener('keydown', this._trapHandler);
+    },
+
+    // Check if content panel is open
+    isPanelOpen() {
+        return this.panelOpen;
     },
 
     // Get building info for location display
