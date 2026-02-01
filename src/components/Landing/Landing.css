@@ -152,10 +152,78 @@
   outline-color: var(--color-gray-700);
 }
 
-/* Footer placeholder */
+/* Footer with skip links */
 .landing-footer {
   padding: var(--space-4) var(--space-6);
   text-align: center;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Skip links navigation */
+.skip-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.skip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.skip-link:hover {
+  color: var(--color-accent);
+  background: var(--color-gray-100);
+}
+
+.skip-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.skip-link-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.skip-link-text {
+  font-weight: 500;
+}
+
+/* Transition states for mode selection */
+.landing.transitioning {
+  overflow: hidden;
+}
+
+.landing-half.expanding {
+  transform: scale(1.02);
+  z-index: 10;
+  transition: transform var(--transition-expand, 250ms ease-out);
+}
+
+.landing-half.fading {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+  transition:
+    opacity var(--transition-fade, 250ms ease-out),
+    transform var(--transition-fade, 250ms ease-out);
+}
+
+/* Game preview canvas styling */
+.game-preview-canvas {
+  display: block;
+  border-radius: var(--radius-md);
 }
 
 /* Desktop: side-by-side layout */
@@ -171,7 +239,10 @@
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .landing-button {
+  .landing-button,
+  .skip-link,
+  .landing-half.expanding,
+  .landing-half.fading {
     transition: none;
   }
 }
