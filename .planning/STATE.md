@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-30)
 
 **Core value:** Visitors discover academic work through engaging pixel-art Cambridge exploration, with traditional website as alternative
-**Current focus:** Phase 5 complete - Ready for Phase 6 (Interaction & Dialogs)
+**Current focus:** Phase 6 in progress - Interactions & Content
 
 ## Current Position
 
-Phase: 5 of 8 (Campus & Buildings) - COMPLETE
-Plan: 6 of 6 in current phase
-Status: Complete
-Last activity: 2026-01-31 - Phase 5 verified and approved
+Phase: 6 of 8 (Interactions & Content)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-02-01 - Completed 06-01-PLAN.md
 
-Progress: [██████████] 100%
+Progress: [█████████░] 87.5% (21/24 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 20
-- Average duration: 4.8 min
-- Total execution time: 1.6 hours
+- Total plans completed: 21
+- Average duration: 4.6 min
+- Total execution time: 1.63 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [██████████] 100%
 | 03-website-mode | 4 | 12 min | 3.0 min |
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
+| 06-interactions-content | 1 | 2 min | 2.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-02 (4 min), 05-03 (3 min), 05-04 (4 min), 05-05 (4 min), 05-06 (45 min - integration debugging)
-- Note: 05-06 included significant integration work to bridge vanilla JS and TypeScript game systems
+- Last 5 plans: 05-04 (4 min), 05-05 (4 min), 05-06 (45 min - integration debugging), 06-01 (2 min)
+- Note: 06-01 was a clean execution with no issues
 
 *Updated after each plan completion*
 
@@ -82,6 +83,8 @@ Recent decisions affecting current work:
 - **Station interior size (2026-01-31):** 14x10 tiles as compact broadcast studio
 - **Theatre interior size (2026-01-31):** 16x12 tiles with 5 rows of audience seating
 - **Interior tile numbering (2026-01-31):** 60-68 for interior decoration sprites (specimen, microscope, etc.)
+- **Content panel z-index (2026-02-01):** z-index 250 for panel (above dialog box at 200)
+- **Panel focus trap handler (2026-02-01):** Store _trapHandler reference to prevent duplicate listeners on repeated opens
 
 ### Pending Todos
 
@@ -106,9 +109,9 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-01-31 18:20 UTC
-Stopped at: Phase 5 complete and approved
-Resume file: None - ready for Phase 6
+Last session: 2026-02-01 19:26 UTC
+Stopped at: Completed 06-01-PLAN.md (Content Panel Overlay)
+Resume file: None - ready for 06-02
 
 ### Key Context for Next Session
 
@@ -128,6 +131,7 @@ npm run dev  # Vite on localhost:5174
 - Player spawns at entrance gate (20, 26)
 - Buildings: Pembroke, Library, Lab, Station, Theatre
 - Each has interior with themed sprites
+- Content panel overlay ready via Buildings.showContentPanel(title, htmlContent)
 
 ## User Feedback (05-06)
 
