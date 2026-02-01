@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 9 of 9 (Change Game) - IN PROGRESS
-Plan: 3 of 6 in phase
-Status: Player rendering configured, ready for character sprites
-Last activity: 2026-02-01 - Completed 09-03-PLAN.md (player character rendering)
+Plan: 2 of 6 in phase
+Status: Pallet Town map complete, ready for interiors
+Last activity: 2026-02-01 - Completed 09-02-PLAN.md (Pallet Town map generation)
 
 Progress: [███████████████████████████████] 97% (32/33 plans)
 
@@ -37,11 +37,11 @@ Progress: [███████████████████████
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
 | 07-landing-mode-switching | 5 | 25 min | 5.0 min |
-| 09-change-game | 2 | 4 min | 2.0 min |
+| 09-change-game | 2 | 6.2 min | 3.1 min |
 
 **Recent Trend:**
-- Last 5 plans: 07-04 (4 min), 07-05 (8 min), 09-01 (2.5 min), 09-03 (1.5 min)
-- Note: 09-03 very fast - verification-only plan, no code changes needed
+- Last 5 plans: 07-05 (8 min), 09-01 (2.5 min), 09-02 (3.7 min)
+- Note: Phase 9 running efficiently - sprite and map systems straightforward
 
 *Updated after each plan completion*
 
@@ -110,6 +110,10 @@ Recent decisions affecting current work:
 - **Sprite data format (2026-02-01):** {image, sx, sy, sw, sh} objects for Canvas drawImage(), not canvas elements
 - **Scale factor 3x (2026-02-01):** 16px tiles → 48px rendered balances visibility and map coverage on modern displays
 - **Foot-based positioning (2026-02-01):** Player.pixelX/pixelY represent bottom-center of sprite, rendering offsets upward for head
+- **Map dimensions 20x18 (2026-02-01):** Pallet Town uses smaller dimensions than Cambridge campus (was 40x30)
+- **3 buildings layout (2026-02-01):** Player House (about), Rival House (talks/media), Oak's Lab (research/publications)
+- **Player spawn at (10, 17) (2026-02-01):** Bottom center of Pallet Town map, walkable grass area
+- **Tile naming convention (2026-02-01):** All TILES enum entries match sprites.js TILE_COORDS exactly (snake_case)
 
 ### Pending Todos
 
@@ -134,8 +138,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01 21:39 UTC
-Stopped at: Completed 09-03-PLAN.md (player character rendering)
+Last session: 2026-02-01 21:40 UTC
+Stopped at: Completed 09-02-PLAN.md (Pallet Town map generation)
 Resume file: None
 
 ### Key Context for Next Session
@@ -163,10 +167,11 @@ npm run dev  # Vite on localhost:5173
 - Mode toggle buttons in header ("Play Game") and game HUD ("Website")
 - CustomEvent('mode-switch') pattern for direct mode switching without returning to landing
 
-**Current game state (Phase 6 complete):**
-- 40x30 tile campus map with 5 buildings
-- Player spawns at entrance gate (20, 26)
-- Buildings: Pembroke, Library, Lab, Station, Theatre
+**Current game state (Phase 9 in progress):**
+- 20x18 tile Pallet Town map with 3 buildings
+- Player spawns at bottom center (10, 17)
+- Buildings: Player House, Rival House, Oak's Lab
+- Old interiors still exist (pembroke, library, lab, station, theatre) but won't be used
 - Each has interior with themed sprites
 - Content panel overlay via Buildings.showContentPanel(title, htmlContent)
 - Proximity detection via World.checkNearbyInteractions(playerX, playerY)
