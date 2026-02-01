@@ -1164,6 +1164,40 @@ const World = {
         return this.interiorMaps[this.currentLocation] || this.campusMap;
     },
 
+    // Check for nearby interactions at player position (1-tile proximity)
+    checkNearbyInteractions(playerX, playerY) {
+        const map = this.getCurrentMap();
+        if (!map) return null;
+
+        const { interact } = map.layers;
+        const w = map.width;
+        const h = map.height;
+
+        // Check 3x3 area around player (player tile + adjacent tiles)
+        for (let dy = -1; dy <= 1; dy++) {
+            for (let dx = -1; dx <= 1; dx++) {
+                const checkX = playerX + dx;
+                const checkY = playerY + dy;
+
+                // Bounds check
+                if (checkX < 0 || checkX >= w || checkY < 0 || checkY >= h) continue;
+
+                const idx = checkY * w + checkX;
+                const interaction = interact[idx];
+
+                if (interaction) {
+                    // Return interaction with position info
+                    return {
+                        ...interaction,
+                        x: checkX,
+                        y: checkY
+                    };
+                }
+            }
+        }
+        return null;
+    },
+
     // Check if a position is walkable
     isWalkable(x, y) {
         const map = this.getCurrentMap();
