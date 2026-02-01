@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-01-30)
 ## Current Position
 
 Phase: 7 of 8 (Landing & Mode Switching)
-Plan: 1 of 3 in phase
+Plan: 2 of 3 in phase
 Status: In progress
-Last activity: 2026-02-01 - Completed 07-01-PLAN.md (landing component)
+Last activity: 2026-02-01 - Completed 07-02-PLAN.md (visual components)
 
-Progress: [██████████░░░░░░░░░░] 26/28 plans (~93%)
+Progress: [██████████░░░░░░░░░░] 27/28 plans (~96%)
 
 ## Performance Metrics
 
@@ -33,11 +33,11 @@ Progress: [██████████░░░░░░░░░░] 26/28 p
 | 04-core-game-engine | 4 | 10 min | 2.5 min |
 | 05-campus-buildings | 6 | 63 min | 10.5 min |
 | 06-interactions-content | 5 | 13 min | 2.6 min |
-| 07-landing-mode-switching | 1 | 3 min | 3.0 min |
+| 07-landing-mode-switching | 2 | 6 min | 3.0 min |
 
 **Recent Trend:**
-- Last 5 plans: 06-03 (3 min), 06-04 (3 min), 06-05 (2 min), 07-01 (3 min)
-- Note: Phase 7 starting with component creation
+- Last 5 plans: 06-04 (3 min), 06-05 (2 min), 07-01 (3 min), 07-02 (3 min)
+- Note: Phase 7 visual components proceeding smoothly
 
 *Updated after each plan completion*
 
@@ -94,6 +94,9 @@ Recent decisions affecting current work:
 - **Placeholder link filtering (2026-02-01):** Only render links when URL exists AND is not placeholder '#'
 - **Landing intro extraction (2026-02-01):** Extract first sentence from bio[0] for concise intro without hardcoding
 - **Landing button differentiation (2026-02-01):** Accent teal for website mode, dark gray for game mode for visual distinction
+- **GamePreview canvas size (2026-02-01):** 320x240 for retro pixel aesthetic matching game feel
+- **Preview animation speed (2026-02-01):** 8 FPS (125ms interval) for subtle, non-distracting effect
+- **Loading spinner technique (2026-02-01):** clip-path animation with steps(4) for pixelated rotation
 
 ### Pending Todos
 
@@ -118,8 +121,8 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-01
-Stopped at: Completed 07-01-PLAN.md (landing component)
+Last session: 2026-02-01 20:24 UTC
+Stopped at: Completed 07-02-PLAN.md (visual components)
 Resume file: None
 
 ### Key Context for Next Session
@@ -139,7 +142,9 @@ npm run dev  # Vite on localhost:5173
 - Landing.ts exports renderLanding() with split layout HTML
 - Landing.css has mobile-first Flexbox, 768px breakpoint for row layout
 - data-mode="website" and data-mode="game" on buttons for routing
-- Preview placeholders ready for minimap integration (07-02)
+- GamePreview.ts renders animated 320x240 canvas with campus scene
+- LoadingScreen.ts provides full-screen overlay with pixel spinner
+- Both components respect prefers-reduced-motion
 - CSS not yet imported in main.ts (07-03 will wire up)
 
 **Current game state (Phase 6 complete):**
