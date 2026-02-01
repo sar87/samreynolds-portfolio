@@ -16,6 +16,9 @@ const NAV_ITEMS = [
   { label: 'Media', href: '#media' },
 ];
 
+// Game controller SVG icon for mode toggle button
+const GAME_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><circle cx="17" cy="10" r="1"></circle><circle cx="15" cy="12" r="1"></circle></svg>`;
+
 export function renderHeader(): string {
   const navLinks = NAV_ITEMS.map(
     (item) => `<a href="${item.href}" class="${styles.navLink}">${item.label}</a>`
@@ -33,6 +36,10 @@ export function renderHeader(): string {
         <nav class="${styles.nav}" aria-label="Main navigation">
           ${navLinks}
         </nav>
+        <button class="${styles.modeToggle}" aria-label="Play game">
+          ${GAME_ICON}
+          <span>Play Game</span>
+        </button>
         <button
           class="${styles.menuButton}"
           aria-expanded="false"
@@ -85,5 +92,23 @@ export function initMobileNav(): void {
       mobileNav.hidden = true;
       menuButton.focus();
     }
+  });
+}
+
+/**
+ * Initialize mode toggle button in header
+ * Dispatches custom event for mode switching - handled by main.ts
+ */
+export function initModeToggle(): void {
+  const modeToggle = document.querySelector<HTMLButtonElement>(
+    `.${styles.modeToggle}`
+  );
+
+  if (!modeToggle) return;
+
+  modeToggle.addEventListener('click', () => {
+    window.dispatchEvent(
+      new CustomEvent('mode-switch', { detail: { mode: 'game' } })
+    );
   });
 }
