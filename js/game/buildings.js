@@ -22,6 +22,7 @@ const Buildings = {
     // Interaction prompt
     promptVisible: false,
     promptElement: null,
+    currentInteraction: null,
 
     // Action cooldown to prevent double-triggers
     actionCooldown: false,
@@ -76,45 +77,59 @@ const Buildings = {
 
     // Show/hide interaction prompt
     updatePrompt(interaction, isMobile) {
-        if (interaction && !this.dialogOpen) {
-            let promptText = '';
+        if (interaction && !this.dialogOpen && !this.panelOpen) {
+            this.currentInteraction = interaction;
 
+            // Get object name for display
+            let objectName = interaction.name || this.getInteractionName(interaction);
+            let actionText = isMobile ? 'Tap to interact' : 'Press ENTER to interact';
+
+            // Customize action text based on type
             switch (interaction.type) {
                 case 'entrance':
                 case 'door':
-                    promptText = isMobile ? 'Tap A to enter' : 'Press ENTER to enter';
+                    actionText = isMobile ? 'Tap to enter' : 'Press ENTER to enter';
                     break;
                 case 'sign':
-                    promptText = isMobile ? 'Tap A to read' : 'Press ENTER to read';
+                    actionText = isMobile ? 'Tap to read' : 'Press ENTER to read';
                     break;
                 case 'exit':
-                    promptText = isMobile ? 'Tap A to exit' : 'Press ENTER to exit';
-                    break;
-                case 'object':
-                case 'publication':
-                case 'media':
-                case 'research':
-                case 'talk':
-                case 'talks':
-                    promptText = isMobile ? 'Tap A to examine' : 'Press ENTER to examine';
+                    objectName = 'Exit';
+                    actionText = isMobile ? 'Tap to exit' : 'Press ENTER to exit';
                     break;
             }
 
-            if (promptText) {
-                this.promptElement.textContent = promptText;
-                this.promptElement.style.display = 'block';
-                this.promptVisible = true;
-            } else {
-                this.hidePrompt();
-            }
+            // Update prompt with formatted content
+            this.promptElement.innerHTML = `<span class="prompt-object">${objectName}</span><br><span class="prompt-action">${actionText}</span>`;
+            this.promptElement.style.display = 'block';
+            this.promptVisible = true;
         } else {
             this.hidePrompt();
         }
     },
 
+    // Get display name for an interaction
+    getInteractionName(interaction) {
+        const nameMap = {
+            'publication': 'Bookshelf',
+            'media': 'Media Equipment',
+            'research': 'Research Station',
+            'talk': 'Lecture Notes',
+            'talks': 'Lecture Notes',
+            'object': interaction.id || 'Object',
+            'entrance': interaction.name || 'Entrance',
+            'door': interaction.name || 'Door',
+            'sign': 'Sign'
+        };
+        return nameMap[interaction.type] || 'Interact';
+    },
+
     hidePrompt() {
-        this.promptElement.style.display = 'none';
+        if (this.promptElement) {
+            this.promptElement.style.display = 'none';
+        }
         this.promptVisible = false;
+        this.currentInteraction = null;
     },
 
     // Handle an interaction
