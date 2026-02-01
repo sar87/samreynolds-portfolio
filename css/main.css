@@ -1,0 +1,227 @@
+/* Main CSS - Shared styles for both modes */
+
+:root {
+    /* Cambridge colors */
+    --cambridge-blue: #A3C1AD;
+    --cambridge-dark: #003E74;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --accent: #A3C1AD;
+    --accent-dark: #7da98a;
+
+    /* Pixel art colors */
+    --pixel-black: #1a1a2e;
+    --pixel-dark: #16213e;
+    --pixel-blue: #0f3460;
+    --pixel-accent: #e94560;
+    --pixel-grass: #4a7c59;
+    --pixel-grass-light: #6b9b5a;
+    --pixel-path: #c9a959;
+    --pixel-water: #4a90a4;
+    --pixel-building: #8b7355;
+    --pixel-roof: #5c4033;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+}
+
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    overflow-x: hidden;
+}
+
+/* Mode containers */
+.mode-container {
+    transition: opacity var(--transition-normal);
+}
+
+.mode-container.hidden {
+    display: none;
+}
+
+.mode-container.fade-out {
+    opacity: 0;
+}
+
+/* Mode Toggle Button */
+.mode-toggle {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 1000;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--pixel-dark);
+    color: white;
+    border: 4px solid var(--pixel-black);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow:
+        4px 4px 0 var(--pixel-black),
+        inset -2px -2px 0 rgba(0,0,0,0.3),
+        inset 2px 2px 0 rgba(255,255,255,0.1);
+    image-rendering: pixelated;
+}
+
+.mode-toggle:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        6px 6px 0 var(--pixel-black),
+        inset -2px -2px 0 rgba(0,0,0,0.3),
+        inset 2px 2px 0 rgba(255,255,255,0.1);
+}
+
+.mode-toggle:active {
+    transform: translate(2px, 2px);
+    box-shadow:
+        2px 2px 0 var(--pixel-black),
+        inset -2px -2px 0 rgba(0,0,0,0.3),
+        inset 2px 2px 0 rgba(255,255,255,0.1);
+}
+
+/* Loading screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pixel-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity var(--transition-normal);
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', monospace;
+}
+
+.loading-content h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.loading-content p {
+    margin-bottom: var(--spacing-md);
+    opacity: 0.8;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 20px;
+    background: var(--pixel-dark);
+    border: 4px solid white;
+    margin: var(--spacing-md) auto;
+    position: relative;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0%;
+    background: var(--cambridge-blue);
+    transition: width 0.3s ease;
+}
+
+.loading-text {
+    font-size: 0.8rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Game HUD mode toggle button */
+.game-mode-toggle {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(26, 26, 46, 0.85);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.game-mode-toggle:hover {
+    background: rgba(26, 26, 46, 0.95);
+    border-color: var(--cambridge-blue);
+}
+
+.game-mode-toggle:focus-visible {
+    outline: 2px solid var(--cambridge-blue);
+    outline-offset: 2px;
+}
+
+.game-mode-toggle svg {
+    flex-shrink: 0;
+}
+
+/* Utility classes */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    .mode-toggle {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
+    }
+}

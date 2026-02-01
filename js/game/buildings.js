@@ -30,6 +30,9 @@ const Buildings = {
     // Track visited buildings this session
     visitedBuildings: {},
 
+    // Mode toggle button element
+    modeToggleBtn: null,
+
     // Initialize
     init() {
         this.dialogBox = document.getElementById('dialog-box');
@@ -44,6 +47,9 @@ const Buildings = {
 
         // Create interaction prompt
         this.createPrompt();
+
+        // Create mode toggle button
+        this.createModeToggle();
 
         // Dialog click/tap to advance (only if dialog box exists)
         if (this.dialogBox) {
@@ -75,6 +81,36 @@ const Buildings = {
         const gameMode = document.getElementById('game-mode') || document.getElementById('game-container');
         if (gameMode) {
             gameMode.appendChild(this.promptElement);
+        }
+    },
+
+    // Create the mode toggle button for HUD
+    createModeToggle() {
+        const gameContainer = document.getElementById('game-container');
+        if (!gameContainer) return;
+
+        // Website icon SVG
+        const websiteIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`;
+
+        this.modeToggleBtn = document.createElement('button');
+        this.modeToggleBtn.className = 'game-mode-toggle';
+        this.modeToggleBtn.innerHTML = `${websiteIcon}<span>Website</span>`;
+        this.modeToggleBtn.setAttribute('aria-label', 'View website');
+
+        this.modeToggleBtn.addEventListener('click', () => {
+            window.dispatchEvent(
+                new CustomEvent('mode-switch', { detail: { mode: 'website' } })
+            );
+        });
+
+        gameContainer.appendChild(this.modeToggleBtn);
+    },
+
+    // Clean up mode toggle button (called on game destroy)
+    destroyModeToggle() {
+        if (this.modeToggleBtn) {
+            this.modeToggleBtn.remove();
+            this.modeToggleBtn = null;
         }
     },
 

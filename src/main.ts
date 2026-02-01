@@ -11,7 +11,7 @@ import { router } from './lib/router';
 
 // Import game (CampusGame wraps the vanilla JS Phase 5 implementation)
 import { CampusGame } from './game/CampusGame';
-import { renderHeader, initMobileNav } from './components/Header/Header';
+import { renderHeader, initMobileNav, initModeToggle } from './components/Header/Header';
 import { renderHomePage } from './pages/HomePage';
 import { renderPublicationDetail } from './pages/PublicationDetail';
 import { renderTalkDetail } from './pages/TalkDetail';
@@ -37,6 +37,7 @@ async function render(content: string | Promise<string>): Promise<void> {
   const headerHtml = renderHeader();
   app!.innerHTML = `${headerHtml}<div id="content">${html}</div>`;
   initMobileNav();
+  initModeToggle();
 
   // Scroll to top on route change (unless it's a hash anchor)
   if (!window.location.hash.includes('#/') || window.location.hash === '#/') {
@@ -274,6 +275,29 @@ document.addEventListener('click', (e) => {
     }
   }
 });
+
+// Mode switch event listener (for header and game HUD toggle buttons)
+window.addEventListener('mode-switch', ((e: CustomEvent) => {
+  const targetMode = e.detail.mode as 'website' | 'game';
+
+  // Handle from landing page
+  if (currentMode === 'landing') {
+    transitionToMode(targetMode);
+    return;
+  }
+
+  if (targetMode === 'game' && !game) {
+    // From website to game
+    showLoadingScreen();
+    enterGameMode().then(() => hideLoadingScreen());
+    currentMode = 'game';
+  } else if (targetMode === 'website' && game) {
+    // From game to website
+    exitGameMode();
+    currentMode = 'website';
+    router.navigate('/');
+  }
+}) as EventListener);
 
 // Initialize router
 router.init();
