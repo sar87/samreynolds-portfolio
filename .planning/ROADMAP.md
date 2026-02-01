@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Website Mode** - Traditional academic portfolio layout
 - [x] **Phase 4: Core Game Engine** - Rendering, movement, camera, collision
 - [x] **Phase 5: Campus & Buildings** - Cambridge map design and building interiors
-- [ ] **Phase 6: Interactions & Content Integration** - Connect game objects to academic content
+- [x] **Phase 6: Interactions & Content Integration** - Connect game objects to academic content
 - [ ] **Phase 7: Landing & Mode Switching** - Splash screen and seamless mode transitions
 - [ ] **Phase 8: Polish & Mobile Optimization** - Animations, performance, final touches
 
@@ -128,13 +128,14 @@ Plans:
   5. Interacting with podium displays talks list in panel overlay
   6. Panels can be closed with key/button to return to exploration
   7. Location indicator shows current building name in HUD
-**Plans**: 4 plans
+**Plans**: 5 plans
 
 Plans:
-- [ ] 06-01-PLAN.md - Content panel overlay DOM and CSS
-- [ ] 06-02-PLAN.md - Content formatting and data wiring
-- [ ] 06-03-PLAN.md - Location HUD and context-aware dialogs
-- [ ] 06-04-PLAN.md - Visual verification checkpoint
+- [x] 06-01-PLAN.md - Content panel overlay DOM and CSS
+- [x] 06-02-PLAN.md - Proximity detection and interaction prompts
+- [x] 06-03-PLAN.md - Content formatting and data wiring
+- [x] 06-04-PLAN.md - Location HUD and context-aware dialogs
+- [x] 06-05-PLAN.md - Visual verification checkpoint
 
 ### Phase 7: Landing & Mode Switching
 **Goal**: Visitors choose between game and website modes via polished landing screen
@@ -184,6 +185,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Website Mode | 4/4 | Complete | 2026-01-31 |
 | 4. Core Game Engine | 4/4 | Complete | 2026-01-31 |
 | 5. Campus & Buildings | 6/6 | Complete | 2026-01-31 |
-| 6. Interactions & Content Integration | 0/4 | Planned | - |
+| 6. Interactions & Content Integration | 5/5 | Complete | 2026-02-01 |
 | 7. Landing & Mode Switching | 0/? | Not started | - |
 | 8. Polish & Mobile Optimization | 0/? | Not started | - |

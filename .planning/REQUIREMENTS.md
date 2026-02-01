@@ -19,30 +19,30 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **NAV-01**: Player can move with arrow keys / WASD
 - [ ] **NAV-02**: Player can move with touch D-pad on mobile
 - [x] **NAV-03**: Collision detection prevents walking through walls/objects
-- [ ] **NAV-04**: Player can enter buildings by walking to doors
-- [ ] **NAV-05**: Player can exit buildings to return to campus
+- [x] **NAV-04**: Player can enter buildings by walking to doors
+- [x] **NAV-05**: Player can exit buildings to return to campus
 - [x] **NAV-06**: Camera smoothly follows player movement
 - [ ] **NAV-07**: Character displays walk cycle animation when moving
 
 ### Game Interactions
 
-- [ ] **INT-01**: Interaction prompts appear near interactive objects ("Press ENTER")
-- [ ] **INT-02**: Interacting with objects opens content panel overlay
-- [ ] **INT-03**: Panel overlays display formatted academic content (publications, talks, etc.)
-- [ ] **INT-04**: Panels can be closed to return to exploration
-- [ ] **INT-05**: Location indicator in HUD shows current building name
-- [ ] **INT-06**: Context-aware dialog recognizes returning visitors ("Welcome back!")
+- [x] **INT-01**: Interaction prompts appear near interactive objects ("Press ENTER")
+- [x] **INT-02**: Interacting with objects opens content panel overlay
+- [x] **INT-03**: Panel overlays display formatted academic content (publications, talks, etc.)
+- [x] **INT-04**: Panels can be closed to return to exploration
+- [x] **INT-05**: Location indicator in HUD shows current building name
+- [x] **INT-06**: Context-aware dialog recognizes returning visitors ("Welcome back!")
 
 ### Campus & Buildings
 
-- [ ] **MAP-01**: Cambridge campus map with paths, grass, trees, water (River Cam)
-- [ ] **MAP-02**: Pembroke College building (About Me content)
-- [ ] **MAP-03**: University Library building (Publications content)
-- [ ] **MAP-04**: Research Laboratory building (Research Interests content)
-- [ ] **MAP-05**: TV/Radio Station building (Media Appearances content)
-- [ ] **MAP-06**: Lecture Theatre building (Talks content)
-- [ ] **MAP-07**: Each building has distinct exterior design
-- [ ] **MAP-08**: Building interiors themed to their content (books in library, equipment in lab)
+- [x] **MAP-01**: Cambridge campus map with paths, grass, trees (no river per design decision)
+- [x] **MAP-02**: Pembroke College building (About Me content)
+- [x] **MAP-03**: University Library building (Publications content)
+- [x] **MAP-04**: Research Laboratory building (Research Interests content)
+- [x] **MAP-05**: TV/Radio Station building (Media Appearances content)
+- [x] **MAP-06**: Lecture Theatre building (Talks content)
+- [x] **MAP-07**: Each building has distinct exterior design
+- [x] **MAP-08**: Building interiors themed to their content (books in library, equipment in lab)
 
 ### Visual Style
 
@@ -132,24 +132,24 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAV-01 | Phase 4 | Complete |
 | NAV-02 | Phase 8 | Pending |
 | NAV-03 | Phase 4 | Complete |
-| NAV-04 | Phase 5 | Pending |
-| NAV-05 | Phase 5 | Pending |
+| NAV-04 | Phase 5 | Complete |
+| NAV-05 | Phase 5 | Complete |
 | NAV-06 | Phase 4 | Complete |
 | NAV-07 | Phase 8 | Pending |
-| INT-01 | Phase 6 | Pending |
-| INT-02 | Phase 6 | Pending |
-| INT-03 | Phase 6 | Pending |
-| INT-04 | Phase 6 | Pending |
-| INT-05 | Phase 6 | Pending |
-| INT-06 | Phase 6 | Pending |
-| MAP-01 | Phase 5 | Pending |
-| MAP-02 | Phase 5 | Pending |
-| MAP-03 | Phase 5 | Pending |
-| MAP-04 | Phase 5 | Pending |
-| MAP-05 | Phase 5 | Pending |
-| MAP-06 | Phase 5 | Pending |
-| MAP-07 | Phase 5 | Pending |
-| MAP-08 | Phase 5 | Pending |
+| INT-01 | Phase 6 | Complete |
+| INT-02 | Phase 6 | Complete |
+| INT-03 | Phase 6 | Complete |
+| INT-04 | Phase 6 | Complete |
+| INT-05 | Phase 6 | Complete |
+| INT-06 | Phase 6 | Complete |
+| MAP-01 | Phase 5 | Complete |
+| MAP-02 | Phase 5 | Complete |
+| MAP-03 | Phase 5 | Complete |
+| MAP-04 | Phase 5 | Complete |
+| MAP-05 | Phase 5 | Complete |
+| MAP-06 | Phase 5 | Complete |
+| MAP-07 | Phase 5 | Complete |
+| MAP-08 | Phase 5 | Complete |
 | VIS-01 | Phase 1 | Complete |
 | VIS-02 | Phase 4 | Complete |
 | VIS-03 | Phase 8 | Pending |
