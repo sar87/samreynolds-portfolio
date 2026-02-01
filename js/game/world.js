@@ -9,70 +9,40 @@ const World = {
     // Current location (campus or interior)
     currentLocation: 'campus',
 
-    // Tile types
+    // Tile types (Pokemon-specific)
     TILES: {
+        // Outdoor terrain
         GRASS: 0,
         PATH: 1,
-        WATER: 2,
-        FLOWER: 3,
-        TREE: 4,
+        FLOWER: 2,
+        WATER: 3,
+        TREE_TRUNK: 4,
         TREE_TOP: 5,
-        WALL: 6,
-        ROOF: 7,
-        DOOR: 8,
-        WINDOW: 9,
-        SPIRE: 10,
-        SIGN: 11,
-        // Campus decorations
-        GATE: 12,
-        LAMPPOST: 13,
-        BENCH_LEFT: 14,
-        BENCH_RIGHT: 15,
-        IVY: 16,
-        COBBLE: 17,
-        // Interior tiles
-        WOOD_FLOOR: 20,
+        FENCE: 6,
+
+        // Building exteriors
+        HOUSE_WALL: 10,
+        HOUSE_ROOF: 11,
+        HOUSE_DOOR: 12,
+        LAB_WALL: 13,
+        LAB_ROOF: 14,
+        LAB_DOOR: 15,
+
+        // Interior - floor/walls
+        FLOOR: 20,
         INT_WALL: 21,
-        BOOKSHELF: 22,
-        DESK: 23,
-        COMPUTER: 24,
-        PODIUM: 25,
-        LAB_BENCH: 26,
-        CHAIR: 27,
+        INT_DOOR: 22,
+        STAIRS: 23,
 
-        // Gothic/traditional building tiles
-        GOTHIC_WINDOW: 30,
-        GOTHIC_DOOR: 31,
-        ORNATE_WALL: 32,
-        ARCHWAY: 33,
-        SPIRE_TOP: 34,
-        BATTLEMENT: 35,
-
-        // Modern building tiles
-        MODERN_WALL: 40,
-        MODERN_WINDOW: 41,
-        MODERN_DOOR: 42,
-        METAL_PANEL: 43,
-
-        // Building signs
-        SIGN_PEMBROKE: 50,
-        SIGN_LIBRARY: 51,
-        SIGN_LAB: 52,
-        SIGN_STATION: 53,
-        SIGN_THEATRE: 54,
-
-        // Lab interior sprites (zoology theme)
-        SPECIMEN: 60,
-        MICROSCOPE: 61,
-        PLANT: 62,
-        ANIMAL_POSTER: 63,
-
-        // Station/Theatre interior sprites (tavern repurposed)
-        CONTROL_DESK: 64,
-        MICROPHONE: 65,
-        SCREEN: 66,
-        STAGE_CURTAIN: 67,
-        SPOTLIGHT: 68
+        // Interior - furniture
+        TABLE: 30,
+        CHAIR: 31,
+        BOOKSHELF: 32,
+        COMPUTER: 33,
+        TV: 34,
+        SOFA: 35,
+        PLANT: 36,
+        RUG: 37
     },
 
     // Building definitions with entry points
@@ -1256,59 +1226,28 @@ const World = {
         const spriteMap = {
             [T.GRASS]: 'grass',
             [T.PATH]: 'path',
-            [T.WATER]: 'water',
             [T.FLOWER]: 'flower',
-            [T.TREE]: 'tree',
-            [T.TREE_TOP]: 'treeTop',
-            [T.WALL]: 'wall',
-            [T.ROOF]: 'roof',
-            [T.DOOR]: 'door',
-            [T.WINDOW]: 'window',
-            [T.SPIRE]: 'spire',
-            [T.SIGN]: 'sign',
-            [T.GATE]: 'gate',
-            [T.LAMPPOST]: 'lamppost',
-            [T.LAB_BENCH_LEFT]: 'benchLeft',
-            [T.LAB_BENCH_RIGHT]: 'benchRight',
-            [T.IVY]: 'ivy',
-            [T.COBBLE]: 'cobble',
-            [T.WOOD_FLOOR]: 'woodFloor',
-            [T.INT_WALL]: 'interiorWall',
-            [T.BOOKSHELF]: 'bookshelf',
-            [T.DESK]: 'desk',
-            [T.COMPUTER]: 'computer',
-            [T.PODIUM]: 'podium',
-            [T.LAB_BENCH]: 'bench',
+            [T.WATER]: 'water',
+            [T.TREE_TRUNK]: 'tree_trunk',
+            [T.TREE_TOP]: 'tree_top',
+            [T.HOUSE_WALL]: 'house_wall',
+            [T.HOUSE_ROOF]: 'house_roof',
+            [T.HOUSE_DOOR]: 'house_door',
+            [T.LAB_WALL]: 'lab_wall',
+            [T.LAB_ROOF]: 'lab_roof',
+            [T.LAB_DOOR]: 'lab_door',
+            [T.FLOOR]: 'floor',
+            [T.INT_WALL]: 'wall',
+            [T.INT_DOOR]: 'door',
+            [T.STAIRS]: 'stairs',
+            [T.TABLE]: 'table',
             [T.CHAIR]: 'chair',
-            // Gothic/traditional building tiles
-            [T.GOTHIC_WINDOW]: 'gothicWindow',
-            [T.GOTHIC_DOOR]: 'gothicDoor',
-            [T.ORNATE_WALL]: 'ornateWall',
-            [T.ARCHWAY]: 'archway',
-            [T.SPIRE_TOP]: 'spireTop',
-            [T.BATTLEMENT]: 'battlement',
-            // Modern building tiles
-            [T.MODERN_WALL]: 'modernWall',
-            [T.MODERN_WINDOW]: 'modernWindow',
-            [T.MODERN_DOOR]: 'modernDoor',
-            [T.METAL_PANEL]: 'metalPanel',
-            // Building signs
-            [T.SIGN_PEMBROKE]: 'signPembroke',
-            [T.SIGN_LIBRARY]: 'signLibrary',
-            [T.SIGN_LAB]: 'signLab',
-            [T.SIGN_STATION]: 'signStation',
-            [T.SIGN_THEATRE]: 'signTheatre',
-            // Lab interior sprites (zoology theme)
-            [T.SPECIMEN]: 'specimen',
-            [T.MICROSCOPE]: 'microscope',
+            [T.BOOKSHELF]: 'bookshelf',
+            [T.COMPUTER]: 'computer',
+            [T.TV]: 'tv',
+            [T.SOFA]: 'sofa',
             [T.PLANT]: 'plant',
-            [T.ANIMAL_POSTER]: 'animalPoster',
-            // Station/Theatre interior sprites
-            [T.CONTROL_DESK]: 'controlDesk',
-            [T.MICROPHONE]: 'microphone',
-            [T.SCREEN]: 'screen',
-            [T.STAGE_CURTAIN]: 'stageCurtain',
-            [T.SPOTLIGHT]: 'spotlight'
+            [T.RUG]: 'rug'
         };
         return spriteMap[tileType] || null;
     }
