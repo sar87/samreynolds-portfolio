@@ -119,26 +119,25 @@ const Buildings = {
         if (interaction && !this.dialogOpen && !this.panelOpen) {
             this.currentInteraction = interaction;
 
-            // Get object name for display
             let objectName = interaction.name || this.getInteractionName(interaction);
-            let actionText = isMobile ? 'Tap to interact' : 'Press ENTER to interact';
+            let actionText = isMobile ? 'Tap' : 'Press A';
 
-            // Customize action text based on type
             switch (interaction.type) {
                 case 'entrance':
                 case 'door':
-                    actionText = isMobile ? 'Tap to enter' : 'Press ENTER to enter';
+                    actionText = isMobile ? 'Tap to enter' : 'Press A to enter';
                     break;
-                case 'sign':
-                    actionText = isMobile ? 'Tap to read' : 'Press ENTER to read';
+                case 'stairs':
+                    actionText = isMobile ? 'Tap to climb' : 'Press A to climb';
                     break;
                 case 'exit':
-                    objectName = 'Exit';
-                    actionText = isMobile ? 'Tap to exit' : 'Press ENTER to exit';
+                    objectName = 'Door';
+                    actionText = isMobile ? 'Tap to exit' : 'Press A to exit';
                     break;
+                default:
+                    actionText = isMobile ? 'Tap to interact' : 'Press A to interact';
             }
 
-            // Update prompt with formatted content
             this.promptElement.innerHTML = `<span class="prompt-object">${objectName}</span><br><span class="prompt-action">${actionText}</span>`;
             this.promptElement.style.display = 'block';
             this.promptVisible = true;
@@ -150,16 +149,24 @@ const Buildings = {
     // Get display name for an interaction
     getInteractionName(interaction) {
         const nameMap = {
+            // Content types
             'publication': 'Bookshelf',
-            'media': 'Media Equipment',
-            'research': 'Research Station',
-            'talk': 'Lecture Notes',
-            'talks': 'Lecture Notes',
-            'object': interaction.id || 'Object',
+            'media': 'TV',
+            'research': 'Lab Equipment',
+            'talks': 'Bookshelf',
+            'about': 'Home Items',
+
+            // Navigation
             'entrance': interaction.name || 'Entrance',
             'door': interaction.name || 'Door',
-            'sign': 'Sign'
+            'exit': 'Exit',
+            'stairs': interaction.floor === '2F' ? 'Stairs (Up)' : 'Stairs (Down)',
+
+            // Objects
+            'sign': 'Sign',
+            'object': interaction.id || 'Object'
         };
+
         return nameMap[interaction.type] || 'Interact';
     },
 
