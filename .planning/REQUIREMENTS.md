@@ -59,26 +59,26 @@ Deferred to future milestone (game mode revival).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DESIGN-01 | TBD | Pending |
-| DESIGN-02 | TBD | Pending |
-| DESIGN-03 | TBD | Pending |
-| DESIGN-04 | TBD | Pending |
-| DESIGN-05 | TBD | Pending |
-| CONTENT-01 | TBD | Pending |
-| CONTENT-02 | TBD | Pending |
-| CONTENT-03 | TBD | Pending |
-| CONTENT-04 | TBD | Pending |
-| ARCH-01 | TBD | Pending |
-| ARCH-02 | TBD | Pending |
-| ARCH-03 | TBD | Pending |
-| DEPLOY-01 | TBD | Pending |
-| DEPLOY-02 | TBD | Pending |
+| DESIGN-01 | Phase 11 | Pending |
+| DESIGN-02 | Phase 12 | Pending |
+| DESIGN-03 | Phase 12 | Pending |
+| DESIGN-04 | Phase 12 | Pending |
+| DESIGN-05 | Phase 11 | Pending |
+| CONTENT-01 | Phase 13 | Pending |
+| CONTENT-02 | Phase 13 | Pending |
+| CONTENT-03 | Phase 13 | Pending |
+| CONTENT-04 | Phase 13 | Pending |
+| ARCH-01 | Phase 10 | Pending |
+| ARCH-02 | Phase 10 | Pending |
+| ARCH-03 | Phase 10 | Pending |
+| DEPLOY-01 | Phase 14 | Pending |
+| DEPLOY-02 | Phase 14 | Pending |
 
 **Coverage:**
 - v1.0 requirements: 14 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 14
+- Mapped to phases: 14
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-02*
-*Last updated: 2026-02-02 after initial definition*
+*Last updated: 2026-02-02 after roadmap creation*

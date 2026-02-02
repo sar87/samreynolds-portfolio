@@ -5,57 +5,60 @@
 See: .planning/PROJECT.md (updated 2026-02-02)
 
 **Core value:** Visitors access academic work through a visually striking, professional interface
-**Current focus:** v1.0 Professional Polish — dark mode, Linear-style animations, content sync
+**Current focus:** v1.0 Professional Polish - Phase 10 Architecture Cleanup
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-02-02 — Milestone v1.0 started
+Phase: 10 of 14 (Architecture Cleanup)
+Plan: Not started
+Status: Ready to plan
+Last activity: 2026-02-02 - Roadmap created for v1.0
 
-Progress: v0.9 shipped (archived), v1.0 in planning
+Progress: [##########..........] 50% (v0.9 complete, v1.0 starting)
 
 ## Performance Metrics
 
-**v0.9 Beta Stats (archived):**
+**v0.9 Stats (archived):**
 - Total plans completed: 36
+- Phases completed: 8 (1-7, 9)
 - Lines of code: ~8,600
-- Commits: 157
-- Timeline: 3 days (2026-01-30 → 2026-02-02)
+- Timeline: 3 days
+
+**v1.0 Stats:**
+- Total plans completed: 0
+- Phases: 5 (10-14)
+- Requirements: 14
 
 ## Accumulated Context
 
 ### Decisions
 
-**v1.0 pivot decisions:**
-- **Archive game mode:** Focus on polished professional website first
-- **Dark mode:** Modern aesthetic for AI/tech research credibility
-- **Linear-style animations:** Scroll reveals, gradient text, hover micro-interactions
-- **Content sync:** Update from samreynolds.org
+**v1.0 pivot decisions (from PROJECT.md):**
+- Archive game mode: Focus on polished professional website
+- Dark mode: Modern aesthetic for AI/tech credibility
+- Linear-style animations: Scroll reveals, gradient text, hover micro-interactions
 
 ### Pending Todos
 
 - Game mode archived (code kept, access disabled)
-- Previous game-related todos deferred
+- Sprite calibration deferred with game mode
 
 ### Blockers/Concerns
 
-None currently — clean pivot to website-only focus.
+None currently - clean slate for v1.0.
 
 ## Session Continuity
 
 Last session: 2026-02-02
-Stopped at: v1.0 milestone definition in progress
+Stopped at: v1.0 roadmap creation complete
 Resume file: None
 
 ### Key Context for Next Session
 
-**Archived:**
-- `.planning/milestones/v0.9-ROADMAP.md` - Game mode roadmap
-- `.planning/milestones/v0.9-REQUIREMENTS.md` - Game mode requirements
-
-**Content source:** samreynolds.org (fetched 2026-02-02)
+**Phase 10 is ready to plan.** Architecture cleanup:
+- Archive game imports
+- Bypass landing page
+- Remove mode toggle
 
 **How to run:**
 ```bash
@@ -63,4 +66,4 @@ npm run dev  # Vite on localhost:5173
 ```
 
 ---
-*Updated: 2026-02-02 after v1.0 milestone start*
+*Updated: 2026-02-02 after v1.0 roadmap creation*
