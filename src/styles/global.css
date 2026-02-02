@@ -7,14 +7,6 @@
 
 @import './variables.css';
 
-/* Lower Atmosphere font for newspaper heading aesthetic */
-@font-face {
-  font-family: 'Lower Atmosphere';
-  src: url('/assets/fonts/LowerAtmosphere.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Modern CSS Reset */
 *,
@@ -59,25 +51,11 @@ body {
   font-size: var(--font-size-base);
 }
 
-/* Headings - Lower Atmosphere font with halftone texture behind */
+/* Headings - Playfair Display for NYT-style editorial aesthetic */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lower Atmosphere', Inter, sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.2;
-  font-weight: normal;
-  position: relative;
-}
-
-/* Halftone texture behind headings - newspaper print aesthetic */
-h1::before,
-h2::before {
-  content: '';
-  position: absolute;
-  inset: -0.1em -0.2em;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
-  background-size: 3px 3px;
-  z-index: -1;
-  opacity: 0.6;
-  border-radius: 2px;
+  font-weight: 600;
 }
 
 /* Links */
