@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-02)
 ## Current Position
 
 Phase: 11 of 14 (Design Foundation)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-02-02 - Phase 10 verified and complete
+Plan: 1 of 3 complete
+Status: In progress
+Last activity: 2026-02-02 - Completed 11-01-PLAN.md
 
-Progress: [###########.........] 56% (v0.9 complete, v1.0 plans 2 of 10 done)
+Progress: [############........] 60% (v0.9 complete, v1.0 plans 3 of 10 done)
 
 ## Performance Metrics
 
@@ -25,7 +25,7 @@ Progress: [###########.........] 56% (v0.9 complete, v1.0 plans 2 of 10 done)
 - Timeline: 3 days
 
 **v1.0 Stats:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Phases: 5 (10-14)
 - Requirements: 14
 
@@ -35,7 +35,7 @@ Progress: [###########.........] 56% (v0.9 complete, v1.0 plans 2 of 10 done)
 
 **v1.0 pivot decisions (from PROJECT.md):**
 - Archive game mode: Focus on polished professional website
-- Dark mode: Modern aesthetic for AI/tech credibility
+- Light theme: Off-white background, blue accent for professional academic feel
 - Linear-style animations: Scroll reveals, gradient text, hover micro-interactions
 
 **Plan 10-01 decisions:**
@@ -47,46 +47,50 @@ Progress: [###########.........] 56% (v0.9 complete, v1.0 plans 2 of 10 done)
 - Preserve all game code for potential future restoration
 - Include detailed restoration instructions in README
 
+**Plan 11-01 decisions:**
+- Blue accent (#0066cc) instead of teal for professional academic feel
+- Off-white background (gray-50/#fafafa) instead of pure white
+- Layered shadows (Josh Comeau pattern) for realistic depth
+- Texture tokens separated for easy adjustment
+
 ### Pending Todos
 
 - Game mode fully archived (code in _archived/, restoration documented)
 - Sprite calibration deferred with game mode
-- **Next:** Phase 11 - Dark Mode Foundation
+- **Next:** Phase 11-02 - Halftone Texture Overlay
 
 ### Blockers/Concerns
 
-None currently - clean slate for v1.0.
+None currently - design foundation progressing smoothly.
 
 ## Session Continuity
 
 Last session: 2026-02-02
-Stopped at: Completed 10-02-PLAN.md
+Stopped at: Completed 11-01-PLAN.md
 Resume file: None
 
 ### Key Context for Next Session
 
-**Phase 10 complete.** Architecture cleanup accomplished:
-- [x] Remove game imports from main.ts (10-01)
-- [x] Remove mode toggle from Header (10-01)
-- [x] Archive game files to separate directory (10-02)
+**Phase 11-01 complete.** Design tokens established:
+- [x] Light theme color palette (blue accent, off-white bg)
+- [x] Shadow elevation tokens (sm, md, lg)
+- [x] Texture tokens for halftone overlay
 
-**Archive structure created:**
-- `_archived/README.md` - Restoration documentation
-- `_archived/src-game/` - TypeScript game engine
-- `_archived/src-landing/` - Landing page component
-- `_archived/src-styles/` - Game CSS
-- `_archived/js-game/` - Vanilla JS scripts
-- `_archived/data-game/` - Game content data
-- `_archived/assets-sprites/` - Sprite assets
+**Design tokens added:**
+- `--color-accent: #0066cc` (blue primary)
+- `--color-bg: var(--color-gray-50)` (off-white)
+- `--color-bg-elevated`, `--color-bg-muted` (UI hierarchy)
+- `--shadow-sm`, `--shadow-md`, `--shadow-lg` (layered)
+- `--texture-opacity: 0.12`, `--texture-size: 180px`
 
-**Build status:** Clean, passing (CSS 13.77kB, JS 13.63kB)
+**Build status:** Clean, passing (CSS 14.21kB, JS 13.63kB)
 
 **How to run:**
 ```bash
 npm run dev  # Vite on localhost:5173
 ```
 
-**Ready for Phase 11:** Dark Mode Foundation
+**Ready for Phase 11-02:** Halftone Texture Overlay
 
 ---
-*Updated: 2026-02-02 after 10-02 completion*
+*Updated: 2026-02-02 after 11-01 completion*
