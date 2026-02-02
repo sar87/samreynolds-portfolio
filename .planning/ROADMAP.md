@@ -28,10 +28,11 @@ Transforming the dual-mode academic portfolio into a polished professional websi
   2. Game code files exist in codebase but are not imported or accessible
   3. Mode toggle button is removed from header and UI
   4. No console errors or broken imports from archived game code
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 10-01: TBD
+- [ ] 10-01-PLAN.md — Remove game imports, simplify main.ts, clean Header
+- [ ] 10-02-PLAN.md — Archive game files to _archived/ directory
 
 ### Phase 11: Design Foundation
 **Goal**: Site uses cohesive dark mode design that respects accessibility preferences
@@ -94,7 +95,7 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 10. Architecture Cleanup | v1.0 | 0/TBD | Not started | - |
+| 10. Architecture Cleanup | v1.0 | 0/2 | Planned | - |
 | 11. Design Foundation | v1.0 | 0/TBD | Not started | - |
 | 12. Animations | v1.0 | 0/TBD | Not started | - |
 | 13. Content Sync | v1.0 | 0/TBD | Not started | - |
