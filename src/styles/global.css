@@ -54,6 +54,20 @@ body {
   font-size: var(--font-size-base);
 }
 
+/* Halftone texture overlay - newspaper/print aesthetic
+   Using CSS radial-gradient for reliable, network-independent texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  /* Halftone dot pattern via radial-gradient */
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: var(--texture-size, 4px) var(--texture-size, 4px);
+  pointer-events: none;  /* Critical: allows clicking through */
+  z-index: 9999;
+  opacity: var(--texture-opacity, 0.5);
+}
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;

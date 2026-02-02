@@ -95,7 +95,9 @@
     0 8px 16px rgba(0, 0, 0, 0.04),
     0 16px 32px rgba(0, 0, 0, 0.02);
 
-  /* Texture */
-  --texture-opacity: 0.12;
-  --texture-size: 180px;
+  /* Texture - halftone dot pattern
+     Size controls dot spacing (smaller = denser dots)
+     Opacity controls overall visibility */
+  --texture-opacity: 0.5;
+  --texture-size: 4px;
 }
