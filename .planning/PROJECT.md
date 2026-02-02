@@ -2,86 +2,88 @@
 
 ## What This Is
 
-An academic personal website with a unique dual-experience: a professional website view and an interactive Pokemon-style game mode where visitors explore a pixel-art Pallet Town to discover content. Built to be hosted on GitHub Pages.
+A modern, polished academic portfolio website showcasing Sam Reynolds' research at the intersection of AI and Conservation. Features dark mode design with Linear-style animations (scroll reveals, gradient text, hover micro-interactions). The game mode from v0.9 is archived for potential future use.
 
 ## Core Value
 
-Visitors can discover Sam's academic work (publications, talks, research) through an engaging, memorable pixel-art exploration - while professionals can access a traditional website view for quick navigation.
+Visitors immediately access Sam's academic work through a visually striking, professional interface that communicates cutting-edge research credibility through modern design.
+
+## Current Milestone: v1.0 Professional Polish
+
+**Goal:** Transform from dual-mode experiment to polished professional website with modern animations
+
+**Target features:**
+- Dark mode design throughout
+- Linear.app-style scroll reveal animations
+- Gradient text effects on headings
+- Hover micro-interactions on cards and links
+- Updated content synced from samreynolds.org
+- Direct website entry (landing page archived)
 
 ## Requirements
 
 ### Validated
 
-- ✓ Landing splash screen offering choice: "Explore Campus" or "View Website" — v0.9
-- ✓ Panel overlay system displaying content when interacting with objects — v0.9
-- ✓ Polished normal website mode with imported content — v0.9
-- ✓ Structured JSON data files for content (easy to update via Claude Code) — v0.9
-- ✓ Three explorable buildings mapped to content (Player House, Rival House, Oak's Lab) — v0.9
-- ✓ Building interiors with themed interactive objects — v0.9
-- ✓ Mode switching between game and website from either interface — v0.9
+- ✓ Professional website mode with content sections — v0.9
+- ✓ Structured JSON data files for content — v0.9
+- ✓ Game mode with Pallet Town exploration — v0.9 (archived)
 
 ### Active
 
-- [ ] Mobile-friendly with touch controls for game mode
-- [ ] GitHub Pages deployment tested and working
-- [ ] Player character walk cycle animation
-- [ ] Sprite calibration for Pallet Town map (coordinates, collision zones)
-- [ ] Credits/attribution accessible from game menu
+- [ ] Dark mode color scheme
+- [ ] Scroll-triggered reveal animations
+- [ ] Gradient text effects on headings
+- [ ] Hover micro-interactions (cards lift, glow, color shifts)
+- [ ] Content synced from samreynolds.org (publications, talks, media, research, bio)
+- [ ] Landing page bypassed — direct to website
+- [ ] Game code archived (kept but disabled)
+- [ ] Mobile-responsive design
+- [ ] GitHub Pages deployment tested
 
 ### Out of Scope
 
-- Admin interface for content management — defer to v2, use JSON files + Claude Code for now
-- Custom sprite creation — using Pokemon sprite sheets
+- Game mode improvements — archived for future milestone
+- Touch controls for game — deferred with game mode
+- Sprite calibration — deferred with game mode
+- Admin interface — use JSON + Claude Code
 - Real-time features / backend — static site only
-- OAuth or user accounts — purely informational site
-- Analytics dashboard — can add basic analytics later if needed
+- OAuth or user accounts — informational site only
 
 ## Context
 
-**Current codebase state (v0.9 shipped):**
-- Full game engine: canvas rendering, 16x16 tiles at 3x scale, camera system, collision detection
-- Player movement with 4-direction sprites (animation frames exist but not cycling)
-- Pokemon Pallet Town sprites loaded from sprite sheet
-- Three buildings: Player House (About), Rival House (Talks/Media), Oak's Lab (Research/Publications)
-- Dialog/panel system for displaying content with focus trap
-- Both normal and game mode with toggle button
-- Landing splash with animated preview
+**Current codebase state (v0.9):**
 - ~8,600 lines of TypeScript/JavaScript/CSS
-- 157 commits over 3 days
+- Game engine fully built (archiving, not deleting)
+- Normal website mode functional but needs design refresh
+- JSON content structure in place
 
-**Known issues requiring v1.0 work:**
-- Map rendering offset - "Pallet Town" label still visible in sprite
-- Collision zones not matching visual building positions
-- Building entrance positions need calibration
-- Walk animation not cycling (frames exist)
-- Touch D-pad not implemented
+**Content to sync (from samreynolds.org):**
+- Bio: PhD Zoology Cambridge, focus on AI + Conservation
+- 15 publications (2019-2025): Nature, TREE, Global Change Biology, PlosOne
+- Media: CIEEM podcast, COP30 video, Wildscreen panel, Cambridge feature
+- Research: AI-enabled evidence synthesis, invasive species PhD work
 
-**Content:**
-- 15 publications (2019-2025) including Nature, Trends in Ecology & Evolution
-- 19 invited talks in 2025 (Cambridge, London, Bristol, Istanbul, Edinburgh, Oxford)
-- Media: CIEEM podcast, Wildscreen panel, Cambridge features, COP30 video
-- Research: AI-enabled evidence synthesis, LLMs in conservation, horizon scanning
+**Design inspiration:**
+- linear.app: Scroll reveals, gradient text, subtle hover states
+- Dark mode with purposeful, subtle motion
 
 ## Constraints
 
-- **Sprites**: Using Pokemon FireRed/LeafGreen sprite sheets (educational/portfolio use)
-- **Hosting**: Must work on GitHub Pages (static files only, no server-side)
-- **Data format**: JSON files for content to enable easy updates
-- **Mobile**: Must be playable on touch devices
-- **Performance**: Must run smoothly on modest hardware (simple sprites, efficient rendering)
+- **Hosting**: GitHub Pages (static files only)
+- **Data format**: JSON files for content
+- **Mobile**: Must be responsive
+- **Performance**: Smooth animations on modest hardware
+- **Accessibility**: Respect prefers-reduced-motion
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Dual-mode (game + normal) | Serves both curious visitors and professionals seeking quick access | ✓ Good |
-| Landing splash screen | Let visitors choose their experience upfront | ✓ Good |
-| JSON for content | Easy to update via Claude Code, simple structure, no CMS needed | ✓ Good |
-| Three buildings (Pallet Town) | Maps cleanly to content categories in Pokemon style | ✓ Good |
-| Pokemon sprites (user override) | User requested Pokemon aesthetic over original LPC plan | ✓ Good |
-| Pre-rendered map approach | Pallet Town sprite sheet has complete maps, not tiles | ⚠️ Revisit |
-| 16x16 tiles at 3x scale | Pokemon GBA standard, good visibility on modern displays | ✓ Good |
-| Session-only visit tracking | Landing reappears on new browser session, appropriate for casual exploration | ✓ Good |
+| Archive game mode for v1.0 | Focus on polished professional presence first | — Pending |
+| Dark mode | Modern aesthetic matching AI/tech research focus | — Pending |
+| Linear-style animations | Communicates cutting-edge credibility through design | — Pending |
+| Keep game code | May revisit in future milestone | — Pending |
+| JSON for content | Easy to update via Claude Code | ✓ Good |
 
 ---
-*Last updated: 2026-02-02 after v0.9 milestone*
+*Last updated: 2026-02-02 after v1.0 milestone start*
