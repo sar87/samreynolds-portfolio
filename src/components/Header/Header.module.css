@@ -11,6 +11,7 @@
   z-index: 100;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .headerInner {
@@ -28,7 +29,6 @@
   font-weight: 600;
   color: var(--color-text-primary);
   text-decoration: none;
-  transition: color var(--transition-fast);
 }
 
 .logo:hover {
@@ -51,7 +51,6 @@
   text-decoration: none;
   font-size: var(--font-size-sm);
   font-weight: 500;
-  transition: color var(--transition-fast);
 }
 
 .navLink:hover {
@@ -75,7 +74,6 @@
   border: none;
   cursor: pointer;
   border-radius: var(--radius-sm);
-  transition: background var(--transition-fast);
 }
 
 .menuButton:hover {
@@ -131,7 +129,7 @@
 
 /* Mobile navigation panel */
 .mobileNav {
-  background: var(--color-bg);
+  background: var(--color-bg-elevated, var(--color-white));
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-4) var(--content-padding);
 }
@@ -153,7 +151,6 @@
   font-size: var(--font-size-base);
   font-weight: 500;
   border-radius: var(--radius-sm);
-  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .mobileNavLink:hover {
@@ -184,5 +181,24 @@
 
   .mobileNav {
     display: none;
+  }
+}
+
+/* Decorative transitions only for users without motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    transition: color var(--transition-fast);
+  }
+
+  .navLink {
+    transition: color var(--transition-fast);
+  }
+
+  .menuButton {
+    transition: background var(--transition-fast);
+  }
+
+  .mobileNavLink {
+    transition: background var(--transition-fast), color var(--transition-fast);
   }
 }
