@@ -12,7 +12,7 @@ Transforming the dual-mode academic portfolio into a polished professional websi
 ## Phases
 
 - [x] **Phase 10: Architecture Cleanup** - Archive game, bypass landing, remove mode toggle
-- [ ] **Phase 11: Design Foundation** - Dark mode color scheme with reduced-motion support
+- [ ] **Phase 11: Design Foundation** - Light theme with halftone texture and reduced-motion support
 - [ ] **Phase 12: Animations** - Scroll reveals, gradient text, hover micro-interactions
 - [ ] **Phase 13: Content Sync** - Update all content from samreynolds.org
 - [ ] **Phase 14: Deployment** - Mobile responsiveness and GitHub Pages verification
@@ -35,14 +35,15 @@ Plans:
 - [x] 10-02-PLAN.md — Archive game files to _archived/ directory
 
 ### Phase 11: Design Foundation
-**Goal**: Site uses cohesive dark mode design that respects accessibility preferences
+**Goal**: Site uses cohesive light theme with halftone texture that respects accessibility preferences
 **Depends on**: Phase 10
 **Requirements**: DESIGN-01, DESIGN-05
 **Success Criteria** (what must be TRUE):
-  1. All pages use dark background with light text throughout
-  2. Color contrast meets WCAG AA standards (4.5:1 for text)
-  3. Users with prefers-reduced-motion see no animations
-  4. Design is consistent across all content sections
+  1. All pages use off-white background (#fafafa) with dark text
+  2. Halftone dot texture applied to text for newspaper/print aesthetic
+  3. Color contrast meets WCAG AA standards (4.5:1 for text)
+  4. Users with prefers-reduced-motion see no animations
+  5. Design is consistent across all content sections
 **Plans**: TBD
 
 Plans:
