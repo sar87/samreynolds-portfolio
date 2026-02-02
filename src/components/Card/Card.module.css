@@ -16,14 +16,29 @@
 /* Base card styles */
 .card {
   padding: var(--space-6);
-  background: var(--color-bg);
+  background: var(--color-bg-elevated, var(--color-white));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  transition: border-color var(--transition-fast);
+  box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
   border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Transitions only for users without motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* Focus-visible on card when link is focused */
