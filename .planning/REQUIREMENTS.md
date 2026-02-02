@@ -24,9 +24,9 @@ Requirements for v1.0 Professional Polish milestone.
 
 ### Architecture
 
-- [ ] **ARCH-01**: Landing page bypassed — site loads directly to main website
-- [ ] **ARCH-02**: Game code archived (kept in codebase but not accessible)
-- [ ] **ARCH-03**: Mode toggle removed from UI
+- [x] **ARCH-01**: Landing page bypassed — site loads directly to main website
+- [x] **ARCH-02**: Game code archived (kept in codebase but not accessible)
+- [x] **ARCH-03**: Mode toggle removed from UI
 
 ### Deployment
 
@@ -68,9 +68,9 @@ Deferred to future milestone (game mode revival).
 | CONTENT-02 | Phase 13 | Pending |
 | CONTENT-03 | Phase 13 | Pending |
 | CONTENT-04 | Phase 13 | Pending |
-| ARCH-01 | Phase 10 | Pending |
-| ARCH-02 | Phase 10 | Pending |
-| ARCH-03 | Phase 10 | Pending |
+| ARCH-01 | Phase 10 | Complete |
+| ARCH-02 | Phase 10 | Complete |
+| ARCH-03 | Phase 10 | Complete |
 | DEPLOY-01 | Phase 14 | Pending |
 | DEPLOY-02 | Phase 14 | Pending |
 

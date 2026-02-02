@@ -11,7 +11,7 @@ Transforming the dual-mode academic portfolio into a polished professional websi
 
 ## Phases
 
-- [ ] **Phase 10: Architecture Cleanup** - Archive game, bypass landing, remove mode toggle
+- [x] **Phase 10: Architecture Cleanup** - Archive game, bypass landing, remove mode toggle
 - [ ] **Phase 11: Design Foundation** - Dark mode color scheme with reduced-motion support
 - [ ] **Phase 12: Animations** - Scroll reveals, gradient text, hover micro-interactions
 - [ ] **Phase 13: Content Sync** - Update all content from samreynolds.org
@@ -31,8 +31,8 @@ Transforming the dual-mode academic portfolio into a polished professional websi
 **Plans**: 2 plans
 
 Plans:
-- [ ] 10-01-PLAN.md — Remove game imports, simplify main.ts, clean Header
-- [ ] 10-02-PLAN.md — Archive game files to _archived/ directory
+- [x] 10-01-PLAN.md — Remove game imports, simplify main.ts, clean Header
+- [x] 10-02-PLAN.md — Archive game files to _archived/ directory
 
 ### Phase 11: Design Foundation
 **Goal**: Site uses cohesive dark mode design that respects accessibility preferences
@@ -95,7 +95,7 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 10. Architecture Cleanup | v1.0 | 0/2 | Planned | - |
+| 10. Architecture Cleanup | v1.0 | 2/2 | ✓ Complete | 2026-02-02 |
 | 11. Design Foundation | v1.0 | 0/TBD | Not started | - |
 | 12. Animations | v1.0 | 0/TBD | Not started | - |
 | 13. Content Sync | v1.0 | 0/TBD | Not started | - |
