@@ -36,14 +36,10 @@ html {
   }
 }
 
-/* Smooth scroll with reduced motion respect */
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
+/* Smooth scroll - only for users without motion preference */
+@media (prefers-reduced-motion: no-preference) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 }
 
@@ -130,5 +126,18 @@ section[id] {
   :root {
     --content-padding: var(--space-4);
     --section-gap: var(--space-12);
+  }
+}
+
+/* Reduced motion - respect accessibility preferences
+   Disables ALL motion site-wide for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
