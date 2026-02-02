@@ -12,7 +12,7 @@ Transforming the dual-mode academic portfolio into a polished professional websi
 ## Phases
 
 - [x] **Phase 10: Architecture Cleanup** - Archive game, bypass landing, remove mode toggle
-- [ ] **Phase 11: Design Foundation** - Light theme with halftone texture and reduced-motion support
+- [x] **Phase 11: Design Foundation** - Light theme with Playfair Display typography and reduced-motion support
 - [ ] **Phase 12: Animations** - Scroll reveals, gradient text, hover micro-interactions
 - [ ] **Phase 13: Content Sync** - Update all content from samreynolds.org
 - [ ] **Phase 14: Deployment** - Mobile responsiveness and GitHub Pages verification
@@ -35,22 +35,22 @@ Plans:
 - [x] 10-02-PLAN.md — Archive game files to _archived/ directory
 
 ### Phase 11: Design Foundation
-**Goal**: Site uses cohesive light theme with halftone texture that respects accessibility preferences
+**Goal**: Site uses cohesive light theme with NYT-style typography that respects accessibility preferences
 **Depends on**: Phase 10
 **Requirements**: DESIGN-01, DESIGN-05
 **Success Criteria** (what must be TRUE):
   1. All pages use off-white background (#fafafa) with dark text
-  2. Halftone dot texture applied for newspaper/print aesthetic
+  2. Playfair Display font for elegant editorial aesthetic (user-approved pivot from halftone)
   3. Color contrast meets WCAG AA standards (4.5:1 for text)
   4. Users with prefers-reduced-motion see no animations
   5. Design is consistent across all content sections
 **Plans**: 4 plans
 
 Plans:
-- [ ] 11-01-PLAN.md — Design tokens: light theme colors, shadow elevation, texture config
-- [ ] 11-02-PLAN.md — Global styles: halftone texture overlay, reduced-motion support
-- [ ] 11-03-PLAN.md — Component styling: Card/Header shadows, motion-safe transitions
-- [ ] 11-04-PLAN.md — Visual verification checkpoint
+- [x] 11-01-PLAN.md — Design tokens: light theme colors, shadow elevation, texture config
+- [x] 11-02-PLAN.md — Global styles: halftone texture overlay, reduced-motion support
+- [x] 11-03-PLAN.md — Component styling: Card/Header shadows, motion-safe transitions
+- [x] 11-04-PLAN.md — Visual verification checkpoint (design pivot to Playfair Display)
 
 ### Phase 12: Animations
 **Goal**: Site features Linear-style motion design with scroll reveals, gradient text, and hover effects
@@ -100,8 +100,8 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 10. Architecture Cleanup | v1.0 | 2/2 | Complete | 2026-02-02 |
-| 11. Design Foundation | v1.0 | 0/4 | Ready | - |
-| 12. Animations | v1.0 | 0/TBD | Not started | - |
+| 11. Design Foundation | v1.0 | 4/4 | Complete | 2026-02-02 |
+| 12. Animations | v1.0 | 0/TBD | Ready | - |
 | 13. Content Sync | v1.0 | 0/TBD | Not started | - |
 | 14. Deployment | v1.0 | 0/TBD | Not started | - |
 
