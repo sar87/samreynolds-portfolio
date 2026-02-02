@@ -20,21 +20,13 @@
   padding: 0;
 }
 
-/* Typography base */
+/* Typography base - Playfair Display for NYT editorial aesthetic */
 html {
-  font-family: Inter, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1;
+  font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Variable font support */
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: InterVariable, Inter, sans-serif;
-  }
 }
 
 /* Smooth scroll - only for users without motion preference */
@@ -51,9 +43,8 @@ body {
   font-size: var(--font-size-base);
 }
 
-/* Headings - Playfair Display for NYT-style editorial aesthetic */
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.2;
   font-weight: 600;
 }
