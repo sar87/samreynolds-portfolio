@@ -94,4 +94,8 @@
     0 4px 8px rgba(0, 0, 0, 0.04),
     0 8px 16px rgba(0, 0, 0, 0.04),
     0 16px 32px rgba(0, 0, 0, 0.02);
+
+  /* Texture */
+  --texture-opacity: 0.12;
+  --texture-size: 180px;
 }
