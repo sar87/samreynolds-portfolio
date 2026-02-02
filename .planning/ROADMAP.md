@@ -7,7 +7,7 @@
 
 ## Overview
 
-Transforming the dual-mode academic portfolio into a polished professional website. The journey begins by archiving the game mode and removing mode switching, then establishes a dark mode design foundation with accessibility support, adds Linear-style animations (scroll reveals, gradient text, hover micro-interactions), syncs all content from samreynolds.org, and concludes with mobile responsiveness testing and GitHub Pages deployment verification.
+Transforming the dual-mode academic portfolio into a polished professional website. The journey begins by archiving the game mode and removing mode switching, then establishes a light theme design foundation with halftone texture and accessibility support, adds Linear-style animations (scroll reveals, gradient text, hover micro-interactions), syncs all content from samreynolds.org, and concludes with mobile responsiveness testing and GitHub Pages deployment verification.
 
 ## Phases
 
@@ -40,14 +40,17 @@ Plans:
 **Requirements**: DESIGN-01, DESIGN-05
 **Success Criteria** (what must be TRUE):
   1. All pages use off-white background (#fafafa) with dark text
-  2. Halftone dot texture applied to text for newspaper/print aesthetic
+  2. Halftone dot texture applied for newspaper/print aesthetic
   3. Color contrast meets WCAG AA standards (4.5:1 for text)
   4. Users with prefers-reduced-motion see no animations
   5. Design is consistent across all content sections
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 11-01: TBD
+- [ ] 11-01-PLAN.md — Design tokens: light theme colors, shadow elevation, texture config
+- [ ] 11-02-PLAN.md — Global styles: halftone texture overlay, reduced-motion support
+- [ ] 11-03-PLAN.md — Component styling: Card/Header shadows, motion-safe transitions
+- [ ] 11-04-PLAN.md — Visual verification checkpoint
 
 ### Phase 12: Animations
 **Goal**: Site features Linear-style motion design with scroll reveals, gradient text, and hover effects
@@ -96,8 +99,8 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 10. Architecture Cleanup | v1.0 | 2/2 | ✓ Complete | 2026-02-02 |
-| 11. Design Foundation | v1.0 | 0/TBD | Not started | - |
+| 10. Architecture Cleanup | v1.0 | 2/2 | Complete | 2026-02-02 |
+| 11. Design Foundation | v1.0 | 0/4 | Ready | - |
 | 12. Animations | v1.0 | 0/TBD | Not started | - |
 | 13. Content Sync | v1.0 | 0/TBD | Not started | - |
 | 14. Deployment | v1.0 | 0/TBD | Not started | - |
