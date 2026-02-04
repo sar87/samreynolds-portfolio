@@ -35,6 +35,20 @@ export async function renderMediaDetail(id: string): Promise<string> {
       `
     : '';
 
+  // Embed section for YouTube/Spotify players
+  const embedSection = media.embedUrl
+    ? `
+        <section class="${styles.embedContainer}${media.type === 'podcast' ? ` ${styles['embedContainer--podcast']}` : ''}">
+          <iframe
+            src="${media.embedUrl}"
+            title="${media.title}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </section>
+      `
+    : '';
+
   // Link is optional in the schema
   const linkHtml = media.link
     ? `
@@ -60,6 +74,7 @@ export async function renderMediaDetail(id: string): Promise<string> {
           </p>
         </header>
         ${descriptionSection}
+        ${embedSection}
         ${linkHtml}
       </article>
     </main>
