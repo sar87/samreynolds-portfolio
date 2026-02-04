@@ -62,10 +62,13 @@ Plans:
   3. Cards lift with subtle shadow on hover
   4. Links and interactive elements have color shift on hover
   5. Animations are smooth (no jank on 60fps displays)
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 12-01: TBD
+- [ ] 12-01-PLAN.md — Animation infrastructure: CSS utilities, TypeScript module, render integration
+- [ ] 12-02-PLAN.md — Scroll reveals: section fade/slide, staggered card animations
+- [ ] 12-03-PLAN.md — Gradient text and hover interactions: headings, cards, links
+- [ ] 12-04-PLAN.md — Visual verification checkpoint
 
 ### Phase 13: Content Sync
 **Goal**: All academic content reflects current information from samreynolds.org
@@ -101,7 +104,7 @@ Plans:
 |-------|-----------|----------------|--------|-----------|
 | 10. Architecture Cleanup | v1.0 | 2/2 | Complete | 2026-02-02 |
 | 11. Design Foundation | v1.0 | 4/4 | Complete | 2026-02-02 |
-| 12. Animations | v1.0 | 0/TBD | Ready | - |
+| 12. Animations | v1.0 | 0/4 | Ready | - |
 | 13. Content Sync | v1.0 | 0/TBD | Not started | - |
 | 14. Deployment | v1.0 | 0/TBD | Not started | - |
 
