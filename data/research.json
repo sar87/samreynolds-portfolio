@@ -1,61 +1,31 @@
 {
   "researchTopics": [
     {
-      "id": "ai-evidence-synthesis",
-      "name": "AI-Enabled Evidence Synthesis",
-      "description": "Developing AI pipelines that combine retrieval-augmented generation with expert validation to accelerate systematic reviews and evidence synthesis in conservation. This work addresses the challenge of rapidly synthesizing vast scientific literature to inform management decisions, reducing review timelines from months to days while maintaining scientific rigor.",
+      "id": "ai-conservation",
+      "name": "Conservation and AI",
+      "description": "Conservation needs to move faster and more effectively with a paradigm shift from 'losing more slowly' to 'recovering lost ecosystems' if we are to achieve a resilient planet. By leveraging artificial intelligence (AI) to combine the totality of human knowledge with the sum of human observations, we can achieve a step change in our ability to deliver effective conservation. My current research concerns the development of AI technologies to streamline the collation of evidence from published and grey literature to better inform conservation action, and co-designing AI tools which will allow decision makers to interact with evidence in an intuitive way.",
       "relatedPublications": [
-        "ai-enabled-evidence-synthesis",
-        "llms-conservation-decision-making",
-        "deep-learning-wildlife-monitoring-review"
+        "ai-assisted-living-evidence-databases",
+        "ai-poisoning-evidence-synthesis",
+        "ai-revolutionise-conservation-horizon-scan",
+        "conservation-changed-but-not-divided",
+        "llm-pipelines-conservation-syntheses",
+        "steps-towards-ecology-for-internet"
       ]
     },
     {
-      "id": "llms-conservation",
-      "name": "Large Language Models in Conservation",
-      "description": "Investigating the responsible integration of large language models into conservation practice. Research focuses on understanding opportunities and pitfalls including hallucination risks, training data biases, and appropriate use cases for LLM-assisted decision making in ecological contexts.",
+      "id": "invasive-species-phd",
+      "name": "PhD Research",
+      "description": "My PhD thesis was titled 'Invasive non-native species and the management and exploitation of freshwater ecosystems'. I explored the impact of invasive species, focussing particularly on invasive freshwater mussels and plants, on the collapse and recovery of freshwater ecosystems. Identifying both how invasive species can bring about catastrophic shifts between clear water or phytoplankton dominated alternative equilibria and may also predictably alter phytoplankton communities either driving or suppressing harmful algal blooms. My research has been featured in over 100 news outlets and the Cambridge University News website, and my publication on the global impacts of invasive species on shallow lake ecosystems is in the 95th percentile of all recorded Altmetric scores.",
       "relatedPublications": [
-        "llms-conservation-decision-making",
-        "ai-enabled-evidence-synthesis"
-      ]
-    },
-    {
-      "id": "bioacoustic-monitoring",
-      "name": "Bioacoustic Monitoring",
-      "description": "Building automated acoustic monitoring systems for biodiversity assessment, from sensor network design to AI-powered species classification. This includes developing hybrid approaches that combine traditional acoustic indices with deep learning for interpretable yet accurate biodiversity estimates, and optimizing models for regional species assemblages.",
-      "relatedPublications": [
-        "acoustic-indices-deep-learning",
-        "automated-bioacoustic-monitoring",
-        "birdnet-uk-transfer-learning"
-      ]
-    },
-    {
-      "id": "horizon-scanning",
-      "name": "Horizon Scanning",
-      "description": "Creating machine learning frameworks for early identification of emerging conservation threats. These systems use natural language processing to monitor scientific literature, news, and policy documents, automatically flagging emerging issues for expert review to enable proactive conservation response.",
-      "relatedPublications": [
-        "horizon-scanning-emerging-threats"
-      ]
-    },
-    {
-      "id": "invasive-species",
-      "name": "Invasive Species Ecology",
-      "description": "Research on invasive species population dynamics, spread modeling, and management strategies, with particular focus on signal crayfish and crayfish plague in British waterways. This includes population genetics to reconstruct invasion pathways and spatially-explicit models to predict disease transmission and prioritize biosecurity interventions.",
-      "relatedPublications": [
-        "invasive-crayfish-population-genetics",
-        "crayfish-plague-spread-modeling",
-        "ai-enabled-evidence-synthesis"
-      ]
-    },
-    {
-      "id": "species-monitoring-technology",
-      "name": "Species Monitoring Technology",
-      "description": "Advancing automated species detection and monitoring systems using computer vision and edge computing. This includes developing quality-aware image classification pipelines for camera traps, optimizing deep learning models for deployment on resource-constrained devices, and predicting species distribution shifts under climate change scenarios.",
-      "relatedPublications": [
-        "camera-trap-image-quality",
-        "realtime-species-detection-edge",
-        "species-distribution-climate-change",
-        "conservation-technology-review"
+        "invasive-species-tipping-points-shallow-lakes",
+        "invasive-quagga-mussels-water-quality",
+        "allelopathic-potential-invasive-aquatic-plants",
+        "synthetic-ecology-commercial-algae",
+        "parasitism-freshwater-mussels",
+        "gambusia-management-measures",
+        "spartina-invasive-management",
+        "eel-conservation-inland-habitats"
       ]
     }
   ]
