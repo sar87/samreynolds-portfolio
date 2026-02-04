@@ -33,9 +33,36 @@
 .name {
   font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--color-text-primary);
   margin: 0;
   letter-spacing: -0.02em;
+
+  /* Gradient text effect - same as section headings */
+  background: linear-gradient(
+    90deg,
+    var(--gradient-start, var(--color-gray-900)),
+    var(--gradient-mid, var(--color-accent)),
+    var(--gradient-end, var(--color-gray-900)),
+    var(--gradient-mid, var(--color-accent)),
+    var(--gradient-start, var(--color-gray-900))
+  ) 0 0 / 300% 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Animate gradient for motion-preference respecting users */
+@media (prefers-reduced-motion: no-preference) {
+  .name {
+    animation: gradient-shift 5s ease-in-out infinite;
+  }
+}
+
+/* Static fallback for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  .name {
+    animation: none;
+    background-position: 50% 0;
+  }
 }
 
 .title {
