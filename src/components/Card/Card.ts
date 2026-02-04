@@ -12,7 +12,7 @@ export function renderPublicationCard(pub: Publication): string {
   const authorStr = pub.authors.map((a) => a.name).join(', ');
 
   return `
-    <article class="${styles.card}">
+    <article class="${styles.card} scroll-reveal">
       <a href="#/publication/${pub.id}" class="${styles.cardLink}">
         <h3 class="${styles.title}">${pub.title}</h3>
         <p class="${styles.meta}">${authorStr}</p>
@@ -30,7 +30,7 @@ export function renderTalkCard(talk: Talk): string {
   });
 
   return `
-    <article class="${styles.card}">
+    <article class="${styles.card} scroll-reveal">
       <a href="#/talk/${talk.id}" class="${styles.cardLink}">
         <h3 class="${styles.title}">${talk.title}</h3>
         <p class="${styles.meta}">${talk.venue}</p>
@@ -48,7 +48,7 @@ export function renderMediaCard(media: MediaItem): string {
   const typeLabel = media.type.charAt(0).toUpperCase() + media.type.slice(1);
 
   return `
-    <article class="${styles.card}">
+    <article class="${styles.card} scroll-reveal">
       <a href="#/media/${media.id}" class="${styles.cardLink}">
         <span class="${styles.badge}">${typeLabel}</span>
         <h3 class="${styles.title}">${media.title}</h3>
@@ -60,5 +60,5 @@ export function renderMediaCard(media: MediaItem): string {
 }
 
 export function renderCardGrid(cards: string[]): string {
-  return `<div class="${styles.cardGrid}">${cards.join('')}</div>`;
+  return `<div class="${styles.cardGrid}" data-stagger>${cards.join('')}</div>`;
 }
