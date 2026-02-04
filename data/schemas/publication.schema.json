@@ -10,7 +10,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "title", "authors", "journal", "year", "doi", "date"],
+        "required": ["id", "title", "authors", "journal", "year", "date"],
         "properties": {
           "id": {
             "type": "string",
@@ -63,6 +63,11 @@
           "abstract": {
             "type": "string",
             "description": "Publication abstract (optional)"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct URL for publications without a DOI"
           }
         },
         "additionalProperties": false

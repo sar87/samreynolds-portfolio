@@ -24,7 +24,7 @@ export async function renderPublicationDetail(id: string): Promise<string> {
     .map((a) => (a.isSamReynolds ? `<strong>${a.name}</strong>` : a.name))
     .join(', ');
 
-  const doiUrl = `https://doi.org/${pub.doi}`;
+  const pubUrl = pub.doi ? `https://doi.org/${pub.doi}` : pub.url || '';
 
   // Abstract is optional in the schema
   const abstractSection = pub.abstract
@@ -33,6 +33,16 @@ export async function renderPublicationDetail(id: string): Promise<string> {
           <h2>Abstract</h2>
           <p>${pub.abstract}</p>
         </section>
+      `
+    : '';
+
+  const linkSection = pubUrl
+    ? `
+        <footer class="${styles.links}">
+          <a href="${pubUrl}" class="${styles.primaryLink}" target="_blank" rel="noopener">
+            View Publication &rarr;
+          </a>
+        </footer>
       `
     : '';
 
@@ -50,11 +60,7 @@ export async function renderPublicationDetail(id: string): Promise<string> {
           </p>
         </header>
         ${abstractSection}
-        <footer class="${styles.links}">
-          <a href="${doiUrl}" class="${styles.primaryLink}" target="_blank" rel="noopener">
-            View Publication &rarr;
-          </a>
-        </footer>
+        ${linkSection}
       </article>
     </main>
   `;

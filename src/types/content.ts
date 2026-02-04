@@ -18,7 +18,8 @@ export interface Publication {
   journal: string;
   year: number;
   date: string;
-  doi: string;
+  doi?: string;
+  url?: string;
   abstract?: string;
 }
 
