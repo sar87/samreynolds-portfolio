@@ -2,6 +2,7 @@
 import './styles/variables.css';
 import './styles/global.css';
 import './styles/utilities.css';
+import './styles/animations.css';
 
 // Import router and pages
 import { router } from './lib/router';
@@ -10,6 +11,7 @@ import { renderHomePage } from './pages/HomePage';
 import { renderPublicationDetail } from './pages/PublicationDetail';
 import { renderTalkDetail } from './pages/TalkDetail';
 import { renderMediaDetail } from './pages/MediaDetail';
+import { initAnimations } from './animations';
 
 // Get app container
 const app = document.getElementById('app');
@@ -22,6 +24,7 @@ async function render(content: string | Promise<string>): Promise<void> {
   const headerHtml = renderHeader();
   app!.innerHTML = `${headerHtml}<div id="content">${html}</div>`;
   initMobileNav();
+  initAnimations(); // Initialize animations after DOM update
 
   // Scroll to top on route change (unless it's a hash anchor)
   if (!window.location.hash.includes('#/') || window.location.hash === '#/') {
