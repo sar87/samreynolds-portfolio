@@ -35,9 +35,21 @@ export async function renderMediaDetail(id: string): Promise<string> {
       `
     : '';
 
-  // Embed section for YouTube/Spotify players
-  const embedSection = media.embedUrl
-    ? `
+  // Embed section for YouTube/Spotify players or direct audio files
+  let embedSection = '';
+  if (media.embedUrl) {
+    const isAudio = media.embedUrl.endsWith('.mp3') || media.embedUrl.endsWith('.wav') || media.embedUrl.endsWith('.ogg');
+    if (isAudio) {
+      embedSection = `
+        <section class="${styles.audioContainer}">
+          <audio controls preload="metadata">
+            <source src="${media.embedUrl}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </section>
+      `;
+    } else {
+      embedSection = `
         <section class="${styles.embedContainer}${media.type === 'podcast' ? ` ${styles['embedContainer--podcast']}` : ''}">
           <iframe
             src="${media.embedUrl}"
@@ -46,8 +58,9 @@ export async function renderMediaDetail(id: string): Promise<string> {
             allowfullscreen
           ></iframe>
         </section>
-      `
-    : '';
+      `;
+    }
+  }
 
   // Link is optional in the schema
   const linkHtml = media.link

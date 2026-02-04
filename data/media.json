@@ -1,106 +1,42 @@
 {
   "media": [
     {
-      "id": "bbc-inside-science-2024",
-      "type": "podcast",
-      "title": "The Sound of Biodiversity",
-      "venue": "BBC Inside Science",
-      "date": "2024-01-15",
-      "link": "https://www.bbc.co.uk/programmes/m001w000",
-      "description": "Interview discussing our work on acoustic monitoring and how AI can help us listen to ecosystems at scale."
-    },
-    {
-      "id": "cieem-podcast-2024",
-      "type": "podcast",
-      "title": "AI in Ecological Assessment",
-      "venue": "CIEEM Podcast",
-      "date": "2024-05-22",
-      "description": "Discussion on practical applications of machine learning for ecological consultants and conservation practitioners."
-    },
-    {
-      "id": "nature-podcast-2023",
-      "type": "podcast",
-      "title": "Camera Traps and Computer Vision",
-      "venue": "Nature Podcast",
-      "date": "2023-10-05",
-      "link": "https://www.nature.com/nature/podcast",
-      "description": "Deep dive into how deep learning is revolutionizing wildlife monitoring through automated camera trap analysis."
-    },
-    {
-      "id": "tedx-cambridge-2023",
+      "id": "cop30-cambridge-video-2025",
       "type": "video",
-      "title": "Tech for Nature: Machine Learning in Conservation",
-      "venue": "TEDxCambridge",
-      "date": "2023-11-18",
-      "link": "https://www.ted.com/tedx/events/52000",
-      "description": "A 15-minute talk exploring the promise and challenges of applying AI to conservation problems."
+      "title": "Cambridge University's Contribution to COP30",
+      "venue": "University of Cambridge",
+      "date": "2025-11-01",
+      "link": "https://www.youtube.com/watch?v=210uVXwX1iE",
+      "description": "The University of Cambridge published a video about the University's contribution to COP30, featuring research at the intersection of AI and conservation.",
+      "embedUrl": "https://www.youtube.com/embed/210uVXwX1iE"
     },
     {
-      "id": "cambridge-science-festival-2024",
-      "type": "video",
-      "title": "AI and the Future of Conservation",
-      "venue": "Cambridge Science Festival",
-      "date": "2024-03-22",
-      "description": "Public lecture on how machine learning is transforming wildlife conservation, from automated species identification to predicting biodiversity loss."
+      "id": "cieem-podcast-2025",
+      "type": "podcast",
+      "title": "AI in Conservation and Ecology",
+      "venue": "CIEEM Nature in a Nutshell",
+      "date": "2025-06-25",
+      "link": "http://cieem.net/i-am/nature-in-a-nutshell-podcast/",
+      "description": "Discussion of AI in conservation and ecology on Nature in a Nutshell, the CIEEM (Chartered Institute of Ecology and Environmental Management) podcast, covering the integration of AI into ecological practice.",
+      "embedUrl": "https://samreynolds.org/wp-content/uploads/2025/07/nature-in-a-nutshell.mp3"
     },
     {
-      "id": "cop30-video-2025",
-      "type": "video",
-      "title": "AI for Biodiversity: Tools for the Climate Crisis",
-      "venue": "COP30 Brazil",
-      "date": "2025-11-10",
-      "description": "Presentation showcasing AI-powered monitoring solutions for tropical forest conservation in the Amazon region."
+      "id": "cambridge-feature-2025",
+      "type": "interview",
+      "title": "AI for Nature: Embrace with Caution",
+      "venue": "University of Cambridge",
+      "date": "2025-05-01",
+      "link": "https://www.cam.ac.uk/stories/ai-for-nature-embrace-with-caution",
+      "description": "Feature review by the University of Cambridge on research at the intersection of AI and conservation science, discussing the potential benefits and the inevitable risks with Professor Chris Sandbrook."
     },
     {
-      "id": "royal-society-panel-2023",
+      "id": "wildscreen-panel-2025",
       "type": "panel",
-      "title": "Conservation in the Age of AI",
-      "venue": "Royal Society",
-      "date": "2023-06-14",
-      "link": "https://royalsociety.org/events",
-      "description": "Panel discussion with leading conservation scientists and AI researchers on ethical considerations and future directions."
-    },
-    {
-      "id": "wildscreen-panel-2024",
-      "type": "panel",
-      "title": "Technology and Wildlife Filmmaking",
+      "title": "AI, an Altruist's Guide",
       "venue": "Wildscreen Festival",
-      "date": "2024-10-17",
-      "description": "Panel exploring how AI and new sensing technologies are changing how we document and understand wildlife."
-    },
-    {
-      "id": "cambridge-conservation-symposium-2024",
-      "type": "panel",
-      "title": "The Future of Field Ecology",
-      "venue": "Cambridge Conservation Initiative",
-      "date": "2024-07-03",
-      "description": "Discussion on integrating traditional field methods with emerging AI technologies for conservation research."
-    },
-    {
-      "id": "guardian-interview-2023",
-      "type": "interview",
-      "title": "Wildlife Monitoring with AI",
-      "venue": "The Guardian",
-      "date": "2023-09-28",
-      "link": "https://www.theguardian.com/environment",
-      "description": "Feature article about our camera trap AI system being deployed in national parks across the UK."
-    },
-    {
-      "id": "new-scientist-2024",
-      "type": "interview",
-      "title": "Listening to the Rainforest",
-      "venue": "New Scientist",
-      "date": "2024-04-12",
-      "link": "https://www.newscientist.com",
-      "description": "Interview on acoustic monitoring projects in tropical forests and the challenges of deploying AI in remote locations."
-    },
-    {
-      "id": "cambridge-research-news-2024",
-      "type": "interview",
-      "title": "From Data to Conservation Action",
-      "venue": "Cambridge Research News",
-      "date": "2024-08-30",
-      "description": "Profile piece discussing the journey from academic research to real-world conservation impact."
+      "date": "2025-03-01",
+      "link": "https://wildscreen.org/",
+      "description": "Panel at Wildscreen chaired by Liz Bonnin, discussing where AI fits in with storytelling and the effects it may have on scientific media."
     }
   ]
 }

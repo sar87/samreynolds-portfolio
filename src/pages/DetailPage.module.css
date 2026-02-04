@@ -160,6 +160,17 @@
   max-width: 100%;
 }
 
+/* Audio player container for direct MP3/audio embeds */
+.audioContainer {
+  width: 100%;
+  margin-bottom: var(--space-4);
+}
+
+.audioContainer audio {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
 /* Links footer */
 .links {
   display: flex;
