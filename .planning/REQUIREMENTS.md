@@ -10,9 +10,9 @@ Requirements for v1.0 Professional Polish milestone.
 ### Design
 
 - [ ] **DESIGN-01**: Site uses dark mode color scheme throughout
-- [ ] **DESIGN-02**: Content sections fade/slide in on scroll (scroll reveals)
-- [ ] **DESIGN-03**: Headings use gradient text effects
-- [ ] **DESIGN-04**: Cards and links have hover micro-interactions (lift, glow, color shift)
+- [x] **DESIGN-02**: Content sections fade/slide in on scroll (scroll reveals)
+- [x] **DESIGN-03**: Headings use gradient text effects
+- [x] **DESIGN-04**: Cards and links have hover micro-interactions (lift, glow, color shift)
 - [ ] **DESIGN-05**: Animations respect prefers-reduced-motion
 
 ### Content
@@ -60,9 +60,9 @@ Deferred to future milestone (game mode revival).
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | DESIGN-01 | Phase 11 | Pending |
-| DESIGN-02 | Phase 12 | Pending |
-| DESIGN-03 | Phase 12 | Pending |
-| DESIGN-04 | Phase 12 | Pending |
+| DESIGN-02 | Phase 12 | Complete |
+| DESIGN-03 | Phase 12 | Complete |
+| DESIGN-04 | Phase 12 | Complete |
 | DESIGN-05 | Phase 11 | Pending |
 | CONTENT-01 | Phase 13 | Pending |
 | CONTENT-02 | Phase 13 | Pending |
