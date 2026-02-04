@@ -15,7 +15,7 @@ interface SectionProps {
 
 export function renderSection({ id, title, children }: SectionProps): string {
   return `
-    <section id="${id}" class="${styles.section}" aria-labelledby="${id}-heading">
+    <section id="${id}" class="${styles.section} scroll-reveal" aria-labelledby="${id}-heading">
       <div class="${styles.container}">
         <h2 id="${id}-heading" class="${styles.heading}">${title}</h2>
         ${children}
