@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-02)
 ## Current Position
 
 Phase: 13 of 14 (Content Sync)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-02-04 - Phase 12 verified and complete
+Plan: 1 of 4
+Status: In progress
+Last activity: 2026-02-04 - Completed 13-01-PLAN.md (publications data)
 
-Progress: [################....] 80% (v0.9 complete, v1.0 plans 10 of ~12 done)
+Progress: [#################...] 85% (v0.9 complete, v1.0 plans 11 of ~14 done)
 
 ## Performance Metrics
 
@@ -25,10 +25,10 @@ Progress: [################....] 80% (v0.9 complete, v1.0 plans 10 of ~12 done)
 - Timeline: 3 days
 
 **v1.0 Stats:**
-- Total plans completed: 10 (Phase 10: 2, Phase 11: 4, Phase 12: 4)
+- Total plans completed: 11 (Phase 10: 2, Phase 11: 4, Phase 12: 4, Phase 13: 1)
 - Phases completed: 3 (10, 11, 12)
 - Phases remaining: 2 (13, 14)
-- Requirements: 14 (8 complete, 6 pending)
+- Requirements: 14 (9 complete, 5 pending)
 
 ## Accumulated Context
 
@@ -52,9 +52,15 @@ Progress: [################....] 80% (v0.9 complete, v1.0 plans 10 of ~12 done)
 - Card hover: -6px lift with shadow-lg
 - Link hover: Animated underline sweep
 
+**Phase 13 content decisions:**
+- 14 published papers (not 15) - 15th is "in preparation" and excluded
+- DOI made optional in schema to support publications without DOI
+- Added url field as fallback for direct-link publications (e.g., Conservation Evidence)
+- Author format: "Last, F." with isSamReynolds flag
+
 ### Pending Todos
 
-- **Next:** Phase 13 - Content Sync (update all content from samreynolds.org)
+- **Next:** Phase 13 plans 02-04 (media, about, research content sync)
 
 ### Blockers/Concerns
 
@@ -63,22 +69,21 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Completed Phase 12 Animations
+Stopped at: Completed 13-01-PLAN.md (publications data)
 Resume file: None
 
 ### Key Context for Next Session
 
-**Phase 12 complete.** Animation system implemented:
-- [x] 12-01: Animation infrastructure (CSS utilities, TypeScript module)
-- [x] 12-02: Scroll reveals (section fade/slide, staggered cards)
-- [x] 12-03: Gradient text and hover interactions
-- [x] 12-04: Visual verification (user-approved animations)
+**Phase 13 plan 01 complete.** Publications data synced from samreynolds.org:
+- [x] 13-01: Publications data (14 real papers replacing synthetic placeholders)
+- [ ] 13-02: Media data (CIEEM podcast, COP30 video, Wildscreen panel, Cambridge feature)
+- [ ] 13-03: About/Bio data
+- [ ] 13-04: Research data
 
-**Animation system in place:**
-- `src/styles/animations.css` - Scroll-reveal, gradient-text, reduced-motion
-- `src/animations/scrollReveal.ts` - Intersection Observer logic
-- `src/animations/index.ts` - initAnimations() entry point
-- `src/main.ts` - Calls initAnimations() in render pipeline
+**Schema changes made in 13-01:**
+- `data/schemas/publication.schema.json` - DOI now optional, url field added
+- `src/types/content.ts` - Publication.doi optional, url field added
+- `src/pages/PublicationDetail.ts` - Handles optional DOI with url fallback
 
 **Build status:** Clean, passing
 
@@ -87,7 +92,5 @@ Resume file: None
 npm run dev  # Vite on localhost:5173
 ```
 
-**Ready for Phase 13:** Content Sync (update publications, media, about, research from samreynolds.org)
-
 ---
-*Updated: 2026-02-04 after Phase 12 completion*
+*Updated: 2026-02-04 after 13-01 completion*
