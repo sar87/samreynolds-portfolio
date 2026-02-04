@@ -47,10 +47,24 @@
 }
 
 .navLink {
+  position: relative;
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: var(--font-size-sm);
   font-weight: 500;
+}
+
+/* Animated underline pseudo-element */
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
 }
 
 .navLink:hover {
@@ -191,7 +205,16 @@
   }
 
   .navLink {
-    transition: color var(--transition-fast);
+    transition: color var(--animation-duration-fast, 150ms) var(--animation-easing-out, ease-out);
+  }
+
+  .navLink::after {
+    transition: transform var(--animation-duration-normal, 200ms) var(--animation-easing-out, ease-out);
+  }
+
+  .navLink:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 
   .menuButton {
