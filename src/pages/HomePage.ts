@@ -85,6 +85,11 @@ function renderAboutSection(about: About): string {
       `<a href="${about.links.researchgate}" class="${styles.link}" target="_blank" rel="noopener">ResearchGate</a>`
     );
   }
+  if (about.links?.department) {
+    linkItems.push(
+      `<a href="${about.links.department}" class="${styles.link}" target="_blank" rel="noopener">Department</a>`
+    );
+  }
 
   const content = `
     <div class="${styles.aboutGrid}">

@@ -70,6 +70,7 @@ export interface AboutLinks {
   twitter?: string;
   linkedin?: string;
   researchgate?: string;
+  department?: string;
 }
 
 export interface About {
