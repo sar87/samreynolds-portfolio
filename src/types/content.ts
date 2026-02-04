@@ -21,6 +21,7 @@ export interface Publication {
   doi?: string;
   url?: string;
   abstract?: string;
+  image?: string;
 }
 
 // Talk types
@@ -45,6 +46,7 @@ export interface MediaItem {
   link?: string;
   description?: string;
   embedUrl?: string;
+  image?: string;
 }
 
 // Research types

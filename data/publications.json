@@ -27,7 +27,8 @@
       "journal": "Nature",
       "year": 2025,
       "date": "2025-01-01",
-      "doi": "10.1038/d41586-025-02069-w"
+      "doi": "10.1038/d41586-025-02069-w",
+      "image": "/images/publications/nature-comment.png"
     },
     {
       "id": "steps-towards-ecology-for-internet",
@@ -41,7 +42,8 @@
       "year": 2025,
       "date": "2025-06-01",
       "doi": "10.48550/arXiv.2506.06469",
-      "abstract": "Joint first author."
+      "abstract": "Joint first author.",
+      "image": "/images/publications/ecology-internet.png"
     },
     {
       "id": "conservation-changed-but-not-divided",
@@ -53,7 +55,8 @@
       "journal": "Trends in Ecology and Evolution",
       "year": 2025,
       "date": "2025-04-01",
-      "doi": "10.1016/j.tree.2025.04.002"
+      "doi": "10.1016/j.tree.2025.04.002",
+      "image": "/images/publications/conservation-changed.png"
     },
     {
       "id": "ai-revolutionise-conservation-horizon-scan",
@@ -65,7 +68,8 @@
       "journal": "Trends in Ecology and Evolution",
       "year": 2025,
       "date": "2025-01-01",
-      "doi": "10.1016/j.tree.2024.11.013"
+      "doi": "10.1016/j.tree.2024.11.013",
+      "image": "/images/publications/ai-horizon-scan.png"
     },
     {
       "id": "llm-pipelines-conservation-syntheses",
@@ -81,7 +85,8 @@
       "journal": "PLoS ONE",
       "year": 2025,
       "date": "2025-01-01",
-      "doi": "10.1371/journal.pone.0323563"
+      "doi": "10.1371/journal.pone.0323563",
+      "image": "/images/publications/rhadika-paper.png"
     },
     {
       "id": "eel-conservation-inland-habitats",
@@ -133,7 +138,8 @@
       "journal": "Functional Ecology",
       "year": 2022,
       "date": "2022-01-01",
-      "doi": "10.1111/1365-2435.14092"
+      "doi": "10.1111/1365-2435.14092",
+      "image": "/images/publications/phd-4.png"
     },
     {
       "id": "invasive-species-tipping-points-shallow-lakes",
@@ -145,7 +151,8 @@
       "journal": "Global Change Biology",
       "year": 2021,
       "date": "2021-01-01",
-      "doi": "10.1111/gcb.15893"
+      "doi": "10.1111/gcb.15893",
+      "image": "/images/publications/phd-5.png"
     },
     {
       "id": "invasive-quagga-mussels-water-quality",
@@ -157,7 +164,8 @@
       "journal": "Water Research",
       "year": 2021,
       "date": "2021-01-01",
-      "doi": "10.1016/j.watres.2021.117105"
+      "doi": "10.1016/j.watres.2021.117105",
+      "image": "/images/publications/phd-6.png"
     },
     {
       "id": "allelopathic-potential-invasive-aquatic-plants",
@@ -169,7 +177,8 @@
       "journal": "Frontiers in Environmental Science",
       "year": 2021,
       "date": "2021-01-01",
-      "doi": "10.3389/fenvs.2020.551803"
+      "doi": "10.3389/fenvs.2020.551803",
+      "image": "/images/publications/phd-7.png"
     },
     {
       "id": "synthetic-ecology-commercial-algae",
@@ -182,7 +191,8 @@
       "journal": "Scientific Reports",
       "year": 2019,
       "date": "2019-01-01",
-      "doi": "10.1038/s41598-019-46135-6"
+      "doi": "10.1038/s41598-019-46135-6",
+      "image": "/images/publications/phd-research.png"
     }
   ]
 }

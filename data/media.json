@@ -8,7 +8,8 @@
       "date": "2025-11-01",
       "link": "https://www.youtube.com/watch?v=210uVXwX1iE",
       "description": "The University of Cambridge published a video about the University's contribution to COP30, featuring research at the intersection of AI and conservation.",
-      "embedUrl": "https://www.youtube.com/embed/210uVXwX1iE"
+      "embedUrl": "https://www.youtube.com/embed/210uVXwX1iE",
+      "image": "/images/media/cop30-video.png"
     },
     {
       "id": "cieem-podcast-2025",
@@ -18,7 +19,8 @@
       "date": "2025-06-25",
       "link": "http://cieem.net/i-am/nature-in-a-nutshell-podcast/",
       "description": "Discussion of AI in conservation and ecology on Nature in a Nutshell, the CIEEM (Chartered Institute of Ecology and Environmental Management) podcast, covering the integration of AI into ecological practice.",
-      "embedUrl": "https://samreynolds.org/wp-content/uploads/2025/07/nature-in-a-nutshell.mp3"
+      "embedUrl": "https://samreynolds.org/wp-content/uploads/2025/07/nature-in-a-nutshell.mp3",
+      "image": "/images/media/cieem-podcast.jpg"
     },
     {
       "id": "cambridge-feature-2025",
@@ -27,7 +29,8 @@
       "venue": "University of Cambridge",
       "date": "2025-05-01",
       "link": "https://www.cam.ac.uk/stories/ai-for-nature-embrace-with-caution",
-      "description": "Feature review by the University of Cambridge on research at the intersection of AI and conservation science, discussing the potential benefits and the inevitable risks with Professor Chris Sandbrook."
+      "description": "Feature review by the University of Cambridge on research at the intersection of AI and conservation science, discussing the potential benefits and the inevitable risks with Professor Chris Sandbrook.",
+      "image": "/images/media/cambridge-feature.png"
     },
     {
       "id": "wildscreen-panel-2025",
@@ -36,7 +39,8 @@
       "venue": "Wildscreen Festival",
       "date": "2025-03-01",
       "link": "https://wildscreen.org/",
-      "description": "Panel at Wildscreen chaired by Liz Bonnin, discussing where AI fits in with storytelling and the effects it may have on scientific media."
+      "description": "Panel at Wildscreen chaired by Liz Bonnin, discussing where AI fits in with storytelling and the effects it may have on scientific media.",
+      "image": "/images/media/wildscreen-panel.png"
     }
   ]
 }
