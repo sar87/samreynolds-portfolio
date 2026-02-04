@@ -15,7 +15,8 @@
       "year": 2025,
       "date": "2025-01-01",
       "doi": "10.33774/coe-2025-rmsqf",
-      "abstract": "Accepted for NeurIPS Conference Workshop."
+      "abstract": "Accepted for NeurIPS Conference Workshop.",
+      "image": "/images/publications/ai-living-evidence.jpg"
     },
     {
       "id": "ai-poisoning-evidence-synthesis",
@@ -100,7 +101,8 @@
       "journal": "Conservation Evidence Series Synopsis",
       "year": 2024,
       "date": "2024-01-01",
-      "url": "https://www.conservationevidence.com/synopsis/pdf/39"
+      "url": "https://www.conservationevidence.com/synopsis/pdf/39",
+      "image": "/images/publications/eel-conservation.jpg"
     },
     {
       "id": "spartina-invasive-management",
@@ -113,7 +115,8 @@
       "year": 2023,
       "date": "2023-01-01",
       "doi": "10.17605/OSF.IO/3BWZX",
-      "abstract": "Presented to Chinese Government and featured in Science magazine."
+      "abstract": "Presented to Chinese Government and featured in Science magazine.",
+      "image": "/images/publications/spartina.jpg"
     },
     {
       "id": "gambusia-management-measures",
@@ -125,7 +128,8 @@
       "journal": "IUCN",
       "year": 2022,
       "date": "2022-01-01",
-      "doi": "10.13140/RG.2.2.21656.26882"
+      "doi": "10.13140/RG.2.2.21656.26882",
+      "image": "/images/publications/gambusia.png"
     },
     {
       "id": "parasitism-freshwater-mussels",
