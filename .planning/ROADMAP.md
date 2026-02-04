@@ -79,10 +79,13 @@ Plans:
   2. Media section includes CIEEM podcast, COP30 video, Wildscreen panel, Cambridge feature
   3. About/bio section reflects current focus on AI + Conservation
   4. Research section describes evidence synthesis work and PhD research
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 13-01: TBD
+- [ ] 13-01-PLAN.md — Update publications.json with 15 papers from samreynolds.org
+- [ ] 13-02-PLAN.md — Add embed support and update media.json with 4 items
+- [ ] 13-03-PLAN.md — Update about.json and research.json from samreynolds.org
+- [ ] 13-04-PLAN.md — Visual verification checkpoint
 
 ### Phase 14: Deployment
 **Goal**: Site is fully responsive and deployed successfully to GitHub Pages
@@ -105,7 +108,7 @@ Plans:
 | 10. Architecture Cleanup | v1.0 | 2/2 | Complete | 2026-02-02 |
 | 11. Design Foundation | v1.0 | 4/4 | Complete | 2026-02-02 |
 | 12. Animations | v1.0 | 4/4 | Complete | 2026-02-04 |
-| 13. Content Sync | v1.0 | 0/TBD | Not started | - |
+| 13. Content Sync | v1.0 | 0/4 | Ready | - |
 | 14. Deployment | v1.0 | 0/TBD | Not started | - |
 
 ---
