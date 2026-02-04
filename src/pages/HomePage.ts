@@ -41,6 +41,7 @@ export async function renderHomePage(): Promise<string> {
   return `
     <main class="${styles.main}">
       ${renderAboutSection(about)}
+      ${renderShowcase()}
       ${renderResearchSection(research)}
       ${renderPublicationsSection(publications)}
       ${renderTalksSection(talks)}
@@ -83,21 +84,41 @@ function renderAboutSection(about: About): string {
   const content = `
     <div class="${styles.aboutGrid}">
       <div class="${styles.aboutContent}">
-        <img src="/images/profile.jpg" alt="${about.name}" class="${styles.profilePhoto}" />
         <h1 class="${styles.name}">${about.name}</h1>
         <p class="${styles.title}">${about.title}</p>
         <p class="${styles.affiliation}">${about.affiliation}</p>
         <div class="${styles.bio}">${bioHtml}</div>
         <div class="${styles.links}">${linkItems.join('')}</div>
       </div>
-      <div class="${styles.aboutEducation}">
-        <h3>Education</h3>
-        <ul>${educationHtml}</ul>
+      <div class="${styles.aboutSidebar}">
+        <img src="/images/profile.jpg" alt="${about.name}" class="${styles.profilePhoto}" />
+        <div class="${styles.aboutEducation}">
+          <h3>Education</h3>
+          <ul>${educationHtml}</ul>
+        </div>
       </div>
     </div>
   `;
 
   return renderSection({ id: 'about', title: 'About', children: content });
+}
+
+function renderShowcase(): string {
+  return `
+    <div class="${styles.showcase} scroll-reveal">
+      <div class="${styles.showcaseInner}">
+        <div class="${styles.showcaseCard} ${styles.showcasePrimary}">
+          <img src="/images/nature-reviews.jpg" alt="AI is poisoning evidence synthesis — Nature illustration" />
+        </div>
+        <div class="${styles.showcaseCard} ${styles.showcaseSecondary}">
+          <img src="/images/nature-comment.png" alt="Will AI speed up literature reviews or derail them entirely? — Nature Comment" />
+        </div>
+      </div>
+      <p class="${styles.showcaseCaption}">
+        Featured in <a href="https://www.nature.com/articles/d41586-025-00956-2" target="_blank" rel="noopener">Nature</a> — AI and the future of evidence synthesis in conservation
+      </p>
+    </div>
+  `;
 }
 
 function renderResearchSection(research: ResearchTopic[]): string {

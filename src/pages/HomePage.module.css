@@ -12,7 +12,7 @@
 /* About section grid layout */
 .aboutGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 280px;
   gap: var(--space-12);
   align-items: start;
 }
@@ -26,18 +26,151 @@
 
 /* Profile photo */
 .profilePhoto {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  box-shadow: var(--shadow-md);
-  margin-bottom: var(--space-4);
+  object-position: top;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Sidebar with photo + education */
+.aboutSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .aboutSidebar {
+    order: -1;
+  }
+
+  .profilePhoto {
+    max-width: 220px;
+  }
 }
 
 .aboutContent {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+
+/* ── Featured Work Showcase (Linear-style perspective) ── */
+.showcase {
+  position: relative;
+  padding: var(--space-16) 0 var(--space-20);
+  overflow: hidden;
+}
+
+.showcaseInner {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.showcaseCard {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.showcaseCard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Primary card — large, tilted left */
+.showcasePrimary {
+  width: 520px;
+  height: 310px;
+  transform: rotateY(8deg) rotateX(2deg);
+  z-index: 2;
+}
+
+/* Secondary card — smaller, tilted right */
+.showcaseSecondary {
+  width: 280px;
+  height: 370px;
+  transform: rotateY(-12deg) rotateX(3deg);
+  z-index: 1;
+}
+
+/* Hover lift on showcase cards */
+@media (prefers-reduced-motion: no-preference) {
+  .showcaseCard {
+    transition: transform 400ms var(--animation-easing-out, ease-out),
+                box-shadow 400ms var(--animation-easing-out, ease-out);
+  }
+
+  .showcasePrimary:hover {
+    transform: rotateY(4deg) rotateX(1deg) translateY(-8px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.1),
+      0 30px 80px rgba(0, 0, 0, 0.08);
+  }
+
+  .showcaseSecondary:hover {
+    transform: rotateY(-6deg) rotateX(1deg) translateY(-8px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.1),
+      0 30px 80px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Showcase label below cards */
+.showcaseCaption {
+  text-align: center;
+  margin-top: var(--space-8);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+.showcaseCaption a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.showcaseCaption a:hover {
+  color: var(--color-link-hover);
+}
+
+@media (max-width: 768px) {
+  .showcaseInner {
+    flex-direction: column;
+    perspective: 800px;
+    gap: var(--space-6);
+  }
+
+  .showcasePrimary {
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+    transform: rotateY(0deg) rotateX(4deg);
+  }
+
+  .showcaseSecondary {
+    width: 200px;
+    height: 260px;
+    transform: rotateY(0deg) rotateX(4deg);
+  }
+
+  .showcasePrimary:hover,
+  .showcaseSecondary:hover {
+    transform: rotateY(0deg) rotateX(2deg) translateY(-8px);
+  }
 }
 
 .name {
