@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-02)
 
 **Core value:** Visitors access academic work through a visually striking, professional interface
-**Current focus:** v1.0 Professional Polish - Phase 13 Content Sync
+**Current focus:** v1.0 Professional Polish - Phase 14 Deployment
 
 ## Current Position
 
-Phase: 13 of 14 (Content Sync)
-Plan: 3 of 4
-Status: In progress
-Last activity: 2026-02-04 - Completed 13-02-PLAN.md (media data and embed support)
+Phase: 14 of 14 (Deployment)
+Plan: 0 of TBD
+Status: Not started
+Last activity: 2026-02-04 - Completed Phase 13 Content Sync (verified)
 
-Progress: [##################..] 88% (v0.9 complete, v1.0 plans 13 of ~14 done)
+Progress: [###################.] 93% (v0.9 complete, v1.0 phases 10-13 done, 14 remaining)
 
 ## Performance Metrics
 
@@ -25,10 +25,10 @@ Progress: [##################..] 88% (v0.9 complete, v1.0 plans 13 of ~14 done)
 - Timeline: 3 days
 
 **v1.0 Stats:**
-- Total plans completed: 13 (Phase 10: 2, Phase 11: 4, Phase 12: 4, Phase 13: 3)
-- Phases completed: 3 (10, 11, 12)
-- Phases remaining: 2 (13, 14)
-- Requirements: 14 (9 complete, 5 pending)
+- Total plans completed: 17 (Phase 10: 2, Phase 11: 4, Phase 12: 4, Phase 13: 4 + manual fixes)
+- Phases completed: 4 (10, 11, 12, 13)
+- Phases remaining: 1 (14)
+- Requirements: 14 (13 complete, 1 pending: DEPLOY-01, DEPLOY-02)
 
 ## Accumulated Context
 
@@ -55,18 +55,22 @@ Progress: [##################..] 88% (v0.9 complete, v1.0 plans 13 of ~14 done)
 **Phase 13 content decisions:**
 - 14 published papers (not 15) - 15th is "in preparation" and excluded
 - DOI made optional in schema to support publications without DOI
-- Added url field as fallback for direct-link publications (e.g., Conservation Evidence)
+- Added url field as fallback for direct-link publications
 - Author format: "Last, F." with isSamReynolds flag
 - Bio text taken verbatim from samreynolds.org for tone fidelity
-- Research simplified from 6 topics to 2 areas (Conservation+AI, PhD Research) matching samreynolds.org
-- Education corrected: PhD Zoology (not Conservation Science), BSc (Hons) Biological Sciences
-- Links: Only ResearchGate and LinkedIn (matching samreynolds.org)
-- CIEEM podcast uses direct MP3 audio element (not Spotify iframe) - source is samreynolds.org-hosted MP3
-- Media schema updated with embedUrl field (additionalProperties: false required schema change)
+- Research simplified from 6 topics to 2 areas (Conservation+AI, PhD Research)
+- Education corrected: PhD Zoology 2021, MSc Environmental Bioscience 2013, BSc 2011
+- Links: ResearchGate, LinkedIn, Scholar, Department
+- CIEEM podcast uses direct MP3 audio element (not Spotify iframe)
+- Media schema updated with embedUrl field
+- Linear-style 3D perspective showcase for Nature featured work
+- Profile photo in sidebar layout with education below
+- Publication and media images with hover zoom on cards
+- 18 real talks replacing fabricated placeholders
 
 ### Pending Todos
 
-- **Next:** Phase 13 plan 04 (remaining content sync)
+- **Next:** Phase 14 (Deployment - mobile responsiveness and GitHub Pages)
 
 ### Blockers/Concerns
 
@@ -75,28 +79,19 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Completed 13-02-PLAN.md (media data and embed support)
+Stopped at: Phase 13 complete, verified and approved
 Resume file: None
 
 ### Key Context for Next Session
 
-**Phase 13 plans 01-03 complete.** Content synced from samreynolds.org:
-- [x] 13-01: Publications data (14 real papers replacing synthetic placeholders)
+**Phase 13 complete and verified.** All content synced from samreynolds.org:
+- [x] 13-01: Publications data (14 real papers)
 - [x] 13-02: Media data and embeds (CIEEM podcast, COP30 video, Wildscreen panel, Cambridge feature)
-- [x] 13-03: About/Bio and Research data (email, bio, research areas)
-- [ ] 13-04: Remaining content sync
+- [x] 13-03: About/Bio and Research data
+- [x] 13-04: Visual verification (approved by user)
+- [x] Additional: Images, showcase, links, talks, education corrections
 
-**Content files updated:**
-- `data/publications.json` - 14 real papers from samreynolds.org
-- `data/media.json` - 4 media items with embed URLs (YouTube iframe + MP3 audio)
-- `data/about.json` - Bio from samreynolds.org, email sar87@cam.ac.uk
-- `data/research.json` - 2 areas: Conservation and AI, PhD Research
-
-**Embed infrastructure:**
-- `src/types/content.ts` - MediaItem has embedUrl field
-- `src/pages/MediaDetail.ts` - Renders iframe (YouTube) or audio element (MP3)
-- `src/pages/DetailPage.module.css` - .embedContainer (16:9), .audioContainer styles
-- `data/schemas/media.schema.json` - embedUrl field added
+**Phase 14 is the final phase.** Goal: Mobile responsiveness and GitHub Pages deployment verification.
 
 **Build status:** Clean, passing
 
@@ -106,4 +101,4 @@ npm run dev  # Vite on localhost:5173
 ```
 
 ---
-*Updated: 2026-02-04 after 13-02 completion*
+*Updated: 2026-02-04 after Phase 13 completion*

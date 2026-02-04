@@ -9,18 +9,18 @@ Requirements for v1.0 Professional Polish milestone.
 
 ### Design
 
-- [ ] **DESIGN-01**: Site uses dark mode color scheme throughout
+- [x] **DESIGN-01**: Site uses light theme color scheme throughout (pivoted from dark mode)
 - [x] **DESIGN-02**: Content sections fade/slide in on scroll (scroll reveals)
 - [x] **DESIGN-03**: Headings use gradient text effects
 - [x] **DESIGN-04**: Cards and links have hover micro-interactions (lift, glow, color shift)
-- [ ] **DESIGN-05**: Animations respect prefers-reduced-motion
+- [x] **DESIGN-05**: Animations respect prefers-reduced-motion
 
 ### Content
 
-- [ ] **CONTENT-01**: Publications list updated from samreynolds.org (15 papers, 2019-2025)
-- [ ] **CONTENT-02**: Media/talks section updated (CIEEM podcast, COP30 video, Wildscreen panel)
-- [ ] **CONTENT-03**: About/bio section updated with current focus
-- [ ] **CONTENT-04**: Research section updated (AI + Conservation, PhD work)
+- [x] **CONTENT-01**: Publications list updated from samreynolds.org (14 papers, 2019-2025)
+- [x] **CONTENT-02**: Media/talks section updated (CIEEM podcast, COP30 video, Wildscreen panel)
+- [x] **CONTENT-03**: About/bio section updated with current focus
+- [x] **CONTENT-04**: Research section updated (AI + Conservation, PhD work)
 
 ### Architecture
 
@@ -59,15 +59,15 @@ Deferred to future milestone (game mode revival).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DESIGN-01 | Phase 11 | Pending |
+| DESIGN-01 | Phase 11 | Complete |
 | DESIGN-02 | Phase 12 | Complete |
 | DESIGN-03 | Phase 12 | Complete |
 | DESIGN-04 | Phase 12 | Complete |
-| DESIGN-05 | Phase 11 | Pending |
-| CONTENT-01 | Phase 13 | Pending |
-| CONTENT-02 | Phase 13 | Pending |
-| CONTENT-03 | Phase 13 | Pending |
-| CONTENT-04 | Phase 13 | Pending |
+| DESIGN-05 | Phase 11 | Complete |
+| CONTENT-01 | Phase 13 | Complete |
+| CONTENT-02 | Phase 13 | Complete |
+| CONTENT-03 | Phase 13 | Complete |
+| CONTENT-04 | Phase 13 | Complete |
 | ARCH-01 | Phase 10 | Complete |
 | ARCH-02 | Phase 10 | Complete |
 | ARCH-03 | Phase 10 | Complete |
@@ -81,4 +81,4 @@ Deferred to future milestone (game mode revival).
 
 ---
 *Requirements defined: 2026-02-02*
-*Last updated: 2026-02-02 after roadmap creation*
+*Last updated: 2026-02-04 after Phase 13 completion*
