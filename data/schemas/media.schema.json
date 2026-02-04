@@ -42,6 +42,11 @@
           "description": {
             "type": "string",
             "description": "Brief description of the appearance (optional)"
+          },
+          "embedUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Embed URL for inline iframe player (YouTube, Spotify)"
           }
         },
         "additionalProperties": false

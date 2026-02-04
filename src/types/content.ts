@@ -43,6 +43,7 @@ export interface MediaItem {
   date: string;
   link?: string;
   description?: string;
+  embedUrl?: string;
 }
 
 // Research types
