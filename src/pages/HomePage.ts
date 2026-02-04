@@ -83,6 +83,7 @@ function renderAboutSection(about: About): string {
   const content = `
     <div class="${styles.aboutGrid}">
       <div class="${styles.aboutContent}">
+        <img src="/images/profile.jpg" alt="${about.name}" class="${styles.profilePhoto}" />
         <h1 class="${styles.name}">${about.name}</h1>
         <p class="${styles.title}">${about.title}</p>
         <p class="${styles.affiliation}">${about.affiliation}</p>

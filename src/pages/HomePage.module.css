@@ -24,6 +24,16 @@
   }
 }
 
+/* Profile photo */
+.profilePhoto {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-4);
+}
+
 .aboutContent {
   display: flex;
   flex-direction: column;
