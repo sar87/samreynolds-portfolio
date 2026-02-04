@@ -2,34 +2,32 @@
   "name": "Sam Reynolds",
   "title": "AI, Conservation & Ecology Researcher",
   "affiliation": "University of Cambridge",
-  "email": "sam@samreynolds.org",
+  "email": "sar87@cam.ac.uk",
   "bio": [
-    "I'm a researcher at the University of Cambridge working at the intersection of artificial intelligence and conservation biology. My work focuses on developing machine learning tools to address pressing ecological challenges, from species monitoring to habitat preservation.",
-    "I believe that thoughtful application of AI can transform how we understand and protect the natural world. My research combines computer vision, acoustic monitoring, and predictive modeling to give conservationists better tools for their vital work.",
-    "When I'm not training models or writing papers, you'll find me birdwatching in the Fens, cycling around Cambridge, or attempting to grow vegetables in my college garden."
+    "I am a classically trained biologist who has slowly migrated from cells, genes and proteins; to ecosystems, climate change and food security; to applied ecology; and finally, to conservation. I am now exploring how AI-enabled tools may dramatically alter evidence synthesis of grey and published literature to inform conservation action.",
+    "Currently, I am working on the development of Artificial Intelligence (AI) technologies to streamline the collation of evidence from published and grey literature to better inform conservation action. Additionally, I am focused on co-designing AI tools which will allow decision makers to interact with evidence in an intuitive way.",
+    "Following my recent publication in Trends in Ecology and Evolution, 'The potential for AI to revolutionize conservation: a horizon scan' I am aiming to further explore this space between cutting edge AI and conservation science/practice.",
+    "I hold a PhD in Zoology from the University of Cambridge, which focused on harnessing the impacts of aquatic invasive species, and a MSc and BSc Hons in Biological sciences from the University of Warwick."
   ],
   "education": [
     {
-      "degree": "PhD in Conservation Science",
+      "degree": "PhD in Zoology",
       "institution": "University of Cambridge",
       "year": 2023
     },
     {
-      "degree": "MSc in Applied Ecology",
+      "degree": "MSc in Biological Sciences",
       "institution": "University of Warwick",
       "year": 2019
     },
     {
-      "degree": "BSc in Biology",
+      "degree": "BSc (Hons) in Biological Sciences",
       "institution": "University of Warwick",
       "year": 2018
     }
   ],
   "links": {
-    "github": "https://github.com/samreynolds",
-    "scholar": "https://scholar.google.com/citations?user=samreynolds",
-    "twitter": "https://twitter.com/samreynolds",
-    "linkedin": "https://linkedin.com/in/samreynolds",
-    "researchgate": "https://researchgate.net/profile/Sam-Reynolds"
+    "researchgate": "https://www.researchgate.net/profile/Sam-Reynolds",
+    "linkedin": "https://www.linkedin.com/in/samandrewreynolds/"
   }
 }
