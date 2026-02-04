@@ -100,7 +100,13 @@ function renderAboutSection(about: About): string {
     </div>
   `;
 
-  return renderSection({ id: 'about', title: 'About', children: content });
+  return `
+    <section id="about" class="scroll-reveal" aria-label="About">
+      <div class="${styles.aboutContainer}">
+        ${content}
+      </div>
+    </section>
+  `;
 }
 
 function renderShowcase(): string {

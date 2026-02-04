@@ -9,6 +9,13 @@
   min-height: 100vh;
 }
 
+/* About section — no heading, leads with name */
+.aboutContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--section-gap) var(--content-padding);
+}
+
 /* About section grid layout */
 .aboutGrid {
   display: grid;
