@@ -102,4 +102,20 @@
      Opacity controls overall visibility */
   --texture-opacity: 0.5;
   --texture-size: 4px;
+
+  /* Animation timing - snappy Linear-style */
+  --animation-duration-fast: 150ms;
+  --animation-duration-normal: 250ms;
+  --animation-duration-slow: 400ms;
+  --animation-duration-reveal: 600ms;
+  --animation-easing-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --animation-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Stagger timing for card grids */
+  --stagger-delay: 50ms;
+
+  /* Gradient colors for animated text */
+  --gradient-start: var(--color-gray-900);
+  --gradient-mid: var(--color-accent);
+  --gradient-end: var(--color-gray-900);
 }
