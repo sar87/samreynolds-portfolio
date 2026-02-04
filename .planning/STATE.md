@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-02)
 ## Current Position
 
 Phase: 12 of 14 (Animations)
-Plan: 2 of 4 complete
+Plan: 3 of 4 complete
 Status: In progress
-Last activity: 2026-02-04 - Completed 12-02-PLAN.md (Scroll Reveal Components)
+Last activity: 2026-02-04 - Completed 12-03-PLAN.md (Gradient Text & Hover Effects)
 
-Progress: [###############.....] 75% (v0.9 complete, v1.0 plans 8 of ~10 done)
+Progress: [################....] 80% (v0.9 complete, v1.0 plans 9 of ~10 done)
 
 ## Performance Metrics
 
@@ -25,7 +25,7 @@ Progress: [###############.....] 75% (v0.9 complete, v1.0 plans 8 of ~10 done)
 - Timeline: 3 days
 
 **v1.0 Stats:**
-- Total plans completed: 8 (Phase 10: 2, Phase 11: 4, Phase 12: 2)
+- Total plans completed: 9 (Phase 10: 2, Phase 11: 4, Phase 12: 3)
 - Phases completed: 2 (10, 11)
 - Phases remaining: 3 (12, 13, 14)
 - Requirements: 14
@@ -57,10 +57,16 @@ Progress: [###############.....] 75% (v0.9 complete, v1.0 plans 8 of ~10 done)
 - **Stagger pattern**: data-stagger on container, scroll-reveal on children
 - **CSS timing**: transition-delay in base card styles with calc()
 
+**Phase 12-03 hover decisions:**
+- **Gradient cycle**: 5s for ambient, non-distracting effect
+- **Card lift**: -6px (up from -2px) for noticeable feedback
+- **Underline scope**: Applied to specific link classes, not global `a` tag
+- **Button exclusion**: Menu buttons excluded to preserve hamburger behavior
+
 ### Pending Todos
 
 - Game mode fully archived (code in _archived/, restoration documented)
-- **Next:** Phase 12-03 (Gradient text on headings) and 12-04 (Hover interactions)
+- **Next:** Phase 12-04 (final polish) if planned, else Phase 13
 
 ### Blockers/Concerns
 
@@ -69,32 +75,40 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Completed 12-02-PLAN.md (Scroll Reveal Components)
+Stopped at: Completed 12-03-PLAN.md (Gradient Text & Hover Effects)
 Resume file: None
 
 ### Key Context for Next Session
 
-**Phase 12-02 complete.** Scroll reveals applied to components:
+**Phase 12-03 complete.** Gradient text and hover interactions added:
 - [x] 12-01: Animation infrastructure (scroll reveals, stagger, gradient text CSS)
 - [x] 12-02: Scroll reveal components (Section, Card animations)
+- [x] 12-03: Gradient text & hover effects (headings, cards, links)
 
-**Components with scroll-reveal:**
-- `src/components/Section/Section.ts` - Sections animate in on scroll
-- `src/components/Card/Card.ts` - Cards have scroll-reveal, grids have data-stagger
+**Gradient text applied to:**
+- Hero name "Sam Reynolds" in HomePage.module.css
+- Section headings in Section.module.css
+- 5s animation cycle, dark to accent blue (#0066cc)
+
+**Enhanced hover interactions:**
+- Cards: -6px lift with shadow-lg on hover
+- About links (Email, GitHub, Scholar): animated underline
+- Header nav links: animated underline
+- Buttons: 1.02x scale with glow effect
 
 **Animation behavior:**
-- Sections fade/slide in when 15% visible, alternating left/right direction
-- Cards in grids animate with staggered timing (50ms delay per card)
-- All animations disabled for prefers-reduced-motion users
+- All animations respect prefers-reduced-motion
+- Underline sweeps from right to left on hover
+- Gradient animation is slow/ambient, not attention-grabbing
 
-**Build status:** Clean, passing (CSS 17.88kB, JS 14.34kB)
+**Build status:** Clean, passing (CSS 19.55kB, JS 14.34kB)
 
 **How to run:**
 ```bash
 npm run dev  # Vite on localhost:5173
 ```
 
-**Ready for Phase 12-03 and 12-04:** Gradient text and hover interactions
+**Ready for Phase 12-04 or Phase 13**
 
 ---
-*Updated: 2026-02-04 after 12-02 completion*
+*Updated: 2026-02-04 after 12-03 completion*
