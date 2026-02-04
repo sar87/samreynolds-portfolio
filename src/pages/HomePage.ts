@@ -75,9 +75,14 @@ function renderAboutSection(about: About): string {
       `<a href="${about.links.scholar}" class="${styles.link}" target="_blank" rel="noopener">Scholar</a>`
     );
   }
-  if (about.links?.twitter) {
+  if (about.links?.linkedin) {
     linkItems.push(
-      `<a href="${about.links.twitter}" class="${styles.link}" target="_blank" rel="noopener">Twitter</a>`
+      `<a href="${about.links.linkedin}" class="${styles.link}" target="_blank" rel="noopener">LinkedIn</a>`
+    );
+  }
+  if (about.links?.researchgate) {
+    linkItems.push(
+      `<a href="${about.links.researchgate}" class="${styles.link}" target="_blank" rel="noopener">ResearchGate</a>`
     );
   }
 
