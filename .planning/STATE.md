@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-02)
 Phase: 13 of 14 (Content Sync)
 Plan: 3 of 4
 Status: In progress
-Last activity: 2026-02-04 - Completed 13-03-PLAN.md (about/bio and research data)
+Last activity: 2026-02-04 - Completed 13-02-PLAN.md (media data and embed support)
 
 Progress: [##################..] 88% (v0.9 complete, v1.0 plans 13 of ~14 done)
 
@@ -48,7 +48,7 @@ Progress: [##################..] 88% (v0.9 complete, v1.0 plans 13 of ~14 done)
 
 **Phase 12 animation decisions:**
 - Scroll reveals: Sections fade/slide in, cards stagger with 50ms delay
-- Gradient text: 5s cycle, ambient effect (charcoal → blue → charcoal)
+- Gradient text: 5s cycle, ambient effect (charcoal -> blue -> charcoal)
 - Card hover: -6px lift with shadow-lg
 - Link hover: Animated underline sweep
 
@@ -61,6 +61,8 @@ Progress: [##################..] 88% (v0.9 complete, v1.0 plans 13 of ~14 done)
 - Research simplified from 6 topics to 2 areas (Conservation+AI, PhD Research) matching samreynolds.org
 - Education corrected: PhD Zoology (not Conservation Science), BSc (Hons) Biological Sciences
 - Links: Only ResearchGate and LinkedIn (matching samreynolds.org)
+- CIEEM podcast uses direct MP3 audio element (not Spotify iframe) - source is samreynolds.org-hosted MP3
+- Media schema updated with embedUrl field (additionalProperties: false required schema change)
 
 ### Pending Todos
 
@@ -73,22 +75,28 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Completed 13-03-PLAN.md (about/bio and research data)
+Stopped at: Completed 13-02-PLAN.md (media data and embed support)
 Resume file: None
 
 ### Key Context for Next Session
 
 **Phase 13 plans 01-03 complete.** Content synced from samreynolds.org:
 - [x] 13-01: Publications data (14 real papers replacing synthetic placeholders)
-- [x] 13-02: Media data (CIEEM podcast, COP30 video, Wildscreen panel, Cambridge feature)
+- [x] 13-02: Media data and embeds (CIEEM podcast, COP30 video, Wildscreen panel, Cambridge feature)
 - [x] 13-03: About/Bio and Research data (email, bio, research areas)
 - [ ] 13-04: Remaining content sync
 
 **Content files updated:**
 - `data/publications.json` - 14 real papers from samreynolds.org
-- `data/media.json` - 4 media items with embed URLs
+- `data/media.json` - 4 media items with embed URLs (YouTube iframe + MP3 audio)
 - `data/about.json` - Bio from samreynolds.org, email sar87@cam.ac.uk
 - `data/research.json` - 2 areas: Conservation and AI, PhD Research
+
+**Embed infrastructure:**
+- `src/types/content.ts` - MediaItem has embedUrl field
+- `src/pages/MediaDetail.ts` - Renders iframe (YouTube) or audio element (MP3)
+- `src/pages/DetailPage.module.css` - .embedContainer (16:9), .audioContainer styles
+- `data/schemas/media.schema.json` - embedUrl field added
 
 **Build status:** Clean, passing
 
@@ -98,4 +106,4 @@ npm run dev  # Vite on localhost:5173
 ```
 
 ---
-*Updated: 2026-02-04 after 13-03 completion*
+*Updated: 2026-02-04 after 13-02 completion*
