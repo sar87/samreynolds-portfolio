@@ -12,6 +12,7 @@ import { renderPublicationDetail } from './pages/PublicationDetail';
 import { renderTalkDetail } from './pages/TalkDetail';
 import { renderMediaDetail } from './pages/MediaDetail';
 import { initAnimations } from './animations';
+import { initCoverFlow } from './components/CoverFlow/CoverFlow';
 
 // Get app container
 const app = document.getElementById('app');
@@ -25,6 +26,7 @@ async function render(content: string | Promise<string>): Promise<void> {
   app!.innerHTML = `${headerHtml}<div id="content">${html}</div>`;
   initMobileNav();
   initAnimations(); // Initialize animations after DOM update
+  initCoverFlow();
 
   // Scroll to top on route change (unless it's a hash anchor)
   if (!window.location.hash.includes('#/') || window.location.hash === '#/') {

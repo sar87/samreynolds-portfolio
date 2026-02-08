@@ -1,0 +1,263 @@
+/**
+ * CoverFlow Carousel
+ *
+ * Apple-style 3D carousel with perspective transforms.
+ * Center card faces forward, side cards angle away.
+ */
+
+/* Carousel wrapper */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: var(--space-8) 0;
+}
+
+/* 3D track */
+.track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  position: relative;
+  height: 320px;
+}
+
+/* Individual slide */
+.slide {
+  position: absolute;
+  width: 340px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+/* Offset-based 3D transforms */
+.slide[data-offset="0"] {
+  transform: rotateY(0deg) translateZ(0) scale(1);
+  z-index: 5;
+  opacity: 1;
+}
+
+.slide[data-offset="1"] {
+  transform: translateX(60%) rotateY(-35deg) translateZ(-100px) scale(0.85);
+  z-index: 4;
+  opacity: 1;
+}
+
+.slide[data-offset="-1"] {
+  transform: translateX(-60%) rotateY(35deg) translateZ(-100px) scale(0.85);
+  z-index: 4;
+  opacity: 1;
+}
+
+.slide[data-offset="2"] {
+  transform: translateX(110%) rotateY(-40deg) translateZ(-200px) scale(0.7);
+  z-index: 3;
+  opacity: 1;
+}
+
+.slide[data-offset="-2"] {
+  transform: translateX(-110%) rotateY(40deg) translateZ(-200px) scale(0.7);
+  z-index: 3;
+  opacity: 1;
+}
+
+/* Hidden slides beyond ±2 */
+.slide[data-offset="hidden"] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(200%) scale(0.5);
+  z-index: 0;
+}
+
+/* Card styling with gradient backgrounds */
+.card {
+  background: var(--card-gradient);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  user-select: none;
+  overflow: hidden;
+}
+
+.slide[data-offset="0"] .card {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.cardTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardVenue {
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardDate {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+  margin: 0;
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+/* Navigation buttons */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.navButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast),
+              opacity var(--transition-fast);
+  color: var(--color-text-primary);
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.navButton:hover:not(:disabled) {
+  background: var(--color-bg-muted);
+  border-color: var(--color-accent);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Dot indicators */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-4);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gray-300);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.dot:hover {
+  background: var(--color-gray-400);
+}
+
+.dotActive {
+  background: var(--color-accent);
+  transform: scale(1.25);
+}
+
+/* Reduced motion: horizontal scroll fallback */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    perspective: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--space-4);
+    padding: 0 var(--space-6);
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  .slide {
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    width: 300px;
+  }
+
+  .slide[data-offset="hidden"] {
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+
+  .card {
+    height: 260px;
+    transition: none;
+  }
+}
+
+/* Mobile: tighter layout, 3 visible cards */
+@media (max-width: 640px) {
+  .track {
+    height: 280px;
+  }
+
+  .slide {
+    width: 260px;
+  }
+
+  .card {
+    height: 240px;
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-base);
+  }
+
+  /* Tighter angles and only 3 visible on mobile */
+  .slide[data-offset="1"] {
+    transform: translateX(55%) rotateY(-30deg) translateZ(-80px) scale(0.85);
+  }
+
+  .slide[data-offset="-1"] {
+    transform: translateX(-55%) rotateY(30deg) translateZ(-80px) scale(0.85);
+  }
+
+  .slide[data-offset="2"],
+  .slide[data-offset="-2"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

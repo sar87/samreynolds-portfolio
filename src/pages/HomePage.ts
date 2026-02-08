@@ -8,10 +8,10 @@
 import { renderSection } from '../components/Section/Section';
 import {
   renderPublicationCard,
-  renderTalkCard,
   renderMediaCard,
   renderCardGrid,
 } from '../components/Card/Card';
+import { renderCoverFlow } from '../components/CoverFlow/CoverFlow';
 import {
   loadPublications,
   loadTalks,
@@ -175,12 +175,11 @@ function renderTalksSection(talks: Talk[]): string {
   const sorted = [...talks].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
-  const cards = sorted.map(renderTalkCard);
 
   return renderSection({
     id: 'talks',
     title: 'Talks',
-    children: renderCardGrid(cards),
+    children: renderCoverFlow(sorted),
   });
 }
 
