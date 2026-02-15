@@ -1,5 +1,33 @@
 # Project Milestones: Sam Reynolds Academic Website
 
+## v1.0 Professional Polish (Shipped: 2026-02-15)
+
+**Delivered:** Polished professional academic website with light theme, Linear-style animations, real content from samreynolds.org, and mobile-responsive deployment.
+
+**Phases completed:** 10-14 (17 plans total)
+
+**Key accomplishments:**
+
+- Archived legacy game architecture and created clean professional entry point
+- Light theme design system with Playfair Display typography, blue accent, and layered shadow elevation
+- Scroll-reveal animations, gradient text effects, and hover micro-interactions with reduced-motion support
+- Synced 14 published papers, 4 media items, biography, and research from samreynolds.org
+- Mobile-first responsive design (320px-1200px) with fluid typography and 44px touch targets
+- GitHub Pages CI/CD deployment pipeline with automated builds
+
+**Stats:**
+
+- 139 files created/modified (11,191 insertions, 811 deletions)
+- 3,585 lines of TypeScript/CSS (src/)
+- 5 phases, 17 plans, 81 commits
+- 13 days from v0.9 to ship (2026-02-02 → 2026-02-15)
+
+**Git range:** `docs(10)` → `docs(14)`
+
+**What's next:** Push to GitHub and verify live deployment; plan next milestone (game mode revival or new features)
+
+---
+
 ## v0.9 Beta (Shipped: 2026-02-02)
 
 **Delivered:** Dual-mode academic portfolio with pixel-art campus game and professional website, switchable from landing splash.

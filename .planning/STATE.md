@@ -2,19 +2,19 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-02-02)
+See: .planning/PROJECT.md (updated 2026-02-15)
 
 **Core value:** Visitors access academic work through a visually striking, professional interface
-**Current focus:** v1.0 Professional Polish - Phase 14 Deployment
+**Current focus:** Planning next milestone
 
 ## Current Position
 
-Phase: 14 of 14 (Deployment)
-Plan: 3 of 3
-Status: Phase complete - All v1.0 phases done
-Last activity: 2026-02-15 - Completed 14-03-PLAN.md (Visual verification)
+Phase: 14 of 14 (all v1.0 phases complete)
+Plan: N/A
+Status: v1.0 shipped — ready for next milestone
+Last activity: 2026-02-15 — v1.0 milestone complete
 
-Progress: [####################] 100% (v0.9 complete, v1.0 phases 10-14 complete)
+Progress: [####################] 100% (v0.9 + v1.0 complete)
 
 ## Performance Metrics
 
@@ -24,67 +24,24 @@ Progress: [####################] 100% (v0.9 complete, v1.0 phases 10-14 complete
 - Lines of code: ~8,600
 - Timeline: 3 days
 
-**v1.0 Stats:**
-- Total plans completed: 22 (Phase 10: 2, Phase 11: 4, Phase 12: 4, Phase 13: 4, Phase 14: 3)
-- Phases completed: 5 (10, 11, 12, 13, 14)
-- Phases remaining: 0 (all v1.0 phases complete)
-- Requirements: 14 (all 14 requirements complete and verified)
+**v1.0 Stats (archived):**
+- Total plans completed: 17
+- Phases completed: 5 (10-14)
+- Lines of code: 3,585 TypeScript/CSS (src/)
+- Files modified: 139 (11,191 insertions, 811 deletions)
+- Requirements: 14/14 satisfied
+- Timeline: 13 days (2026-02-02 → 2026-02-15)
 
 ## Accumulated Context
 
 ### Decisions
 
-**v1.0 pivot decisions (from PROJECT.md):**
-- Archive game mode: Focus on polished professional website
-- Light theme with blue accent (#0066cc)
-- Linear-style animations: Scroll reveals, gradient text, hover micro-interactions
-
-**Phase 11 design decisions (from visual verification):**
-- **Font**: Playfair Display (Google Fonts) for NYT-style editorial aesthetic
-- **Halftone texture**: Removed entirely per user preference (clean look preferred)
-- **Typography scale**: Enlarged (base 18px, headings 48px)
-- **Shadows**: Layered shadow tokens (sm, md, lg) for card/header elevation
-- **Accessibility**: Comprehensive reduced-motion support
-
-**Phase 12 animation decisions:**
-- Scroll reveals: Sections fade/slide in, cards stagger with 50ms delay
-- Gradient text: 5s cycle, ambient effect (charcoal -> blue -> charcoal)
-- Card hover: -6px lift with shadow-lg
-- Link hover: Animated underline sweep
-
-**Phase 13 content decisions:**
-- 14 published papers (not 15) - 15th is "in preparation" and excluded
-- DOI made optional in schema to support publications without DOI
-- Added url field as fallback for direct-link publications
-- Author format: "Last, F." with isSamReynolds flag
-- Bio text taken verbatim from samreynolds.org for tone fidelity
-- Research simplified from 6 topics to 2 areas (Conservation+AI, PhD Research)
-- Education corrected: PhD Zoology 2021, MSc Environmental Bioscience 2013, BSc 2011
-- Links: ResearchGate, LinkedIn, Scholar, Department
-- CIEEM podcast uses direct MP3 audio element (not Spotify iframe)
-- Media schema updated with embedUrl field
-- Linear-style 3D perspective showcase for Nature featured work
-- Profile photo in sidebar layout with education below
-- Publication and media images with hover zoom on cards
-- 18 real talks replacing fabricated placeholders
-
-**Phase 14 deployment decisions:**
-- Base path conditional on GITHUB_PAGES env var (local dev: '/', GitHub Pages: '/Website/')
-- Repository name 'Website' assumed from directory (will need update if GitHub repo differs)
-- CSS and JS minification added to build config
-- GitHub Actions v4 official Pages actions for deployment
-- Mobile responsive layout verified and approved at 320px, 375px, 768px, 1024px+
-- Touch target sizing confirmed adequate (44px minimum on coarse pointers)
-- Production build verified serving correctly
+All v1.0 decisions documented in PROJECT.md Key Decisions table.
 
 ### Pending Todos
 
-- **Next:** Push to GitHub repository and verify live deployment
-  - Create GitHub repository (or verify existing remote)
-  - Push code to GitHub
-  - Enable GitHub Pages in repository settings (Source: "GitHub Actions")
-  - Verify deployment at https://[username].github.io/Website/
-  - Test all functionality on deployed site
+- Push to GitHub repository and verify live deployment
+- Plan next milestone (`/gsd:new-milestone`)
 
 ### Blockers/Concerns
 
@@ -93,35 +50,23 @@ None currently.
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Phase 14 plan 03 complete (Visual verification)
+Stopped at: v1.0 milestone complete
 Resume file: None
 
 ### Key Context for Next Session
 
-**Phase 14 (Deployment) COMPLETE - All plans done:**
-- [x] 14-01: Mobile responsiveness CSS changes
-- [x] 14-02: GitHub Pages configuration (Vite + CI/CD)
-- [x] 14-03: Visual verification (user approved)
+**v1.0 Professional Polish SHIPPED:**
+- 5 phases (10-14), 17 plans, 14 requirements all complete
+- Light theme, Playfair Display, Linear-style animations
+- Real content from samreynolds.org
+- Mobile responsive, GitHub Pages configured
 
-**v1.0 Professional Polish COMPLETE:**
-All 5 phases (10-14) complete with 22 plans executed.
+**Next steps:**
+1. Push to GitHub and verify live deployment
+2. `/gsd:new-milestone` to plan next milestone
+3. `/clear` first for fresh context window
 
-**Site is production-ready:**
-- ✅ Mobile responsive (320px-desktop, fluid typography, 44px touch targets)
-- ✅ GitHub Pages deployment configured (Vite + GitHub Actions)
-- ✅ Production builds verified and serving correctly
-- ✅ Visual verification approved by user
-
-**Deployment awaiting manual steps:**
-1. Create GitHub repository (or verify existing remote)
-2. Push code to GitHub: `git push origin main`
-3. Enable GitHub Pages in repo settings → Source: "GitHub Actions"
-4. Verify deployment at https://[username].github.io/Website/
-5. Test deployed site functionality
-
-**Build status:** Clean, passing all verifications
-
-**How to run:**
+**Build commands:**
 ```bash
 npm run dev                      # Vite dev server on localhost:5173
 npm run build                    # Local build (base: '/')
@@ -129,7 +74,5 @@ GITHUB_PAGES=true npm run build  # GitHub Pages build (base: '/Website/')
 npm run preview                  # Preview local build
 ```
 
-**Note on base path:** If GitHub repo name differs from "Website", or if deploying to username.github.io (user/org site), update `vite.config.ts` base path accordingly.
-
 ---
-*Updated: 2026-02-15 after Phase 14-02 completion*
+*Updated: 2026-02-15 after v1.0 milestone completion*
