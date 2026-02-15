@@ -56,6 +56,7 @@ export async function renderTalkDetail(id: string): Promise<string> {
             <span>${date}</span>
           </p>
         </header>
+        ${talk.description ? `<section class="${styles.abstract}"><p>${talk.description}</p></section>` : ''}
         ${linksHtml}
       </article>
     </main>

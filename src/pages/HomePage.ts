@@ -40,13 +40,47 @@ export async function renderHomePage(): Promise<string> {
 
   return `
     <main class="${styles.main}">
+      ${renderHero(about)}
       ${renderAboutSection(about)}
       ${renderShowcase()}
       ${renderResearchSection(research)}
+      ${renderVideoBanner('/mushroom-banner.mp4')}
       ${renderPublicationsSection(publications)}
+      ${renderVideoBanner('/murmuration-banner.mp4')}
       ${renderTalksSection(talks)}
+      ${renderVideoBanner('/woolshark-banner.mp4')}
       ${renderMediaSection(media)}
+      ${renderVideoBanner('/acorns-banner.mp4')}
+      <div style="height: var(--section-gap)"></div>
     </main>
+  `;
+}
+
+function renderHero(about: About): string {
+  return `
+    <section class="${styles.hero}">
+      <video
+        class="${styles.heroVideo}"
+        autoplay
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+      <div class="${styles.heroOverlay}"></div>
+      <div class="${styles.heroContent}">
+        <h1 class="${styles.heroName}">${about.name}</h1>
+        <p class="${styles.heroTitle}">${about.title}</p>
+        <p class="${styles.heroAffiliation}">${about.affiliation}</p>
+      </div>
+      <a href="#about" class="${styles.heroScroll}" aria-label="Scroll down">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+      </a>
+    </section>
   `;
 }
 
@@ -94,9 +128,7 @@ function renderAboutSection(about: About): string {
   const content = `
     <div class="${styles.aboutGrid}">
       <div class="${styles.aboutContent}">
-        <h1 class="${styles.name}">${about.name}</h1>
-        <p class="${styles.title}">${about.title}</p>
-        <p class="${styles.affiliation}">${about.affiliation}</p>
+        <h2 class="${styles.name}">About</h2>
         <div class="${styles.bio}">${bioHtml}</div>
         <div class="${styles.links}">${linkItems.join('')}</div>
       </div>
@@ -154,6 +186,21 @@ function renderResearchSection(research: ResearchTopic[]): string {
     title: 'Research',
     children: `<div class="${styles.researchGrid}">${topicsHtml}</div>`,
   });
+}
+
+function renderVideoBanner(src: string): string {
+  return `
+    <div class="${styles.videoBanner} scroll-reveal" data-lazy-video="${src}">
+      <video
+        class="${styles.videoBannerVideo}"
+        muted
+        loop
+        playsinline
+        aria-hidden="true"
+        preload="none"
+      ></video>
+    </div>
+  `;
 }
 
 function renderPublicationsSection(publications: Publication[]): string {

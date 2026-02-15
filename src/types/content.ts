@@ -32,6 +32,7 @@ export interface Talk {
   date: string;
   slides?: string;
   video?: string;
+  description?: string;
 }
 
 // Media types

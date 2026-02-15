@@ -24,3 +24,16 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Source video files in root (originals - copies are in public/)
+/*.mp4
+
+# Misc files not part of the project
+*.png
+banner-ratios-demo.html
+Pokemon Sprites/
+css/
+js/
+
+# Planning docs (not needed in production)
+.planning/
