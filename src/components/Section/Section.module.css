@@ -68,3 +68,10 @@
     margin-bottom: var(--space-6);
   }
 }
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-4);
+  }
+}

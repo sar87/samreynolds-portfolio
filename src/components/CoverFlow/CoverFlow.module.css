@@ -261,3 +261,28 @@
     pointer-events: none;
   }
 }
+
+@media (max-width: 480px) {
+  .track {
+    height: 240px;
+  }
+
+  .slide {
+    width: 220px;
+  }
+
+  .card {
+    height: 200px;
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-sm);
+    -webkit-line-clamp: 3;
+  }
+
+  .cardVenue {
+    font-size: var(--font-size-xs);
+    -webkit-line-clamp: 1;
+  }
+}

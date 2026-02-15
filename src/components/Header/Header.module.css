@@ -81,8 +81,8 @@
   display: none;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;  /* 44px */
+  height: 2.75rem; /* 44px */
   padding: 0;
   background: transparent;
   border: none;
@@ -158,8 +158,10 @@
 }
 
 .mobileNavLink {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: var(--space-3) var(--space-4);
+  min-height: 44px;
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: var(--font-size-base);
