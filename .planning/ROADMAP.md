@@ -96,10 +96,12 @@ Plans:
   2. All interactive elements are touch-friendly (44px minimum tap targets)
   3. GitHub Pages deployment builds and serves without errors
   4. Site loads and functions correctly on deployed URL
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 14-01: TBD
+- [ ] 14-01-PLAN.md — Mobile responsiveness: fluid typography, touch targets, progressive breakpoints
+- [ ] 14-02-PLAN.md — GitHub Pages deployment: Vite base path config, GitHub Actions workflow
+- [ ] 14-03-PLAN.md — Visual verification checkpoint (mobile + deployment)
 
 ## Progress
 
@@ -109,7 +111,7 @@ Plans:
 | 11. Design Foundation | v1.0 | 4/4 | Complete | 2026-02-02 |
 | 12. Animations | v1.0 | 4/4 | Complete | 2026-02-04 |
 | 13. Content Sync | v1.0 | 4/4 | Complete | 2026-02-04 |
-| 14. Deployment | v1.0 | 0/TBD | Not started | - |
+| 14. Deployment | v1.0 | 0/3 | In progress | - |
 
 ---
 *Created: 2026-02-02 for v1.0 Professional Polish milestone*
