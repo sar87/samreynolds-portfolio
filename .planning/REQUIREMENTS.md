@@ -30,8 +30,8 @@ Requirements for v1.0 Professional Polish milestone.
 
 ### Deployment
 
-- [ ] **DEPLOY-01**: Site is mobile-responsive
-- [ ] **DEPLOY-02**: GitHub Pages deployment tested and working
+- [x] **DEPLOY-01**: Site is mobile-responsive
+- [x] **DEPLOY-02**: GitHub Pages deployment tested and working
 
 ## Future Requirements
 
@@ -71,8 +71,8 @@ Deferred to future milestone (game mode revival).
 | ARCH-01 | Phase 10 | Complete |
 | ARCH-02 | Phase 10 | Complete |
 | ARCH-03 | Phase 10 | Complete |
-| DEPLOY-01 | Phase 14 | Pending |
-| DEPLOY-02 | Phase 14 | Pending |
+| DEPLOY-01 | Phase 14 | Complete |
+| DEPLOY-02 | Phase 14 | Complete |
 
 **Coverage:**
 - v1.0 requirements: 14 total
@@ -81,4 +81,4 @@ Deferred to future milestone (game mode revival).
 
 ---
 *Requirements defined: 2026-02-02*
-*Last updated: 2026-02-04 after Phase 13 completion*
+*Last updated: 2026-02-15 after Phase 14 completion*

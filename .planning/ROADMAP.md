@@ -3,7 +3,7 @@
 ## Milestones
 
 - **v0.9 Beta** - Phases 1-9 (shipped 2026-02-02) - See `.planning/milestones/v0.9-ROADMAP.md`
-- **v1.0 Professional Polish** - Phases 10-14 (in progress)
+- **v1.0 Professional Polish** - Phases 10-14 (shipped 2026-02-15)
 
 ## Overview
 
@@ -15,7 +15,7 @@ Transforming the dual-mode academic portfolio into a polished professional websi
 - [x] **Phase 11: Design Foundation** - Light theme with Playfair Display typography and reduced-motion support
 - [x] **Phase 12: Animations** - Scroll reveals, gradient text, hover micro-interactions
 - [x] **Phase 13: Content Sync** - Update all content from samreynolds.org
-- [ ] **Phase 14: Deployment** - Mobile responsiveness and GitHub Pages verification
+- [x] **Phase 14: Deployment** - Mobile responsiveness and GitHub Pages verification
 
 ## Phase Details
 
@@ -99,9 +99,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 14-01-PLAN.md — Mobile responsiveness: fluid typography, touch targets, progressive breakpoints
-- [ ] 14-02-PLAN.md — GitHub Pages deployment: Vite base path config, GitHub Actions workflow
-- [ ] 14-03-PLAN.md — Visual verification checkpoint (mobile + deployment)
+- [x] 14-01-PLAN.md — Mobile responsiveness: fluid typography, touch targets, progressive breakpoints
+- [x] 14-02-PLAN.md — GitHub Pages deployment: Vite base path config, GitHub Actions workflow
+- [x] 14-03-PLAN.md — Visual verification checkpoint (mobile + deployment)
 
 ## Progress
 
@@ -111,7 +111,7 @@ Plans:
 | 11. Design Foundation | v1.0 | 4/4 | Complete | 2026-02-02 |
 | 12. Animations | v1.0 | 4/4 | Complete | 2026-02-04 |
 | 13. Content Sync | v1.0 | 4/4 | Complete | 2026-02-04 |
-| 14. Deployment | v1.0 | 0/3 | In progress | - |
+| 14. Deployment | v1.0 | 3/3 | Complete | 2026-02-15 |
 
 ---
 *Created: 2026-02-02 for v1.0 Professional Polish milestone*
