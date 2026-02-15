@@ -38,6 +38,7 @@ html {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-size: var(--font-size-base);
@@ -83,6 +84,24 @@ button {
   background: none;
 }
 
+/* Touch target sizing - WCAG 2.5.8 / Apple HIG 44px minimum */
+@media (pointer: coarse) {
+  button,
+  a:not(.sr-only) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Inline text links in prose content need padding, not min-width */
+  .bio a,
+  p a,
+  li a {
+    min-width: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
 /* ==========================================================================
    Button Hover Enhancement
    ========================================================================== */
@@ -123,6 +142,13 @@ section[id] {
   :root {
     --content-padding: var(--space-4);
     --section-gap: var(--space-12);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --content-padding: var(--space-3);
+    --section-gap: var(--space-10);
   }
 }
 
