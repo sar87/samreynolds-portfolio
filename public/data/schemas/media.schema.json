@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "media.schema.json",
+  "title": "Media Schema",
+  "description": "Schema for media appearances (podcasts, videos, panels, interviews)",
+  "type": "object",
+  "required": ["media"],
+  "properties": {
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "title", "venue", "date"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the media item"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["podcast", "video", "panel", "interview"],
+            "description": "Type of media appearance"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the episode or appearance"
+          },
+          "venue": {
+            "type": "string",
+            "description": "Show, channel, or publication name"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Appearance date in ISO 8601 format (YYYY-MM-DD)"
+          },
+          "link": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the media content (optional)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Brief description of the appearance (optional)"
+          },
+          "embedUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Embed URL for inline iframe player (YouTube, Spotify)"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,32 @@
+{
+  "researchTopics": [
+    {
+      "id": "ai-conservation",
+      "name": "Conservation and AI",
+      "description": "Conservation needs to move faster and more effectively with a paradigm shift from 'losing more slowly' to 'recovering lost ecosystems' if we are to achieve a resilient planet. By leveraging artificial intelligence (AI) to combine the totality of human knowledge with the sum of human observations, we can achieve a step change in our ability to deliver effective conservation. My current research concerns the development of AI technologies to streamline the collation of evidence from published and grey literature to better inform conservation action, and co-designing AI tools which will allow decision makers to interact with evidence in an intuitive way.",
+      "relatedPublications": [
+        "ai-assisted-living-evidence-databases",
+        "ai-poisoning-evidence-synthesis",
+        "ai-revolutionise-conservation-horizon-scan",
+        "conservation-changed-but-not-divided",
+        "llm-pipelines-conservation-syntheses",
+        "steps-towards-ecology-for-internet"
+      ]
+    },
+    {
+      "id": "invasive-species-phd",
+      "name": "PhD Research",
+      "description": "My PhD thesis was titled 'Invasive non-native species and the management and exploitation of freshwater ecosystems'. I explored the impact of invasive species, focussing particularly on invasive freshwater mussels and plants, on the collapse and recovery of freshwater ecosystems. Identifying both how invasive species can bring about catastrophic shifts between clear water or phytoplankton dominated alternative equilibria and may also predictably alter phytoplankton communities either driving or suppressing harmful algal blooms. My research has been featured in over 100 news outlets and the Cambridge University News website, and my publication on the global impacts of invasive species on shallow lake ecosystems is in the 95th percentile of all recorded Altmetric scores.",
+      "relatedPublications": [
+        "invasive-species-tipping-points-shallow-lakes",
+        "invasive-quagga-mussels-water-quality",
+        "allelopathic-potential-invasive-aquatic-plants",
+        "synthetic-ecology-commercial-algae",
+        "parasitism-freshwater-mussels",
+        "gambusia-management-measures",
+        "spartina-invasive-management",
+        "eel-conservation-inland-habitats"
+      ]
+    }
+  ]
+}

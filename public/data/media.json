@@ -1,0 +1,46 @@
+{
+  "media": [
+    {
+      "id": "cop30-cambridge-video-2025",
+      "type": "video",
+      "title": "Cambridge University's Contribution to COP30",
+      "venue": "University of Cambridge",
+      "date": "2025-11-01",
+      "link": "https://www.youtube.com/watch?v=210uVXwX1iE",
+      "description": "The University of Cambridge published a video about the University's contribution to COP30, featuring research at the intersection of AI and conservation.",
+      "embedUrl": "https://www.youtube.com/embed/210uVXwX1iE",
+      "image": "/images/media/cop30-video.png"
+    },
+    {
+      "id": "cieem-podcast-2025",
+      "type": "podcast",
+      "title": "AI in Conservation and Ecology",
+      "venue": "CIEEM Nature in a Nutshell",
+      "date": "2025-06-25",
+      "link": "http://cieem.net/i-am/nature-in-a-nutshell-podcast/",
+      "description": "Discussion of AI in conservation and ecology on Nature in a Nutshell, the CIEEM (Chartered Institute of Ecology and Environmental Management) podcast, covering the integration of AI into ecological practice.",
+      "embedUrl": "https://samreynolds.org/wp-content/uploads/2025/07/nature-in-a-nutshell.mp3",
+      "image": "/images/media/cieem-podcast.jpg"
+    },
+    {
+      "id": "cambridge-feature-2025",
+      "type": "interview",
+      "title": "AI for Nature: Embrace with Caution",
+      "venue": "University of Cambridge",
+      "date": "2025-05-01",
+      "link": "https://www.cam.ac.uk/stories/ai-for-nature-embrace-with-caution",
+      "description": "Feature review by the University of Cambridge on research at the intersection of AI and conservation science, discussing the potential benefits and the inevitable risks with Professor Chris Sandbrook.",
+      "image": "/images/media/cambridge-feature.png"
+    },
+    {
+      "id": "wildscreen-panel-2025",
+      "type": "panel",
+      "title": "AI, an Altruist's Guide",
+      "venue": "Wildscreen Festival",
+      "date": "2025-03-01",
+      "link": "https://wildscreen.org/",
+      "description": "In March 2025, I was invited to take part on a panel at Wildscreen, chaired by Liz Bonnin. The panel was titled 'AI, an altruist's guide', where we discussed where AI fits in with storytelling, and the effects it may have on scientific media.",
+      "image": "/images/media/wildscreen-panel.png"
+    }
+  ]
+}

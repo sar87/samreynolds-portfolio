@@ -1,0 +1,35 @@
+{
+  "name": "Sam Reynolds",
+  "title": "AI, Conservation & Ecology Researcher",
+  "affiliation": "University of Cambridge",
+  "email": "sar87@cam.ac.uk",
+  "bio": [
+    "I am a classically trained biologist who has slowly migrated from cells, genes and proteins; to ecosystems, climate change and food security; to applied ecology; and finally, to conservation. I am now exploring how AI-enabled tools may dramatically alter evidence synthesis of grey and published literature to inform conservation action.",
+    "Currently, I am working on the development of Artificial Intelligence (AI) technologies to streamline the collation of evidence from published and grey literature to better inform conservation action. Additionally, I am focused on co-designing AI tools which will allow decision makers to interact with evidence in an intuitive way.",
+    "Following my recent publication in Trends in Ecology and Evolution, 'The potential for AI to revolutionize conservation: a horizon scan' I am aiming to further explore this space between cutting edge AI and conservation science/practice.",
+    "I hold a PhD in Zoology from the University of Cambridge, which focused on harnessing the impacts of aquatic invasive species, and a MSc and BSc Hons in Biological sciences from the University of Warwick."
+  ],
+  "education": [
+    {
+      "degree": "PhD in Zoology",
+      "institution": "University of Cambridge",
+      "year": 2021
+    },
+    {
+      "degree": "MSc in Environmental Bioscience in a Changing Climate",
+      "institution": "University of Warwick",
+      "year": 2013
+    },
+    {
+      "degree": "BSc (Hons) in Biological Sciences",
+      "institution": "University of Warwick",
+      "year": 2011
+    }
+  ],
+  "links": {
+    "researchgate": "https://www.researchgate.net/profile/Sam-Reynolds",
+    "linkedin": "https://www.linkedin.com/in/samandrewreynolds/",
+    "scholar": "https://scholar.google.com/citations?user=bb3M2-8AAAAJ&hl=en",
+    "department": "https://www.zoo.cam.ac.uk/directory/dr-sam-reynolds"
+  }
+}

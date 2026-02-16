@@ -1,0 +1,112 @@
+{
+  "talks": [
+    {
+      "id": "wildlife-trust-keynote-2025",
+      "title": "Key messages for the Wildlife Trust from the AI Horizon Scan",
+      "venue": "Wildlife Trust Annual Meeting, Cambridge",
+      "date": "2025-01-15"
+    },
+    {
+      "id": "cieem-ai-workshop-keynote-2025",
+      "title": "The opportunities and risks for AI in ecological practice",
+      "venue": "CIEEM AI Workshop, London",
+      "date": "2025-02-15"
+    },
+    {
+      "id": "judge-business-school-bcg-2025",
+      "title": "AI Evidence Synthesis",
+      "venue": "Judge Business School Executive Training (Boston Consulting Group), Cambridge",
+      "date": "2025-02-20"
+    },
+    {
+      "id": "aicam-workshop-2025",
+      "title": "AI for evidence synthesis",
+      "venue": "ai@cam Workshop, Pembroke College, Cambridge",
+      "date": "2025-03-15"
+    },
+    {
+      "id": "wildscreen-storytelling-2025",
+      "title": "Artificial Intelligence: An Altruist's Guide",
+      "venue": "Wildscreen Science in Storytelling, Bristol Beacon Theatre",
+      "date": "2025-03-20"
+    },
+    {
+      "id": "ai-climate-nature-day-2025",
+      "title": "Using AI to understand what works in conservation",
+      "venue": "AI for Climate and Nature Day, CCI, Cambridge",
+      "date": "2025-05-01"
+    },
+    {
+      "id": "bp-us-webinar-2025",
+      "title": "Using AI to understand what works in conservation",
+      "venue": "BP (US Webinar), Houston, Texas",
+      "date": "2025-05-07"
+    },
+    {
+      "id": "zoology-dept-seminar-2025",
+      "title": "Using AI to understand what works in conservation and other stories",
+      "venue": "Zoology Department Seminar, Cambridge",
+      "date": "2025-05-27"
+    },
+    {
+      "id": "the-global-sustainable-dev-2025",
+      "title": "AI Evidence Synthesis",
+      "venue": "Times Higher Education Global Sustainable Development Congress, Istanbul",
+      "date": "2025-06-17"
+    },
+    {
+      "id": "cieem-summer-conference-2025",
+      "title": "Overview of the AI evidence pipeline",
+      "venue": "CIEEM Summer Conference, Online",
+      "date": "2025-07-15"
+    },
+    {
+      "id": "euflynet-cost-action-2025",
+      "title": "Overview of the AI evidence pipeline",
+      "venue": "EUFlynet COST Action, Online",
+      "date": "2025-08-16"
+    },
+    {
+      "id": "royal-statistical-society-2025",
+      "title": "Using AI to understand what works in conservation",
+      "venue": "Royal Statistical Society, Edinburgh",
+      "date": "2025-09-01"
+    },
+    {
+      "id": "ai-for-good-conference-2025",
+      "title": "Using AI to understand what works in conservation",
+      "venue": "AI for Good Conference, Cambridge Guild Hall",
+      "date": "2025-09-04"
+    },
+    {
+      "id": "ai-conservation-workshop-oxford-2025",
+      "title": "Shaping the Future of AI for Conservation",
+      "venue": "Oxford University",
+      "date": "2025-09-22"
+    },
+    {
+      "id": "san-si-institute-2025",
+      "title": "AI for Nature and Climate",
+      "venue": "San Si Institute Event, Jesus College Cambridge",
+      "date": "2025-10-07"
+    },
+    {
+      "id": "nesta-2025",
+      "title": "Harnessing AI to improve policy design",
+      "venue": "NESTA, London",
+      "date": "2025-10-29"
+    },
+    {
+      "id": "city-st-george-london-2025",
+      "title": "AI and Evidence Synthesis for Nature-based Solutions",
+      "venue": "City St. George, University of London",
+      "date": "2025-11-25"
+    },
+    {
+      "id": "cambridge-sustainability-leadership-2025",
+      "title": "Sustainability Leadership Seminar",
+      "venue": "Cambridge University Masters in Sustainability Leadership, Cambridge",
+      "date": "2025-12-15"
+    }
+  ]
+}

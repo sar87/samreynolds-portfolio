@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication.schema.json",
+  "title": "Publications Schema",
+  "description": "Schema for academic publications data",
+  "type": "object",
+  "required": ["publications"],
+  "properties": {
+    "publications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "authors", "journal", "year", "date"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the publication"
+          },
+          "title": {
+            "type": "string",
+            "description": "Publication title"
+          },
+          "authors": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["name", "isSamReynolds"],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Author full name in display order"
+                },
+                "isSamReynolds": {
+                  "type": "boolean",
+                  "description": "Whether this author is Sam Reynolds"
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "List of authors in publication order"
+          },
+          "journal": {
+            "type": "string",
+            "description": "Journal or publication venue name"
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 1900,
+            "maximum": 2100,
+            "description": "Publication year"
+          },
+          "doi": {
+            "type": "string",
+            "pattern": "^10\\.\\d{4,}/",
+            "description": "DOI identifier (without URL prefix)"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Publication date in ISO 8601 format (YYYY-MM-DD)"
+          },
+          "abstract": {
+            "type": "string",
+            "description": "Publication abstract (optional)"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct URL for publications without a DOI"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

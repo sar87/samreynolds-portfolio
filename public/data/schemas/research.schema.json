@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research.schema.json",
+  "title": "Research Topics Schema",
+  "description": "Schema for research topics and areas of focus",
+  "type": "object",
+  "required": ["researchTopics"],
+  "properties": {
+    "researchTopics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the research topic"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the research area"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the research focus"
+          },
+          "relatedPublications": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of publication IDs related to this topic (optional)"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
