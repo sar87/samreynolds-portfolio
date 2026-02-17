@@ -30,7 +30,7 @@ export async function renderMediaDetail(id: string): Promise<string> {
   const descriptionSection = media.description
     ? `
         <section class="${styles.description}">
-          <p>${media.description}</p>
+          ${media.description.split('\n\n').map(p => `<p>${p}</p>`).join('\n          ')}
         </section>
       `
     : '';
